@@ -27,12 +27,11 @@ public class ClickToSpawn : MonoBehaviour
         Vector3 spawnPosition = transform.position + spawnOffset;
 
         GameObject spawned = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-
-        // 🔥 NOWA CZĘŚĆ – dodanie siły
+        
         Rigidbody rb = spawned.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            Vector3 direction = spawnOffset.normalized; // kierunek "od obiektu"
+            Vector3 direction = spawnOffset.normalized;
             rb.AddForce(direction * force);
         }
         else

@@ -16,8 +16,7 @@ public class Fryable : MonoBehaviour
         rend = GetComponent<Renderer>();
         UpdateMaterial();
     }
-
-    // 🔥 zwiększ stan smażenia
+    
     public void IncreaseFryLevel()
     {
         if (fryLevel < materials.Length - 1)

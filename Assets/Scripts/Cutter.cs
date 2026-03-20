@@ -8,8 +8,7 @@ public class Cutter : MonoBehaviour
     public float spawnDelay = 2f;
     public Vector3 spawnOffset = new Vector3(0f, 1f, 2f);
     public float force = 500f;
-
-    // 🔥 NOWA METODA zamiast OnTriggerEnter
+    
     public void HandleTrigger(Collider other)
     {
         if (!other.CompareTag(requiredTag)) return;

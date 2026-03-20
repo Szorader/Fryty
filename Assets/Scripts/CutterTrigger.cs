@@ -6,7 +6,6 @@ public class CutterTrigger : MonoBehaviour
 
     void Start()
     {
-        // 🔥 znajdź parenta z naszym skryptem
         parentSpawner = GetComponentInParent<Cutter>();
     }
 

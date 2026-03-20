@@ -39,11 +39,9 @@ public class Fryer : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(stepDelay);
-
-            // 🔥 smażenie kroczek po kroczku
+            
             fryable.IncreaseFryLevel();
-
-            // 🔥 jeśli już max → stop
+            
             if (fryable.fryLevel >= fryable.materials.Length - 1)
                 break;
         }
