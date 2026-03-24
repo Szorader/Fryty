@@ -518,9 +518,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectGrabber
   grabDistance: 3
   holdDistance: 2
-  moveForce: 150
-  damping: 10
-  grabRadius: 0.1
+  moveSpeed: 10
+  grabRadius: 0.5
+  spacing: 0.1
 --- !u!1001 &485717568
 PrefabInstance:
   m_ObjectHideFlags: 0

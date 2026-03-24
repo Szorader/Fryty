@@ -83,6 +83,7 @@ public class ObjectGrabberLoose : MonoBehaviour
         grabbedObject.AddForceAtPosition(force + dampingForce, worldGrabPoint);
     }
 }*/
+
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -91,14 +92,11 @@ public class ObjectGrabberLoose : MonoBehaviour
     public float grabDistance = 3f;
     public float holdDistance = 2f;
 
-    public float moveForce = 300f;
-    public float damping = 15f;
-
-    public float grabRadius = 2f; // 🔥 promień zbierania obiektów
+    public float moveSpeed = 10f; // 🔥 zamiast moveForce
+    public float grabRadius = 2f;
+    public float spacing = 0.5f;
 
     private List<Rigidbody> grabbedObjects = new List<Rigidbody>();
-    private Dictionary<Rigidbody, Vector3> grabOffsets = new Dictionary<Rigidbody, Vector3>();
-
     private Transform holdPoint;
 
     void Start()
@@ -111,21 +109,20 @@ public class ObjectGrabberLoose : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {
             TryGrab();
-        }
 
         if (Input.GetMouseButtonUp(0))
-        {
             Release();
-        }
     }
 
     void FixedUpdate()
     {
-        foreach (var rb in grabbedObjects)
+        // 🔥 przeniesione z Update (synchronizacja z fizyką)
+        holdPoint.localPosition = new Vector3(0, 0, holdDistance);
+
+        for (int i = 0; i < grabbedObjects.Count; i++)
         {
-            MoveObject(rb);
+            MoveObject(grabbedObjects[i], i);
         }
     }
 
@@ -136,11 +133,9 @@ public class ObjectGrabberLoose : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, grabDistance))
         {
-            // 🔥 znajdź obiekty w promieniu
             Collider[] colliders = Physics.OverlapSphere(hit.point, grabRadius);
 
             grabbedObjects.Clear();
-            grabOffsets.Clear();
 
             foreach (Collider col in colliders)
             {
@@ -152,11 +147,13 @@ public class ObjectGrabberLoose : MonoBehaviour
                     {
                         grabbedObjects.Add(rb);
 
-                        // zapamiętaj offset dla każdego obiektu
-                        Vector3 localOffset = rb.transform.InverseTransformPoint(hit.point);
-                        grabOffsets.Add(rb, localOffset);
-
                         rb.useGravity = true;
+
+                        // 🔥 FIX 1: płynność ruchu
+                        rb.interpolation = RigidbodyInterpolation.Interpolate;
+
+                        // 🔥 FIX 2: lepsze kolizje przy ruchu
+                        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
                     }
                 }
             }
@@ -166,23 +163,30 @@ public class ObjectGrabberLoose : MonoBehaviour
     void Release()
     {
         grabbedObjects.Clear();
-        grabOffsets.Clear();
     }
 
-    void MoveObject(Rigidbody rb)
+    void MoveObject(Rigidbody rb, int index)
     {
-        if (!grabOffsets.ContainsKey(rb)) return;
+        Vector3 offset = GetFormationOffset(index);
+        Vector3 targetPos = holdPoint.position + offset;
 
-        Vector3 grabOffset = grabOffsets[rb];
+        Vector3 toTarget = targetPos - rb.position;
 
-        Vector3 worldGrabPoint = rb.transform.TransformPoint(grabOffset);
-        Vector3 toTarget = holdPoint.position - worldGrabPoint;
+        // 🔥 FIX 3: zamiast AddForce → velocity (mega smooth)
+        rb.linearVelocity = toTarget * moveSpeed;
 
-        Vector3 force = toTarget * moveForce;
+        // 🔥 FIX 4: redukcja drgań rotacji
+        rb.angularVelocity *= 0.8f;
+    }
 
-        Vector3 pointVelocity = rb.GetPointVelocity(worldGrabPoint);
-        Vector3 dampingForce = -pointVelocity * damping;
+    Vector3 GetFormationOffset(int index)
+    {
+        float angle = index * 137.5f * Mathf.Deg2Rad; // 🔥 poprawka (radiany!)
+        float radius = spacing * Mathf.Sqrt(index);
 
-        rb.AddForceAtPosition(force + dampingForce, worldGrabPoint);
+        float x = Mathf.Cos(angle) * radius;
+        float y = Mathf.Sin(angle) * radius;
+
+        return new Vector3(x, y, 0);
     }
 }
