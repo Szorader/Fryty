@@ -516,10 +516,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdd07f968e55314f8dcb83ca27cb6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectGrabber
-  grabDistance: 5
+  grabDistance: 3
   holdDistance: 2
   moveForce: 150
   damping: 10
+  grabRadius: 0.1
 --- !u!1001 &485717568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1053,6 +1054,63 @@ Transform:
   - {fileID: 404921577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &926539931
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2944611
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2574239
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.5239065
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097476007991831138, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_Name
+      value: Frytka (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
 --- !u!1 &934261759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1168,63 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0014784659, y: 0.049876202, z: 0.027263412}
   m_Center: {x: -0.00027018035, y: -0.0000000027939673, z: 0.0000000023283062}
+--- !u!1001 &952798071
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9623312
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2574239
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7104597
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097476007991831138, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_Name
+      value: Frytka
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
 --- !u!1 &1057696954 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -115417209107709436, guid: 262f953162ba9e841a41c3cf430274e3, type: 3}
@@ -1136,6 +1251,120 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09403518, y: 0.0009381035, z: 0.027263412}
   m_Center: {x: 0, y: -0.0000000027212077, z: 0.0000000023283062}
+--- !u!1001 &1067296536
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3874123
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2574239
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6861904
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097476007991831138, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_Name
+      value: Frytka (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+--- !u!1001 &1083147973
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.1799535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2574241
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7212595
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097476007991831138, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_Name
+      value: Frytka (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
 --- !u!1 &1105889752 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3cdc4b85bbc2d554e94a19294a028618, type: 3}
@@ -2144,6 +2373,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020733850}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &2024550248
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0483564
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2574238
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.5077991
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308405041037893395, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9097476007991831138, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+      propertyPath: m_Name
+      value: Frytka (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
 --- !u!1 &2087864429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4744966776804728148, guid: 262f953162ba9e841a41c3cf430274e3, type: 3}
@@ -2182,3 +2468,8 @@ SceneRoots:
   - {fileID: 1705327202}
   - {fileID: 887722931}
   - {fileID: 485717568}
+  - {fileID: 952798071}
+  - {fileID: 1083147973}
+  - {fileID: 1067296536}
+  - {fileID: 2024550248}
+  - {fileID: 926539931}
