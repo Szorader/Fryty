@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 404921575}
   - component: {fileID: 404921579}
   - component: {fileID: 404921580}
+  - component: {fileID: 404921581}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -598,6 +599,21 @@ MonoBehaviour:
   moveSpeed: 10
   grabRadius: 0.5
   spacing: 0.1
+--- !u!114 &404921581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404921574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b49786567ef5347b06b6b4e4e55931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactor
+  castDistance: 3
+  showRaycast: 0
+  rayColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &450450062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,11 +1725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   spawnPoint: {fileID: 2015572186}
   clients:
-  - {fileID: 11400000, guid: dc0f8dc42d1141a40bee8b381e8a2440, type: 2}
   - {fileID: 11400000, guid: ee75ee01ee2682d4292612e724df730f, type: 2}
-  - {fileID: 11400000, guid: 43d69331754007048bc535f29df6c8a1, type: 2}
-  - {fileID: 11400000, guid: db7344222ff621041b2bedc080e96c94, type: 2}
-  - {fileID: 11400000, guid: 51c2164598d16524a92d698abf382cf0, type: 2}
   orders:
   - {fileID: 11400000, guid: f3250af9add2c8f4a9ae0de8acd2dd48, type: 2}
   - {fileID: 11400000, guid: 3a842daa184719046bde3d3db99ac0d3, type: 2}
