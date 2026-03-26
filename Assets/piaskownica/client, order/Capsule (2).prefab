@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TakeOrderInteraction
   orderManager: {fileID: 0}
+  servingOrderManager: {fileID: 0}
+  promptText: {fileID: 2776585442807859889}
 --- !u!1 &8315741591904012002
 GameObject:
   m_ObjectHideFlags: 0

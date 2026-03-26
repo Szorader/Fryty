@@ -418,3 +418,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TakeOrderInteraction
   orderManager: {fileID: 0}
+  servingOrderManager: {fileID: 0}
+  promptText: {fileID: 1256343327854465083}
