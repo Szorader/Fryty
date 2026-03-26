@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Potato
-  - UsmazonaFrytka
   - Fry
+  - FriedFry
+  - Waiting4Service
+  - Waiting4Fries
+  - HappyWithFries
+  - Dead
   layers:
   - Default
   - TransparentFX

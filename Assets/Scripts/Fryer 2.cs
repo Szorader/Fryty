@@ -19,6 +19,10 @@ public class Fryer2 : MonoBehaviour
     public GameObject fryPrefab;
     public float fryLaunchForce = 5f;
 
+    [Header("Strzał frytką")]
+    [Range(0f, 90f)] public float launchAngle = 45f;
+    public Vector3 localLaunchDirection = Vector3.forward;
+
     [HideInInspector] public bool isFrying = false;
 
     private Renderer rend;
@@ -96,7 +100,16 @@ public class Fryer2 : MonoBehaviour
         Rigidbody rb = fry.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddForce(Vector3.up * fryLaunchForce, ForceMode.Impulse);
+            Vector3 horizontalDir = transform.TransformDirection(localLaunchDirection.normalized);
+            horizontalDir.y = 0f;
+            horizontalDir.Normalize();
+
+            float angleRad = launchAngle * Mathf.Deg2Rad;
+
+            Vector3 launchDir = (horizontalDir * Mathf.Cos(angleRad)) + (Vector3.up * Mathf.Sin(angleRad));
+            launchDir.Normalize();
+
+            rb.AddForce(launchDir * fryLaunchForce, ForceMode.Impulse);
         }
     }
 }
