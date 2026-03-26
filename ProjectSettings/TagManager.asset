@@ -11,6 +11,7 @@ TagManager:
   - Waiting4Fries
   - HappyWithFries
   - Dead
+  - Souce
   layers:
   - Default
   - TransparentFX
