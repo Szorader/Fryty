@@ -824,6 +824,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 944577649}
   m_SourcePrefab: {fileID: 100100000, guid: 262f953162ba9e841a41c3cf430274e3, type: 3}
+--- !u!1 &515777432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515777433}
+  m_Layer: 0
+  m_Name: ExitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &515777433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515777432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.14, y: 0, z: 3.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1192793609}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558249704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434968069c174b44faaf6c71ecd4f9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tray
-  isCorrect: 0
+  isCorrect: 1
 --- !u!65 &849055970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1598,7 +1629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1192793609}
   m_Layer: 0
-  m_Name: Point
+  m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1617,6 +1648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 515777433}
   - {fileID: 2015572186}
   - {fileID: 1767537090}
   - {fileID: 1893729764}
@@ -1725,7 +1757,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   spawnPoint: {fileID: 2015572186}
   clients:
+  - {fileID: 11400000, guid: dc0f8dc42d1141a40bee8b381e8a2440, type: 2}
   - {fileID: 11400000, guid: ee75ee01ee2682d4292612e724df730f, type: 2}
+  - {fileID: 11400000, guid: 43d69331754007048bc535f29df6c8a1, type: 2}
+  - {fileID: 11400000, guid: db7344222ff621041b2bedc080e96c94, type: 2}
+  - {fileID: 11400000, guid: 51c2164598d16524a92d698abf382cf0, type: 2}
   orders:
   - {fileID: 11400000, guid: f3250af9add2c8f4a9ae0de8acd2dd48, type: 2}
   - {fileID: 11400000, guid: 3a842daa184719046bde3d3db99ac0d3, type: 2}
@@ -2803,6 +2839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf66503b92b2b6a43b6ed754d58676da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QueueManager
+  exitPoint: {fileID: 515777433}
   orderPoints:
   - {fileID: 1767537090}
   - {fileID: 1893729764}
@@ -2811,8 +2848,6 @@ MonoBehaviour:
   - {fileID: 1397244944}
   - {fileID: 2020358656}
   - {fileID: 168121564}
-  orderQueue: []
-  pickupQueue: []
 --- !u!4 &2073891038
 Transform:
   m_ObjectHideFlags: 0

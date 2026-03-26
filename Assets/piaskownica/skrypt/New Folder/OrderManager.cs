@@ -6,8 +6,9 @@ public class OrderManager : MonoBehaviour
 
     public void TakeOrder()
     {
+      
         ClientController client = queueManager.GetFirstOrderClient();
-
+        
         if (client == null)
         {
             Debug.Log("Brak klientów");
@@ -16,11 +17,13 @@ public class OrderManager : MonoBehaviour
 
         Debug.Log("Klient: " + client.clientData.data.clientName);
         Debug.Log("Zamówienie: " + client.clientData.order.orderName);
+        
+      
 
-        foreach (string ingredient in client.clientData.order.ingredients)
+        /*foreach (string ingredient in client.clientData.order.ingredients)
         {
             Debug.Log("- " + ingredient);
-        }
+        }*/
 
         // przeniesienie do kolejki odbioru
         queueManager.AddToPickupQueue(client);

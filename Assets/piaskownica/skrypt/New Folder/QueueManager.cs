@@ -1,22 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class QueueManager : MonoBehaviour
 {
+    public Transform exitPoint;
+
     [Header("Order Queue Points")]
     public Transform[] orderPoints;
 
     [Header("Pickup Queue Points")]
     public Transform[] pickupPoints;
 
-    public List<ClientController> orderQueue = new List<ClientController>();
-    public List<ClientController> pickupQueue = new List<ClientController>();
+    public Queue<ClientController> orderQueue = new Queue<ClientController>();
+    public Queue<ClientController> pickupQueue = new Queue<ClientController>();
 
     // ================= ORDER QUEUE =================
 
     public void AddToOrderQueue(ClientController client)
     {
-        orderQueue.Add(client);
+        orderQueue.Enqueue(client);
         UpdateOrderQueuePositions();
     }
 
@@ -24,19 +27,19 @@ public class QueueManager : MonoBehaviour
     {
         if (orderQueue.Count == 0) return null;
 
-        ClientController client = orderQueue[0];
-        orderQueue.RemoveAt(0);
-
+        ClientController client = orderQueue.Dequeue();
         UpdateOrderQueuePositions();
         return client;
     }
 
     void UpdateOrderQueuePositions()
     {
-        for (int i = 0; i < orderQueue.Count; i++)
+        int i = 0;
+        foreach (var client in orderQueue)
         {
             if (i < orderPoints.Length)
-                orderQueue[i].MoveTo(orderPoints[i].position);
+                client.MoveTo(orderPoints[i].position);
+            i++;
         }
     }
 
@@ -44,7 +47,7 @@ public class QueueManager : MonoBehaviour
 
     public void AddToPickupQueue(ClientController client)
     {
-        pickupQueue.Add(client);
+        pickupQueue.Enqueue(client);
         UpdatePickupQueuePositions();
     }
 
@@ -52,19 +55,46 @@ public class QueueManager : MonoBehaviour
     {
         if (pickupQueue.Count == 0) return null;
 
-        ClientController client = pickupQueue[0];
-        pickupQueue.RemoveAt(0);
-
+        ClientController client = pickupQueue.Dequeue();
         UpdatePickupQueuePositions();
         return client;
     }
 
     void UpdatePickupQueuePositions()
     {
-        for (int i = 0; i < pickupQueue.Count; i++)
+        int i = 0;
+        foreach (var client in pickupQueue)
         {
             if (i < pickupPoints.Length)
-                pickupQueue[i].MoveTo(pickupPoints[i].position);
+                client.MoveTo(pickupPoints[i].position);
+            i++;
         }
+    }
+
+    public void RemoveClient(ClientController client)
+    {
+        //if (pickupQueue.Count == 0) return;
+        
+        client.MoveTo(exitPoint.position);
+        StartCoroutine(ExitRoutine(client));
+        
+        // UWAGA: Queue nie ma Remove(x), więc trzeba przebudować kolejkę
+        /*Queue<ClientController> newOrderQueue = new Queue<ClientController>();
+        foreach (var c in orderQueue)
+        {
+            if (c != client)
+                newOrderQueue.Enqueue(c);
+        }
+
+        orderQueue = newOrderQueue;*/
+
+        UpdateOrderQueuePositions();
+        UpdatePickupQueuePositions();
+    }
+
+    IEnumerator ExitRoutine(ClientController client)
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(client.gameObject);
     }
 }

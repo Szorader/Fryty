@@ -28,5 +28,7 @@ public class Tray : MonoBehaviour
         {
             Debug.Log(client.clientData.data.clientName + " dostał złe zamówienie 😡");
         }
+        
+        
     }
 }

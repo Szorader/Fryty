@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 7304325037888853102}
   - component: {fileID: 8598170047798978173}
   - component: {fileID: 917349876948264798}
+  - component: {fileID: -8842038340742484817}
   m_Layer: 0
   m_Name: Capsule (4)
   m_TagString: Untagged
@@ -267,6 +268,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d13fb9c0094b6c8eb9e0e8a85572b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClientController
+--- !u!114 &-8842038340742484817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2402983638910059043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54db31bee2c5e6e47bebfbe6ca6db605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TakeOrderInteraction
+  orderManager: {fileID: 0}
 --- !u!1 &3041797209658599457
 GameObject:
   m_ObjectHideFlags: 0

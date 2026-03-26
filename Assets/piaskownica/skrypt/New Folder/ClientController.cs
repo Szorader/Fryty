@@ -5,6 +5,7 @@ public class ClientController : MonoBehaviour
 {
     public Client clientData;
     private NavMeshAgent agent;
+    private bool isGoingToExit = false;
 
     void Awake()
     {

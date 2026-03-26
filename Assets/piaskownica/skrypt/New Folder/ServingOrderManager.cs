@@ -18,5 +18,6 @@ public class ServingOrderManager: MonoBehaviour
 
         // wywołujemy tackę
         tray.Serve(client);
+        queueManager.RemoveClient(client);
     }
 }
