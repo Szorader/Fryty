@@ -2,43 +2,31 @@ using UnityEngine;
 
 public class ServingBasket : MonoBehaviour
 {
-    [Header("Fries")]
-    [SerializeField] private string FryTag = "FriedFry";
-    [SerializeField] private GameObject Fry;
+    [Header("Frytka")]
+    [SerializeField] private GameObject fryInBasket;
 
-    [Header("Sauce")]
-    [SerializeField] private string SouceTag = "Souce";
-    [SerializeField] private GameObject Souce;
-
-    [Header("Opcjonalnie")]
-    [SerializeField] private bool unlockOnlyOnce = true;
-
-    private bool hasUnlocked = false;
-
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (unlockOnlyOnce && hasUnlocked)
-            return;
-
-        if (other.CompareTag(FryTag))
+        // Na start ukryj frytkę w koszyku
+        if (fryInBasket != null)
         {
-            UnlockObject(Fry);
-        }
-        else if (other.CompareTag(SouceTag))
-        {
-            UnlockObject(Souce);
+            fryInBasket.SetActive(false);
         }
     }
 
-    private void UnlockObject(GameObject targetObject)
+    private void OnTriggerEnter(Collider other)
     {
-        if (targetObject == null)
+        if (other.CompareTag("FriedFry"))
         {
-            Debug.LogWarning("Nie przypisano obiektu do odblokowania!");
-            return;
-        }
+            // Pokazuje frytkę w koszyku
+            if (fryInBasket != null)
+            {
+                fryInBasket.SetActive(true);
+                Destroy(other.gameObject);
+            }
 
-        targetObject.SetActive(true);
-        hasUnlocked = true;
+            // Usuwa przeciąganą frytkę
+            //
+        }
     }
 }
