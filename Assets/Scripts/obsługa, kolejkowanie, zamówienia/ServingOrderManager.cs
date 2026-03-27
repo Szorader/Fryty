@@ -3,8 +3,9 @@ using UnityEngine;
 public class ServingOrderManager: MonoBehaviour
 {
     public QueueManager queueManager; // Twoja kolejka
-    public Tray tray;                 // Tacka
-
+    //public Tray tray; // Tacka
+    public ServingBasket servingBasket;
+    
     public void ServeNextClient()
     {
         // pobierz pierwszego klienta z kolejki odbioru
@@ -17,7 +18,9 @@ public class ServingOrderManager: MonoBehaviour
         }
 
         // wywołujemy tackę
-        tray.Serve(client);
+        
+        //tray.Serve(client);
+        servingBasket.Serve(client);
         queueManager.RemoveClient(client);
     }
 }

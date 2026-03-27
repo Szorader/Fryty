@@ -1,4 +1,4 @@
-/*using UnityEngine;
+using UnityEngine;
 
 public class ObjectGrabberLoose : MonoBehaviour
 {
@@ -82,9 +82,9 @@ public class ObjectGrabberLoose : MonoBehaviour
         // dodaj siłę w miejscu złapania (KLUCZ!)
         grabbedObject.AddForceAtPosition(force + dampingForce, worldGrabPoint);
     }
-}*/
+}
 
-using UnityEngine;
+/*using UnityEngine;
 using System.Collections.Generic;
 
 public class ObjectGrabberLoose : MonoBehaviour
@@ -189,4 +189,4 @@ public class ObjectGrabberLoose : MonoBehaviour
 
         return new Vector3(x, y, 0);
     }
-}
+}*/
