@@ -3,7 +3,7 @@ using UnityEngine;
 public class LookAtCamera : MonoBehaviour
 {
     public Transform target; // kapsuła / obiekt
-    private float distance = 0.6f;
+    public float distance = 0.6f;
     private float height = 0f;
     private Camera cam;
     private Canvas prompt;
