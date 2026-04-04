@@ -4,8 +4,8 @@ using TMPro;
 
 public class ClientInteraction : MonoBehaviour, IInteractable
 {
-    public OrderManager orderManager;
-    public ServingOrderManager servingOrderManager;
+    public QueueManager queueManager;
+    
     private bool _canTakeOrder = true;
     private bool _canPickOrder = false;
     
@@ -13,8 +13,7 @@ public class ClientInteraction : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        orderManager = FindObjectOfType<OrderManager>();
-        servingOrderManager = FindObjectOfType<ServingOrderManager>();
+        queueManager = FindObjectOfType<QueueManager>();
         
         UpdatePrompt();
     }
@@ -29,7 +28,7 @@ public class ClientInteraction : MonoBehaviour, IInteractable
     {
         if (_canTakeOrder)
         {
-            orderManager.TakeOrder();
+            queueManager.TakeOrder();
             _canTakeOrder = false;
             _canPickOrder = true;
             UpdatePrompt();
@@ -37,7 +36,7 @@ public class ClientInteraction : MonoBehaviour, IInteractable
 
         else if (_canPickOrder)
         {
-            servingOrderManager.ServeNextClient();
+            queueManager.ServeNextClient();
             _canPickOrder = false;
         }
         return true;

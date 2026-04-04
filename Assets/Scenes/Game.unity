@@ -3756,9 +3756,7 @@ Transform:
   m_Children:
   - {fileID: 6306892281854751586}
   - {fileID: 4229529692245991577}
-  - {fileID: 670442093606025359}
   - {fileID: 5524887147009495193}
-  - {fileID: 4538810276264106849}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561132440117211371
@@ -3778,21 +3776,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &670442093606025359
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987252010100851241}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 269414364616672037}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &696203889013234188
 Transform:
   m_ObjectHideFlags: 0
@@ -3821,8 +3804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   spawnManager: {fileID: 3714069171195534920}
-  orderManager: {fileID: 4864686159357876379}
-  servingOrderManager: {fileID: 7467637941026563705}
+  queueManager: {fileID: 3715783837012102697}
 --- !u!1 &1747721644138854313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3917,6 +3899,7 @@ MonoBehaviour:
   - {fileID: 4540313663681506862}
   - {fileID: 696203889013234188}
   - {fileID: 1981070133}
+  servingBasket: {fileID: 1094079614}
 --- !u!4 &3958841408293525210
 Transform:
   m_ObjectHideFlags: 0
@@ -3988,21 +3971,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3958841408293525210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4538810276264106849
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7854598561562099366}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 269414364616672037}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4540313663681506862
 Transform:
   m_ObjectHideFlags: 0
@@ -4034,19 +4002,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4864686159357876379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987252010100851241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902ce7dc283aa254a8586bffdb3e970c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OrderManager
-  queueManager: {fileID: 3715783837012102697}
 --- !u!1 &5060577420471291027
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,23 +4060,6 @@ GameObject:
   - component: {fileID: 4540313663681506862}
   m_Layer: 0
   m_Name: PickUpPoints (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &5987252010100851241
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 670442093606025359}
-  - component: {fileID: 4864686159357876379}
-  m_Layer: 0
-  m_Name: OrderManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4222,20 +4160,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7467637941026563705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7854598561562099366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f7f2000f71a71478def7471e530b5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ServingOrderManager
-  queueManager: {fileID: 3715783837012102697}
-  servingBasket: {fileID: 1094079614}
 --- !u!1 &7506096068641702494
 GameObject:
   m_ObjectHideFlags: 0
@@ -4247,23 +4171,6 @@ GameObject:
   - component: {fileID: 6982832757670199888}
   m_Layer: 0
   m_Name: OrderPoints (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &7854598561562099366
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4538810276264106849}
-  - component: {fileID: 7467637941026563705}
-  m_Layer: 0
-  m_Name: ServingOrderManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
