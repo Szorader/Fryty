@@ -3,9 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public SpawnManager spawnManager;
-    public OrderManager orderManager;
-    public ServingOrderManager servingOrderManager;
-
+    public QueueManager queueManager;
+    //pozniej to wszystko zostanie usuniete bo bedzie to robione automatycznie przez gre
     void Update()
     {
         // spawn klienta
@@ -17,12 +16,12 @@ public class GameManager : MonoBehaviour
         // przyjęcie zamówienia
         if (Input.GetKeyDown(KeyCode.X))
         {
-            orderManager.TakeOrder();
+            queueManager.TakeOrder();
         }
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            servingOrderManager.ServeNextClient();
+            queueManager.ServeNextClient();
         }
     }
 }

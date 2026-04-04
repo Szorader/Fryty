@@ -14,6 +14,8 @@ public class QueueManager : MonoBehaviour
 
     public Queue<ClientController> orderQueue = new Queue<ClientController>();
     public Queue<ClientController> pickupQueue = new Queue<ClientController>();
+    
+    public ServingBasket servingBasket;
 
     // ================= ORDER QUEUE =================
 
@@ -96,5 +98,50 @@ public class QueueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Destroy(client.gameObject);
+    }
+    
+    public void TakeOrder()
+    {
+      
+        ClientController client = GetFirstOrderClient();
+        
+        if (client == null)
+        {
+            Debug.Log("Brak klientów");
+            return;
+        }
+
+        Debug.Log("Klient: " + client.clientData.data.clientName);
+        Debug.Log("Zamówienie: " + client.clientData.order.orderName);
+        
+      
+
+        /*foreach (string ingredient in client.clientData.order.ingredients)
+        {
+            Debug.Log("- " + ingredient);
+        }*/
+
+        // przeniesienie do kolejki odbioru
+        AddToPickupQueue(client);
+    }
+    
+    
+    
+    public void ServeNextClient()
+    {
+        // pobierz pierwszego klienta z kolejki odbioru
+        ClientController client = GetFirstPickupClient();
+
+        if (client == null)
+        {
+            Debug.Log("Brak klientów do obsługi");
+            return;
+        }
+
+        // wywołujemy tackę
+        
+        //tray.Serve(client);
+        servingBasket.Serve(client);
+        RemoveClient(client);
     }
 }
