@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 404921579}
   - component: {fileID: 404921580}
   - component: {fileID: 404921581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 909139890}
   - component: {fileID: 909139889}
   - component: {fileID: 909139888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1730,7 +1730,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -2343,7 +2343,7 @@ GameObject:
   - component: {fileID: 1348379598}
   - component: {fileID: 1348379597}
   - component: {fileID: 1348379596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
