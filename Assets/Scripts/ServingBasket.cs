@@ -25,7 +25,7 @@ public class ServingBasket : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("FriedFry"))
+        if (other.CompareTag("Fry"))
         {
             // Pokazuje frytkę w koszyku
             if (fryInBasket != null)
