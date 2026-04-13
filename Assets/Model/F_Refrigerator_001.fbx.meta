@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 6eae338cae34d5140a7c5a401d8938f0
+guid: 4c2638f9935bd3142a85ed897128c2da
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_FridgeMaterial_001
+    second: {fileID: 2100000, guid: 19badda45f6bd6e40a889c29d06ca102, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
