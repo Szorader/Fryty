@@ -2747,8 +2747,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 909139890}
-  - component: {fileID: 909139889}
-  - component: {fileID: 909139888}
+  - component: {fileID: 909139892}
+  - component: {fileID: 909139891}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2756,7 +2756,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &909139888
+--- !u!4 &909139890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909139886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1348379595}
+  - {fileID: 404921577}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &909139891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2771,9 +2788,9 @@ MonoBehaviour:
   moveSpeed: 5
   gravity: -9.81
   playerCamera: {fileID: 404921577}
-  lookSensitivity: 0.1
+  lookSensitivity: 0.3
   maxLookAngle: 90
---- !u!143 &909139889
+--- !u!143 &909139892
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2794,27 +2811,10 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0
-  m_SkinWidth: 0.0001
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &909139890
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909139886}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1348379595}
-  - {fileID: 404921577}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &916298111 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3780463357584659826, guid: 5e94b9d98ce6e034292e95d540c3e865, type: 3}
@@ -3022,7 +3022,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 318b77f9d04f440408f8790a3954fba8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 46406b4fa2120df429b14888ba41caeb, type: 2}
+      objectReference: {fileID: 2100000, guid: f42b6bef74462694ba8b83b8ced7ed2f, type: 2}
     - target: {fileID: 919132149155446097, guid: 318b77f9d04f440408f8790a3954fba8, type: 3}
       propertyPath: m_Name
       value: f_karbowana_fry

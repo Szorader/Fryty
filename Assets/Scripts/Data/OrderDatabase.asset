@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8b316d4180afe448b274ce7537ca55, type: 3}
   m_Name: OrderDatabase
   m_EditorClassIdentifier: Assembly-CSharp::OrderDatabase
-  availableFries: 000000000100000002000000
-  availableSauces: 000000000100000002000000
+  availableFries: 010000000200000003000000
+  availableSauces: 010000000200000003000000
   availableSeasonings: 000000000100000002000000
