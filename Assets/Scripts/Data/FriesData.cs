@@ -9,6 +9,7 @@ public class FriesData : MonoBehaviour
     [Range(0, 4)]
     public int cookLevel = 0;
     public string cookDes;
+    public bool isFried = false;
 
     [Header("FRIES MODELS")]
     public GameObject straightModel;

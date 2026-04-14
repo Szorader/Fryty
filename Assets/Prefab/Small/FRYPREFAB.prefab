@@ -50,6 +50,7 @@ MonoBehaviour:
   friesType: 0
   cookLevel: 0
   cookDes: Raw
+  isFried: 0
   straightModel: {fileID: 6418754275097662896}
   crinkleModel: {fileID: 7065402797136060080}
   wedgesModel: {fileID: 3143111343979391427}
