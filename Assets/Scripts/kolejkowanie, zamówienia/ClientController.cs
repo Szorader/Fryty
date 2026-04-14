@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class ClientController : MonoBehaviour
 {
     public Client clientData;
+    
     private NavMeshAgent agent;
 
     void Awake()

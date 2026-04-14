@@ -2,20 +2,25 @@ using UnityEngine;
 
 public class CutterButton : MonoBehaviour
 {
-    public FriesData.FriesType friesType;
+    public OrderDatabase.FriesType friesType;
+
     private Cutter parentCutter;
 
-    private void Start()
+    private void Awake()
     {
         parentCutter = GetComponentInParent<Cutter>();
+
+        if (!parentCutter)
+        {
+            Debug.LogWarning($"CutterButton on {gameObject.name} has no Cutter in parents.");
+        }
     }
 
     public void PressButton()
     {
-        if (parentCutter != null)
-        {
-            parentCutter.PressButton(friesType);
-        }
+        if (!parentCutter) return;
+
+        parentCutter.PressButton(friesType);
     }
 
     private void OnMouseDown()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7431281266485499305}
   - component: {fileID: 3198297379908560929}
   m_Layer: 0
-  m_Name: Fry
+  m_Name: FRYPREFAB
   m_TagString: Fry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec9e505338264644aa8175927dd31869, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec9e505338264644aa8175927dd31869, type: 3}
       propertyPath: m_TagString

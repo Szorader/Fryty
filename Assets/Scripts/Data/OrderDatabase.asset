@@ -13,11 +13,5 @@ MonoBehaviour:
   m_Name: OrderDatabase
   m_EditorClassIdentifier: Assembly-CSharp::OrderDatabase
   availableFries: 000000000100000002000000
-  availableSauces:
-  - Ketchup
-  - Mayo
-  - Cheese
-  availableSeasonings:
-  - Salt
-  - Pepper
-  - Nothing
+  availableSauces: 000000000100000002000000
+  availableSeasonings: 000000000100000002000000

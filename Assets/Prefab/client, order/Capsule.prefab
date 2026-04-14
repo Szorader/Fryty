@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 3440863551480716389}
   - component: {fileID: 233365129521667807}
   - component: {fileID: 1210222684113128323}
+  - component: {fileID: -2148302435173426560}
+  - component: {fileID: 5650842149527938324}
+  - component: {fileID: -9205623501511113865}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -71,7 +74,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82f65e496aff3c642839d7fe7b7d7aff, type: 2}
+  - {fileID: 2100000, guid: 19badda45f6bd6e40a889c29d06ca102, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -164,9 +167,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54db31bee2c5e6e47bebfbe6ca6db605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TakeOrderInteraction
-  orderManager: {fileID: 0}
-  servingOrderManager: {fileID: 0}
+  queueManager: {fileID: 0}
   promptText: {fileID: 441006545442791604}
+--- !u!114 &-2148302435173426560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985199123080650719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64faa0e6a0d23f743b51f576c6e74e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerSatisfaction
+  basket: {fileID: 0}
+  waitingTime: {fileID: -9205623501511113865}
+  baseTip: 10
+  penaltyPer10Seconds: 0.5
+  wrongFriesPenalty: 5
+  badCookPenalty: 2
+  burnedOrRawPenalty: 5
+  perfectBonus: 1
+  wrongSaucePenalty: 3
+  wrongSeasoningPenalty: 1
+--- !u!114 &5650842149527938324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985199123080650719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f2938a79c600b448dd538a9c186e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OrderRandomizer
+  database: {fileID: 11400000, guid: 8925f5a6c792a1b4e9199ddc2cdc60c0, type: 2}
+  fries: 0
+  sauce: 0
+  seasoning: 0
+--- !u!114 &-9205623501511113865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985199123080650719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7313793b729974d809c8ae6b256c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerWaitingTime
+  timeAlive: 0
 --- !u!1 &5094946781391424435
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LookAtCamera
   target: {fileID: 7923805760227376225}
+  distance: 0.6
 --- !u!1 &7764954202504750538
 GameObject:
   m_ObjectHideFlags: 0

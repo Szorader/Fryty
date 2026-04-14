@@ -4,13 +4,13 @@ using System.Collections;
 public class Cutter : MonoBehaviour
 {
     [Header("INPUT")]
-    public string requiredTag = "Potato"; // tylko ziemniaki
+    public string requiredTag = "Potato";
 
     [Header("OUTPUT")]
     public GameObject friesPrefab;
 
     [Header("OUTPUT POINT")]
-    public Transform outputPoint; // puste GameObject, z którego wychodzą frytki
+    public Transform outputPoint;
 
     [Header("SPAWN SETTINGS")]
     public float spawnDelay = 2f;
@@ -20,64 +20,61 @@ public class Cutter : MonoBehaviour
     public bool hasPotatoLoaded = false;
     public bool isProcessing = false;
 
-    private bool canAcceptPotato => !hasPotatoLoaded && !isProcessing;
+    private bool canProcess => hasPotatoLoaded && !isProcessing;
 
-    // Trigger wlotu ziemniaka
+    // WEJŚCIE ZIEMNIAKA
     public void HandleTrigger(Collider other)
     {
-        if (!canAcceptPotato) return;
+        if (hasPotatoLoaded) return;
         if (!other.CompareTag(requiredTag)) return;
 
         Destroy(other.gameObject);
         hasPotatoLoaded = true;
 
-        Debug.Log("Potato loaded. Waiting for button press.");
+        Debug.Log("Potato loaded.");
     }
 
-    // Wywołane przez przycisk
-    public void PressButton(FriesData.FriesType selectedType)
+    // PRZYCISK
+    public void PressButton(OrderDatabase.FriesType selectedType)
     {
-        if (!hasPotatoLoaded)
+        if (!canProcess)
         {
-            Debug.Log("No potato loaded.");
+            Debug.Log("Cutter not ready.");
             return;
         }
-
-        if (isProcessing) return;
 
         StartCoroutine(ProcessAndSpawn(selectedType));
     }
 
-    private IEnumerator ProcessAndSpawn(FriesData.FriesType selectedType)
+    private IEnumerator ProcessAndSpawn(OrderDatabase.FriesType selectedType)
     {
         isProcessing = true;
 
-        Debug.Log("Processing fries type: " + selectedType);
+        Debug.Log("Processing: " + selectedType);
 
         yield return new WaitForSeconds(spawnDelay);
 
-        // spawn w pozycji outputPoint lub fallback na transform + offset
-        Vector3 spawnPosition = outputPoint != null ? outputPoint.position : transform.position;
+        Vector3 spawnPosition = outputPoint ? outputPoint.position : transform.position;
+
         GameObject spawned = Instantiate(friesPrefab, spawnPosition, Quaternion.identity);
 
-        // ustaw typ frytki
         FriesData friesData = spawned.GetComponent<FriesData>();
         if (friesData != null)
         {
             friesData.SetFriesType(selectedType);
         }
 
-        // nadaj siłę do przodu
         Rigidbody rb = spawned.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            Vector3 direction = outputPoint != null ? outputPoint.forward : transform.forward;
-            rb.AddForce(direction.normalized * force, ForceMode.Impulse);
+            Vector3 dir = outputPoint ? outputPoint.forward : transform.forward;
+            rb.AddForce(dir.normalized * force, ForceMode.Impulse);
         }
 
+        // RESET STANU (jedno miejsce prawdy)
         hasPotatoLoaded = false;
         isProcessing = false;
 
-        Debug.Log("Machine ready for next potato.");
+        Debug.Log("Ready.");
     }
 }

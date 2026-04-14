@@ -3,20 +3,18 @@ using UnityEngine;
 [ExecuteAlways]
 public class BasketData : MonoBehaviour
 {
-    public enum FriesType { Straight, Crinkle, Wedges, None }
     [Header("FRIES")]
-    public FriesType friesType = FriesType.None;
+    public OrderDatabase.FriesType friesType = OrderDatabase.FriesType.None;
+
     [Range(0, 4)]
     public int cookLevel = 0;
     public string cookDes;
 
-    public enum SauceType { None, Ketchup, Mayo, Cheese }
     [Header("SAUCE")]
-    public SauceType sauceType = SauceType.None;
+    public OrderDatabase.SauceType sauceType = OrderDatabase.SauceType.None;
 
-    public enum SeasoningType { None, Salt, Pepper }
     [Header("SEASONING")]
-    public SeasoningType seasoningType = SeasoningType.None;
+    public OrderDatabase.SeasoningType seasoningType = OrderDatabase.SeasoningType.None;
 
     [Header("FRIES MODELS")]
     public GameObject straightModel;
@@ -24,7 +22,7 @@ public class BasketData : MonoBehaviour
     public GameObject wedgesModel;
 
     [Header("COOK MATERIALS")]
-    public Material[] cookMaterials = new Material[5];
+    public Material[] cookMaterials;
 
     [Header("SAUCE MODELS")]
     public GameObject emptySauceModel;
@@ -51,65 +49,78 @@ public class BasketData : MonoBehaviour
 
     private void UpdateCookDescription()
     {
-        switch (cookLevel)
+        cookDes = cookLevel switch
         {
-            case 0: cookDes = "Raw"; break;
-            case 1: cookDes = "Lightly Cooked"; break;
-            case 2: cookDes = "Perfect"; break;
-            case 3: cookDes = "Overcooked"; break;
-            case 4: cookDes = "Burnt"; break;
-            default: cookDes = "Unknown"; break;
-        }
+            0 => "Raw",
+            1 => "Lightly Cooked",
+            2 => "Perfect",
+            3 => "Overcooked",
+            4 => "Burnt",
+            _ => "Unknown"
+        };
     }
 
     private void UpdateFriesVisual()
     {
-        straightModel.SetActive(false);
-        crinkleModel.SetActive(false);
-        wedgesModel.SetActive(false);
+        if (straightModel) straightModel.SetActive(false);
+        if (crinkleModel) crinkleModel.SetActive(false);
+        if (wedgesModel) wedgesModel.SetActive(false);
 
-        if (friesType == FriesType.None) return;
+        if (friesType == OrderDatabase.FriesType.None) return;
 
-        GameObject activeFries = friesType == FriesType.Straight ? straightModel :
-                                 friesType == FriesType.Crinkle ? crinkleModel :
-                                 wedgesModel;
+        GameObject activeFries = friesType switch
+        {
+            OrderDatabase.FriesType.Straight => straightModel,
+            OrderDatabase.FriesType.Crinkle => crinkleModel,
+            OrderDatabase.FriesType.Wedges => wedgesModel,
+            _ => null
+        };
+
+        if (!activeFries) return;
 
         activeFries.SetActive(true);
 
-        Material mat = cookMaterials[cookLevel];
-        Renderer[] renderers = activeFries.GetComponentsInChildren<Renderer>(true);
-        foreach (Renderer r in renderers) r.sharedMaterial = mat;
+        if (cookMaterials != null && cookMaterials.Length > 0)
+        {
+            int index = Mathf.Clamp(cookLevel, 0, cookMaterials.Length - 1);
+            Material mat = cookMaterials[index];
+
+            Renderer[] renderers = activeFries.GetComponentsInChildren<Renderer>(true);
+            foreach (Renderer r in renderers)
+                r.sharedMaterial = mat;
+        }
     }
 
     private void UpdateSauceVisual()
     {
-        emptySauceModel.SetActive(false);
-        ketchupModel.SetActive(false);
-        mayoModel.SetActive(false);
-        cheeseModel.SetActive(false);
+        if (emptySauceModel) emptySauceModel.SetActive(false);
+        if (ketchupModel) ketchupModel.SetActive(false);
+        if (mayoModel) mayoModel.SetActive(false);
+        if (cheeseModel) cheeseModel.SetActive(false);
 
-        GameObject activeSauce = sauceType == SauceType.None ? emptySauceModel :
-                                 sauceType == SauceType.Ketchup ? ketchupModel :
-                                 sauceType == SauceType.Mayo ? mayoModel :
-                                 cheeseModel;
+        GameObject activeSauce = sauceType switch
+        {
+            OrderDatabase.SauceType.None => emptySauceModel,
+            OrderDatabase.SauceType.Ketchup => ketchupModel,
+            OrderDatabase.SauceType.Mayo => mayoModel,
+            OrderDatabase.SauceType.Cheese => cheeseModel,
+            _ => null
+        };
 
-        activeSauce.SetActive(true);
+        if (activeSauce) activeSauce.SetActive(true);
     }
 
     private void UpdateSeasoningVisual()
     {
-        saltModel.SetActive(false);
-        pepperModel.SetActive(false);
+        if (saltModel) saltModel.SetActive(false);
+        if (pepperModel) pepperModel.SetActive(false);
 
-        if (seasoningType == SeasoningType.None) return;
+        if (seasoningType == OrderDatabase.SeasoningType.None) return;
 
-        GameObject activeSeasoning = seasoningType == SeasoningType.Salt ? saltModel : pepperModel;
-        activeSeasoning.SetActive(true);
-    }
+        GameObject active = seasoningType == OrderDatabase.SeasoningType.Salt
+            ? saltModel
+            : pepperModel;
 
-    private void ApplyMaterialToModel(GameObject targetModel, Material material)
-    {
-        Renderer[] renderers = targetModel.GetComponentsInChildren<Renderer>(true);
-        foreach (Renderer r in renderers) r.sharedMaterial = material;
+        if (active) active.SetActive(true);
     }
 }

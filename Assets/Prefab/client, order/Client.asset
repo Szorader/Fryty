@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Client
   m_EditorClassIdentifier: Assembly-CSharp::ClientData
   clientName: Jonny
-  clientPrefab: {fileID: 8761293406063111889, guid: 3c0f5e4212888954c900a9d221b0f9e3, type: 3}
+  clientPrefab: {fileID: 3985199123080650719, guid: f7f8e0b8d8bc8a246b13c11e9a213408, type: 3}
   patienceTime: 0
   isBadClient: 1

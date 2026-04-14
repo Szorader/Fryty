@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickToSpawn : MonoBehaviour
@@ -10,6 +11,11 @@ public class ClickToSpawn : MonoBehaviour
 
     [Header("Siła wystrzału")]
     public float force = 500f;
+
+    [Header("Limit obiektów")]
+    public int maxObjects = 5;
+
+    private static List<GameObject> spawnedObjects = new List<GameObject>();
 
     void OnMouseDown()
     {
@@ -24,10 +30,21 @@ public class ClickToSpawn : MonoBehaviour
             return;
         }
 
+        // usuń null-e (zniszczone obiekty)
+        spawnedObjects.RemoveAll(item => item == null);
+
+        // limit
+        if (spawnedObjects.Count >= maxObjects)
+        {
+            Debug.Log("Limit obiektów osiągnięty (5).");
+            return;
+        }
+
         Vector3 spawnPosition = transform.position + spawnOffset;
 
         GameObject spawned = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-        
+        spawnedObjects.Add(spawned);
+
         Rigidbody rb = spawned.GetComponent<Rigidbody>();
         if (rb != null)
         {

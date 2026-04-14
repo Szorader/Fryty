@@ -3,12 +3,35 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "OrderDatabase", menuName = "Food/Order Database")]
 public class OrderDatabase : ScriptableObject
 {
+    public enum FriesType
+    {
+        None,
+        Straight,
+        Crinkle,
+        Wedges
+    }
+    
+    public enum SauceType
+    {
+        None,
+        Ketchup,
+        Mayo,
+        Cheese
+    }
+
+    public enum SeasoningType
+    {
+        None,
+        Salt,
+        Pepper
+    }
+
     [Header("Fries Types")]
-    public FriesData.FriesType[] availableFries;
+    public FriesType[] availableFries;
 
     [Header("Sauces")]
-    public string[] availableSauces;
+    public SauceType[] availableSauces;
 
-    [Header("Seasonings (including salt options)")]
-    public string[] availableSeasonings;
+    [Header("Seasonings")]
+    public SeasoningType[] availableSeasonings;
 }

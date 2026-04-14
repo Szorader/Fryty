@@ -2,28 +2,21 @@ using UnityEngine;
 
 public class FriesData : MonoBehaviour
 {
-    public enum FriesType
-    {
-        Straight,
-        Crinkle,
-        Wedges
-    }
-
     [Header("TYPE")]
-    public FriesType friesType;
+    public OrderDatabase.FriesType friesType;
 
     [Header("COOK LEVEL")]
     [Range(0, 4)]
     public int cookLevel = 0;
     public string cookDes;
-    
+
     [Header("FRIES MODELS")]
     public GameObject straightModel;
     public GameObject crinkleModel;
     public GameObject wedgesModel;
-    
+
     [Header("COOK MATERIALS")]
-    public Material[] cookMaterials = new Material[5];
+    public Material[] cookMaterials;
 
     private void Start()
     {
@@ -35,7 +28,7 @@ public class FriesData : MonoBehaviour
         RefreshVisuals();
     }
 
-    public void SetFriesType(FriesType newType)
+    public void SetFriesType(OrderDatabase.FriesType newType)
     {
         friesType = newType;
         RefreshVisuals();
@@ -50,44 +43,57 @@ public class FriesData : MonoBehaviour
 
     private void UpdateCookDescription()
     {
-        switch (cookLevel)
+        cookDes = cookLevel switch
         {
-            case 0: cookDes = "Raw"; break;
-            case 1: cookDes = "Lightly Cooked"; break;
-            case 2: cookDes = "Perfect"; break;
-            case 3: cookDes = "Overcooked"; break;
-            case 4: cookDes = "Burnt"; break;
-            default: cookDes = "Unknown"; break;
-        }
+            0 => "Raw",
+            1 => "Lightly Cooked",
+            2 => "Perfect",
+            3 => "Overcooked",
+            4 => "Burnt",
+            _ => "Unknown"
+        };
     }
 
     private void UpdateFriesModel()
     {
-        straightModel.SetActive(false);
-        crinkleModel.SetActive(false);
-        wedgesModel.SetActive(false);
+        if (straightModel) straightModel.SetActive(false);
+        if (crinkleModel) crinkleModel.SetActive(false);
+        if (wedgesModel) wedgesModel.SetActive(false);
 
         switch (friesType)
         {
-            case FriesType.Straight: straightModel.SetActive(true); break;
-            case FriesType.Crinkle: crinkleModel.SetActive(true); break;
-            case FriesType.Wedges: wedgesModel.SetActive(true); break;
+            case OrderDatabase.FriesType.Straight:
+                if (straightModel) straightModel.SetActive(true);
+                break;
+
+            case OrderDatabase.FriesType.Crinkle:
+                if (crinkleModel) crinkleModel.SetActive(true);
+                break;
+
+            case OrderDatabase.FriesType.Wedges:
+                if (wedgesModel) wedgesModel.SetActive(true);
+                break;
         }
     }
 
     private void UpdateCookMaterial()
     {
-        Material mat = cookMaterials[cookLevel];
+        if (cookMaterials == null || cookMaterials.Length == 0) return;
 
-        ApplyMaterialToModel(straightModel, mat);
-        ApplyMaterialToModel(crinkleModel, mat);
-        ApplyMaterialToModel(wedgesModel, mat);
+        int index = Mathf.Clamp(cookLevel, 0, cookMaterials.Length - 1);
+        Material mat = cookMaterials[index];
+
+        ApplyMaterial(straightModel, mat);
+        ApplyMaterial(crinkleModel, mat);
+        ApplyMaterial(wedgesModel, mat);
     }
 
-    private void ApplyMaterialToModel(GameObject targetModel, Material material)
+    private void ApplyMaterial(GameObject model, Material material)
     {
-        Renderer[] renderers = targetModel.GetComponentsInChildren<Renderer>(true);
-        foreach (Renderer r in renderers)
+        if (!model || !material) return;
+
+        var renderers = model.GetComponentsInChildren<Renderer>(true);
+        foreach (var r in renderers)
             r.sharedMaterial = material;
     }
 }
