@@ -1,97 +1,101 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using JetBrains.Annotations;
 
 public class QueueManager : MonoBehaviour
 {
     public Transform exitPoint;
-
-    [Header("Order Queue Points")]
-    public Transform[] orderPoints;
-
-    [Header("Pickup Queue Points")]
-    public Transform[] pickupPoints;
-
+    
+    public Transform orderStartPoints;
+    public Transform pickupStartPoints;
+    public float spaceBetweenClients = 1.5f;
+    
+    
     public Queue<ClientController> orderQueue = new Queue<ClientController>();
     public Queue<ClientController> pickupQueue = new Queue<ClientController>();
+
+
+    public BasketInteraction basket;
     
-    public ServingBasket servingBasket;
 
-    // ================= ORDER QUEUE =================
-
-    public void AddToOrderQueue(ClientController client)
+    //queuing customers
+    private void UpdateQueuePosition(Queue<ClientController> queue, Vector3 startPosition)
     {
-        orderQueue.Enqueue(client);
-        UpdateOrderQueuePositions();
-    }
+        Vector3 currentPosition = startPosition;
 
-    public ClientController GetFirstOrderClient()
-    {
-        if (orderQueue.Count == 0) return null;
-
-        ClientController client = orderQueue.Dequeue();
-        UpdateOrderQueuePositions();
-        return client;
-    }
-
-    void UpdateOrderQueuePositions()
-    {
-        int i = 0;
-        foreach (var client in orderQueue)
+        foreach (var client in queue)
         {
-            if (i < orderPoints.Length)
-                client.MoveTo(orderPoints[i].position);
-            i++;
+            client.MoveTo(currentPosition);
+            currentPosition.z -= spaceBetweenClients;
         }
     }
 
-    // ================= PICKUP QUEUE =================
-
-    public void AddToPickupQueue(ClientController client)
+    
+    public void AddToQueue(ClientController client, Queue<ClientController> queue)
     {
-        pickupQueue.Enqueue(client);
-        UpdatePickupQueuePositions();
-    }
-
-    public ClientController GetFirstPickupClient()
-    {
-        if (pickupQueue.Count == 0) return null;
-
-        ClientController client = pickupQueue.Dequeue();
-        UpdatePickupQueuePositions();
-        return client;
-    }
-
-    void UpdatePickupQueuePositions()
-    {
-        int i = 0;
-        foreach (var client in pickupQueue)
+        queue.Enqueue(client);
+        
+        Transform point = GetPoint(queue);
+        UpdateQueuePosition(queue, point.position);
+        
+        if (queue == pickupQueue && queue.Count == 1)
         {
-            if (i < pickupPoints.Length)
-                client.MoveTo(pickupPoints[i].position);
-            i++;
+            AddOrderToBasket();
         }
     }
 
+    
+    public ClientController MoveFirstClientFromQueue(Queue<ClientController> queue)
+    {
+        if (queue.Count == 0) return null;
+        
+        ClientController client = queue.Dequeue();
+        
+        Transform point = GetPoint(queue);
+        UpdateQueuePosition(queue, point.position);
+        
+        return client;
+    }
+
+    //getting point for start queue posiotion
+    private Transform GetPoint(Queue<ClientController> queue)
+    {
+        Transform point = null;
+        if (queue == orderQueue)
+        {
+            point = orderStartPoints;
+        }
+        else if (queue == pickupQueue)
+        {
+            point = pickupStartPoints; 
+        }
+        else
+        {
+            Debug.Log("Błąd przy definiowaniu startpoint");
+        }
+        return point;
+    }
+
+
+    public void AddOrderToBasket()
+    {
+        ClientController client = pickupQueue.Peek();
+        basket.currentCustomer = client.customerOrder;
+        basket.waitingTime = client.waitingTime;
+        basket.satisfaction = client.satisfaction;
+    }
+    
     public void RemoveClient(ClientController client)
     {
-        //if (pickupQueue.Count == 0) return;
         
         client.MoveTo(exitPoint.position);
         StartCoroutine(ExitRoutine(client));
         
-        // UWAGA: Queue nie ma Remove(x), więc trzeba przebudować kolejkę
-        /*Queue<ClientController> newOrderQueue = new Queue<ClientController>();
-        foreach (var c in orderQueue)
-        {
-            if (c != client)
-                newOrderQueue.Enqueue(c);
-        }
-
-        orderQueue = newOrderQueue;*/
-
-        UpdateOrderQueuePositions();
-        UpdatePickupQueuePositions();
+        UpdateQueuePosition(orderQueue, orderStartPoints.position);
+        
+        UpdateQueuePosition(pickupQueue, pickupStartPoints.position);
     }
 
     IEnumerator ExitRoutine(ClientController client)
@@ -102,46 +106,31 @@ public class QueueManager : MonoBehaviour
     
     public void TakeOrder()
     {
-      
-        ClientController client = GetFirstOrderClient();
+
+        ClientController client = MoveFirstClientFromQueue(orderQueue);
         
         if (client == null)
         {
             Debug.Log("Brak klientów");
             return;
         }
+        AddToQueue(client, pickupQueue);
 
-        Debug.Log("Klient: " + client.clientData.data.clientName);
-        Debug.Log("Zamówienie: " + client.clientData.order.orderName);
-        
-      
-
-        /*foreach (string ingredient in client.clientData.order.ingredients)
-        {
-            Debug.Log("- " + ingredient);
-        }*/
-
-        // przeniesienie do kolejki odbioru
-        AddToPickupQueue(client);
     }
     
     
     
     public void ServeNextClient()
     {
-        // pobierz pierwszego klienta z kolejki odbioru
-        ClientController client = GetFirstPickupClient();
+        ClientController client = MoveFirstClientFromQueue(pickupQueue);
 
         if (client == null)
         {
             Debug.Log("Brak klientów do obsługi");
             return;
         }
-
-        // wywołujemy tackę
         
-        //tray.Serve(client);
-        servingBasket.Serve(client);
         RemoveClient(client);
+        AddOrderToBasket();
     }
 }

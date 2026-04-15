@@ -23,5 +23,10 @@ public class GameManager : MonoBehaviour
         {
             queueManager.ServeNextClient();
         }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            queueManager.AddOrderToBasket();
+        }
     }
 }

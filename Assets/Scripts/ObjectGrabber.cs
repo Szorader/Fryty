@@ -82,6 +82,23 @@ public class ObjectGrabberLoose : MonoBehaviour
         // dodaj siłę w miejscu złapania (KLUCZ!)
         grabbedObject.AddForceAtPosition(force + dampingForce, worldGrabPoint);
     }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.forward * grabDistance;
+
+        Gizmos.DrawLine(origin, origin + direction);
+        Gizmos.DrawWireSphere(origin + direction, 0.2f);
+
+        // hold point
+        if (Application.isPlaying && holdPoint != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(holdPoint.position, 0.2f);
+        }
+    }
 }
 
 /*using UnityEngine;

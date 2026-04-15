@@ -18,6 +18,8 @@ public class BasketInteraction : MonoBehaviour
     public GameObject pepperShaker;
 
     public GameObject bell;
+    
+    public QueueManager queueManager;
 
     private void Update()
     {
@@ -78,6 +80,7 @@ public class BasketInteraction : MonoBehaviour
         );
 
         Debug.Log("TIP: " + tip);
+        queueManager.ServeNextClient();
     }
 
     private void ResetBasket()

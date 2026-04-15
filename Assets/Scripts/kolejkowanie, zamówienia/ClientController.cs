@@ -3,13 +3,21 @@ using UnityEngine.AI;
 
 public class ClientController : MonoBehaviour
 {
-    public Client clientData;
+    //bad client and skin
+    public ClientData clientData;
+    
+    public CustomerOrder customerOrder;
+    public CustomerWaitingTime waitingTime;
+    public CustomerSatisfaction satisfaction;
     
     private NavMeshAgent agent;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        customerOrder = GetComponent<CustomerOrder>();
+        waitingTime = GetComponent<CustomerWaitingTime>();
+        satisfaction = GetComponent<CustomerSatisfaction>();
     }
     void Update()
     {
@@ -28,9 +36,15 @@ public class ClientController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
     }
 
-    public void SetClient(Client client)
+    public void SetClient(ClientData client)
     {
         clientData = client;
+
+        if (clientData.isBadClient)
+        {
+            
+            // bad client mechanics
+        }
     }
 
     public void MoveTo(Vector3 position)
