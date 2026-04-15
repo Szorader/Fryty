@@ -19,6 +19,8 @@ public class QueueManager : MonoBehaviour
 
     public BasketInteraction basket;
     
+    public SpawnManager spawnManager;
+    
 
     //queuing customers
     private void UpdateQueuePosition(Queue<ClientController> queue, Vector3 startPosition)
@@ -115,6 +117,7 @@ public class QueueManager : MonoBehaviour
             return;
         }
         AddToQueue(client, pickupQueue);
+        //spawnManager.currentClients--;
 
     }
     
