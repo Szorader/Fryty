@@ -10,7 +10,11 @@ public class ClientController : MonoBehaviour
     public CustomerWaitingTime waitingTime;
     public CustomerSatisfaction satisfaction;
     
+
+    
     private NavMeshAgent agent;
+    
+    
 
     void Awake()
     {
@@ -19,6 +23,8 @@ public class ClientController : MonoBehaviour
         waitingTime = GetComponent<CustomerWaitingTime>();
         satisfaction = GetComponent<CustomerSatisfaction>();
     }
+    
+    
     void Update()
     {
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
@@ -30,15 +36,19 @@ public class ClientController : MonoBehaviour
         }
     }
     
+    
+    
     void RotateTowardsZ()
     {
         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
     }
 
-    public void SetClient(ClientData client)
+    public void SetClient(ClientData client, string name)
     {
         clientData = client;
+        customerOrder.clientName = name;
+        Debug.Log("Client name: " + name);
 
         if (clientData.isBadClient)
         {

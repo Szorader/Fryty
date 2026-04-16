@@ -52,4 +52,14 @@ public class ClientInteraction : MonoBehaviour, IInteractable
                 promptText.text = "E - Pick Up Order";
         }
     }
+    public string GetPrompt()
+    {
+        if (_canTakeOrder)
+            return "E - Take order";
+
+        if (_canPickOrder)
+            return "E - Pick up order";
+
+        return "";
+    }
 }

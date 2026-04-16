@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // spawn klienta
-        if (Input.GetKeyDown(KeyCode.Z))
+        /*if (Input.GetKeyDown(KeyCode.Z))
         {
             spawnManager.SpawnClient();
-        }
+        }*/
 
         // przyjęcie zamówienia
         if (Input.GetKeyDown(KeyCode.X))
@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
             queueManager.ServeNextClient();
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
+       /* if (Input.GetKeyDown(KeyCode.V))
         {
             queueManager.AddOrderToBasket();
-        }
+        }*/
     }
 }

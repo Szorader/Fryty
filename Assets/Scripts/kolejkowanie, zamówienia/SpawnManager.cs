@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -20,8 +20,8 @@ public class SpawnManager : MonoBehaviour
        
         queueManager.AddToQueue(controller, queueManager.orderQueue);
     }
-}
-/*
+}*/
+
 using System.Collections;
 using UnityEngine;
 
@@ -30,15 +30,18 @@ public class SpawnManager : MonoBehaviour
     public Transform spawnPoint;
 
     public ClientData[] clients;
+    public string[] clientNames;
 
     public QueueManager queueManager;
 
     [Header("Spawn Settings")]
-    public float minSpawnTime = 2f;
-    public float maxSpawnTime = 5f;
+    public float minSpawnTime = 0.5f;
+    public float maxSpawnTime = 1f;
 
     public int maxClients = 3;
-    private int currentClients = 0;
+    public int currentClients = 0;
+    public int clientsOfTheDay = 5;
+    public int clientsCount = 0;
 
     void Start()
     {
@@ -61,22 +64,22 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnClient()
     {
+        if (clientsCount == clientsOfTheDay)
+        {
+            Debug.Log("end day");
+            return;
+        }
         ClientData clientData = clients[Random.Range(0, clients.Length)];
+        string randomName = clientNames[Random.Range(0, clientNames.Length)];
         
         GameObject obj = Instantiate(clientData.clientPrefab, spawnPoint.position, Quaternion.identity);
         
         ClientController controller = obj.GetComponent<ClientController>();
-        controller.SetClient(clientData);
+        controller.SetClient(clientData, randomName);
 
         queueManager.AddToQueue(controller, queueManager.orderQueue);
 
         currentClients++;
-    }
-
-    // TO MUSI BYĆ wywołane gdy klient odejdzie
-    public void ClientLeft()
-    {
-        currentClients--;
+        clientsCount++;
     }
 }
-*/

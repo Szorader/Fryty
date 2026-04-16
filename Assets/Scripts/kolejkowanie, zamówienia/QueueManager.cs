@@ -83,6 +83,8 @@ public class QueueManager : MonoBehaviour
 
     public void AddOrderToBasket()
     {
+        if (pickupQueue.Count == 0)
+            return;
         ClientController client = pickupQueue.Peek();
         basket.currentCustomer = client.customerOrder;
         basket.waitingTime = client.waitingTime;
@@ -117,7 +119,7 @@ public class QueueManager : MonoBehaviour
             return;
         }
         AddToQueue(client, pickupQueue);
-        //spawnManager.currentClients--;
+        spawnManager.currentClients--;
 
     }
     

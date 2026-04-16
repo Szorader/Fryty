@@ -1,45 +1,4 @@
-/*using System;
-using Unity.VisualScripting;
-using UnityEngine;
 
-public class Interactor : MonoBehaviour
-{
-    public float castDistance = 3f;
-    public Vector3 raycastOffset = new Vector3(0f, 1f, 0f);
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            if (DoInteractionTest(out IInteractable interactable))
-            {
-                if (interactable.CanInteract())
-                {
-                    interactable.Interact(this);
-                }
-            }
-        }
-    }
-
-    private bool DoInteractionTest(out IInteractable interactable)
-    {
-        interactable = null;
-
-        Ray ray = new Ray(transform.position + raycastOffset, transform.forward);
-
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, castDistance))
-        {
-            interactable = hitInfo.collider.GetComponent<IInteractable>();
-
-            if (interactable != null)
-            {
-                return true;
-            }
-            return false;
-        }
-        return false;
-    }
-}*/
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -91,7 +50,7 @@ public class Interactor : MonoBehaviour
             currentInteractable = null;
         }
     }
-    private void ShowCurrent()
+    /*private void ShowCurrent()
     {
         if (currentInteractable is MonoBehaviour mb)
         {
@@ -109,6 +68,18 @@ public class Interactor : MonoBehaviour
             if (prompt != null)
                 prompt.enabled = false;
         }
+    }*/
+    private void ShowCurrent()
+    {
+        if (currentInteractable != null)
+        {
+            InteractionUIManager.Instance.Show(currentInteractable.GetPrompt());
+        }
+    }
+
+    private void HideCurrent()
+    {
+        InteractionUIManager.Instance.Hide();
     }
 
     private bool DoInteractionTest(out IInteractable interactable)
