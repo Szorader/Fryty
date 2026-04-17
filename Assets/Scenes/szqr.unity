@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 44072654}
   - component: {fileID: 44072653}
   - component: {fileID: 44072652}
+  - component: {fileID: 44072655}
   m_Layer: 0
   m_Name: kosz (2)
   m_TagString: Untagged
@@ -292,6 +293,21 @@ MonoBehaviour:
   friesPrefab: {fileID: 5522081197073233269, guid: 86de205bbf5ad144aa912938eabea88e, type: 3}
   shootForce: 5
   shootDirection: {x: 0, y: -50, z: -50}
+  hasFries: 0
+  returning: 0
+--- !u!114 &44072655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44072650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c35c5439b967fb4395692be8530d35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FriesBasketInteraction
+  prompt: LMB - Lift up basket
 --- !u!1 &49797356
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +953,7 @@ GameObject:
   - component: {fileID: 301840849}
   - component: {fileID: 301840848}
   - component: {fileID: 301840851}
+  - component: {fileID: 301840852}
   m_Layer: 0
   m_Name: f_saucebottle_01
   m_TagString: Souce
@@ -1037,6 +1054,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0956562, y: 1.0956557, z: 3.547975}
   m_Center: {x: 0.0000020032269, y: -0.0000019923568, z: 1.7739887}
+--- !u!114 &301840852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301840847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Add Ketchup
 --- !u!1 &304073638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1595,7 @@ GameObject:
   - component: {fileID: 462063040}
   - component: {fileID: 462063039}
   - component: {fileID: 462063042}
+  - component: {fileID: 462063043}
   m_Layer: 0
   m_Name: f_saucebottle_03
   m_TagString: Souce
@@ -1665,6 +1696,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0956559, y: 1.0956559, z: 3.547975}
   m_Center: {x: 0.0000010210201, y: -0.0000019655577, z: 1.7739882}
+--- !u!114 &462063043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462063038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Add Mayo Sauce
 --- !u!1001 &485717568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1969,7 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a5ab410670d7c4f8e87239185af779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionUIManager
-  root: {fileID: 674556289}
+  root: {fileID: 875617840}
   actionText: {fileID: 674556291}
 --- !u!1 &589523514 stripped
 GameObject:
@@ -2136,17 +2180,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674556289}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1395933598}
+  m_Father: {fileID: 875617841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -960, y: -540}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &674556291
 MonoBehaviour:
@@ -2195,8 +2239,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2308,6 +2352,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2620174515541746847, guid: da44371ca0051e54489af8e173f8b542, type: 3}
   m_PrefabInstance: {fileID: 4743304997296222676}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &772962173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3393297918257921573, guid: da44371ca0051e54489af8e173f8b542, type: 3}
+  m_PrefabInstance: {fileID: 4743304997296222676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &772962174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772962173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Give order
+--- !u!65 &772962175
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772962173}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.67, y: 0.43, z: 0.67}
+  m_Center: {x: 0, y: 0.21, z: 0}
 --- !u!1 &779018933 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5104dcb6b9252ff4e80e856700bdce71, type: 3}
@@ -2458,6 +2541,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.100001246, y: 0.24144971, z: 0.100001246}
   m_Center: {x: 0, y: -0.0031921268, z: 0}
+--- !u!114 &861019156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861019153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Add Paper
 --- !u!1 &870316074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 313597575348130596, guid: 262f953162ba9e841a41c3cf430274e3, type: 3}
@@ -2484,6 +2580,82 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09403518, y: 0.0009381045, z: 0.027263412}
   m_Center: {x: 0, y: -1.6007104e-10, z: 9.313224e-10}
+--- !u!1 &875617840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875617841}
+  - component: {fileID: 875617843}
+  - component: {fileID: 875617842}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &875617841
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875617840}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 674556290}
+  m_Father: {fileID: 1395933598}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200, y: 50}
+  m_SizeDelta: {x: 400, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &875617842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875617840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.18431373}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &875617843
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875617840}
+  m_CullTransparentMesh: 1
 --- !u!1 &875941108
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,6 +2714,7 @@ GameObject:
   - component: {fileID: 880229558}
   - component: {fileID: 880229557}
   - component: {fileID: 880229556}
+  - component: {fileID: 880229559}
   m_Layer: 0
   m_Name: kosz (1)
   m_TagString: Untagged
@@ -2642,6 +2815,21 @@ MonoBehaviour:
   friesPrefab: {fileID: 5522081197073233269, guid: 86de205bbf5ad144aa912938eabea88e, type: 3}
   shootForce: 5
   shootDirection: {x: 0, y: -50, z: -50}
+  hasFries: 0
+  returning: 0
+--- !u!114 &880229559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880229554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c35c5439b967fb4395692be8530d35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasketInteraction
+  prompt: LMB - Lift up basket
 --- !u!1001 &887716816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3576,6 +3764,7 @@ GameObject:
   - component: {fileID: 1239555083}
   - component: {fileID: 1239555082}
   - component: {fileID: 1239555085}
+  - component: {fileID: 1239555086}
   m_Layer: 0
   m_Name: kosz
   m_TagString: Untagged
@@ -3655,6 +3844,8 @@ MonoBehaviour:
   friesPrefab: {fileID: 5522081197073233269, guid: 86de205bbf5ad144aa912938eabea88e, type: 3}
   shootForce: 5
   shootDirection: {x: 0, y: -50, z: -50}
+  hasFries: 0
+  returning: 0
 --- !u!65 &1239555085
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3676,6 +3867,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.22655034, y: 0.09295785, z: 0.2527083}
   m_Center: {x: 0, y: 0.23917015, z: -0.7384575}
+--- !u!114 &1239555086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239555080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c35c5439b967fb4395692be8530d35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FriesBasketInteraction
+  prompt: LMB - Lift up basket
 --- !u!1 &1248959496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5104dcb6b9252ff4e80e856700bdce71, type: 3}
@@ -3912,6 +4116,7 @@ GameObject:
   - component: {fileID: 1361303885}
   - component: {fileID: 1361303884}
   - component: {fileID: 1361303883}
+  - component: {fileID: 1361303887}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3928,7 +4133,7 @@ Transform:
   m_GameObject: {fileID: 1361303881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0322, y: 0.18850008, z: 0.0108}
+  m_LocalPosition: {x: 0.035, y: 0.18850008, z: 0.0108}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4025,6 +4230,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361303881}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1361303887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361303881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6f8427c70d4ec49be7d9f9ff9e193c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutterInteraction
+  prompt: LMB - Make Straight Fries
 --- !u!1 &1391400256 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ec9e505338264644aa8175927dd31869, type: 3}
@@ -4131,7 +4349,7 @@ RectTransform:
   m_Children:
   - {fileID: 1821788113}
   - {fileID: 1086479914}
-  - {fileID: 674556290}
+  - {fileID: 875617841}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4305,6 +4523,7 @@ GameObject:
   - component: {fileID: 1485574250}
   - component: {fileID: 1485574249}
   - component: {fileID: 1485574248}
+  - component: {fileID: 1485574252}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -4418,6 +4637,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485574246}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1485574252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485574246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6f8427c70d4ec49be7d9f9ff9e193c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutterInteraction
+  prompt: LMB - Make Wedges Fries
 --- !u!1001 &1505160187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4702,6 +4934,8 @@ GameObject:
   - component: {fileID: 1649096457}
   - component: {fileID: 1649096456}
   - component: {fileID: 1649096455}
+  - component: {fileID: 1649096458}
+  - component: {fileID: 1649096459}
   m_Layer: 0
   m_Name: f_saucecontainer_empty
   m_TagString: Untagged
@@ -4781,6 +5015,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1798503581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1649096458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649096454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Reset Sauce
+--- !u!65 &1649096459
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649096454}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1660783, y: 2.05, z: 0.84275734}
+  m_Center: {x: -0.000000073943596, y: 0, z: 0.19}
 --- !u!1 &1689281933
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,6 +5212,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.100001246, y: 0.24144971, z: 0.100001246}
   m_Center: {x: 0, y: -0.0031921268, z: 0}
+--- !u!114 &1718046081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718046078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Add Salt
 --- !u!1 &1722365281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,6 +5238,7 @@ GameObject:
   - component: {fileID: 1722365285}
   - component: {fileID: 1722365284}
   - component: {fileID: 1722365283}
+  - component: {fileID: 1722365287}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -5070,6 +5352,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722365281}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1722365287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722365281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6f8427c70d4ec49be7d9f9ff9e193c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutterInteraction
+  prompt: LMB - Make Crinkle Fries
 --- !u!1 &1726122179
 GameObject:
   m_ObjectHideFlags: 0
@@ -5321,6 +5616,7 @@ GameObject:
   - component: {fileID: 1936323953}
   - component: {fileID: 1936323952}
   - component: {fileID: 1936323955}
+  - component: {fileID: 1936323956}
   m_Layer: 0
   m_Name: f_saucebottle_02
   m_TagString: Souce
@@ -5421,6 +5717,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0956562, y: 1.0956564, z: 3.547976}
   m_Center: {x: 0.15586773, y: 0.06456271, z: 1.7739872}
+--- !u!114 &1936323956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936323951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Add Cheese Sauce
 --- !u!1001 &1960496660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6092,6 +6401,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3780463357584659826, guid: 5e94b9d98ce6e034292e95d540c3e865, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1718046081}
+    - targetCorrespondingSourceObject: {fileID: 3780463357584659826, guid: 5e94b9d98ce6e034292e95d540c3e865, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1718046080}
   m_SourcePrefab: {fileID: 100100000, guid: 5e94b9d98ce6e034292e95d540c3e865, type: 3}
 --- !u!1001 &1165254083436683268
@@ -6150,6 +6462,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8901868791858756519, guid: 1dba9b1ebc3de58419265021b9e1eca8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 861019156}
     - targetCorrespondingSourceObject: {fileID: 8901868791858756519, guid: 1dba9b1ebc3de58419265021b9e1eca8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 861019155}
@@ -6531,6 +6846,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3393297918257921573, guid: da44371ca0051e54489af8e173f8b542, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 772962174}
+    - targetCorrespondingSourceObject: {fileID: 3393297918257921573, guid: da44371ca0051e54489af8e173f8b542, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 772962175}
     - targetCorrespondingSourceObject: {fileID: 9102664583935485085, guid: da44371ca0051e54489af8e173f8b542, type: 3}
       insertIndex: -1
       addedObject: {fileID: 298686173}
@@ -6629,6 +6950,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1233792314437409346, guid: 600431da4ee998841be3febbc4203045, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
       propertyPath: prefabToSpawn
       value: 
@@ -6640,6 +6965,10 @@ PrefabInstance:
     - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
       propertyPath: spawnOffset.z
       value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041905839455573179, guid: 600431da4ee998841be3febbc4203045, type: 3}
+      propertyPath: prompt
+      value: LMB - Take potato
       objectReference: {fileID: 0}
     - target: {fileID: 4910642292634935552, guid: 600431da4ee998841be3febbc4203045, type: 3}
       propertyPath: m_Name
@@ -6718,7 +7047,8 @@ PrefabInstance:
       value: 1.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1233792314437409346, guid: 600431da4ee998841be3febbc4203045, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 600431da4ee998841be3febbc4203045, type: 3}

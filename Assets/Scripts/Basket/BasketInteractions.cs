@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BasketInteraction : MonoBehaviour
+public partial class BasketInteraction : MonoBehaviour
 {
     public BasketData basketData;
 

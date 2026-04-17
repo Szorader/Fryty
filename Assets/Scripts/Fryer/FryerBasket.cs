@@ -31,10 +31,10 @@ public class FryerSystem : MonoBehaviour
     public Vector3 shootDirection = Vector3.forward;
 
     private Vector3 startPos;
-    private bool hasFries;
+    public bool hasFries;
     private float cookTimer;
 
-    private bool returning;
+    public bool returning;
     private bool readyToShoot;
 
     private GameObject activeModel;
@@ -92,7 +92,7 @@ public class FryerSystem : MonoBehaviour
         fries.gameObject.SetActive(false);
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         if (!hasFries) return;
 

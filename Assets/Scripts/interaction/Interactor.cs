@@ -29,6 +29,38 @@ public class Interactor : MonoBehaviour
     {
         if (DoInteractionTest(out IInteractable interactable))
         {
+            bool canInteract = interactable.CanInteract();
+
+            if (interactable != currentInteractable)
+            {
+                HideCurrent();
+                currentInteractable = interactable;
+            }
+
+            if (canInteract)
+            {
+                ShowCurrent();
+            }
+            else
+            {
+                HideCurrent();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E) && canInteract)
+            {
+                interactable.Interact(this);
+            }
+        }
+        else
+        {
+            HideCurrent();
+            currentInteractable = null;
+        }
+    }
+    /*private void Update()
+    {
+        if (DoInteractionTest(out IInteractable interactable))
+        {
             if (interactable != currentInteractable)
             {
                 HideCurrent();
@@ -49,7 +81,7 @@ public class Interactor : MonoBehaviour
             HideCurrent();
             currentInteractable = null;
         }
-    }
+    }*/
     /*private void ShowCurrent()
     {
         if (currentInteractable is MonoBehaviour mb)

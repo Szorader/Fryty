@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Interaction : MonoBehaviour, IInteractable
 {
+    public string prompt;
     public bool CanInteract()
     {
         return true;
@@ -14,6 +15,6 @@ public class Interaction : MonoBehaviour, IInteractable
     
     public string GetPrompt()
     {
-        return "E - Interact";
+        return prompt;
     }
 }

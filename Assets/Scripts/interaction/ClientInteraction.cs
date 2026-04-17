@@ -9,13 +9,12 @@ public class ClientInteraction : MonoBehaviour, IInteractable
     private bool _canTakeOrder = true;
     private bool _canPickOrder = false;
     
-    public TMP_Text promptText;
 
     private void Start()
     {
         queueManager = FindObjectOfType<QueueManager>();
         
-        UpdatePrompt();
+        //UpdatePrompt();
     }
     
 
@@ -31,7 +30,7 @@ public class ClientInteraction : MonoBehaviour, IInteractable
             queueManager.TakeOrder();
             _canTakeOrder = false;
             _canPickOrder = true;
-            UpdatePrompt();
+            //UpdatePrompt();
         }
 
         else if (_canPickOrder)
@@ -42,7 +41,7 @@ public class ClientInteraction : MonoBehaviour, IInteractable
         return true;
     }
 
-    private void UpdatePrompt()
+    /*private void UpdatePrompt()
     {
         if (promptText != null)
         {
@@ -51,14 +50,14 @@ public class ClientInteraction : MonoBehaviour, IInteractable
             if (_canPickOrder)
                 promptText.text = "E - Pick Up Order";
         }
-    }
+    }*/
     public string GetPrompt()
     {
         if (_canTakeOrder)
             return "E - Take order";
 
         if (_canPickOrder)
-            return "E - Pick up order";
+            return "E - Give order";
 
         return "";
     }
