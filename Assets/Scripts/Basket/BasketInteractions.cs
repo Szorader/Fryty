@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public partial class BasketInteraction : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public partial class BasketInteraction : MonoBehaviour
     public CustomerOrder currentCustomer;
     public CustomerWaitingTime waitingTime;
     public CustomerSatisfaction satisfaction;
+    public bool isBad;
 
     public GameObject ketchupBottle;
     public GameObject mayoBottle;
@@ -21,6 +23,14 @@ public partial class BasketInteraction : MonoBehaviour
     
     public QueueManager queueManager;
 
+    public float money = -5f;
+    public TMP_Text moneyText;
+
+
+    void Start()
+    {
+        UpdateMoney(0f);
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -80,9 +90,26 @@ public partial class BasketInteraction : MonoBehaviour
         );
 
         Debug.Log("TIP: " + tip);
+        UpdateMoney(tip);
+        
         queueManager.ServeNextClient();
     }
 
+    public void UpdateMoney(float amount)
+    {
+        if (isBad)
+        {
+            money -= +  15 + amount;
+        }
+        else
+        {
+            money += +  5 + amount;
+        }
+            
+        
+        
+        moneyText.text = money.ToString();
+    }
     private void ResetBasket()
     {
         basketData.friesType = OrderDatabase.FriesType.None;

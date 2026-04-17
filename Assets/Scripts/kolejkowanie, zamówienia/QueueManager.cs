@@ -21,7 +21,22 @@ public class QueueManager : MonoBehaviour
     
     public SpawnManager spawnManager;
     
+    private int countClients = 0;
+    
+    public DayManager dayManager;
 
+
+    private void Update()
+    {
+        if (countClients == spawnManager.clientsOfTheDay)
+        {
+            dayManager.EndDay();
+        }
+        
+    }
+
+    
+    
     //queuing customers
     private void UpdateQueuePosition(Queue<ClientController> queue, Vector3 startPosition)
     {
@@ -89,6 +104,7 @@ public class QueueManager : MonoBehaviour
         basket.currentCustomer = client.customerOrder;
         basket.waitingTime = client.waitingTime;
         basket.satisfaction = client.satisfaction;
+        basket.isBad = client.clientData.isBadClient;
     }
     
     public void RemoveClient(ClientController client)
@@ -106,6 +122,7 @@ public class QueueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Destroy(client.gameObject);
+        countClients++;
     }
     
     public void TakeOrder()

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee01a0b7590ae2c45b59ec1a93314403, type: 3}
-  m_Name: Client
+  m_Name: Client 5
   m_EditorClassIdentifier: Assembly-CSharp::ClientData
-  clientPrefab: {fileID: 3985199123080650719, guid: f7f8e0b8d8bc8a246b13c11e9a213408, type: 3}
-  isBadClient: 1
+  clientPrefab: {fileID: 3985199123080650719, guid: 56526ad92d086c44ba4a55cded0d430c, type: 3}
+  isBadClient: 0

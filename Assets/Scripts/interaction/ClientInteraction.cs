@@ -20,6 +20,8 @@ public class ClientInteraction : MonoBehaviour, IInteractable
 
     public bool CanInteract()
     {
+        if (_canPickOrder)
+            return false;
             return true;
     }
 
@@ -33,11 +35,11 @@ public class ClientInteraction : MonoBehaviour, IInteractable
             //UpdatePrompt();
         }
 
-        else if (_canPickOrder)
+       /* else if (_canPickOrder)
         {
             queueManager.ServeNextClient();
             _canPickOrder = false;
-        }
+        }*/
         return true;
     }
 
@@ -56,9 +58,9 @@ public class ClientInteraction : MonoBehaviour, IInteractable
         if (_canTakeOrder)
             return "E - Take order";
 
-        if (_canPickOrder)
-            return "E - Give order";
+        /*if (_canPickOrder)
+            return "E - Give order";*/
 
-        return "";
+        return null;
     }
 }
