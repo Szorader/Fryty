@@ -1050,10 +1050,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cutter
   requiredTag: Potato
-  prefabToSpawn: {fileID: 9097476007991831138, guid: c2542dce92a345949874d84eb0760f0f, type: 3}
+  friesPrefab: {fileID: 0}
+  outputPoint: {fileID: 0}
   spawnDelay: 2
-  spawnOffset: {x: -0.5, y: 0.2, z: 0}
   force: 2
+  hasPotatoLoaded: 0
+  isProcessing: 0
 --- !u!1 &692043392
 GameObject:
   m_ObjectHideFlags: 0
