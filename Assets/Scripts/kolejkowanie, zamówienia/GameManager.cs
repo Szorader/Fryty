@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         }*/
 
         // przyjęcie zamówienia
-        if (Input.GetKeyDown(KeyCode.X))
+        /*if (Input.GetKeyDown(KeyCode.X))
         {
             queueManager.TakeOrder();
         }
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         {
             queueManager.ServeNextClient();
         }
-
+*/
        /* if (Input.GetKeyDown(KeyCode.V))
         {
             queueManager.AddOrderToBasket();

@@ -46,7 +46,10 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         {
             Debug.Log("Udane! Zabiłeś złego klienta");
             queueManager.dayManager.GoodClient();
-            queueManager.basket.UpdateMoney(15f);
+            
+            queueManager.basket.UpdateMoneyKill(20f);
+            
+            
         }
         else
         {

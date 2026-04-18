@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -105,8 +107,13 @@ public partial class BasketInteraction : MonoBehaviour
         {
             money += +  5 + amount;
         }
-            
         
+        moneyText.text = money.ToString();
+    }
+    
+    public void UpdateMoneyKill(float amount)
+    {
+        money += amount;
         
         moneyText.text = money.ToString();
     }
