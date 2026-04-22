@@ -4,10 +4,11 @@ public class CutterInteraction : MonoBehaviour, IInteractable
 {
     public string prompt;
     private Cutter cutter;
-
+    
     void Start()
     {
         cutter = GetComponentInParent<Cutter>();
+        
     }
     public bool CanInteract()
     {
@@ -16,6 +17,7 @@ public class CutterInteraction : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
+        
         //return true;
         return false;
     }

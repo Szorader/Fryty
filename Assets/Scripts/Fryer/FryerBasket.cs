@@ -38,11 +38,15 @@ public class FryerSystem : MonoBehaviour
     private bool readyToShoot;
 
     private GameObject activeModel;
+    
+    private TutorialManager tutorialManager;
+    private bool tutorialActive = true;
 
     private void Awake()
     {
         startPos = transform.localPosition;
         RefreshVisuals();
+        tutorialManager = FindObjectOfType<TutorialManager>();
     }
 
     private void Update()
@@ -144,6 +148,12 @@ public class FryerSystem : MonoBehaviour
             Quaternion.identity
         );
 
+        if (tutorialActive && tutorialManager.tutorialStep == 3)
+        {
+            tutorialManager.NextStep();
+            tutorialActive = false;
+        }
+        
         FriesData data = obj.GetComponent<FriesData>();
         if (data)
         {

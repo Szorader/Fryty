@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,8 +15,16 @@ public class ClickToSpawn : MonoBehaviour
 
     [Header("Limit obiektów")]
     public int maxObjects = 5;
+    
+    private TutorialManager tutorialManager;
+    private bool tutorialActive = true;
 
     private static List<GameObject> spawnedObjects = new List<GameObject>();
+
+    private void Start()
+    {
+        tutorialManager = FindObjectOfType<TutorialManager>();
+    }
 
     void OnMouseDown()
     {
@@ -45,6 +54,12 @@ public class ClickToSpawn : MonoBehaviour
         GameObject spawned = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
         spawnedObjects.Add(spawned);
 
+        if (tutorialActive && tutorialManager.tutorialStep == 1)
+        {
+            tutorialManager.NextStep();
+            tutorialActive = false;
+        }
+        
         Rigidbody rb = spawned.GetComponent<Rigidbody>();
         if (rb != null)
         {

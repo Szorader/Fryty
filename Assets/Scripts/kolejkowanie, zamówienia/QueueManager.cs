@@ -25,6 +25,12 @@ public class QueueManager : MonoBehaviour
     
     public DayManager dayManager;
 
+    private TutorialManager tutorialManager;
+    private bool tutorialActive = true;
+    private void Start()
+    {
+        tutorialManager = FindObjectOfType<TutorialManager>();
+    }
 
     private void Update()
     {
@@ -105,6 +111,11 @@ public class QueueManager : MonoBehaviour
         basket.waitingTime = client.waitingTime;
         basket.satisfaction = client.satisfaction;
         basket.isBad = client.clientData.isBadClient;
+        if (tutorialActive && tutorialManager.tutorialStep == 0)
+        {
+            tutorialManager.NextStep();
+            tutorialActive = false;
+        }
     }
     
     public void RemoveClient(ClientController client)
@@ -135,6 +146,7 @@ public class QueueManager : MonoBehaviour
             Debug.Log("Brak klientów");
             return;
         }
+        
         AddToQueue(client, pickupQueue);
         spawnManager.currentClients--;
 

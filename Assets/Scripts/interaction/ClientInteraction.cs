@@ -8,12 +8,10 @@ public class ClientInteraction : MonoBehaviour, IInteractable
     
     private bool _canTakeOrder = true;
     private bool _canPickOrder = false;
-    
 
     private void Start()
     {
         queueManager = FindObjectOfType<QueueManager>();
-        
         //UpdatePrompt();
     }
     

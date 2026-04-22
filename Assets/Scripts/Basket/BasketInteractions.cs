@@ -28,10 +28,14 @@ public partial class BasketInteraction : MonoBehaviour
     public float money = -5f;
     public TMP_Text moneyText;
 
+    private TutorialManager tutorialManager;
+    public bool tutorialActive = true;
+    public bool tutorialActive2 = true;
 
     void Start()
     {
         UpdateMoney(0f);
+        tutorialManager = FindObjectOfType<TutorialManager>();
     }
     private void Update()
     {
@@ -49,26 +53,58 @@ public partial class BasketInteraction : MonoBehaviour
     private void HandleClick(GameObject clicked)
     {
         if (!basketData) return;
-
-        if (clicked == ketchupBottle) TrySetSauce(OrderDatabase.SauceType.Ketchup);
-        else if (clicked == mayoBottle) TrySetSauce(OrderDatabase.SauceType.Mayo);
-        else if (clicked == cheeseBottle) TrySetSauce(OrderDatabase.SauceType.Cheese);
+        if (clicked == ketchupBottle)
+        {
+            TrySetSauce(OrderDatabase.SauceType.Ketchup);
+            Check();
+        }
+        else if (clicked == mayoBottle)
+        {
+            TrySetSauce(OrderDatabase.SauceType.Mayo);
+            Check();
+        }
+        else if (clicked == cheeseBottle)
+        {
+            TrySetSauce(OrderDatabase.SauceType.Cheese);
+            Check();
+        }
         else if (clicked == emptySauceBox) TrySetSauce(OrderDatabase.SauceType.None, true);
 
-        else if (clicked == saltShaker) TrySetSeasoning(OrderDatabase.SeasoningType.Salt);
-        else if (clicked == pepperShaker) TrySetSeasoning(OrderDatabase.SeasoningType.Pepper);
+        else if (clicked == saltShaker)
+        {
+            TrySetSeasoning(OrderDatabase.SeasoningType.Salt);
+            Check();
+        }
+        else if (clicked == pepperShaker)
+        {
+            TrySetSeasoning(OrderDatabase.SeasoningType.Pepper);
+            Check();
+        }
 
         else if (clicked == bell)
         {
+            if (tutorialActive2 && tutorialManager.tutorialStep == 5)
+            {
+                tutorialManager.NextStep();
+                tutorialActive2 = false;
+            }
             CheckOrder();
             ResetBasket();
         }
     }
 
+    private void Check()
+    {
+        if  (tutorialActive && tutorialManager.tutorialStep == 4)
+        {
+            tutorialManager.NextStep();
+            tutorialActive = false;
+        }
+    }
     private void TrySetSauce(OrderDatabase.SauceType newSauce, bool force = false)
     {
         if (basketData.sauceType != OrderDatabase.SauceType.None && !force) return;
-
+        
         basketData.sauceType = newSauce;
         basketData.RefreshVisuals();
     }
@@ -76,7 +112,7 @@ public partial class BasketInteraction : MonoBehaviour
     private void TrySetSeasoning(OrderDatabase.SeasoningType newSeasoning)
     {
         if (basketData.seasoningType != OrderDatabase.SeasoningType.None) return;
-
+        
         basketData.seasoningType = newSeasoning;
         basketData.RefreshVisuals();
     }
@@ -95,6 +131,8 @@ public partial class BasketInteraction : MonoBehaviour
         UpdateMoney(tip);
         
         queueManager.ServeNextClient();
+        
+        
     }
 
     public void UpdateMoney(float amount)

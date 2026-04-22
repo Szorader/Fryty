@@ -19,10 +19,17 @@ public class Cutter : MonoBehaviour
     [Header("STATE")]
     public bool hasPotatoLoaded = false;
     public bool isProcessing = false;
+    
+    private TutorialManager tutorialManager;
+    private bool tutorialActive = true;
 
     private bool canProcess => hasPotatoLoaded && !isProcessing;
 
     // WEJŚCIE ZIEMNIAKA
+    private void Start()
+    {
+        tutorialManager = FindObjectOfType<TutorialManager>();
+    }
     public void HandleTrigger(Collider other)
     {
         if (hasPotatoLoaded) return;
@@ -57,6 +64,11 @@ public class Cutter : MonoBehaviour
         Vector3 spawnPosition = outputPoint ? outputPoint.position : transform.position;
 
         GameObject spawned = Instantiate(friesPrefab, spawnPosition, Quaternion.identity);
+        if (tutorialActive && tutorialManager.tutorialStep == 2)
+        {
+            tutorialManager.NextStep();
+            tutorialActive = false;
+        }
 
         FriesData friesData = spawned.GetComponent<FriesData>();
         if (friesData != null)
