@@ -1305,6 +1305,7 @@ MonoBehaviour:
   spaceBetweenClients: 1.5
   basket: {fileID: 646393812}
   spawnManager: {fileID: 2075859384}
+  dayManager: {fileID: 0}
 --- !u!4 &304073640
 Transform:
   m_ObjectHideFlags: 0
@@ -2388,6 +2389,7 @@ MonoBehaviour:
   currentCustomer: {fileID: 0}
   waitingTime: {fileID: 0}
   satisfaction: {fileID: 0}
+  isBad: 0
   ketchupBottle: {fileID: 301840847}
   mayoBottle: {fileID: 462063038}
   cheeseBottle: {fileID: 1936323951}
@@ -2396,6 +2398,8 @@ MonoBehaviour:
   pepperShaker: {fileID: 861019153}
   bell: {fileID: 298686169}
   queueManager: {fileID: 304073639}
+  money: -5
+  moneyText: {fileID: 0}
 --- !u!114 &646393813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6033,6 +6037,7 @@ Transform:
   - {fileID: 304073640}
   - {fileID: 875941109}
   - {fileID: 584621501}
+  - {fileID: 2060686156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1798503580
@@ -6695,6 +6700,37 @@ MonoBehaviour:
   force: 5
   hasPotatoLoaded: 0
   isProcessing: 0
+--- !u!1 &2060686155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2060686156}
+  m_Layer: 0
+  m_Name: TutorialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2060686156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060686155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726122180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2062053824
 PrefabInstance:
   m_ObjectHideFlags: 0

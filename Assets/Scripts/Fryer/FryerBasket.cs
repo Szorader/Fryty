@@ -1,4 +1,7 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class FryerSystem : MonoBehaviour
 {
@@ -29,6 +32,12 @@ public class FryerSystem : MonoBehaviour
     public GameObject friesPrefab;
     public float shootForce = 5f;
     public Vector3 shootDirection = Vector3.forward;
+    
+    [Header("AUDIO")]
+    [SerializeField] private EventReference fryingLoopEvent;
+
+    private EventInstance fryingLoopInstance;
+    private bool isPlaying;
 
     private Vector3 startPos;
     public bool hasFries;
@@ -47,6 +56,10 @@ public class FryerSystem : MonoBehaviour
         startPos = transform.localPosition;
         RefreshVisuals();
         tutorialManager = FindObjectOfType<TutorialManager>();
+        
+        // audio 
+        fryingLoopInstance = RuntimeManager.CreateInstance(fryingLoopEvent);
+        fryingLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
     }
 
     private void Update()
@@ -55,6 +68,10 @@ public class FryerSystem : MonoBehaviour
 
         if (hasFries && !returning)
             HandleCooking();
+        
+        // Audio
+        HandleFryingSound(); 
+        fryingLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
     }
 
     private void HandleMovement()
@@ -226,5 +243,31 @@ public class FryerSystem : MonoBehaviour
 
         foreach (var r in activeModel.GetComponentsInChildren<Renderer>())
             r.sharedMaterial = mat;
+    }
+    
+    
+    // Audio
+    private void HandleFryingSound()
+    {
+        bool shouldPlay = hasFries && !returning;
+
+        if (shouldPlay && !isPlaying)
+        {
+            Debug.Log("START FRY SOUND");
+            fryingLoopInstance.start();
+            isPlaying = true;
+        }
+        else if (!shouldPlay && isPlaying)
+        {
+            Debug.Log("STOP FRY SOUND");
+            fryingLoopInstance.stop(STOP_MODE.ALLOWFADEOUT);
+            isPlaying = false;
+        }
+    }
+    // Audio cleanup
+    private void OnDestroy()
+    {
+        fryingLoopInstance.stop(STOP_MODE.IMMEDIATE);
+        fryingLoopInstance.release();
     }
 }
