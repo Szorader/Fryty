@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.239203
+      value: -0.683
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85012984
+      value: 3.702
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.480915
+      value: -1.495
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 19badda45f6bd6e40a889c29d06ca102, type: 2}
     - target: {fileID: 919132149155446097, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
       propertyPath: m_Name
       value: f_chain
@@ -59,6 +63,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4237644741657331732}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8554186212956886538}
   m_SourcePrefab: {fileID: 100100000, guid: 92d4310d75aa5ca478aeb1b22c036613, type: 3}
 --- !u!1 &9139929481600383178 stripped
 GameObject:
@@ -86,3 +93,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0007473896, y: 0.0007108098, z: 0.008501293}
   m_Center: {x: -6.9849193e-10, y: -6.1118044e-10, z: -0.0042506466}
+--- !u!114 &8554186212956886538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139929481600383178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc501158cea9354b81947a47ce666c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChainInteraction
+  prompt: E - Kill Agent from Pick Up Queue
+  queueManager: {fileID: 0}
+  queueType: 1

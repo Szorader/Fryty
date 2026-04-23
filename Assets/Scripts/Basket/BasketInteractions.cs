@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using FMODUnity;
 
 public partial class BasketInteraction : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public partial class BasketInteraction : MonoBehaviour
     private TutorialManager tutorialManager;
     public bool tutorialActive = true;
     public bool tutorialActive2 = true;
+    
+    [Header("AUDIO")]
+    [SerializeField] private EventReference shakerSound;
+    [SerializeField] private EventReference sauceSound;
 
     void Start()
     {
@@ -55,16 +60,25 @@ public partial class BasketInteraction : MonoBehaviour
         if (!basketData) return;
         if (clicked == ketchupBottle)
         {
+            //audio
+            RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+            
             TrySetSauce(OrderDatabase.SauceType.Ketchup);
             Check();
         }
         else if (clicked == mayoBottle)
         {
+            //audio
+            RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+            
             TrySetSauce(OrderDatabase.SauceType.Mayo);
             Check();
         }
         else if (clicked == cheeseBottle)
         {
+            //audio
+            RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+            
             TrySetSauce(OrderDatabase.SauceType.Cheese);
             Check();
         }
@@ -72,11 +86,17 @@ public partial class BasketInteraction : MonoBehaviour
 
         else if (clicked == saltShaker)
         {
+            // audio
+            RuntimeManager.PlayOneShot(shakerSound, clicked.transform.position);
+            
             TrySetSeasoning(OrderDatabase.SeasoningType.Salt);
             Check();
         }
         else if (clicked == pepperShaker)
         {
+            // audio
+            RuntimeManager.PlayOneShot(shakerSound, clicked.transform.position);
+            
             TrySetSeasoning(OrderDatabase.SeasoningType.Pepper);
             Check();
         }

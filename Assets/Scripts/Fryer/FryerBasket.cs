@@ -96,6 +96,8 @@ public class FryerSystem : MonoBehaviour
             cookTimer = 0f;
             cookLevel++;
             RefreshVisuals();
+            // audio
+            fryingLoopInstance.setParameterByName("CookLevel", cookLevel);
         }
     }
 

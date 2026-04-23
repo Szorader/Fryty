@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee01a0b7590ae2c45b59ec1a93314403, type: 3}
   m_Name: Client 3
   m_EditorClassIdentifier: Assembly-CSharp::ClientData
-  clientPrefab: {fileID: 3985199123080650719, guid: 11f675303e9d0b3408c7bd2a04793bdb, type: 3}
+  clientPrefab: {fileID: 3659599550833589333, guid: 577728abc1362fb4087857f6af8a083b, type: 3}
   isBadClient: 0

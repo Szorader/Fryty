@@ -12469,14 +12469,28 @@ MonoBehaviour:
   mayoBottle: {fileID: 462063038}
   cheeseBottle: {fileID: 1936323951}
   emptySauceBox: {fileID: 1798503580}
-  saltShaker: {fileID: 0}
-  pepperShaker: {fileID: 0}
+  saltShaker: {fileID: 975335745}
+  pepperShaker: {fileID: 664826723}
   bell: {fileID: 298686169}
   queueManager: {fileID: 304073639}
   money: -5
   moneyText: {fileID: 716351461}
   tutorialActive: 1
   tutorialActive2: 1
+  shakerSound:
+    Guid:
+      Data1: 2040815654
+      Data2: 1281586232
+      Data3: 2072039322
+      Data4: -1859601022
+    Path: event:/InsideTruck/salt-shaker
+  sauceSound:
+    Guid:
+      Data1: -1668646660
+      Data2: 1338119021
+      Data3: 1348845705
+      Data4: 259740229
+    Path: event:/InsideTruck/sauce-bottle
 --- !u!114 &646393813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12665,6 +12679,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 766965183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &664826723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9115876328204856695, guid: 1dba9b1ebc3de58419265021b9e1eca8, type: 3}
+  m_PrefabInstance: {fileID: 812221640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &673267330
 GameObject:
   m_ObjectHideFlags: 0
@@ -14183,6 +14202,11 @@ MonoBehaviour:
   fryer: {fileID: 561210171}
   order: {fileID: 1638311882}
   cashRegister: {fileID: 590386537}
+--- !u!1 &975335745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7565795753644289820, guid: 5e94b9d98ce6e034292e95d540c3e865, type: 3}
+  m_PrefabInstance: {fileID: 280869416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &976141679
 PrefabInstance:
   m_ObjectHideFlags: 0
