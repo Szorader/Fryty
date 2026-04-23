@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using FMODUnity;
+using FMOD.Studio;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class Cutter : MonoBehaviour
 {
@@ -19,6 +22,13 @@ public class Cutter : MonoBehaviour
     [Header("STATE")]
     public bool hasPotatoLoaded = false;
     public bool isProcessing = false;
+    
+    [Header("AUDIO")]
+    [SerializeField] private EventReference cutterLoopEvent;
+    [SerializeField] private EventReference buttonClickEvent;
+
+    private EventInstance cutterLoopInstance;
+    private EventInstance analogButtonClickInstance;
     
     private TutorialManager tutorialManager;
     private bool tutorialActive = true;
@@ -44,11 +54,21 @@ public class Cutter : MonoBehaviour
     // PRZYCISK
     public void PressButton(OrderDatabase.FriesType selectedType)
     {
+        // Start button click audio
+        RuntimeManager.PlayOneShot(buttonClickEvent, transform.position);
+        
         if (!canProcess)
         {
             Debug.Log("Cutter not ready.");
             return;
         }
+        
+        
+        
+        //Start cutter audio
+        cutterLoopInstance = RuntimeManager.CreateInstance(cutterLoopEvent);
+        cutterLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        cutterLoopInstance.start();
 
         StartCoroutine(ProcessAndSpawn(selectedType));
     }
@@ -69,6 +89,10 @@ public class Cutter : MonoBehaviour
             tutorialManager.NextStep();
             tutorialActive = false;
         }
+        
+        // Stop audio 
+        cutterLoopInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        cutterLoopInstance.release();
 
         FriesData friesData = spawned.GetComponent<FriesData>();
         if (friesData != null)
@@ -89,4 +113,11 @@ public class Cutter : MonoBehaviour
 
         Debug.Log("Ready.");
     }
+    
+    // Audio cleanup
+    private void OnDestroy()
+    {
+        cutterLoopInstance.stop(STOP_MODE.IMMEDIATE);
+        cutterLoopInstance.release();
+    } 
 }
