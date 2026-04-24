@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 44072653}
   - component: {fileID: 44072652}
   - component: {fileID: 44072655}
+  - component: {fileID: 44072656}
   m_Layer: 0
   m_Name: kosz (2)
   m_TagString: Untagged
@@ -292,7 +293,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -322,9 +323,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d407767368c627141abe8bf5195337e2, type: 2}
   downOffset: -0.0018
   moveSpeed: 3
-  cookInterval: 2
+  cookInterval: 10
   shootPoint: {fileID: 49797357}
-  friesPrefab: {fileID: 5522081197073233269, guid: 86de205bbf5ad144aa912938eabea88e, type: 3}
+  friesPrefab: {fileID: 2873838804995553459, guid: 9259965f14ac0b84a9ab96fa961b8a5b, type: 3}
   shootForce: 5
   shootDirection: {x: 0, y: -50, z: -50}
   fryingLoopEvent:
@@ -349,6 +350,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FriesBasketInteraction
   prompt: LMB - Lift the basket
+--- !u!65 &44072656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44072650}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4423802, y: 0.2986403, z: 0.69549364}
+  m_Center: {x: 0, y: 0.06, z: -0.33186987}
 --- !u!1 &49797356
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 49797356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: -0.4}
+  m_LocalPosition: {x: 0, y: 0.793, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -715,7 +737,7 @@ Transform:
   m_GameObject: {fileID: 198609504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: -0.4}
+  m_LocalPosition: {x: 0, y: 0.793, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14240,6 +14262,7 @@ GameObject:
   - component: {fileID: 880229557}
   - component: {fileID: 880229556}
   - component: {fileID: 880229559}
+  - component: {fileID: 880229560}
   m_Layer: 0
   m_Name: kosz (1)
   m_TagString: Untagged
@@ -14303,7 +14326,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -14333,9 +14356,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d407767368c627141abe8bf5195337e2, type: 2}
   downOffset: -0.0018
   moveSpeed: 3
-  cookInterval: 2
+  cookInterval: 10
   shootPoint: {fileID: 198609505}
-  friesPrefab: {fileID: 5522081197073233269, guid: 86de205bbf5ad144aa912938eabea88e, type: 3}
+  friesPrefab: {fileID: 2873838804995553459, guid: 9259965f14ac0b84a9ab96fa961b8a5b, type: 3}
   shootForce: 5
   shootDirection: {x: 0, y: -50, z: -50}
   fryingLoopEvent:
@@ -14360,6 +14383,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketInteraction
   prompt: LMB - Lift the basket
+--- !u!65 &880229560
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880229554}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4423802, y: 0.2986403, z: 0.69549364}
+  m_Center: {x: 0, y: 0.06, z: -0.33186987}
 --- !u!1 &896075499
 GameObject:
   m_ObjectHideFlags: 0
@@ -15088,7 +15132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cutter
   requiredTag: Potato
-  friesPrefab: {fileID: 5522081197073233269, guid: 86de205bbf5ad144aa912938eabea88e, type: 3}
+  friesPrefab: {fileID: 2873838804995553459, guid: 9259965f14ac0b84a9ab96fa961b8a5b, type: 3}
   outputPoint: {fileID: 448567126}
   spawnDelay: 2
   force: 5
@@ -20192,7 +20236,7 @@ Transform:
   m_GameObject: {fileID: 1167400159}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: -0.4}
+  m_LocalPosition: {x: 0, y: 0.793, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20304,9 +20348,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1239555081}
   - component: {fileID: 1239555083}
+  - component: {fileID: 1239555086}
   - component: {fileID: 1239555082}
   - component: {fileID: 1239555085}
-  - component: {fileID: 1239555086}
+  - component: {fileID: 1239555087}
   m_Layer: 0
   m_Name: kosz
   m_TagString: Untagged
@@ -20349,7 +20394,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -20379,9 +20424,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d407767368c627141abe8bf5195337e2, type: 2}
   downOffset: -0.0018
   moveSpeed: 3
-  cookInterval: 2
+  cookInterval: 10
   shootPoint: {fileID: 1167400160}
-  friesPrefab: {fileID: 5522081197073233269, guid: 86de205bbf5ad144aa912938eabea88e, type: 3}
+  friesPrefab: {fileID: 2873838804995553459, guid: 9259965f14ac0b84a9ab96fa961b8a5b, type: 3}
   shootForce: 5
   shootDirection: {x: 0, y: -50, z: -50}
   fryingLoopEvent:
@@ -20427,6 +20472,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FriesBasketInteraction
   prompt: LMB - Lift the basket
+--- !u!65 &1239555087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239555080}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4423802, y: 0.2986403, z: 0.69549364}
+  m_Center: {x: 0, y: 0.06, z: -0.33186987}
 --- !u!1 &1248959496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5104dcb6b9252ff4e80e856700bdce71, type: 3}
@@ -37911,8 +37977,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.3, z: 0.25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.3, y: 0.36007932, z: 0.35339355}
+  m_Center: {x: 0, y: 0.030039653, z: -0.051696777}
 --- !u!1001 &2142656735
 PrefabInstance:
   m_ObjectHideFlags: 0
