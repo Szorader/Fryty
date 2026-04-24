@@ -1,4 +1,113 @@
 using UnityEngine;
+using System.Collections.Generic;
+
+public class ObjectGrabberLoose : MonoBehaviour
+{
+    public float grabDistance = 3f;
+    public float holdDistance = 2f;
+
+    public float moveForce = 300f;
+    public float damping = 15f;
+
+    // 🔹 Lista tagów przez które można łapać
+    public List<string> grabbableTags = new List<string>();
+
+    private HashSet<string> tagSet;
+
+    private Rigidbody grabbedObject;
+    private Vector3 grabOffset;
+    private Transform holdPoint;
+
+    void Awake()
+    {
+        // zamieniamy listę na HashSet dla wydajności
+        tagSet = new HashSet<string>(grabbableTags);
+    }
+
+    void Start()
+    {
+        holdPoint = new GameObject("HoldPoint").transform;
+        holdPoint.parent = transform;
+        holdPoint.localPosition = new Vector3(0, 0, holdDistance);
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            TryGrab();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Release();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (grabbedObject != null)
+        {
+            MoveObject();
+        }
+    }
+
+    void TryGrab()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, grabDistance))
+        {
+            // 🔹 SPRAWDZANIE TAGU COLLIDERA
+            if (hit.rigidbody != null && tagSet.Contains(hit.collider.tag))
+            {
+                grabbedObject = hit.rigidbody;
+
+                grabOffset = grabbedObject.transform.InverseTransformPoint(hit.point);
+
+                grabbedObject.useGravity = true;
+            }
+        }
+    }
+
+    void Release()
+    {
+        grabbedObject = null;
+    }
+
+    void MoveObject()
+    {
+        Vector3 worldGrabPoint = grabbedObject.transform.TransformPoint(grabOffset);
+
+        Vector3 toTarget = holdPoint.position - worldGrabPoint;
+
+        Vector3 force = toTarget * moveForce;
+
+        Vector3 pointVelocity = grabbedObject.GetPointVelocity(worldGrabPoint);
+        Vector3 dampingForce = -pointVelocity * damping;
+
+        grabbedObject.AddForceAtPosition(force + dampingForce, worldGrabPoint);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.forward * grabDistance;
+
+        Gizmos.DrawLine(origin, origin + direction);
+        Gizmos.DrawWireSphere(origin + direction, 0.2f);
+
+        if (Application.isPlaying && holdPoint != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(holdPoint.position, 0.2f);
+        }
+    }
+}
+/*using UnityEngine;
 
 public class ObjectGrabberLoose : MonoBehaviour
 {
@@ -99,7 +208,7 @@ public class ObjectGrabberLoose : MonoBehaviour
             Gizmos.DrawWireSphere(holdPoint.position, 0.2f);
         }
     }
-}
+}*/
 
 /*using UnityEngine;
 using System.Collections.Generic;

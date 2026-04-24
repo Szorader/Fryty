@@ -4,5 +4,8 @@ using UnityEngine;
 public class ClientData : ScriptableObject
 {
     public GameObject clientPrefab;
-    public bool isBadClient;
+    //public bool isBadClient;
+    [Header("Materials")]
+    public Material[] goodMaterials;
+    public Material[] badMaterials;
 }

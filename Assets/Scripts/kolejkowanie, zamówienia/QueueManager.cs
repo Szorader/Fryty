@@ -110,7 +110,7 @@ public class QueueManager : MonoBehaviour
         basket.currentCustomer = client.customerOrder;
         basket.waitingTime = client.waitingTime;
         basket.satisfaction = client.satisfaction;
-        basket.isBad = client.clientData.isBadClient;
+        basket.isBad = client.isBadClient;
         if (tutorialActive && tutorialManager.tutorialStep == 0)
         {
             tutorialManager.NextStep();
@@ -146,7 +146,7 @@ public class QueueManager : MonoBehaviour
             Debug.Log("Brak klientów");
             return;
         }
-        
+        client.Toggle();
         AddToQueue(client, pickupQueue);
         spawnManager.currentClients--;
 

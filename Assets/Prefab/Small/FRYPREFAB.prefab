@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7431281266485499305}
   - component: {fileID: 3198297379908560929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FRYPREFAB
   m_TagString: Fry
   m_Icon: {fileID: 0}
@@ -115,6 +115,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 51ccedd2d2c861f4b81616afeb80567d, type: 3}
       propertyPath: m_Name
       value: f_wedge_fry (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 51ccedd2d2c861f4b81616afeb80567d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 51ccedd2d2c861f4b81616afeb80567d, type: 3}
       propertyPath: m_IsActive
@@ -273,6 +277,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ec9e505338264644aa8175927dd31869, type: 3}
       propertyPath: m_Name
       value: f_normal_fry
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec9e505338264644aa8175927dd31869, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec9e505338264644aa8175927dd31869, type: 3}
       propertyPath: m_IsActive
@@ -435,6 +443,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 318b77f9d04f440408f8790a3954fba8, type: 3}
       propertyPath: m_Name
       value: f_karbowana_fry
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 318b77f9d04f440408f8790a3954fba8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 318b77f9d04f440408f8790a3954fba8, type: 3}
       propertyPath: m_IsActive

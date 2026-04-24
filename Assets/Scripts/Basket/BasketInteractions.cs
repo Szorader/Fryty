@@ -148,7 +148,16 @@ public partial class BasketInteraction : MonoBehaviour
         );
 
         Debug.Log("TIP: " + tip);
-        UpdateMoney(tip);
+        if (tip == 0)
+        {
+            UpdateMoney(tip - 5);
+        }
+        else
+        {
+            UpdateMoney(tip);
+        }
+        
+        
         
         queueManager.ServeNextClient();
         
