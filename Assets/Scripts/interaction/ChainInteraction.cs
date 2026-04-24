@@ -42,7 +42,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         queueManager.RemoveClient(client);
 
         // sprawdzanie czy zły czy dobry
-        if (client.clientData.isBadClient)
+        if (client.isBadClient)
         {
             Debug.Log("Udane! Zabiłeś złego klienta");
             queueManager.dayManager.GoodClient();

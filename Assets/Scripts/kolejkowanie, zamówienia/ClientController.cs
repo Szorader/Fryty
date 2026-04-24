@@ -13,7 +13,11 @@ public class ClientController : MonoBehaviour
 
     
     private NavMeshAgent agent;
+
+    public GameObject eInteract;
+    public GameObject orderText;
     
+    public bool isBadClient = false;
     
 
     void Awake()
@@ -22,6 +26,8 @@ public class ClientController : MonoBehaviour
         customerOrder = GetComponent<CustomerOrder>();
         waitingTime = GetComponent<CustomerWaitingTime>();
         satisfaction = GetComponent<CustomerSatisfaction>();
+        eInteract.SetActive(true);
+        orderText.SetActive(false);
     }
     
     
@@ -35,8 +41,12 @@ public class ClientController : MonoBehaviour
             }
         }
     }
-    
-    
+
+    public void Toggle()
+    {
+        eInteract.SetActive(false);
+        orderText.SetActive(true);
+    }
     
     void RotateTowardsZ()
     {
@@ -44,17 +54,14 @@ public class ClientController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
     }
 
-    public void SetClient(ClientData client, string name)
+    public void SetClient(ClientData client, string name, bool isBad)
     {
         clientData = client;
         customerOrder.clientName = name;
         Debug.Log("Client name: " + name);
 
-        if (clientData.isBadClient)
-        {
-            
-            // bad client mechanics
-        }
+        isBadClient = isBad;
+        
     }
 
     public void MoveTo(Vector3 position)
