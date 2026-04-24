@@ -36,6 +36,9 @@ public partial class BasketInteraction : MonoBehaviour
     [Header("AUDIO")]
     [SerializeField] private EventReference shakerSound;
     [SerializeField] private EventReference sauceSound;
+    
+    private FMOD.Studio.EventInstance shakerInstance;
+    private bool shakerPlaying = false;
 
     void Start()
     {
@@ -86,19 +89,26 @@ public partial class BasketInteraction : MonoBehaviour
 
         else if (clicked == saltShaker)
         {
-            // audio
-            RuntimeManager.PlayOneShot(shakerSound, clicked.transform.position);
-            
-            TrySetSeasoning(OrderDatabase.SeasoningType.Salt);
-            Check();
+            if (basketData.seasoningType == OrderDatabase.SeasoningType.None)
+            {
+                //audio
+                PlayShakerSound(clicked.transform.position);
+
+                TrySetSeasoning(OrderDatabase.SeasoningType.Salt);
+                Check();
+            }
         }
         else if (clicked == pepperShaker)
         {
             // audio
-            RuntimeManager.PlayOneShot(shakerSound, clicked.transform.position);
-            
-            TrySetSeasoning(OrderDatabase.SeasoningType.Pepper);
-            Check();
+            if (basketData.seasoningType == OrderDatabase.SeasoningType.None)
+            {
+                //audio
+                PlayShakerSound(clicked.transform.position);
+
+                TrySetSeasoning(OrderDatabase.SeasoningType.Pepper);
+                Check();
+            }
         }
 
         else if (clicked == bell)
@@ -183,5 +193,34 @@ public partial class BasketInteraction : MonoBehaviour
         basketData.seasoningType = OrderDatabase.SeasoningType.None;
 
         basketData.RefreshVisuals();
+    }
+    
+    // audio
+    private void PlayShakerSound(Vector3 position)
+    {
+        if (shakerPlaying) return;
+
+        shakerInstance = RuntimeManager.CreateInstance(shakerSound);
+        shakerInstance.set3DAttributes(RuntimeUtils.To3DAttributes(position));
+        shakerInstance.start();
+
+        shakerPlaying = true;
+
+        StartCoroutine(ReleaseShakerWhenDone());
+    }
+    
+    private IEnumerator ReleaseShakerWhenDone()
+    {
+        FMOD.Studio.PLAYBACK_STATE state;
+
+        do
+        {
+            shakerInstance.getPlaybackState(out state);
+            yield return null;
+        }
+        while (state != FMOD.Studio.PLAYBACK_STATE.STOPPED);
+
+        shakerInstance.release();
+        shakerPlaying = false;
     }
 }
