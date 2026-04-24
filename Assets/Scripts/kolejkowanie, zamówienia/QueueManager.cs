@@ -21,6 +21,8 @@ public class QueueManager : MonoBehaviour
     
     public SpawnManager spawnManager;
     
+    public SpawnOrderTicket spawnOrderTicket;
+    
     private int countClients = 0;
     
     public DayManager dayManager;
@@ -147,6 +149,10 @@ public class QueueManager : MonoBehaviour
             return;
         }
         client.Toggle();
+        
+        spawnOrderTicket.SpawnTicket(client.customerOrder);
+        
+        
         AddToQueue(client, pickupQueue);
         spawnManager.currentClients--;
 
