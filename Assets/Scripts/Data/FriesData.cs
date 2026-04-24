@@ -6,7 +6,7 @@ public class FriesData : MonoBehaviour
     public OrderDatabase.FriesType friesType;
 
     [Header("COOK LEVEL")]
-    [Range(0, 4)]
+    [Range(0, 2)]
     public int cookLevel = 0;
     public string cookDes;
     public bool isFried = false;
@@ -47,10 +47,8 @@ public class FriesData : MonoBehaviour
         cookDes = cookLevel switch
         {
             0 => "Raw",
-            1 => "Lightly Cooked",
-            2 => "Perfect",
-            3 => "Overcooked",
-            4 => "Burnt",
+            1 => "Perfect",
+            2 => "Burnt",
             _ => "Unknown"
         };
     }

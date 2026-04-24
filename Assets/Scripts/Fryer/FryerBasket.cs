@@ -9,7 +9,7 @@ public class FryerSystem : MonoBehaviour
     public OrderDatabase.FriesType friesType = OrderDatabase.FriesType.None;
 
     [Header("COOKING")]
-    [Range(0, 4)] public int cookLevel = 0;
+    [Range(0, 2)] public int cookLevel = 0;
     public string cookDes;
 
     [Header("MODELS")]
@@ -209,10 +209,8 @@ public class FryerSystem : MonoBehaviour
         cookDes = cookLevel switch
         {
             0 => "Raw",
-            1 => "Light",
-            2 => "Perfect",
-            3 => "Over",
-            4 => "Burnt",
+            1 => "Perfect",
+            2 => "Burnt",
             _ => "?"
         };
     }

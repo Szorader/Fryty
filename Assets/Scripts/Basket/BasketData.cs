@@ -6,7 +6,7 @@ public class BasketData : MonoBehaviour
     [Header("FRIES")]
     public OrderDatabase.FriesType friesType = OrderDatabase.FriesType.None;
 
-    [Range(0, 4)]
+    [Range(0, 2)]
     public int cookLevel = 0;
     public string cookDes;
 
@@ -52,10 +52,8 @@ public class BasketData : MonoBehaviour
         cookDes = cookLevel switch
         {
             0 => "Raw",
-            1 => "Lightly Cooked",
-            2 => "Perfect",
-            3 => "Overcooked",
-            4 => "Burnt",
+            1 => "Perfect",
+            2 => "Burned",
             _ => "Unknown"
         };
     }
@@ -82,7 +80,9 @@ public class BasketData : MonoBehaviour
 
         if (cookMaterials != null && cookMaterials.Length > 0)
         {
-            int index = Mathf.Clamp(cookLevel, 0, cookMaterials.Length - 1);
+            int index = Mathf.Clamp(cookLevel, 0, 2); // max 2 teraz
+            index = Mathf.Clamp(index, 0, cookMaterials.Length - 1);
+
             Material mat = cookMaterials[index];
 
             Renderer[] renderers = activeFries.GetComponentsInChildren<Renderer>(true);
