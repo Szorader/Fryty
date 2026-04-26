@@ -39,18 +39,10 @@ public class CustomerSatisfaction : MonoBehaviour
         if (basket.friesType != order.fries)
             tip -= wrongFriesPenalty;
 
-        //COOK LEVEL
-        if (basket.cookLevel == 0 || basket.cookLevel == 4)
+        // COOK LEVEL
+        if (basket.cookLevel == 0 || basket.cookLevel == 2)
         {
-            tip -= burnedOrRawPenalty;
-        }
-        else if (basket.cookLevel != 2)
-        {
-            tip -= badCookPenalty;
-        }
-        else
-        {
-            tip += perfectBonus;
+            tip -= burnedOrRawPenalty; // teraz = 7
         }
 
         //SAUCE

@@ -625,7 +625,7 @@ MonoBehaviour:
   friesImage: {fileID: 1689076412680026804}
   sauceImage: {fileID: 5440081068965754278}
   seasoningImage: {fileID: 1582015268816956418}
-  orderNumberText: {fileID: 8426902069495912509}
+  orderText: {fileID: 8426902069495912509}
   noneFries: {fileID: 21300000, guid: fe6fd26210b643c4da086474b73ca9cd, type: 3}
   straightFries: {fileID: 21300000, guid: 461f66fc225a5b0409bf9b975e61c21f, type: 3}
   crinkleFries: {fileID: 21300000, guid: 987b67fd63aa1dc4388b5f8edf222ed3, type: 3}

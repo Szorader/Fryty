@@ -4,11 +4,11 @@ using TMPro;
 
 public class OrderTicketUI : MonoBehaviour
 {
-    [Header("UI References")]
+    [Header("UI")]
     public Image friesImage;
     public Image sauceImage;
     public Image seasoningImage;
-    public TextMeshProUGUI orderNumberText;
+    public TextMeshProUGUI orderText;
 
     [Header("Sprites - Fries")]
     public Sprite noneFries;
@@ -27,15 +27,14 @@ public class OrderTicketUI : MonoBehaviour
     public Sprite salt;
     public Sprite pepper;
 
-    public void SetOrder(int orderNumber,
+    public void SetOrder(string clientName,
+        int orderNumber,
         OrderDatabase.FriesType fries,
         OrderDatabase.SauceType sauce,
         OrderDatabase.SeasoningType seasoning)
     {
-        // tekst
-        orderNumberText.text = "#" + orderNumber;
+        orderText.text = "#" + orderNumber + " " + clientName;
 
-        // obrazki
         friesImage.sprite = GetFriesSprite(fries);
         sauceImage.sprite = GetSauceSprite(sauce);
         seasoningImage.sprite = GetSeasoningSprite(seasoning);
