@@ -63,27 +63,33 @@ public partial class BasketInteraction : MonoBehaviour
         if (!basketData) return;
         if (clicked == ketchupBottle)
         {
-            //audio
-            RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-            
-            TrySetSauce(OrderDatabase.SauceType.Ketchup);
-            Check();
+            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            {
+                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+
+                TrySetSauce(OrderDatabase.SauceType.Ketchup);
+                Check();
+            }
         }
         else if (clicked == mayoBottle)
         {
-            //audio
-            RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-            
-            TrySetSauce(OrderDatabase.SauceType.Mayo);
-            Check();
+            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            {
+                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+
+                TrySetSauce(OrderDatabase.SauceType.Mayo);
+                Check();
+            }
         }
         else if (clicked == cheeseBottle)
         {
-            //audio
-            RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-            
-            TrySetSauce(OrderDatabase.SauceType.Cheese);
-            Check();
+            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            {
+                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+
+                TrySetSauce(OrderDatabase.SauceType.Cheese);
+                Check();
+            }
         }
         else if (clicked == emptySauceBox) TrySetSauce(OrderDatabase.SauceType.None, true);
 
