@@ -138,6 +138,12 @@ public class QueueManager : MonoBehaviour
         countClients++;
     }
     
+    public void KillClient(ClientController client)
+    {
+        Destroy(client.gameObject);
+        countClients++;
+    }
+    
     public void TakeOrder()
     {
 
@@ -173,4 +179,6 @@ public class QueueManager : MonoBehaviour
         RemoveClient(client);
         AddOrderToBasket();
     }
+    
+    
 }

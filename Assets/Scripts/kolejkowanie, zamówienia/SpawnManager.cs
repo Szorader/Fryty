@@ -45,7 +45,7 @@ public class SpawnManager : MonoBehaviour
     
     
     [Range(0f, 1f)]
-    public float badClientChance = 0.25f;
+    public float badClientChance = 0.1f;
 
     void Start()
     {
@@ -98,7 +98,7 @@ public class SpawnManager : MonoBehaviour
         string randomName = clientNames[Random.Range(0, clientNames.Length)];
 
         // 25% szans na złego klienta
-        bool isBad = Random.value <= 0.25f;
+        bool isBad = Random.value <= badClientChance;
         
         GameObject obj = Instantiate(clientData.clientPrefab, spawnPoint.position, Quaternion.identity);
         

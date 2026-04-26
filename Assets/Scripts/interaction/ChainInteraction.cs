@@ -39,7 +39,8 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         }
 
         // "zabicie" klienta
-        queueManager.RemoveClient(client);
+        //queueManager.RemoveClient(client);
+        queueManager.KillClient(client);
 
         // sprawdzanie czy zły czy dobry
         if (client.isBadClient)
