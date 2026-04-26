@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Workspace" id="{69bb3f85-83a7-46e5-8e89-f08d65c2f718}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../../../Github repository/Szkolne/Fryty/FMOD</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{8762101f-05b5-4574-bfa3-2099263e3ef2}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{3690e44f-5ba9-4869-9c3b-4ed7a4c2706c}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{876c19f3-411c-4492-bdfd-410bdfc232e7}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{be5fd820-8238-431a-ac0e-026cb54b6165}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{21d59f26-366b-49a6-a372-5f6286bb3889}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{2f35451a-ee08-414e-9df5-6d942694789d}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{a5cd5ffd-5c72-4ffc-a707-791d2d401869}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{e4dfec19-fa50-42cd-bb36-8e9d8f922164}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{568be097-28bd-4115-b7e9-6fc3cae1aeb4}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{07a670aa-37b5-44c1-87ba-67f2eec87fd1}</destination>
+		</relationship>
+	</object>
+</objects>

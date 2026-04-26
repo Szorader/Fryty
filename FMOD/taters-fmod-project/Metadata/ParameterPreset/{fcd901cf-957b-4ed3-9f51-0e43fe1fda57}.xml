@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{fcd901cf-957b-4ed3-9f51-0e43fe1fda57}">
+		<property name="name">
+			<value>CookLevel</value>
+		</property>
+		<relationship name="folder">
+			<destination>{be5fd820-8238-431a-ac0e-026cb54b6165}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{76cbeca9-cf9b-423a-873a-09cae8468996}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{76cbeca9-cf9b-423a-873a-09cae8468996}">
+		<property name="maximum">
+			<value>4</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
