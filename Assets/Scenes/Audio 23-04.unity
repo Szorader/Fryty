@@ -1646,7 +1646,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e38e02c5aae6014db8a91ca2e84dee3, type: 2}
+  - {fileID: 2100000, guid: 05c06dac40b50894682d8ca00abdb965, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2159,6 +2159,7 @@ MonoBehaviour:
   holdDistance: 1.5
   moveForce: 300
   damping: 15
+  grabbableTags: []
 --- !u!114 &404921581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38647,6 +38648,7 @@ MonoBehaviour:
   currentClients: 0
   clientsOfTheDay: 10
   clientsCount: 0
+  badClientChance: 0.25
 --- !u!4 &2075859385
 Transform:
   m_ObjectHideFlags: 0
