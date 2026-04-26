@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{6a3c6aa9-2928-46b3-b4fe-9699190976e3}">
+		<property name="assetPath">
+			<value>cutter-2-picked.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>304.68000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a5cd5ffd-5c72-4ffc-a707-791d2d401869}</destination>
+		</relationship>
+	</object>
+</objects>

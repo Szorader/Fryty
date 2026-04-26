@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{593de49e-759f-4803-8e80-d0aa1974de1b}">
+		<property name="assetPath">
+			<value>footsteps_inside_FT (3).wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.53412499999999996</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a5cd5ffd-5c72-4ffc-a707-791d2d401869}</destination>
+		</relationship>
+	</object>
+</objects>

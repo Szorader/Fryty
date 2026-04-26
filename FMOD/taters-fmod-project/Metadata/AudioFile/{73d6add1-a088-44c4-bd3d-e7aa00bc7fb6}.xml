@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{73d6add1-a088-44c4-bd3d-e7aa00bc7fb6}">
+		<property name="assetPath">
+			<value>freesound_community-steam-2-36231.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>12.38204081632653</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a5cd5ffd-5c72-4ffc-a707-791d2d401869}</destination>
+		</relationship>
+	</object>
+</objects>
