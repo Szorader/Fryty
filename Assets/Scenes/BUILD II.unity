@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlidingDoorLimit
   moveAxis: {x: -1, y: 0, z: 0}
   minOffset: -0.01
-  maxOffset: 1
+  maxOffset: 0.95
 --- !u!65 &233732732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1424,8 +1424,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233732726}
   serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 25
+  m_LinearDamping: 2
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1438,7 +1438,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 124
@@ -14771,6 +14771,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 225801914}
     m_Modifications:
+    - target: {fileID: 1612409183593256306, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
+      propertyPath: m_Mass
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612409183593256306, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612409183593256306, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
+      propertyPath: m_LinearDamping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956411204473970517, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
+      propertyPath: m_Mass
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956411204473970517, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956411204473970517, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
+      propertyPath: m_LinearDamping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3403532414455731349, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
       propertyPath: m_TagString
       value: Door
@@ -14842,6 +14866,10 @@ PrefabInstance:
     - target: {fileID: 8106847779267050750, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
       propertyPath: m_TagString
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898740417212413589, guid: 669d94f5c8951544d9c99595ffb604f8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15651,7 +15679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlidingDoorLimit
   moveAxis: {x: 1, y: 0, z: 0}
   minOffset: -0.01
-  maxOffset: 1
+  maxOffset: 0.95
 --- !u!65 &932422789
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15681,8 +15709,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932422783}
   serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 25
+  m_LinearDamping: 2
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -15695,7 +15723,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 124
