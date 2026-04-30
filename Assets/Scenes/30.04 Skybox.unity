@@ -22932,6 +22932,26 @@ PrefabInstance:
       propertyPath: queueManager
       value: 
       objectReference: {fileID: 304073639}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Path
+      value: event:/Clients/Client-death
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Guid.Data1
+      value: 973018614
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Guid.Data2
+      value: 1107033905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Guid.Data3
+      value: -25154173
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Guid.Data4
+      value: 787075397
+      objectReference: {fileID: 0}
     - target: {fileID: 9139929481600383178, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
       propertyPath: m_Name
       value: f_chain (1)
@@ -39488,6 +39508,26 @@ PrefabInstance:
       propertyPath: queueManager
       value: 
       objectReference: {fileID: 304073639}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Path
+      value: event:/Clients/Client-death
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Guid.Data1
+      value: 973018614
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Guid.Data2
+      value: 1107033905
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Guid.Data3
+      value: -25154173
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554186212956886538, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
+      propertyPath: killSound.Guid.Data4
+      value: 787075397
+      objectReference: {fileID: 0}
     - target: {fileID: 9139929481600383178, guid: 2077919d57ec0c64a91daee0c4c0fdc5, type: 3}
       propertyPath: m_Name
       value: f_chain
