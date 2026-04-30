@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class ChainInteraction : MonoBehaviour, IInteractable
 {
@@ -7,6 +8,9 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     public QueueManager queueManager;
 
     public QueueType queueType; // wybierasz w Inspectorze
+    
+    [Header("AUDIO")]
+    [SerializeField] private EventReference killSound;
 
     public enum QueueType
     {
@@ -37,6 +41,9 @@ public class ChainInteraction : MonoBehaviour, IInteractable
             Debug.Log("Brak klienta");
             return false;
         }
+        
+        // Audio
+        RuntimeManager.PlayOneShot(killSound, transform.position);
 
         // "zabicie" klienta
         //queueManager.RemoveClient(client);
