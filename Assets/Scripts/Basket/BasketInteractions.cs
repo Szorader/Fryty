@@ -39,7 +39,9 @@ public partial class BasketInteraction : MonoBehaviour
     
     private FMOD.Studio.EventInstance shakerInstance;
     private bool shakerPlaying = false;
-
+    
+   
+    
     void Start()
     {
         UpdateMoney(0f);
@@ -185,6 +187,7 @@ public partial class BasketInteraction : MonoBehaviour
         if (isBad)
         {
             money -= +  15 + amount;
+            
         }
         else
         {
@@ -193,6 +196,7 @@ public partial class BasketInteraction : MonoBehaviour
         
         moneyText.text = money.ToString();
     }
+    
     
     public void UpdateMoneyKill(float amount)
     {
