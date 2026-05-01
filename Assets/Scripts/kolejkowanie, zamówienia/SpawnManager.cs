@@ -104,7 +104,7 @@ public class SpawnManager : MonoBehaviour
         
         
         // Pobieramy renderer
-        Renderer renderer = obj.GetComponentInChildren<MeshRenderer>();
+        Renderer renderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
 
         if (renderer != null)
         {

@@ -19,7 +19,8 @@ public class ClientController : MonoBehaviour
     
     public bool isBadClient = false;
     
-    public bool isWalking = false;
+    private Animator animator;
+    
     
 
     void Awake()
@@ -30,20 +31,29 @@ public class ClientController : MonoBehaviour
         satisfaction = GetComponent<CustomerSatisfaction>();
         eInteract.SetActive(true);
         orderText.SetActive(false);
+        animator = GetComponent<Animator>();
+        agent.stoppingDistance = 0.05f;
     }
     
     
     void Update()
     {
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        animator.SetBool("isWalking", agent.velocity.sqrMagnitude > 0.05f);
+        //Debug.Log(agent.updateRotation);
+        if (!agent.pathPending)
         {
-            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                RotateTowardsZ();
+                if (!agent.hasPath || agent.velocity.sqrMagnitude < 0.01f)
+                {
+                    RotateTowardsZ();
+                    //animator.SetBool("isWalking", false);
+                }
             }
         }
+    
     }
-
+    
     public void Toggle()
     {
         eInteract.SetActive(false);
@@ -52,9 +62,10 @@ public class ClientController : MonoBehaviour
     
     void RotateTowardsZ()
     {
+        agent.updateRotation = false;
         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-        isWalking = false;
+        
 
     }
 
@@ -70,8 +81,23 @@ public class ClientController : MonoBehaviour
 
     public void MoveTo(Vector3 position)
     {
-        isWalking = true;
+        NavMeshHit hit;
+
+        if (NavMesh.SamplePosition(position, out hit, 2f, NavMesh.AllAreas))
+        {
+            agent.updateRotation = true;
+            Debug.Log("move to: " + hit.position);
+            agent.SetDestination(hit.position);
+            //animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            Debug.LogWarning("Point not on NavMesh!");
+        }
+        /*
+        animator.SetBool("isWalking", true);
         agent.SetDestination(position);
-        
+        Debug.Log(position);
+        */
     }
 }

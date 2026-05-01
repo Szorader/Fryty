@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee01a0b7590ae2c45b59ec1a93314403, type: 3}
   m_Name: Client 1
   m_EditorClassIdentifier: Assembly-CSharp::ClientData
-  clientPrefab: {fileID: 9057476588673355338, guid: 37de9ca2cfdf45b49bffbae16300146b, type: 3}
+  clientPrefab: {fileID: 4605904529066005447, guid: 698dad45d71d2754f8884d8a583b29c9, type: 3}
   goodMaterials:
   - {fileID: 2100000, guid: 8e7ff35cc6e3e0040bd5027fb36d470a, type: 2}
   badMaterials:
