@@ -19,6 +19,8 @@ public class ClientController : MonoBehaviour
     
     public bool isBadClient = false;
     
+    public bool isWalking = false;
+    
 
     void Awake()
     {
@@ -52,6 +54,8 @@ public class ClientController : MonoBehaviour
     {
         Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        isWalking = false;
+
     }
 
     public void SetClient(ClientData client, string name, bool isBad)
@@ -66,6 +70,7 @@ public class ClientController : MonoBehaviour
 
     public void MoveTo(Vector3 position)
     {
+        isWalking = true;
         agent.SetDestination(position);
         
     }
