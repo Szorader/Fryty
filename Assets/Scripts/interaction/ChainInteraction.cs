@@ -2,6 +2,9 @@ using UnityEngine;
 using FMODUnity;
 using System.Collections;
 
+/// <summary>
+/// Kill clients
+/// </summary>
 public class ChainInteraction : MonoBehaviour, IInteractable
 {
     public string prompt;

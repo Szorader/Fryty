@@ -54,12 +54,14 @@ public class ClientController : MonoBehaviour
     
     }
     
+    //promnt nad glowa
     public void Toggle()
     {
         eInteract.SetActive(false);
         orderText.SetActive(true);
     }
     
+    //obrot w strone trucka
     void RotateTowardsZ()
     {
         agent.updateRotation = false;
