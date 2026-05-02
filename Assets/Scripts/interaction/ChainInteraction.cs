@@ -27,11 +27,19 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     public GameObject modelFries3;
 
     public Transform point;
+    
+    // chain movement
+    private Vector3 startLocalPos;
 
     public enum QueueType
     {
         Order,
         Pickup
+    }
+    
+    private void Start()
+    {
+        startLocalPos = transform.localPosition;
     }
     public bool CanInteract()
     {
@@ -58,6 +66,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
             return false;
         }
         
+        StartCoroutine(PullChain());
         StartCoroutine(KillSequence(client));
         // Audio
         /*RuntimeManager.PlayOneShot(killSound, transform.position);
@@ -132,5 +141,46 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     public string GetPrompt()
     {
         return prompt;
+    }
+    
+    // pull on chain animation
+    private IEnumerator PullChain()
+    {
+        float durationDown = 0.2f;
+        float durationUp = 0.4f;
+        float distance = 0.15f; // how far it moves down
+
+        Vector3 downPos = startLocalPos + Vector3.down * distance;
+
+        float t = 0;
+
+        // Move down (fast)
+        while (t < durationDown)
+        {
+            t += Time.deltaTime;
+            float lerp = t / durationDown;
+            transform.localPosition = Vector3.Lerp(startLocalPos, downPos, lerp);
+            yield return null;
+        }
+
+        // Optional tiny pause for weight
+        yield return new WaitForSeconds(0.02f);
+
+        t = 0;
+
+        // Move up (slower = more natural)
+        while (t < durationUp)
+        {
+            t += Time.deltaTime;
+            float lerp = t / durationUp;
+
+            // Ease out (important for feel)
+            lerp = 1f - Mathf.Pow(1f - lerp, 3f);
+
+            transform.localPosition = Vector3.Lerp(downPos, startLocalPos, lerp);
+            yield return null;
+        }
+
+        transform.localPosition = startLocalPos;
     }
 }
