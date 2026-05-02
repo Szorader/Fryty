@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class SpawnOrderTicket : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class SpawnOrderTicket : MonoBehaviour
     public GameObject ticketPrefab;
 
     private int currentOrderNumber = 1;
+    
+    [Header("AUDIO")]
+    [SerializeField] private EventReference printSound;
 
     public void SpawnTicket(CustomerOrder order)
     {
@@ -15,6 +19,9 @@ public class SpawnOrderTicket : MonoBehaviour
             transform.position,
             transform.rotation
         );
+        
+        // play audio
+        RuntimeManager.PlayOneShot(printSound, transform.position);
 
         OrderTicketUI ui = ticket.GetComponent<OrderTicketUI>();
 

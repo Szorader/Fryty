@@ -36,6 +36,7 @@ public partial class BasketInteraction : MonoBehaviour
     [Header("AUDIO")]
     [SerializeField] private EventReference shakerSound;
     [SerializeField] private EventReference sauceSound;
+    [SerializeField] private EventReference chaChingSound;
     
     private FMOD.Studio.EventInstance shakerInstance;
     private bool shakerPlaying = false;
@@ -175,7 +176,8 @@ public partial class BasketInteraction : MonoBehaviour
             UpdateMoney(tip);
         }
         
-        
+        // play cha-ching audio
+        RuntimeManager.PlayOneShot(chaChingSound, transform.position);
         
         queueManager.ServeNextClient();
         

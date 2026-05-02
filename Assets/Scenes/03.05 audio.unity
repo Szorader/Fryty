@@ -13701,6 +13701,13 @@ MonoBehaviour:
       Data3: 1348845705
       Data4: 259740229
     Path: event:/InsideTruck/sauce-bottle
+  chaChingSound:
+    Guid:
+      Data1: 1804042642
+      Data2: 1331335957
+      Data3: 93045662
+      Data4: -927910230
+    Path: event:/InsideTruck/cha-ching
 --- !u!114 &646393813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16153,6 +16160,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnOrderTicket
   ticketPrefab: {fileID: 8249246491094257735, guid: d307cde8e8ebfc8409a229760a4036e6, type: 3}
+  printSound:
+    Guid:
+      Data1: -1473106675
+      Data2: 1341343065
+      Data3: 1259140514
+      Data4: 1060163823
+    Path: event:/InsideTruck/register-print
 --- !u!1 &999009407
 GameObject:
   m_ObjectHideFlags: 0
@@ -23135,6 +23149,56 @@ Transform:
   - {fileID: 586566975}
   m_Father: {fileID: 646393810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1531317658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531317659}
+  - component: {fileID: 1531317660}
+  m_Layer: 0
+  m_Name: FMOD bank loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1531317659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531317658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726122180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1531317660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531317658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioBankLoader
+  LoadEvent: 1
+  UnloadEvent: 2
+  Banks:
+  - SFX
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!1001 &1534051677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33822,6 +33886,7 @@ Transform:
   - {fileID: 584621501}
   - {fileID: 625457135}
   - {fileID: 943687562}
+  - {fileID: 1531317659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1727420726 stripped
