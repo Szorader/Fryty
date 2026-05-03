@@ -24,7 +24,8 @@ public partial class BasketInteraction : MonoBehaviour
 
     public GameObject bell;
     
-    public QueueManager queueManager;
+    //public QueueManager queueManager;
+    public QueuingDevice queuingDevice;
 
     public float money = -5f;
     public TMP_Text moneyText;
@@ -47,6 +48,7 @@ public partial class BasketInteraction : MonoBehaviour
     {
         UpdateMoney(0f);
         tutorialManager = FindObjectOfType<TutorialManager>();
+        queuingDevice = FindObjectOfType<QueuingDevice>();
     }
     private void Update()
     {
@@ -179,7 +181,9 @@ public partial class BasketInteraction : MonoBehaviour
         // play cha-ching audio
         RuntimeManager.PlayOneShot(chaChingSound, transform.position);
         
-        queueManager.ServeNextClient();
+        
+        //queueManager.ServeNextClient();
+        queuingDevice.RemoveClient();
         
         
     }

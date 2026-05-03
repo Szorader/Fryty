@@ -5,6 +5,7 @@ using TMPro;
 public class ClientInteraction : MonoBehaviour, IInteractable
 {
     public QueueManager queueManager;
+    public QueuingDevice queuingDevice;
     
     private bool _canTakeOrder = true;
     private bool _canPickOrder = false;
@@ -12,6 +13,7 @@ public class ClientInteraction : MonoBehaviour, IInteractable
     private void Start()
     {
         queueManager = FindObjectOfType<QueueManager>();
+        queuingDevice = FindObjectOfType<QueuingDevice>();
         //UpdatePrompt();
     }
     
@@ -27,7 +29,8 @@ public class ClientInteraction : MonoBehaviour, IInteractable
     {
         if (_canTakeOrder)
         {
-            queueManager.TakeOrder();
+            //queueManager.TakeOrder();
+            queuingDevice.TakeOrder();
             _canTakeOrder = false;
             _canPickOrder = true;
             //UpdatePrompt();

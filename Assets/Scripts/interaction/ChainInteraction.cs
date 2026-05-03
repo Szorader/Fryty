@@ -9,7 +9,8 @@ public class ChainInteraction : MonoBehaviour, IInteractable
 {
     public string prompt;
 
-    public QueueManager queueManager;
+    //public QueueManager queueManager;
+    public QueuingDevice queuingDevice;
 
     public QueueType queueType; // wybierasz w Inspectorze
     
@@ -40,6 +41,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     private void Start()
     {
         startLocalPos = transform.localPosition;
+        queuingDevice = FindObjectOfType<QueuingDevice>();
     }
     public bool CanInteract()
     {
@@ -53,11 +55,12 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         // wybór kolejki
         if (queueType == QueueType.Order)
         {
-            client = queueManager.MoveFirstClientFromQueue(queueManager.orderQueue);
+            client = queuingDevice.orderQueue.Peek();
+
         }
-        else if (queueType == QueueType.Pickup)
+        else if (queueType == QueueType.Pickup && queuingDevice.waitingForTake)
         {
-            client = queueManager.MoveFirstClientFromQueue(queueManager.pickupQueue);
+            client = queuingDevice.pickList[queuingDevice.currentNumber];
         }
 
         if (client == null)
@@ -122,19 +125,23 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         if (client.isBadClient)
         {
             Debug.Log("Udane! Zabiłeś złego klienta");
-            queueManager.dayManager.GoodClient();
-            queueManager.basket.UpdateMoneyKill(20f);
+            queuingDevice.dayManager.GoodKill();
+            queuingDevice.basket.UpdateMoneyKill(20f);
+            //queueManager.dayManager.GoodClient();
+            //queueManager.basket.UpdateMoneyKill(20f);
         }
         else
         {
             Debug.Log("Zabiłeś dobrego klienta — koniec dnia");
-            queueManager.dayManager.WrongClient();
+            queuingDevice.dayManager.WrongKill();
+            //queueManager.dayManager.WrongClient();
         }
 
         
         yield return new WaitForSeconds(10f);
 
-        queueManager.KillClient(client);
+        //queueManager.KillClient(client);
+        queuingDevice.KillClient(client);
         animator.SetTrigger("open");
     }
 

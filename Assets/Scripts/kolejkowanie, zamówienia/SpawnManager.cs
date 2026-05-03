@@ -1,27 +1,3 @@
-/*using UnityEngine;
-
-public class SpawnManager : MonoBehaviour
-{
-    public Transform spawnPoint;
-
-    public ClientData[] clients;
-
-    public QueueManager queueManager;
-
-    public void SpawnClient()
-    {
-        ClientData clientData = clients[Random.Range(0, clients.Length)];
-        
-        GameObject obj = Instantiate(clientData.clientPrefab, spawnPoint.position, Quaternion.identity);
-        
-        
-       ClientController controller = obj.GetComponent<ClientController>();
-       controller.SetClient(clientData);
-       
-        queueManager.AddToQueue(controller, queueManager.orderQueue);
-    }
-}*/
-
 using System.Collections;
 using UnityEngine;
 
@@ -32,7 +8,8 @@ public class SpawnManager : MonoBehaviour
     public ClientData[] clients;
     public string[] clientNames;
 
-    public QueueManager queueManager;
+    //public QueueManager queueManager;
+    public QueuingDevice queuingDevice;
 
     [Header("Spawn Settings")]
     public float minSpawnTime = 0.5f;
@@ -66,26 +43,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    /*public void SpawnClient()
-    {
-        if (clientsCount == clientsOfTheDay)
-        {
-            Debug.Log("end day");
-            return;
-        }
-        ClientData clientData = clients[Random.Range(0, clients.Length)];
-        string randomName = clientNames[Random.Range(0, clientNames.Length)];
-        
-        GameObject obj = Instantiate(clientData.clientPrefab, spawnPoint.position, Quaternion.identity);
-        
-        ClientController controller = obj.GetComponent<ClientController>();
-        controller.SetClient(clientData, randomName);
-
-        queueManager.AddToQueue(controller, queueManager.orderQueue);
-
-        currentClients++;
-        clientsCount++;
-    }*/
+    
     public void SpawnClient()
     {
         if (clientsCount == clientsOfTheDay)
@@ -130,8 +88,10 @@ public class SpawnManager : MonoBehaviour
 
         // przekazujemy info czy zły
         controller.SetClient(clientData, randomName, isBad);
-
-        queueManager.AddToQueue(controller, queueManager.orderQueue);
+        
+        //queueManager.AddToQueue(controller, queueManager.orderQueue);
+        
+        queuingDevice.AddToOrderQueue(controller);
 
         currentClients++;
         clientsCount++;

@@ -46,7 +46,7 @@ public class QueueManager : MonoBehaviour
     
     
     //queuing customers
-    private void UpdateQueuePosition(Queue<ClientController> queue, Vector3 startPosition)
+    /*private void UpdateQueuePosition(Queue<ClientController> queue, Vector3 startPosition)
     {
         Vector3 currentPosition = startPosition;
 
@@ -55,10 +55,10 @@ public class QueueManager : MonoBehaviour
             client.MoveTo(currentPosition);
             currentPosition.z -= spaceBetweenClients;
         }
-    }
+    }*/
 
     
-    public void AddToQueue(ClientController client, Queue<ClientController> queue)
+    /*public void AddToQueue(ClientController client, Queue<ClientController> queue)
     {
         queue.Enqueue(client);
         
@@ -69,10 +69,10 @@ public class QueueManager : MonoBehaviour
         {
             AddOrderToBasket();
         }
-    }
+    }*/
 
     
-    public ClientController MoveFirstClientFromQueue(Queue<ClientController> queue)
+    /*public ClientController MoveFirstClientFromQueue(Queue<ClientController> queue)
     {
         if (queue.Count == 0) return null;
         
@@ -82,7 +82,7 @@ public class QueueManager : MonoBehaviour
         UpdateQueuePosition(queue, point.position);
         
         return client;
-    }
+    }*/
 
     //getting point for start queue posiotion
     private Transform GetPoint(Queue<ClientController> queue)
@@ -119,8 +119,8 @@ public class QueueManager : MonoBehaviour
             tutorialActive = false;
         }
     }
-    
-    public void RemoveClient(ClientController client)
+    //
+   /* public void RemoveClient(ClientController client)
     {
         
         client.MoveTo(exitPoint.position);
@@ -129,8 +129,8 @@ public class QueueManager : MonoBehaviour
         UpdateQueuePosition(orderQueue, orderStartPoints.position);
         
         UpdateQueuePosition(pickupQueue, pickupStartPoints.position);
-    }
-
+    }*/
+//
     IEnumerator ExitRoutine(ClientController client)
     {
         yield return new WaitForSeconds(2f);
@@ -138,13 +138,13 @@ public class QueueManager : MonoBehaviour
         countClients++;
     }
     
-    public void KillClient(ClientController client)
+    /*public void KillClient(ClientController client)
     {
         Destroy(client.gameObject);
         countClients++;
-    }
-    
-    public void TakeOrder()
+    }*/
+    //
+    /*public void TakeOrder()
     {
 
         ClientController client = MoveFirstClientFromQueue(orderQueue);
@@ -162,11 +162,11 @@ public class QueueManager : MonoBehaviour
         AddToQueue(client, pickupQueue);
         spawnManager.currentClients--;
 
-    }
+    }*/
     
     
-    
-    public void ServeNextClient()
+    //
+    /*public void ServeNextClient()
     {
         ClientController client = MoveFirstClientFromQueue(pickupQueue);
 
@@ -179,6 +179,6 @@ public class QueueManager : MonoBehaviour
         RemoveClient(client);
         AddOrderToBasket();
     }
-    
+    */
     
 }

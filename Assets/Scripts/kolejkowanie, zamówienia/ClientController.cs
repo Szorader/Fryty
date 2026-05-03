@@ -20,6 +20,9 @@ public class ClientController : MonoBehaviour
     public bool isBadClient = false;
     
     private Animator animator;
+
+    public int PikPikNumber;
+    public WaitingPoint point;
     
     
 
@@ -88,7 +91,7 @@ public class ClientController : MonoBehaviour
         if (NavMesh.SamplePosition(position, out hit, 2f, NavMesh.AllAreas))
         {
             agent.updateRotation = true;
-            Debug.Log("move to: " + hit.position);
+            //Debug.Log("move to: " + hit.position);
             agent.SetDestination(hit.position);
             //animator.SetBool("isWalking", true);
         }

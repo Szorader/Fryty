@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public SpawnManager spawnManager;
-    public QueueManager queueManager;
+    //public QueueManager queueManager;
     //pozniej to wszystko zostanie usuniete bo bedzie to robione automatycznie przez gre
     void Update()
     {

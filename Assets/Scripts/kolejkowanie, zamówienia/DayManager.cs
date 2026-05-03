@@ -13,12 +13,12 @@ public class DayManager : MonoBehaviour
         messagePanel.SetActive(false);
     }
 
-    public void WrongClient()
+    public void WrongKill()
     {
         StartCoroutine(Message("Wyeliminowałeś złego klienta!", 5f, true));
     }
 
-    public void GoodClient()
+    public void GoodKill()
     {
         StartCoroutine(Message("Dobrze wyeliminowałeś!", 3f, false));
     }
