@@ -29419,6 +29419,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
+      propertyPath: popSound.Path
+      value: event:/InsideTruck/pop
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
       propertyPath: prefabToSpawn
       value: 
       objectReference: {fileID: 5348894315279688731, guid: 6b4589a4530f3bb45b61179229598e74, type: 3}
@@ -29429,6 +29433,22 @@ PrefabInstance:
     - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
       propertyPath: spawnOffset.z
       value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
+      propertyPath: popSound.Guid.Data1
+      value: 690653421
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
+      propertyPath: popSound.Guid.Data2
+      value: 1285338822
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
+      propertyPath: popSound.Guid.Data3
+      value: -1540033663
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792097893888473240, guid: 600431da4ee998841be3febbc4203045, type: 3}
+      propertyPath: popSound.Guid.Data4
+      value: -177248845
       objectReference: {fileID: 0}
     - target: {fileID: 3041905839455573179, guid: 600431da4ee998841be3febbc4203045, type: 3}
       propertyPath: prompt

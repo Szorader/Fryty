@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class ClickToSpawn : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class ClickToSpawn : MonoBehaviour
 
     [Header("Limit obiektów")]
     public int maxObjects = 5;
+
+    [Header("Audio")] 
+    [SerializeField] private EventReference popSound;
     
     private TutorialManager tutorialManager;
     private bool tutorialActive = true;
@@ -51,6 +55,7 @@ public class ClickToSpawn : MonoBehaviour
 
         Vector3 spawnPosition = transform.position + spawnOffset;
 
+        RuntimeManager.PlayOneShot(popSound, spawnPosition);
         GameObject spawned = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
         spawnedObjects.Add(spawned);
 
