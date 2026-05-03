@@ -211,6 +211,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 83a93142714ee774ab0c6f636226eedb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 26988058}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 83a93142714ee774ab0c6f636226eedb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 26988064}
   m_SourcePrefab: {fileID: 100100000, guid: 83a93142714ee774ab0c6f636226eedb, type: 3}
 --- !u!1 &26988057 stripped
 GameObject:
@@ -244,6 +247,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83a93142714ee774ab0c6f636226eedb, type: 3}
   m_PrefabInstance: {fileID: 26988056}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &26988064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26988057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc501158cea9354b81947a47ce666c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChainInteraction
+  prompt: 
+  queueManager: {fileID: 0}
+  queueType: 0
+  killSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  smokeEffect: {fileID: 0}
+  animator: {fileID: 0}
+  modelFries1: {fileID: 0}
+  modelFries2: {fileID: 0}
+  modelFries3: {fileID: 0}
+  point: {fileID: 0}
 --- !u!1 &29485738 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2882031152260827739, guid: 51778c3244e2c1343b57cd69d0672328, type: 3}
@@ -40491,7 +40522,7 @@ MonoBehaviour:
   currentClients: 0
   clientsOfTheDay: 10
   clientsCount: 0
-  badClientChance: 0.15
+  badClientChance: 1
 --- !u!4 &2075859385
 Transform:
   m_ObjectHideFlags: 0
