@@ -109,14 +109,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         RuntimeManager.PlayOneShot(killSound, transform.position);
 
         
-        if (smokeEffect != null)
-        {
-            GameObject fx = Instantiate(smokeEffect, client.transform.position, Quaternion.identity);
-            Instantiate(modelFries1, client.transform.position, Quaternion.identity);
-            Instantiate(modelFries2, client.transform.position, Quaternion.identity);
-            Instantiate(modelFries3, client.transform.position, Quaternion.identity);
-            Destroy(fx, smokeDuration);
-        }
+        
         
         
         if (client.isBadClient)
@@ -133,6 +126,14 @@ public class ChainInteraction : MonoBehaviour, IInteractable
 
         
         yield return new WaitForSeconds(10f);
+        if (smokeEffect != null)
+        {
+            GameObject fx = Instantiate(smokeEffect, client.transform.position, Quaternion.identity);
+            Instantiate(modelFries1, client.transform.position, Quaternion.identity);
+            Instantiate(modelFries2, client.transform.position, Quaternion.identity);
+            Instantiate(modelFries3, client.transform.position, Quaternion.identity);
+            Destroy(fx, smokeDuration);
+        }
 
         queueManager.KillClient(client);
         animator.SetTrigger("open");
