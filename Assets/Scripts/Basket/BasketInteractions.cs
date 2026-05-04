@@ -124,7 +124,7 @@ public partial class BasketInteraction : MonoBehaviour
 
         else if (clicked == bell)
         {
-            if (tutorialActive2 && tutorialManager.tutorialStep == 5)
+            if (tutorialActive2 && tutorialManager.tutorialStep == 6)
             {
                 tutorialManager.NextStep();
                 tutorialActive2 = false;
@@ -136,7 +136,7 @@ public partial class BasketInteraction : MonoBehaviour
 
     private void Check()
     {
-        if  (tutorialActive && tutorialManager.tutorialStep == 4)
+        if  (tutorialActive && tutorialManager.tutorialStep == 5)
         {
             tutorialManager.NextStep();
             tutorialActive = false;
