@@ -84,7 +84,7 @@ public class Cutter : MonoBehaviour
         Vector3 spawnPosition = outputPoint ? outputPoint.position : transform.position;
 
         GameObject spawned = Instantiate(friesPrefab, spawnPosition, Quaternion.identity);
-        if (tutorialActive && tutorialManager.tutorialStep == 2)
+        if (tutorialActive && tutorialManager.tutorialStep == 3)
         {
             tutorialManager.NextStep();
             tutorialActive = false;

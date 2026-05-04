@@ -27,11 +27,11 @@ public class QueueManager : MonoBehaviour
     
     public DayManager dayManager;
 
-    private TutorialManager tutorialManager;
+    //private TutorialManager tutorialManager;
     private bool tutorialActive = true;
     private void Start()
     {
-        tutorialManager = FindObjectOfType<TutorialManager>();
+        //tutorialManager = FindObjectOfType<TutorialManager>();
     }
 
     private void Update()
@@ -113,11 +113,11 @@ public class QueueManager : MonoBehaviour
         basket.waitingTime = client.waitingTime;
         basket.satisfaction = client.satisfaction;
         basket.isBad = client.isBadClient;
-        if (tutorialActive && tutorialManager.tutorialStep == 0)
+        /*if (tutorialActive && tutorialManager.tutorialStep == 0)
         {
             tutorialManager.NextStep();
             tutorialActive = false;
-        }
+        }*/
     }
     //
    /* public void RemoveClient(ClientController client)

@@ -28,6 +28,8 @@ public class QueuingDevice : MonoBehaviour
 
     public bool canGiveNumber = false;
     private bool tutorialActive = true;
+    private bool tutorialActiveStep2 = true;
+    private bool tutorialActiveKill = true;
     private int countClients = 0;
     public int currentNumber;
     public bool waitingForTake = false;
@@ -60,6 +62,11 @@ public class QueuingDevice : MonoBehaviour
     //nadanie numeru pikacza
     public void GiveNumber(int number)
     {
+        if (tutorialActiveStep2 && tutorialManager.tutorialStep == 1)
+        {
+            tutorialManager.NextStep();
+            tutorialActiveStep2 = false;
+        }
         Debug.Log(number);
         
         canGiveNumber = false;
@@ -108,6 +115,20 @@ public class QueuingDevice : MonoBehaviour
         spawnOrderTicket.SpawnTicket(client.customerOrder);
         client.Toggle();
         canGiveNumber = true;
+        if (tutorialActiveKill && tutorialManager.tutorialStepKill == 0 && client.isBadClient)
+        {
+            tutorialManager.NextStepKill();
+            return;
+        }
+        
+        if (tutorialActive && tutorialManager.tutorialStep == 0)
+        {
+            tutorialManager.NextStep();
+            tutorialActive = false;
+        }
+        
+        
+        
     }
     
     public WaitingPoint GetRandomFreePoint()
@@ -136,11 +157,7 @@ public class QueuingDevice : MonoBehaviour
         basket.waitingTime = client.waitingTime;
         basket.satisfaction = client.satisfaction;
         basket.isBad = client.isBadClient;
-        if (tutorialActive && tutorialManager.tutorialStep == 0)
-        {
-            tutorialManager.NextStep();
-            tutorialActive = false;
-        }
+
         client.MoveTo(pickPoint.position);
         client.point.isReserved = false;
         
@@ -173,5 +190,12 @@ public class QueuingDevice : MonoBehaviour
     {
         Destroy(client.gameObject);
         countClients++;
+        StartCoroutine(Wait(10));
+    }
+
+    IEnumerator Wait(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        UpdatePositionOrderQueue();
     }
 }
