@@ -10,6 +10,16 @@ public class CircleSlider : MonoBehaviour, IDragHandler
     [SerializeField] private TMP_Text valTxt;
     [SerializeField] private RectTransform center;
 
+    [Range(0f, 1f)]
+    [SerializeField] private float startValue = 0.5f; // 0–1 (czyli 0–100%)
+
+    private float currentValue;
+
+    private void Start()
+    {
+        SetValue(startValue);
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 dir = eventData.position - (Vector2)center.position;
@@ -24,9 +34,27 @@ public class CircleSlider : MonoBehaviour, IDragHandler
             float normalized = (angle >= 315f ? angle - 360f : angle) + 45f;
 
             float value = 0.75f - (normalized / 360f);
-            fill.fillAmount = value;
 
-            valTxt.text = Mathf.Round((value / 0.75f) * 100f).ToString();
+            SetValue(value / 0.75f); // przeskalowanie na 0–1
         }
+    }
+
+    public void SetValue(float value01)
+    {
+        value01 = Mathf.Clamp01(value01);
+        currentValue = value01;
+
+        float fillValue = value01 * 0.75f;
+        fill.fillAmount = fillValue;
+
+        // odwrotna konwersja -> kąt
+        float normalized = (0.75f - fillValue) * 360f;
+        float angle = normalized - 45f;
+
+        if (angle < 0) angle += 360f;
+
+        handle.rotation = Quaternion.Euler(0, 0, angle + 135f);
+
+        valTxt.text = Mathf.Round(value01 * 100f).ToString();
     }
 }

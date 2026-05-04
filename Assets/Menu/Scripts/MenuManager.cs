@@ -11,14 +11,21 @@ public class MenuManager : MonoBehaviour
         Credits
     }
 
+    [System.Serializable]
+    public class Card
+    {
+        public GameObject root;        // obiekt karty (dla porządku w hierarchii)
+        public CanvasGroup group;      // do sterowania widocznością
+    }
+
     [Header("Editor Preview")]
     [SerializeField] private MenuView currentView;
 
     [Header("Menu Cards")]
-    public GameObject mainCard;
-    public GameObject gameCard;
-    public GameObject settingsCard;
-    public GameObject creditsCard;
+    public Card mainCard;
+    public Card gameCard;
+    public Card settingsCard;
+    public Card creditsCard;
 
     [Header("Game")]
     public string GameSceneName = "Game";
@@ -28,12 +35,30 @@ public class MenuManager : MonoBehaviour
         ApplyView(currentView);
     }
 
+    void Hide(Card c)
+    {
+        if (c == null || c.group == null) return;
+
+        c.group.alpha = 0f;
+        c.group.interactable = false;
+        c.group.blocksRaycasts = false;
+    }
+
+    void Show(Card c)
+    {
+        if (c == null || c.group == null) return;
+
+        c.group.alpha = 1f;
+        c.group.interactable = true;
+        c.group.blocksRaycasts = true;
+    }
+
     void DisableAll()
     {
-        if (mainCard) mainCard.SetActive(false);
-        if (gameCard) gameCard.SetActive(false);
-        if (settingsCard) settingsCard.SetActive(false);
-        if (creditsCard) creditsCard.SetActive(false);
+        Hide(mainCard);
+        Hide(gameCard);
+        Hide(settingsCard);
+        Hide(creditsCard);
     }
 
     void ApplyView(MenuView view)
@@ -42,18 +67,10 @@ public class MenuManager : MonoBehaviour
 
         switch (view)
         {
-            case MenuView.Main:
-                if (mainCard) mainCard.SetActive(true);
-                break;
-            case MenuView.Game:
-                if (gameCard) gameCard.SetActive(true);
-                break;
-            case MenuView.Settings:
-                if (settingsCard) settingsCard.SetActive(true);
-                break;
-            case MenuView.Credits:
-                if (creditsCard) creditsCard.SetActive(true);
-                break;
+            case MenuView.Main: Show(mainCard); break;
+            case MenuView.Game: Show(gameCard); break;
+            case MenuView.Settings: Show(settingsCard); break;
+            case MenuView.Credits: Show(creditsCard); break;
         }
     }
 
