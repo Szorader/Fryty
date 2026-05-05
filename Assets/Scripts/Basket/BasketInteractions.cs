@@ -35,6 +35,7 @@ public partial class BasketInteraction : MonoBehaviour
 
     public float money = -5f;
     public TMP_Text moneyText;
+    public TMP_Text orderMoneyText;
 
     private TutorialManager tutorialManager;
     public bool tutorialActive = true;
@@ -239,6 +240,7 @@ public partial class BasketInteraction : MonoBehaviour
         }
         
         moneyText.text = money.ToString();
+        orderMoneyText.text = amount.ToString();
     }
     
     
@@ -247,6 +249,7 @@ public partial class BasketInteraction : MonoBehaviour
         money += amount;
         
         moneyText.text = money.ToString();
+        orderMoneyText.text = amount.ToString();
     }
     private void ResetBasket()
     {
