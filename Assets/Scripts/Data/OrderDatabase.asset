@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OrderDatabase
   m_EditorClassIdentifier: Assembly-CSharp::OrderDatabase
   availableFries: 010000000200000003000000
-  availableSauces: 010000000200000003000000
+  availableSauces: 010000000200000003000000040000000500000006000000
   availableSeasonings: 000000000100000002000000

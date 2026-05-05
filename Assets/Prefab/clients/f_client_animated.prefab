@@ -643,6 +643,8 @@ MonoBehaviour:
   eInteract: {fileID: 6643790377558710106}
   orderText: {fileID: 3666340380186238832}
   isBadClient: 0
+  PikPikNumber: 0
+  point: {fileID: 0}
 --- !u!114 &3613314063246899012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,6 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TakeOrderInteraction
   queueManager: {fileID: 0}
+  queuingDevice: {fileID: 0}
 --- !u!114 &5781886556469742063
 MonoBehaviour:
   m_ObjectHideFlags: 0
