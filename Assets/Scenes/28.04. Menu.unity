@@ -2614,7 +2614,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1349078021}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: _ShowSettings
+        m_MethodName: _ShowSettings_Main
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3262,7 +3262,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1349078021}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: _ShowSettings
+        m_MethodName: _ShowSettings_Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5543,6 +5543,13 @@ MonoBehaviour:
       Data3: 1348845705
       Data4: 259740229
     Path: event:/InsideTruck/sauce-bottle
+  uiClickSound:
+    Guid:
+      Data1: -1946826075
+      Data2: 1089347380
+      Data3: 1307647155
+      Data4: -1642117915
+    Path: event:/InsideTruck/analog-button-press
 --- !u!1 &1352040591
 GameObject:
   m_ObjectHideFlags: 0
