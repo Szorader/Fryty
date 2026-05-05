@@ -3359,9 +3359,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001478685}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1010362661
 GameObject:
@@ -5526,20 +5526,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bcf73e19a8d0c49bfc0c55b7de5890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  currentView: 2
+  currentView: 0
   mainCard:
-    root: {fileID: 1430885964}
     group: {fileID: 1430885966}
   gameCard:
-    root: {fileID: 1764521100}
     group: {fileID: 1764521102}
   settingsCard:
-    root: {fileID: 1001478685}
     group: {fileID: 1001478687}
   creditsCard:
-    root: {fileID: 1191471182}
     group: {fileID: 1191471184}
   GameSceneName: Game
+  bottle_squirt:
+    Guid:
+      Data1: -1668646660
+      Data2: 1338119021
+      Data3: 1348845705
+      Data4: 259740229
+    Path: event:/InsideTruck/sauce-bottle
 --- !u!1 &1352040591
 GameObject:
   m_ObjectHideFlags: 0
@@ -6139,9 +6142,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430885964}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1449778501
 GameObject:

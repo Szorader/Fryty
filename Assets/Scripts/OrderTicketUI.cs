@@ -21,6 +21,9 @@ public class OrderTicketUI : MonoBehaviour
     public Sprite ketchup;
     public Sprite mayo;
     public Sprite cheese;
+    public Sprite chili;
+    public Sprite oneIsland;
+    public Sprite garlic;
 
     [Header("Sprites - Seasoning")]
     public Sprite noneSeasoning;
@@ -58,6 +61,9 @@ public class OrderTicketUI : MonoBehaviour
             case OrderDatabase.SauceType.Ketchup: return ketchup;
             case OrderDatabase.SauceType.Mayo: return mayo;
             case OrderDatabase.SauceType.Cheese: return cheese;
+            case OrderDatabase.SauceType.Chili: return chili;
+            case OrderDatabase.SauceType.OneIsland: return oneIsland;
+            case OrderDatabase.SauceType.Garlic: return garlic;
             default: return noneSauce;
         }
     }

@@ -634,6 +634,9 @@ MonoBehaviour:
   ketchup: {fileID: 21300000, guid: 2203cc2c015755144af29b992ec283a4, type: 3}
   mayo: {fileID: 21300000, guid: 62d5c254540b1644e83eb0c296f260a1, type: 3}
   cheese: {fileID: 21300000, guid: f457b0dcca5e252469858724d5c20335, type: 3}
+  chili: {fileID: 21300000, guid: 7487a589e0cbc4f43b50f8d7f4f33740, type: 3}
+  oneIsland: {fileID: 21300000, guid: ab0da1f0fbd20724b911ca90776854d2, type: 3}
+  garlic: {fileID: 21300000, guid: 8cb6c8944dd384242aa1ef86039f4c80, type: 3}
   noneSeasoning: {fileID: 21300000, guid: fe6fd26210b643c4da086474b73ca9cd, type: 3}
   salt: {fileID: 21300000, guid: cd2a6372a6bef9a44be76e8f3bccda29, type: 3}
   pepper: {fileID: 21300000, guid: 782a03bc516695d4eab7a55dae268fc5, type: 3}

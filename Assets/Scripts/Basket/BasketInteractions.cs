@@ -13,15 +13,21 @@ public partial class BasketInteraction : MonoBehaviour
     public CustomerWaitingTime waitingTime;
     public CustomerSatisfaction satisfaction;
     public bool isBad;
-
+    
+    [Header("SAUCE")]
+    public GameObject emptySauceBox;
     public GameObject ketchupBottle;
     public GameObject mayoBottle;
     public GameObject cheeseBottle;
-    public GameObject emptySauceBox;
-
+    public GameObject chiliBottle;
+    public GameObject oneIslandBottle;
+    public GameObject garlicBottle;
+    
+    [Header("SEASONING")]
     public GameObject saltShaker;
     public GameObject pepperShaker;
-
+    
+    [Header("OTHER")]
     public GameObject bell;
     
     //public QueueManager queueManager;
@@ -96,6 +102,38 @@ public partial class BasketInteraction : MonoBehaviour
                 Check();
             }
         }
+        
+        else if (clicked == chiliBottle)
+        {
+            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            {
+                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+
+                TrySetSauce(OrderDatabase.SauceType.Chili);
+                Check();
+            }
+        }
+        else if (clicked == oneIslandBottle)
+        {
+            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            {
+                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+
+                TrySetSauce(OrderDatabase.SauceType.OneIsland);
+                Check();
+            }
+        }
+        else if (clicked == garlicBottle)
+        {
+            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            {
+                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
+
+                TrySetSauce(OrderDatabase.SauceType.Garlic);
+                Check();
+            }
+        }
+        
         else if (clicked == emptySauceBox) TrySetSauce(OrderDatabase.SauceType.None, true);
 
         else if (clicked == saltShaker)

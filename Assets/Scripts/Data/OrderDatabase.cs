@@ -16,7 +16,10 @@ public class OrderDatabase : ScriptableObject
         None,
         Ketchup,
         Mayo,
-        Cheese
+        Cheese,
+        Chili,
+        OneIsland,
+        Garlic
     }
 
     public enum SeasoningType

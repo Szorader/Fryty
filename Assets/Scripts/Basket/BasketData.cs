@@ -29,6 +29,9 @@ public class BasketData : MonoBehaviour
     public GameObject ketchupModel;
     public GameObject mayoModel;
     public GameObject cheeseModel;
+    public GameObject chiliModel;
+    public GameObject oneIslandFModel;
+    public GameObject garlicModel;
 
     [Header("SEASONING MODELS")]
     public GameObject saltModel;
@@ -97,6 +100,9 @@ public class BasketData : MonoBehaviour
         if (ketchupModel) ketchupModel.SetActive(false);
         if (mayoModel) mayoModel.SetActive(false);
         if (cheeseModel) cheeseModel.SetActive(false);
+        if (chiliModel) chiliModel.SetActive(false);
+        if (oneIslandFModel) oneIslandFModel.SetActive(false);
+        if (garlicModel) garlicModel.SetActive(false);
 
         GameObject activeSauce = sauceType switch
         {
@@ -104,6 +110,9 @@ public class BasketData : MonoBehaviour
             OrderDatabase.SauceType.Ketchup => ketchupModel,
             OrderDatabase.SauceType.Mayo => mayoModel,
             OrderDatabase.SauceType.Cheese => cheeseModel,
+            OrderDatabase.SauceType.Chili => chiliModel,
+            OrderDatabase.SauceType.OneIsland => oneIslandFModel,
+            OrderDatabase.SauceType.Garlic => garlicModel,
             _ => null
         };
 
