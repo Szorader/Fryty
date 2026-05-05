@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class MenuManager : MonoBehaviour
 {
@@ -28,6 +29,11 @@ public class MenuManager : MonoBehaviour
 
     [Header("Game")]
     public string GameSceneName = "Game";
+    
+    [Header("Audio")]
+    private bool hasInitialized = false;
+    [SerializeField] private EventReference bottle_squirt;
+    
 
     void Start()
     {
@@ -62,6 +68,11 @@ public class MenuManager : MonoBehaviour
 
     void ApplyView(MenuView view)
     {
+        if (hasInitialized)
+        {
+            PlaySquirtSound();
+        }
+        
         DisableAll();
 
         switch (view)
@@ -71,6 +82,8 @@ public class MenuManager : MonoBehaviour
             case MenuView.Settings: Show(settingsCard); break;
             case MenuView.Credits: Show(creditsCard); break;
         }
+        
+        hasInitialized = true;
     }
 
 #if UNITY_EDITOR
@@ -98,5 +111,11 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("Quit Game");
         Application.Quit();
+    }
+    
+    // Audio
+    private void PlaySquirtSound()
+    {
+        RuntimeManager.PlayOneShot(bottle_squirt);
     }
 }
