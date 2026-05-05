@@ -4,7 +4,6 @@ using System.Collections;
 public class MouseTriggerFloor : MonoBehaviour
 {
     public MouseTheThief mouse;
-    public float enterDelay = 0.5f;
 
     private Coroutine enterCoroutine;
 
@@ -12,7 +11,7 @@ public class MouseTriggerFloor : MonoBehaviour
     {
         if (other.CompareTag("Fry"))
         {
-            // jeśli coś już czeka, anuluj poprzednie wejście
+            // anuluj poprzednie oczekiwanie
             if (enterCoroutine != null)
                 StopCoroutine(enterCoroutine);
 
@@ -24,7 +23,7 @@ public class MouseTriggerFloor : MonoBehaviour
     {
         if (other.CompareTag("Fry"))
         {
-            // jeśli wychodzi zanim zdążymy wejść -> anuluj wejście
+            // anuluj wejście jeśli jeszcze nie doszło do reakcji
             if (enterCoroutine != null)
             {
                 StopCoroutine(enterCoroutine);
@@ -37,7 +36,8 @@ public class MouseTriggerFloor : MonoBehaviour
 
     private IEnumerator DelayedEnter(Transform target)
     {
-        yield return new WaitForSeconds(enterDelay);
+        float delay = Random.Range(3f, 7f);
+        yield return new WaitForSeconds(delay);
 
         mouse.SetTarget(target);
         enterCoroutine = null;
