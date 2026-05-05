@@ -14,7 +14,6 @@ public class MenuManager : MonoBehaviour
     [System.Serializable]
     public class Card
     {
-        public GameObject root;        // obiekt karty (dla porządku w hierarchii)
         public CanvasGroup group;      // do sterowania widocznością
     }
 
