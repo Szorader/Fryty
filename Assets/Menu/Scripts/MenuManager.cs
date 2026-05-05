@@ -31,8 +31,8 @@ public class MenuManager : MonoBehaviour
     public string GameSceneName = "Game";
     
     [Header("Audio")]
-    private bool hasInitialized = false;
     [SerializeField] private EventReference bottle_squirt;
+    [SerializeField] private EventReference uiClickSound;
     
 
     void Start()
@@ -68,11 +68,6 @@ public class MenuManager : MonoBehaviour
 
     void ApplyView(MenuView view)
     {
-        if (hasInitialized)
-        {
-            PlaySquirtSound();
-        }
-        
         DisableAll();
 
         switch (view)
@@ -83,7 +78,6 @@ public class MenuManager : MonoBehaviour
             case MenuView.Credits: Show(creditsCard); break;
         }
         
-        hasInitialized = true;
     }
 
 #if UNITY_EDITOR
@@ -97,18 +91,47 @@ public class MenuManager : MonoBehaviour
 #endif
 
     // UI Buttons
-    public void _ShowMain() => ApplyView(MenuView.Main);
-    public void _ShowGame() => ApplyView(MenuView.Game);
-    public void _ShowSettings() => ApplyView(MenuView.Settings);
-    public void _ShowCredits() => ApplyView(MenuView.Credits);
+    public void _ShowMain()
+    {
+        PlayUISound();
+        ApplyView(MenuView.Main);
+    }
+
+    public void _ShowGame()
+    {
+        PlayUISound();
+        ApplyView(MenuView.Game);
+    }
+
+    public void _ShowCredits()
+    {
+        PlayUISound();
+        ApplyView(MenuView.Credits);
+    }
+
+    // From MAIN MENU 
+    public void _ShowSettings_Main()
+    {
+        PlaySquirtSound();
+        ApplyView(MenuView.Settings);
+    }
+
+    // From CREDITS (back button)  
+    public void _ShowSettings_Back()
+    {
+        PlayUISound();
+        ApplyView(MenuView.Settings);
+    }
 
     public void _PlayGame()
     {
+        PlaySquirtSound();
         SceneManager.LoadScene(GameSceneName);
     }
 
     public void _QuitGame()
     {
+        PlaySquirtSound();
         Debug.Log("Quit Game");
         Application.Quit();
     }
@@ -117,5 +140,9 @@ public class MenuManager : MonoBehaviour
     private void PlaySquirtSound()
     {
         RuntimeManager.PlayOneShot(bottle_squirt);
+    }
+    private void PlayUISound()
+    {
+        RuntimeManager.PlayOneShot(uiClickSound);
     }
 }

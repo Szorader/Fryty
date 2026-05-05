@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{5c48d6f8-3422-46ee-aa6c-8d915e30b9bf}">
+	<object class="AudioFile" id="{a754832f-fdf0-4b47-ae21-91dd4517e763}">
 		<property name="assetPath">
-			<value>button-1.mp3</value>
+			<value>newButton-01.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
