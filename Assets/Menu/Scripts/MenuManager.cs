@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private EventReference bottle_squirt;
     [SerializeField] private EventReference uiClickSound;
+    [SerializeField] private EventReference uiWriteSound;
     
 
     void Start()
@@ -91,7 +92,12 @@ public class MenuManager : MonoBehaviour
 #endif
 
     // UI Buttons
-    public void _ShowMain()
+    public void _ShowMain_Settings() // from SETTINGS
+    {
+        PlayUISound();
+        ApplyView(MenuView.Main);
+    }
+    public void _ShowMain_Game() // from GAME SELECTION
     {
         PlayUISound();
         ApplyView(MenuView.Main);
@@ -99,7 +105,7 @@ public class MenuManager : MonoBehaviour
 
     public void _ShowGame()
     {
-        PlayUISound();
+        PlaySquirtSound();
         ApplyView(MenuView.Game);
     }
 
@@ -125,7 +131,7 @@ public class MenuManager : MonoBehaviour
 
     public void _PlayGame()
     {
-        PlaySquirtSound();
+        PlayWritingSound();
         SceneManager.LoadScene(GameSceneName);
     }
 
@@ -144,5 +150,10 @@ public class MenuManager : MonoBehaviour
     private void PlayUISound()
     {
         RuntimeManager.PlayOneShot(uiClickSound);
+    }
+
+    private void PlayWritingSound()
+    {
+        RuntimeManager.PlayOneShot(uiWriteSound);
     }
 }

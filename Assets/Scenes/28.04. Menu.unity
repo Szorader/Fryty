@@ -1255,7 +1255,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1349078021}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: _ShowMain
+        m_MethodName: _ShowMain_Settings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5550,6 +5550,13 @@ MonoBehaviour:
       Data3: 1307647155
       Data4: -1642117915
     Path: event:/InsideTruck/analog-button-press
+  uiWriteSound:
+    Guid:
+      Data1: 1384922171
+      Data2: 1172023956
+      Data3: -71209330
+      Data4: -312544986
+    Path: event:/InsideTruck/writing
 --- !u!1 &1352040591
 GameObject:
   m_ObjectHideFlags: 0
@@ -6997,7 +7004,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1349078021}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: _ShowMain
+        m_MethodName: _ShowMain_Game
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

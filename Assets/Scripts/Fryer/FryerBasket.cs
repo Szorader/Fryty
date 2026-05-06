@@ -57,7 +57,7 @@ public class FryerSystem : MonoBehaviour
         RefreshVisuals();
         tutorialManager = FindObjectOfType<TutorialManager>();
         
-        // audio 
+        // audio
         fryingLoopInstance = RuntimeManager.CreateInstance(fryingLoopEvent);
         fryingLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
     }
@@ -264,6 +264,8 @@ public class FryerSystem : MonoBehaviour
             isPlaying = false;
         }
     }
+    
+    
     // Audio cleanup
     private void OnDestroy()
     {

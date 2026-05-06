@@ -16,6 +16,8 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     
     [Header("AUDIO")]
     [SerializeField] private EventReference killSound;
+    [SerializeField] private EventReference chainSound;
+    [SerializeField] private EventReference hatchSound;
     
     [Header("VFX")]
     [SerializeField] private GameObject smokeEffect;
@@ -109,7 +111,8 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     {
         
         animator.SetTrigger("close");
-
+        RuntimeManager.PlayOneShot(chainSound, transform.position);
+        RuntimeManager.PlayOneShot(hatchSound, transform.position);
         
         yield return new WaitForSeconds(1f);
 
@@ -148,6 +151,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
 
         //queueManager.KillClient(client);
         queuingDevice.KillClient(client);
+        RuntimeManager.PlayOneShot(hatchSound, transform.position);
         animator.SetTrigger("open");
     }
 

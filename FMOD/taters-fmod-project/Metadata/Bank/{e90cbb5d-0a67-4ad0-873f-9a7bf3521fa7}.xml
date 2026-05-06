@@ -4,9 +4,6 @@
 		<property name="name">
 			<value>SFX</value>
 		</property>
-		<property name="isMasterBank">
-			<value>true</value>
-		</property>
 		<relationship name="folder">
 			<destination>{21d59f26-366b-49a6-a372-5f6286bb3889}</destination>
 		</relationship>
