@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using FMODUnity;
 
 public class MouseTheThief : MonoBehaviour
 {
@@ -16,7 +17,14 @@ public class MouseTheThief : MonoBehaviour
     private bool hasFry = false;
 
     private Animator animator;
+    
+    [Header("AUDIO")]
+    [SerializeField] private EventReference mouseRunLoop;
+    [SerializeField] private EventReference mouseStartRun;
 
+    private FMOD.Studio.EventInstance runLoopInstance;
+    private bool isRunLoopPlaying = false;
+    
     private enum State
     {
         Idle,
@@ -35,6 +43,10 @@ public class MouseTheThief : MonoBehaviour
 
         // startowo mysz w domu = niewidoczna
         gameObject.SetActive(false);
+        
+        // audio 
+        runLoopInstance = RuntimeManager.CreateInstance(mouseRunLoop);
+        runLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
     }
 
     void Update()
@@ -81,6 +93,12 @@ public class MouseTheThief : MonoBehaviour
         else
         {
             SetState(State.Idle);
+        }
+        
+        // audio-related
+        if (runLoopInstance.isValid())
+        {
+            runLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
         }
     }
 
@@ -143,12 +161,44 @@ public class MouseTheThief : MonoBehaviour
     private void SetState(State state)
     {
         if (currentState == state) return;
+
+        State previousState = currentState;
         currentState = state;
 
-        if (animator == null) return;
+        if (animator != null)
+        {
+            animator.SetBool("isWalking", state == State.Walking);
+            animator.SetBool("isRunning", state == State.Running);
+            animator.SetBool("isIdleing", state == State.Idle);
+        }
 
-        animator.SetBool("isWalking", state == State.Walking);
-        animator.SetBool("isRunning", state == State.Running);
-        animator.SetBool("isIdleing", state == State.Idle);
+        HandleAudio(state, previousState);
+    }
+    
+    // Audio logic
+    private void HandleAudio(State newState, State previousState)
+    {
+        bool isMoving = (newState == State.Walking || newState == State.Running);
+        bool wasMoving = (previousState == State.Walking || previousState == State.Running);
+
+        // play one shot sound when mouse starts moving
+        if (isMoving && !wasMoving)
+        {
+            RuntimeManager.PlayOneShot(mouseStartRun, transform.position);
+        }
+
+        // start the loop
+        if (isMoving && !isRunLoopPlaying)
+        {
+            runLoopInstance.start();
+            isRunLoopPlaying = true;
+        }
+
+        // stop looping sound
+        if (!isMoving && isRunLoopPlaying)
+        {
+            runLoopInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            isRunLoopPlaying = false;
+        }
     }
 }
