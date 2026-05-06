@@ -1,6 +1,8 @@
 using UnityEngine;
 using PlayerInput;
-
+using FMODUnity;
+using FMOD.Studio;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -19,10 +21,20 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 velocity;
     
+    [Header("AUDIO")]
+    [SerializeField] private EventReference footsteps_indoors;
+    
+    private EventInstance footstepInstance;
+    private bool isFootstepPlaying = false;
+    
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        // audio
+        footstepInstance = RuntimeManager.CreateInstance(footsteps_indoors);
+        footstepInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
     }
     
     private void Awake()
@@ -54,6 +66,12 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         HandleLook();
         ApplyGravity();
+        HandleFootsteps();
+        
+        if (footstepInstance.isValid())
+        {
+            footstepInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        }
     }
 
     private void HandleMovement()
@@ -81,6 +99,40 @@ public class PlayerMovement : MonoBehaviour
         if (controller.isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+        }
+    }
+    
+    // audio logic
+    
+    private bool IsMoving()
+    {
+        return moveInput.magnitude > 0.1f && controller.isGrounded;
+    }
+    
+    private void HandleFootsteps()
+    {
+        bool moving = IsMoving();
+
+        // start loop indoors
+        if (moving && !isFootstepPlaying)
+        {
+            footstepInstance.start();
+            isFootstepPlaying = true;
+        }
+
+        // stop loop indoors
+        if (!moving && isFootstepPlaying)
+        {
+            footstepInstance.stop(STOP_MODE.ALLOWFADEOUT);
+            isFootstepPlaying = false;
+        }
+    }
+    private void OnDestroy()
+    {
+        if (footstepInstance.isValid())
+        {
+            footstepInstance.stop(STOP_MODE.IMMEDIATE);
+            footstepInstance.release();
         }
     }
 }
