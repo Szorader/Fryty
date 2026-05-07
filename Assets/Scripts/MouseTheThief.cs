@@ -77,7 +77,7 @@ public class MouseTheThief : MonoBehaviour
 
                 SetState(State.Idle);
 
-                // 🔥 WRACA DO DOMU → ZNIKA
+                // WRACA DO DOMU → ZNIKA
                 gameObject.SetActive(false);
             }
 
@@ -108,7 +108,7 @@ public class MouseTheThief : MonoBehaviour
 
         currentTarget = target;
 
-        // 🔥 POJAWIA SIĘ GDY JEST FRYTKA
+        // POJAWIA SIĘ GDY JEST FRYTKA
         gameObject.SetActive(true);
 
         agent.speed = walkSpeed;

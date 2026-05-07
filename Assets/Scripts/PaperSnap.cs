@@ -46,7 +46,11 @@ public class PaperSnap : MonoBehaviour
         BoardGrid board = col.collider.GetComponentInParent<BoardGrid>();
         if (board == null) return;
 
-        if (board.TryGetFreeSlot(out Vector3 pos, out Quaternion rot, out Vector2Int index))
+        Vector3 pos;
+        Quaternion rot;
+        Vector2Int index;
+
+        if (board.TryGetClosestFreeSlot(transform.position, out pos, out rot, out index))
         {
             Snap(board, pos, rot, index);
         }

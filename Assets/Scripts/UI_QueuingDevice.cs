@@ -26,7 +26,7 @@ public class UI_QueuingDevice : MonoBehaviour
     {
         GameObject clicked = clickedCollider.gameObject;
 
-        Debug.Log("[CLICK] Hit: " + clicked.name);
+        //Debug.Log("[CLICK] Hit: " + clicked.name);
 
         for (int i = 0; i < buttons.Count; i++)
         {
@@ -34,15 +34,15 @@ public class UI_QueuingDevice : MonoBehaviour
 
             if (clicked == button || clicked.transform.IsChildOf(button.transform))
             {
-                Debug.Log("[UI] Button matched: " + button.name);
+                //Debug.Log("[UI] Button matched: " + button.name);
 
                 if (queuingDevice == null)
                 {
-                    Debug.LogError("[UI] QueuingDevice is NULL");
+                    //Debug.LogError("[UI] QueuingDevice is NULL");
                     return;
                 }
 
-                Debug.Log("[UI] Calling AddOrderToBasket with number: " + i);
+                //Debug.Log("[UI] Calling AddOrderToBasket with number: " + i);
 
                 queuingDevice.AddOrderToBasket(i);
 
@@ -50,6 +50,6 @@ public class UI_QueuingDevice : MonoBehaviour
             }
         }
 
-        Debug.Log("[UI] Click not in buttons list");
+        //Debug.Log("[UI] Click not in buttons list");
     }
 }

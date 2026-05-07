@@ -265,7 +265,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2571824093259500727
 Canvas:
@@ -356,7 +356,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3093213011820754000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -364,7 +364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.0971, y: -540.0521}
+  m_AnchoredPosition: {x: 0.5, y: -0.5}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2131615552359047515
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.07076761, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 7471141828988380889}
   - component: {fileID: 1848421907728525711}
   - component: {fileID: 1447304000952564711}
-  - component: {fileID: 3783033344675509958}
+  - component: {fileID: 8323996277702236834}
   m_Layer: 0
   m_Name: OrderTicket
   m_TagString: OrderTicket
@@ -640,7 +640,7 @@ MonoBehaviour:
   noneSeasoning: {fileID: 21300000, guid: fe6fd26210b643c4da086474b73ca9cd, type: 3}
   salt: {fileID: 21300000, guid: cd2a6372a6bef9a44be76e8f3bccda29, type: 3}
   pepper: {fileID: 21300000, guid: 782a03bc516695d4eab7a55dae268fc5, type: 3}
---- !u!114 &3783033344675509958
+--- !u!114 &8323996277702236834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

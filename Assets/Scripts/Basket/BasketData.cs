@@ -3,6 +3,10 @@ using UnityEngine;
 [ExecuteAlways]
 public class BasketData : MonoBehaviour
 {
+    [Header("TRAY")]
+    public GameObject trayModel;
+    public bool trayVisible = false;
+
     [Header("FRIES")]
     public OrderDatabase.FriesType friesType = OrderDatabase.FriesType.None;
 
@@ -37,6 +41,11 @@ public class BasketData : MonoBehaviour
     public GameObject saltModel;
     public GameObject pepperModel;
 
+    private void Start()
+    {
+        RefreshVisuals();
+    }
+
     private void OnValidate()
     {
         RefreshVisuals();
@@ -44,10 +53,18 @@ public class BasketData : MonoBehaviour
 
     public void RefreshVisuals()
     {
+        UpdateTrayVisual();
         UpdateCookDescription();
         UpdateFriesVisual();
         UpdateSauceVisual();
         UpdateSeasoningVisual();
+    }
+
+    private void UpdateTrayVisual()
+    {
+        if (!trayModel) return;
+
+        trayModel.SetActive(trayVisible);
     }
 
     private void UpdateCookDescription()
@@ -83,12 +100,12 @@ public class BasketData : MonoBehaviour
 
         if (cookMaterials != null && cookMaterials.Length > 0)
         {
-            int index = Mathf.Clamp(cookLevel, 0, 2); // max 2 teraz
-            index = Mathf.Clamp(index, 0, cookMaterials.Length - 1);
+            int index = Mathf.Clamp(cookLevel, 0, cookMaterials.Length - 1);
 
             Material mat = cookMaterials[index];
 
             Renderer[] renderers = activeFries.GetComponentsInChildren<Renderer>(true);
+
             foreach (Renderer r in renderers)
                 r.sharedMaterial = mat;
         }
@@ -132,4 +149,5 @@ public class BasketData : MonoBehaviour
 
         if (active) active.SetActive(true);
     }
+    
 }

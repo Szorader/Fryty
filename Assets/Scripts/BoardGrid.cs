@@ -4,7 +4,7 @@ public class BoardGrid : MonoBehaviour
 {
     public Vector2Int gridSize = new Vector2Int(5, 5);
 
-    [Header("Spacing (real distance between cards)")]
+    [Header("Spacing")]
     public float spacingX = 0.25f;
     public float spacingY = 0.35f;
 
@@ -33,12 +33,7 @@ public class BoardGrid : MonoBehaviour
                 GameObject slot = new GameObject($"Slot_{x}_{y}");
                 slot.transform.parent = transform;
 
-                Vector3 offset = new Vector3(
-                    x * spacingX,
-                    y * spacingY,
-                    0
-                );
-
+                Vector3 offset = new Vector3(x * spacingX, y * spacingY, 0);
                 slot.transform.position = basePos + startOffset + offset;
                 slot.transform.rotation = transform.rotation;
 
@@ -48,8 +43,10 @@ public class BoardGrid : MonoBehaviour
         }
     }
 
-    // NOWA METODA — NAJBLIŻSZY WOLNY SLOT
-    public bool TryGetClosestFreeSlot(Vector3 fromPosition, out Vector3 pos, out Quaternion rot, out Vector2Int index)
+    public bool TryGetClosestFreeSlot(Vector3 fromPosition,
+        out Vector3 pos,
+        out Quaternion rot,
+        out Vector2Int index)
     {
         float bestDistance = float.MaxValue;
         Vector2Int bestIndex = new Vector2Int(-1, -1);
@@ -60,7 +57,7 @@ public class BoardGrid : MonoBehaviour
             {
                 if (occupied[x, y]) continue;
 
-                float dist = Vector3.SqrMagnitude(slots[x, y].position - fromPosition);
+                float dist = (slots[x, y].position - fromPosition).sqrMagnitude;
 
                 if (dist < bestDistance)
                 {
@@ -84,34 +81,6 @@ public class BoardGrid : MonoBehaviour
         pos = Vector3.zero;
         rot = Quaternion.identity;
         index = new Vector2Int(-1, -1);
-
-        return false;
-    }
-
-    // STARA METODA — jeśli nadal potrzebna
-    public bool TryGetFreeSlot(out Vector3 pos, out Quaternion rot, out Vector2Int index)
-    {
-        for (int y = 0; y < gridSize.y; y++)
-        {
-            for (int x = 0; x < gridSize.x; x++)
-            {
-                if (!occupied[x, y])
-                {
-                    occupied[x, y] = true;
-
-                    pos = slots[x, y].position;
-                    rot = slots[x, y].rotation;
-                    index = new Vector2Int(x, y);
-
-                    return true;
-                }
-            }
-        }
-
-        pos = Vector3.zero;
-        rot = Quaternion.identity;
-        index = new Vector2Int(-1, -1);
-
         return false;
     }
 

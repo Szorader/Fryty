@@ -29,6 +29,8 @@ public partial class BasketInteraction : MonoBehaviour
     
     [Header("OTHER")]
     public GameObject bell;
+    public GameObject trashBin;
+    public GameObject trayShelf;
     
     //public QueueManager queueManager;
     public QueuingDevice queuingDevice;
@@ -71,7 +73,7 @@ public partial class BasketInteraction : MonoBehaviour
     }
 
     private void HandleClick(GameObject clicked)
-    {
+    {   
         if (!basketData) return;
         if (clicked == ketchupBottle)
         {
@@ -168,8 +170,22 @@ public partial class BasketInteraction : MonoBehaviour
                 tutorialManager.NextStep();
                 tutorialActive2 = false;
             }
+
+            ApplyBasketToCustomer(); 
+
             CheckOrder();
             ResetBasket();
+        }
+        
+        else if (clicked == trashBin)
+        {
+            ResetBasket();
+        }
+        
+        else if (clicked == trayShelf)
+        {
+            basketData.trayVisible = true;
+            basketData.RefreshVisuals();
         }
     }
 
@@ -183,16 +199,24 @@ public partial class BasketInteraction : MonoBehaviour
     }
     private void TrySetSauce(OrderDatabase.SauceType newSauce, bool force = false)
     {
-        if (basketData.sauceType != OrderDatabase.SauceType.None && !force) return;
-        
+        if (!basketData.trayVisible || basketData.friesType == OrderDatabase.FriesType.None)
+            return;
+
+        if (basketData.sauceType != OrderDatabase.SauceType.None && !force)
+            return;
+
         basketData.sauceType = newSauce;
         basketData.RefreshVisuals();
     }
 
     private void TrySetSeasoning(OrderDatabase.SeasoningType newSeasoning)
     {
-        if (basketData.seasoningType != OrderDatabase.SeasoningType.None) return;
-        
+        if (!basketData.trayVisible || basketData.friesType == OrderDatabase.FriesType.None)
+            return;
+
+        if (basketData.seasoningType != OrderDatabase.SeasoningType.None)
+            return;
+
         basketData.seasoningType = newSeasoning;
         basketData.RefreshVisuals();
     }
@@ -258,6 +282,8 @@ public partial class BasketInteraction : MonoBehaviour
         basketData.sauceType = OrderDatabase.SauceType.None;
         basketData.seasoningType = OrderDatabase.SeasoningType.None;
 
+        basketData.trayVisible = false;
+
         basketData.RefreshVisuals();
     }
     
@@ -273,6 +299,38 @@ public partial class BasketInteraction : MonoBehaviour
         shakerPlaying = true;
 
         StartCoroutine(ReleaseShakerWhenDone());
+    }
+    
+    private void ApplyBasketToCustomer()
+    {
+        if (!basketData || !currentCustomer) return;
+
+        BasketData customerBasket = currentCustomer.GetComponent<BasketData>();
+        Animator anim = currentCustomer.GetComponent<Animator>();
+
+        if (!customerBasket)
+        {
+            Debug.LogWarning("Client has no BasketData!");
+            return;
+        }
+
+        // COPY DATA
+        customerBasket.friesType = basketData.friesType;
+        customerBasket.cookLevel = basketData.cookLevel;
+        customerBasket.sauceType = basketData.sauceType;
+        customerBasket.seasoningType = basketData.seasoningType;
+
+        // VISUAL
+        customerBasket.trayVisible = true;
+        customerBasket.RefreshVisuals();
+
+        // ANIMATION FLAG
+        bool hasFries = basketData.friesType != OrderDatabase.FriesType.None;
+
+        if (anim)
+        {
+            anim.SetBool("hasFries", hasFries);
+        }
     }
     
     private IEnumerator ReleaseShakerWhenDone()
