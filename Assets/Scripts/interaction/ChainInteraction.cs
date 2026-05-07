@@ -24,7 +24,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     private float smokeDuration = 15f;
     
     public Animator animator;
-    private TutorialManager tutorialManager;
+    public TutorialManager tutorialManager;
     
     public GameObject modelFries1;
     public GameObject modelFries2;
@@ -34,8 +34,8 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     
     // chain movement
     private Vector3 startLocalPos;
-    
-    
+
+   
 
     public enum QueueType
     {
@@ -48,6 +48,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         startLocalPos = transform.localPosition;
         queuingDevice = FindObjectOfType<QueuingDevice>();
         tutorialManager = FindObjectOfType<TutorialManager>();
+        
     }
     public bool CanInteract()
     {

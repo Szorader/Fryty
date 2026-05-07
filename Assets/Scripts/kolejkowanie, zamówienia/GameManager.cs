@@ -1,12 +1,24 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public SpawnManager spawnManager;
+   // public SpawnManager spawnManager;
     //public QueueManager queueManager;
     //pozniej to wszystko zostanie usuniete bo bedzie to robione automatycznie przez gre
+    public DayManager dayManager;
+
+    private void Start()
+    {
+        dayManager = FindObjectOfType<DayManager>();
+    }
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            dayManager.WrongKill();
+        }
         // spawn klienta
         /*if (Input.GetKeyDown(KeyCode.Z))
         {

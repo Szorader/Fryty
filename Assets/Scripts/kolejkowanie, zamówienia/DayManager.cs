@@ -2,20 +2,25 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class DayManager : MonoBehaviour
 {
     public TextMeshProUGUI messageText;
     public GameObject messagePanel;
+    
+    private Endgame endgame;
 
     void Start()
     {
         messagePanel.SetActive(false);
+        endgame = FindObjectOfType<Endgame>();
     }
 
     public void WrongKill()
     {
         StartCoroutine(Message("Wyeliminowałeś złego klienta!", 5f, true));
+        endgame.StartAnimation();
     }
 
     public void GoodKill()
@@ -37,9 +42,9 @@ public class DayManager : MonoBehaviour
 
         messagePanel.SetActive(false);
 
-        if (reset)
+        /*if (reset)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        }*/
     }
 }
