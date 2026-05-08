@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1434047171673041351}
   - component: {fileID: 5143912959224942260}
   - component: {fileID: 1689076412680026804}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 2795818016117112539}
   - component: {fileID: 665224658178966562}
   - component: {fileID: 1582015268816956418}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Seasoning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 5201054593361353379}
   - component: {fileID: 5586384302841068510}
   - component: {fileID: 5440081068965754278}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Souse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 2571824093259500727}
   - component: {fileID: 222926815217255233}
   - component: {fileID: 8924145694910228290}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 3682379831579642354}
   - component: {fileID: 2131615552359047515}
   - component: {fileID: 8426902069495912509}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 1848421907728525711}
   - component: {fileID: 1447304000952564711}
   - component: {fileID: 8323996277702236834}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OrderTicket
   m_TagString: OrderTicket
   m_Icon: {fileID: 0}
@@ -575,13 +575,13 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1848421907728525711
 Rigidbody:

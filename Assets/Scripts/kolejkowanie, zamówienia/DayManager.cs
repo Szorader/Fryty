@@ -19,18 +19,18 @@ public class DayManager : MonoBehaviour
 
     public void WrongKill()
     {
-        StartCoroutine(Message("Wyeliminowałeś złego klienta!", 5f, true));
+        //StartCoroutine(Message("You kill good guy", 5f, false));
         endgame.StartAnimation();
     }
 
     public void GoodKill()
     {
-        StartCoroutine(Message("Dobrze wyeliminowałeś!", 3f, false));
+        StartCoroutine(Message("Good Elimination!", 3f, false));
     }
 
     public void EndDay()
     {
-        StartCoroutine(Message("Zakończenie dnia", 5f, true));
+        StartCoroutine(Message("End Day", 5f, true));
     }
 
     IEnumerator Message(string tekst, float czas, bool reset)
@@ -42,9 +42,9 @@ public class DayManager : MonoBehaviour
 
         messagePanel.SetActive(false);
 
-        /*if (reset)
+        if (reset)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }*/
+        }
     }
 }

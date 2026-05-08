@@ -121,6 +121,12 @@ public class Interactor : MonoBehaviour
         Ray ray = new Ray(transform.position /*+ raycastOffset*/, transform.forward);
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo, castDistance))
+        /*if (Physics.Raycast(
+                ray,
+                out RaycastHit hitInfo,
+                castDistance,
+                Physics.DefaultRaycastLayers,
+                QueryTriggerInteraction.Ignore))*/
         {
             interactable = hitInfo.collider.GetComponent<IInteractable>();
 
