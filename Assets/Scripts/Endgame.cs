@@ -12,6 +12,8 @@ public class Endgame : MonoBehaviour
     [SerializeField] private EventReference secondKnock;
     [SerializeField] private EventReference doorKickDown;
     
+    [SerializeField] private DeathScreenManager deathScreen;
+    
     // RuntimeManager.PlayOneShot(firstKnock, transform.position);
     // RuntimeManager.PlayOneShot(secondKnock, transform.position);
     // RuntimeManager.PlayOneShot(doorKickDown, transform.position);
@@ -74,16 +76,24 @@ public class Endgame : MonoBehaviour
         Debug.Log("6");
         // door kick
         RuntimeManager.PlayOneShot(doorKickDown, transform.position);
+        
+        var player = playerMovementScript.GetComponent<PlayerMovement>();
+
+        if (player != null)
+        {
+            player.Die(); // stops footsteps audio + locks death state + unlocks cursor
+        }
         playerMovementScript.enabled = false;
+        
         
         isLooking = true;
         
         Debug.Log("7");
         animator.SetTrigger(animationTrigger);
-        messagePanel.SetActive(true);
-        messageText.text = "You kill good guy";
+        
+        deathScreen.ShowArrest(playerMovementScript.gameObject);
         yield return new WaitForSecondsRealtime(5f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
     void Update()
