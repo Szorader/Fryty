@@ -167,7 +167,7 @@ public class FryerSystem : MonoBehaviour
             Quaternion.identity
         );
 
-        if (tutorialActive && tutorialManager.tutorialStep == 4)
+        if (tutorialActive && tutorialManager.tutorialStep == 5)
         {
             tutorialManager.NextStep();
             tutorialActive = false;
