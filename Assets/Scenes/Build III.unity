@@ -877,63 +877,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   prompt: 'LMB - Throw away the order '
---- !u!1001 &133960710
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5854277440924324529, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_Name
-      value: p_pagerholder
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.1485537
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.4453411
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29.246326
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948949885317092125, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 141854542ae99a44ca87e377467e8c7c, type: 3}
 --- !u!1 &161082789
 GameObject:
   m_ObjectHideFlags: 0
@@ -5393,6 +5336,7 @@ MonoBehaviour:
       Data3: -1307370359
       Data4: 114690660
     Path: event:/InsideTruck/door-kickdown
+  deathScreen: {fileID: 687183470}
   startDelay: 2
   pauseBetweenKnocks: 12
   pauseAfterKnocks: 3
@@ -6389,6 +6333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sexykon
       objectReference: {fileID: 0}
+    - target: {fileID: 2425681465616487043, guid: 3da5f84df4d419643834351a1819074d, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 687183470}
     - target: {fileID: 6740386822680410105, guid: 3da5f84df4d419643834351a1819074d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6353482
@@ -6403,7 +6351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6740386822680410105, guid: 3da5f84df4d419643834351a1819074d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.73791337
       objectReference: {fileID: 0}
     - target: {fileID: 6740386822680410105, guid: 3da5f84df4d419643834351a1819074d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6411,7 +6359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6740386822680410105, guid: 3da5f84df4d419643834351a1819074d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.6748955
       objectReference: {fileID: 0}
     - target: {fileID: 6740386822680410105, guid: 3da5f84df4d419643834351a1819074d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -6423,7 +6371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6740386822680410105, guid: 3da5f84df4d419643834351a1819074d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 84.892
       objectReference: {fileID: 0}
     - target: {fileID: 6740386822680410105, guid: 3da5f84df4d419643834351a1819074d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -7206,8 +7154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 123, y: 0}
-  m_SizeDelta: {x: 803.5886, y: 182.169}
+  m_AnchoredPosition: {x: 2.8936, y: 81.75299}
+  m_SizeDelta: {x: 1265.8462, y: 345.675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368196287
 MonoBehaviour:
@@ -12322,4 +12270,3 @@ SceneRoots:
   - {fileID: 614726526}
   - {fileID: 2226672851107348639}
   - {fileID: 1143627902}
-  - {fileID: 133960710}
