@@ -27,8 +27,8 @@ public class QueuingDevice : MonoBehaviour
 
 
     public bool canGiveNumber = false;
-    private bool tutorialActive = true;
-    private bool tutorialActiveStep2 = true;
+    public bool tutorialActive = true;
+    public bool tutorialActiveStep2 = true;
     private bool tutorialActiveKill = true;
     private int countClients = 0;
     public int currentNumber;
