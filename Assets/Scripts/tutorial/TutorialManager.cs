@@ -36,7 +36,7 @@ public class TutorialManager : MonoBehaviour
         switch (tutorialStepKill)
         {
             case 1:
-                tutorialText.text = "Pull the chain to kill the bad customer";
+                tutorialText.text = "Pull the chain to kill the bad customer!";
                 uiTutorial.SetActive(true);
                 chain.TurnOn();
                 break;
@@ -64,27 +64,27 @@ public class TutorialManager : MonoBehaviour
                 client.TurnOn();
                 break;
             case 1:
-                tutorialText.text = "Give the customer a number ";
+                tutorialText.text = "Give the customer a pager";
                 pikacz.TurnOn();
                 client.TurnOff();
                 break;
             case 2:
-                tutorialText.text = "Take potato";
+                tutorialText.text = "Take a potato out of the fridge";
                 fridge.TurnOn();
                 pikacz.TurnOff();
                 break;
             case 3:
-                tutorialText.text = "Put the potato into the slicer and press the fries type";
+                tutorialText.text = "Put the potato into the slicer on the counter and choose the fries type";
                 fridge.TurnOff();
                 slicer.TurnOn();
                 break;
             case 4:
-                tutorialText.text = "Put the slice into the fryer and click after the time to remove the baked";
+                tutorialText.text = "Put the fries into the fryer. Take them out once they're fried";
                 slicer.TurnOff();
                 fryer.TurnOn();
                 break;
             case 5:
-                tutorialText.text = "add the sliced meat to the customer's order and choose the sauce and spices";
+                tutorialText.text = "Put the fries into the serving basket. Add the correct sauce and spices to the order";
                 fryer.TurnOff();
                 order.TurnOn();
                 break;
