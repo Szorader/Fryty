@@ -10,12 +10,14 @@ public class TutorialManager : MonoBehaviour
     public int tutorialStepKill = 0;
     public ParticleController client;
     public ParticleController pikacz;
+    public ParticleController orderRack;
     public ParticleController fridge;
     public ParticleController slicer;
     public ParticleController fryer;
     public ParticleController order;
     public ParticleController cashRegister;
     public ParticleController chain;
+    public ParticleController clearBasket;
     
 
     void Start()
@@ -69,33 +71,43 @@ public class TutorialManager : MonoBehaviour
                 client.TurnOff();
                 break;
             case 2:
-                tutorialText.text = "Take a potato out of the fridge";
-                fridge.TurnOn();
+                tutorialText.text = "Place order on the order rack above the window ";
+                orderRack.TurnOn();
                 pikacz.TurnOff();
                 break;
             case 3:
+                tutorialText.text = "Take a potato out of the fridge";
+                fridge.TurnOn();
+                orderRack.TurnOff();
+                break;
+            case 4:
                 tutorialText.text = "Put the potato into the slicer on the counter and choose the fries type";
                 fridge.TurnOff();
                 slicer.TurnOn();
                 break;
-            case 4:
+            case 5:
                 tutorialText.text = "Put the fries into the fryer. Take them out once they're fried";
                 slicer.TurnOff();
                 fryer.TurnOn();
                 break;
-            case 5:
+            case 6:
                 tutorialText.text = "Put the fries into the serving basket. Add the correct sauce and spices to the order";
                 fryer.TurnOff();
                 order.TurnOn();
                 break;
-            case 6:
+            case 7:
                 tutorialText.text = "Click the correct order number on the register's tablet to summon the customer to the register" +
                                     "Give the order to the customer by clicking on the cash register";
                 order.TurnOff();
                 cashRegister.TurnOn();
                 break;
-            case 7:
+            case 8:
+                tutorialText.text = "Add clear basket";
+                clearBasket.TurnOn();
                 cashRegister.TurnOff();
+                break;
+            case 9:
+                clearBasket.TurnOff();
                 uiTutorial.SetActive(false);
                 break;
             default:

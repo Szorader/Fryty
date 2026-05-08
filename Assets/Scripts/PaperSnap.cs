@@ -8,10 +8,14 @@ public class PaperSnap : MonoBehaviour
 
     private BoardGrid currentBoard;
     private Vector2Int slotIndex;
+    
+    private TutorialManager tutorialManager;
+    private bool tutorialActive = true;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        tutorialManager = FindObjectOfType<TutorialManager>();
     }
 
     void Update()
@@ -69,6 +73,11 @@ public class PaperSnap : MonoBehaviour
         transform.position = pos;
         transform.rotation = rot;
         transform.SetParent(board.transform);
+        if (tutorialActive && tutorialManager.tutorialStep == 2)
+        {
+            tutorialManager.NextStep();
+            tutorialActive = false;
+        }
     }
 
     void DestroyPaper()

@@ -42,6 +42,7 @@ public partial class BasketInteraction : MonoBehaviour
     private TutorialManager tutorialManager;
     public bool tutorialActive = true;
     public bool tutorialActive2 = true;
+    public bool tutorialActive3 = true;
     
     [Header("AUDIO")]
     [SerializeField] private EventReference shakerSound;
@@ -165,7 +166,7 @@ public partial class BasketInteraction : MonoBehaviour
 
         else if (clicked == bell)
         {
-            if (tutorialActive2 && tutorialManager.tutorialStep == 6)
+            if (tutorialActive2 && tutorialManager.tutorialStep == 7)
             {
                 tutorialManager.NextStep();
                 tutorialActive2 = false;
@@ -184,6 +185,11 @@ public partial class BasketInteraction : MonoBehaviour
         
         else if (clicked == trayShelf)
         {
+            if (tutorialActive3 && tutorialManager.tutorialStep == 8)
+            {
+                tutorialManager.NextStep();
+                tutorialActive3 = false;
+            }
             basketData.trayVisible = true;
             basketData.RefreshVisuals();
         }
@@ -191,7 +197,7 @@ public partial class BasketInteraction : MonoBehaviour
 
     private void Check()
     {
-        if  (tutorialActive && tutorialManager.tutorialStep == 5)
+        if  (tutorialActive && tutorialManager.tutorialStep == 6)
         {
             tutorialManager.NextStep();
             tutorialActive = false;

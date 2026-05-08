@@ -59,7 +59,7 @@ public class ClickToSpawn : MonoBehaviour
         GameObject spawned = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
         spawnedObjects.Add(spawned);
 
-        if (tutorialActive && tutorialManager.tutorialStep == 2)
+        if (tutorialActive && tutorialManager.tutorialStep == 3)
         {
             tutorialManager.NextStep();
             tutorialActive = false;
