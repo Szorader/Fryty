@@ -77,29 +77,39 @@ public class MouseTheThief : MonoBehaviour
 
                 SetState(State.Idle);
 
-                // WRACA DO DOMU → ZNIKA
+                // stop audio before hiding
+                StopRunLoopImmediate();
+
+                // hide mouse
                 gameObject.SetActive(false);
             }
 
+            UpdateAudio();
             return;
         }
 
+        // target exists -> move
         if (currentTarget != null)
         {
-            agent.speed = walkSpeed;
-            agent.SetDestination(currentTarget.position);
-            SetState(State.Walking);
+            // fries disappeared before mouse got them
+            if (currentTarget.gameObject == null || !currentTarget.gameObject.activeInHierarchy)
+            {
+                ReturnToHome();
+            }
+            else
+            {
+                agent.speed = walkSpeed;
+                agent.SetDestination(currentTarget.position);
+
+                SetState(State.Walking);
+            }
         }
         else
         {
             SetState(State.Idle);
         }
-        
-        // audio-related
-        if (runLoopInstance.isValid())
-        {
-            runLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
-        }
+
+        UpdateAudio();
     }
 
     public void SetTarget(Transform target)
@@ -110,6 +120,9 @@ public class MouseTheThief : MonoBehaviour
 
         // POJAWIA SIĘ GDY JEST FRYTKA
         gameObject.SetActive(true);
+        
+        // play audio
+        RuntimeManager.PlayOneShot(mouseStartRun, transform.position);
 
         agent.speed = walkSpeed;
         agent.SetDestination(target.position);
@@ -172,33 +185,64 @@ public class MouseTheThief : MonoBehaviour
             animator.SetBool("isIdleing", state == State.Idle);
         }
 
-        HandleAudio(state, previousState);
     }
     
+    // =======================
     // Audio logic
-    private void HandleAudio(State newState, State previousState)
+    // =======================
+    
+    private bool IsActuallyMoving()
     {
-        bool isMoving = (newState == State.Walking || newState == State.Running);
-        bool wasMoving = (previousState == State.Walking || previousState == State.Running);
+        if (agent == null) return false;
 
-        // play one shot sound when mouse starts moving
-        if (isMoving && !wasMoving)
+        if (!agent.enabled) return false;
+
+        if (!agent.isOnNavMesh) return false;
+
+        return agent.velocity.magnitude > 0.1f;
+    }
+
+    private void UpdateAudio()
+    {
+        // update 3D position
+        if (runLoopInstance.isValid())
         {
-            RuntimeManager.PlayOneShot(mouseStartRun, transform.position);
+            runLoopInstance.set3DAttributes(
+                RuntimeUtils.To3DAttributes(gameObject)
+            );
         }
 
-        // start the loop
+        bool isMoving = IsActuallyMoving();
+
+        // start loop
         if (isMoving && !isRunLoopPlaying)
         {
             runLoopInstance.start();
             isRunLoopPlaying = true;
         }
 
-        // stop looping sound
+        // stop loop
         if (!isMoving && isRunLoopPlaying)
         {
             runLoopInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             isRunLoopPlaying = false;
+        }
+    }
+
+    private void StopRunLoopImmediate()
+    {
+        if (!isRunLoopPlaying) return;
+
+        runLoopInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        isRunLoopPlaying = false;
+    }
+
+    private void OnDestroy()
+    {
+        if (runLoopInstance.isValid())
+        {
+            runLoopInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            runLoopInstance.release();
         }
     }
 }
