@@ -1,7 +1,8 @@
 using UnityEngine;
 using FMODUnity;
 using System.Collections;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
+using TMPro;
 /// <summary>
 /// Policeman entry inside foodtruck
 /// </summary>
@@ -35,17 +36,25 @@ public class Endgame : MonoBehaviour
     public Transform spawnPoint;
     public GameObject policeman;
 
+    private bool sequenceStarted = false;
     private bool isLooking = false;
+    
+    public TextMeshProUGUI messageText;
+    public GameObject messagePanel;
     /*public void Start()
     {
         StartCoroutine(EventSequence());
     }*/
     public void StartAnimation()
     {
+        if (sequenceStarted) return;
+
+        sequenceStarted = true;
         StartCoroutine(EventSequence());
     }
      IEnumerator EventSequence()
     {
+        GameObject obj = Instantiate(policeman, spawnPoint.position, spawnPoint.rotation);
         Debug.Log("1");
         yield return new WaitForSecondsRealtime(startDelay);
         Debug.Log("2");
@@ -71,6 +80,10 @@ public class Endgame : MonoBehaviour
         
         Debug.Log("7");
         animator.SetTrigger(animationTrigger);
+        messagePanel.SetActive(true);
+        messageText.text = "You kill good guy";
+        yield return new WaitForSecondsRealtime(5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void Update()
