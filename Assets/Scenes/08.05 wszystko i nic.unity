@@ -6117,6 +6117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab98f69706a9e0b4aa3ff176caac926b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::sexykon
+  deathScreen: {fileID: 0}
 --- !u!212 &1127475879
 SpriteRenderer:
   serializedVersion: 2
@@ -8773,7 +8774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParticleController
   particles: {fileID: 1305969043}
-  particles1: {fileID: 0}
+  particles1: {fileID: 1953497388}
 --- !u!114 &1776391679 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7328433108083768534, guid: f257c06bfce85cc47b2ac32b471de0e6, type: 3}
@@ -9962,6 +9963,11 @@ Transform:
 --- !u!4 &1953497386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7321101016072184519, guid: 8389cc70022ea6048bf9343cdacc9d78, type: 3}
+  m_PrefabInstance: {fileID: 1127894542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1953497388 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5739692249375295287, guid: 8389cc70022ea6048bf9343cdacc9d78, type: 3}
   m_PrefabInstance: {fileID: 1127894542}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1968990440

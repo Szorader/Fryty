@@ -89,7 +89,8 @@ public class TutorialManager : MonoBehaviour
                 order.TurnOn();
                 break;
             case 6:
-                tutorialText.text = "Give the order to the customer by clicking on the cash register ";
+                tutorialText.text = "Click the correct order number on the register's tablet to summon the customer to the register" +
+                                    "Give the order to the customer by clicking on the cash register";
                 order.TurnOff();
                 cashRegister.TurnOn();
                 break;

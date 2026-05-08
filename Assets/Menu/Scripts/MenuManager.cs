@@ -132,7 +132,7 @@ public class MenuManager : MonoBehaviour
     public void _PlayGame()
     {
         PlayWritingSound();
-        SceneManager.LoadScene(GameSceneName);
+        SceneManager.LoadScene(1);
     }
 
     public void _QuitGame()
