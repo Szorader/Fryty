@@ -120,7 +120,8 @@ public class Interactor : MonoBehaviour
 
         Ray ray = new Ray(transform.position /*+ raycastOffset*/, transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, castDistance))
+        LayerMask mask = ~LayerMask.GetMask("IgnoreRaycast");
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, castDistance,mask))
         /*if (Physics.Raycast(
                 ray,
                 out RaycastHit hitInfo,

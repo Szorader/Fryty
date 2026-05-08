@@ -24,7 +24,7 @@ TagManager:
   - Player
   - No Collision With Player
   - Door
-  - 
+  - IgnoreRaycast
   - 
   - 
   - 
