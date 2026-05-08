@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-   // public SpawnManager spawnManager;
+    // public SpawnManager spawnManager;
     //public QueueManager queueManager;
     //pozniej to wszystko zostanie usuniete bo bedzie to robione automatycznie przez gre
     public DayManager dayManager;
@@ -15,10 +16,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             dayManager.WrongKill();
-        }
+        }*/
         // spawn klienta
         /*if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -36,9 +41,9 @@ public class GameManager : MonoBehaviour
             queueManager.ServeNextClient();
         }
 */
-       /* if (Input.GetKeyDown(KeyCode.V))
-        {
-            queueManager.AddOrderToBasket();
-        }*/
+        /* if (Input.GetKeyDown(KeyCode.V))
+         {
+             queueManager.AddOrderToBasket();
+         }*/
     }
 }
