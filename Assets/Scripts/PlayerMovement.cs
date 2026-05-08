@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float xRotation = 0f;
 
     private Vector3 velocity;
+    public bool isDead = false;
     
     [Header("AUDIO")]
     [SerializeField] private EventReference footsteps_indoors;
@@ -102,6 +103,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
+    public void Die()
+    {
+        isDead = true;
+
+        StopFootsteps();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    
     // audio logic
     
     private bool IsMoving()
@@ -111,16 +122,18 @@ public class PlayerMovement : MonoBehaviour
     
     private void HandleFootsteps()
     {
+        if (isDead) return;
+
         bool moving = IsMoving();
 
-        // start loop indoors
+        // start footsteps loop
         if (moving && !isFootstepPlaying)
         {
             footstepInstance.start();
             isFootstepPlaying = true;
         }
-
-        // stop loop indoors
+        
+        // stop footsteps
         if (!moving && isFootstepPlaying)
         {
             footstepInstance.stop(STOP_MODE.ALLOWFADEOUT);
@@ -135,4 +148,16 @@ public class PlayerMovement : MonoBehaviour
             footstepInstance.release();
         }
     }
+    
+    public void StopFootsteps()
+    {
+        if (footstepInstance.isValid())
+        {
+            footstepInstance.stop(STOP_MODE.ALLOWFADEOUT);
+            footstepInstance.release();
+        }
+
+        isFootstepPlaying = false;
+    }
+    
 }
