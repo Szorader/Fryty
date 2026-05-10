@@ -9,6 +9,8 @@ public class UI_QueuingDevice : MonoBehaviour
     [Header("Reference")]
     public QueuingDevice queuingDevice;
 
+    public bool canGiveOrder = true;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -24,6 +26,8 @@ public class UI_QueuingDevice : MonoBehaviour
 
     private void HandleClick(Collider clickedCollider)
     {
+        if (!canGiveOrder)
+            return;
         GameObject clicked = clickedCollider.gameObject;
 
         //Debug.Log("[CLICK] Hit: " + clicked.name);
@@ -44,6 +48,7 @@ public class UI_QueuingDevice : MonoBehaviour
 
                 //Debug.Log("[UI] Calling AddOrderToBasket with number: " + i);
 
+                canGiveOrder = false;
                 queuingDevice.AddOrderToBasket(i);
 
                 return;

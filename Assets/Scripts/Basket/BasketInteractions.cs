@@ -40,6 +40,7 @@ public partial class BasketInteraction : MonoBehaviour
     public TMP_Text orderMoneyText;
 
     private TutorialManager tutorialManager;
+    public UI_QueuingDevice queuingDeviceUI;
     public bool tutorialActive = true;
     public bool tutorialActive2 = true;
     public bool tutorialActive3 = true;
@@ -249,8 +250,8 @@ public partial class BasketInteraction : MonoBehaviour
         
         // play cha-ching audio
         RuntimeManager.PlayOneShot(chaChingSound, transform.position);
-        
-        
+
+        queuingDeviceUI.canGiveOrder = true;
         //queueManager.ServeNextClient();
         queuingDevice.RemoveClient();
         
