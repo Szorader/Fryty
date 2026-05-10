@@ -11,6 +11,8 @@ public class PaperSnap : MonoBehaviour
     
     private TutorialManager tutorialManager;
     private bool tutorialActive = true;
+    
+    private bool canSnap = true;
 
     void Awake()
     {
@@ -34,7 +36,7 @@ public class PaperSnap : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
-                    DestroyPaper();
+                    ReleasePaper();
                 }
             }
         }
@@ -43,9 +45,9 @@ public class PaperSnap : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         if (isBeingDestroyed) return;
-
         if (!CompareTag("OrderTicket")) return;
         if (isSnapped) return;
+        if (!canSnap) return;
 
         BoardGrid board = col.collider.GetComponentInParent<BoardGrid>();
         if (board == null) return;
@@ -78,6 +80,35 @@ public class PaperSnap : MonoBehaviour
             tutorialManager.NextStep();
             tutorialActive = false;
         }
+    }
+    
+    void ReleasePaper()
+    {
+        if (!isSnapped || isBeingDestroyed) return;
+
+        isSnapped = false;
+        canSnap = false;
+
+        if (currentBoard != null)
+        {
+            currentBoard.FreeSlot(slotIndex);
+            currentBoard = null;
+        }
+
+        transform.SetParent(null);
+
+        rb.isKinematic = false;
+        rb.useGravity = true;
+
+        rb.AddForce(Vector3.down * 2f, ForceMode.Impulse);
+
+        // po chwili znów może snapować (gdy wyleci z obszaru)
+        Invoke(nameof(EnableSnap), 0.3f);
+    }
+    
+    void EnableSnap()
+    {
+        canSnap = true;
     }
 
     void DestroyPaper()

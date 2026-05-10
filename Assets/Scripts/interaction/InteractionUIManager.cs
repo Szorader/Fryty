@@ -11,6 +11,7 @@ public class InteractionUIManager : MonoBehaviour
     
     public Image crosshair;
     public Image interactableCrosshair;
+    public Image talkCrosshair;
 
     private void Awake()
     {
