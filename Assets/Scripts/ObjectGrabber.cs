@@ -69,6 +69,14 @@ public class ObjectGrabberLoose : MonoBehaviour
                 grabbedObject.useGravity = true;
             }
         }
+        grabbedObject.interpolation =
+            RigidbodyInterpolation.Interpolate;
+
+        grabbedObject.collisionDetectionMode =
+            CollisionDetectionMode.Continuous;
+
+        grabbedObject.linearDamping = 0.5f;
+        grabbedObject.angularDamping = 1f;
     }
 
     void Release()
@@ -76,7 +84,7 @@ public class ObjectGrabberLoose : MonoBehaviour
         grabbedObject = null;
     }
 
-    void MoveObject()
+    /*void MoveObject()
     {
         Vector3 worldGrabPoint = grabbedObject.transform.TransformPoint(grabOffset);
 
@@ -88,6 +96,37 @@ public class ObjectGrabberLoose : MonoBehaviour
         Vector3 dampingForce = -pointVelocity * damping;
 
         grabbedObject.AddForceAtPosition(force + dampingForce, worldGrabPoint);
+        
+        grabbedObject.angularVelocity =
+            Vector3.ClampMagnitude(grabbedObject.angularVelocity, 3f);
+    }*/
+    void MoveObject()
+    {
+        Vector3 worldGrabPoint =
+            grabbedObject.transform.TransformPoint(grabOffset);
+
+        Vector3 toTarget =
+            holdPoint.position - worldGrabPoint;
+
+        // mocne przyciąganie
+        Vector3 force = toTarget * 150f;
+
+        // lekkie tłumienie ruchu
+        Vector3 dampingForce =
+            -grabbedObject.GetPointVelocity(worldGrabPoint) * 8f;
+
+        grabbedObject.AddForceAtPosition(
+            force + dampingForce,
+            worldGrabPoint,
+            ForceMode.Acceleration
+        );
+
+        // tylko lekki limit spina
+        grabbedObject.angularVelocity =
+            Vector3.ClampMagnitude(
+                grabbedObject.angularVelocity,
+                6f
+            );
     }
 
     void OnDrawGizmos()

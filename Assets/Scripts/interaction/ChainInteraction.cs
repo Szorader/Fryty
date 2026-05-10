@@ -34,7 +34,9 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     
     // chain movement
     private Vector3 startLocalPos;
-
+    
+    public bool canInteract = true;
+    public bool secondChain = false;
    
 
     public enum QueueType
@@ -52,11 +54,27 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     }
     public bool CanInteract()
     {
-        return true;
+        if (!secondChain)
+        {
+            if (canInteract)
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+            if (canInteract && queuingDevice.waitingForTake)
+                return true;
+            else
+                return false;
+            
+        }
+        
     }
 
     public bool Interact(Interactor interactor)
     {
+        canInteract = false;
         ClientController client = null;
 
         // wybór kolejki
@@ -154,6 +172,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         queuingDevice.KillClient(client);
         RuntimeManager.PlayOneShot(hatchSound, transform.position);
         animator.SetTrigger("open");
+        canInteract = true;
     }
 
     public string GetPrompt()
