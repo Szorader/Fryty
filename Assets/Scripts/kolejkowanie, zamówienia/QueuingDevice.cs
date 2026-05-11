@@ -23,6 +23,7 @@ public class QueuingDevice : MonoBehaviour
     public BasketInteraction basket;
     private TutorialManager tutorialManager;
     public DayManager dayManager;
+    public Tutorial tutorial;
     
 
 
@@ -40,7 +41,12 @@ public class QueuingDevice : MonoBehaviour
     {
         spawnOrderTicket = FindObjectOfType<SpawnOrderTicket>();
         spawnManager = FindObjectOfType<SpawnManager>();
-        basket = FindObjectOfType<BasketInteraction>();
+        tutorial = FindObjectOfType<Tutorial>();
+        if (tutorial == null)
+        {
+            basket = FindObjectOfType<BasketInteraction>();
+        }
+        
         tutorialManager = FindObjectOfType<TutorialManager>();
         dayManager = FindObjectOfType<DayManager>();
         
@@ -67,7 +73,7 @@ public class QueuingDevice : MonoBehaviour
             tutorialManager.NextStep();
             tutorialActiveStep2 = false;
         }
-        Debug.Log(number);
+        //Debug.Log(number);
         
         canGiveNumber = false;
         spawnManager.currentClients--;
@@ -152,6 +158,8 @@ public class QueuingDevice : MonoBehaviour
     {
         if (pickList.Count == 0)
             return;
+
+
         ClientController client = pickList[number];
         basket.currentCustomer = client.customerOrder;
         basket.waitingTime = client.waitingTime;

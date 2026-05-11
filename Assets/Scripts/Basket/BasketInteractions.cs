@@ -52,6 +52,7 @@ public partial class BasketInteraction : MonoBehaviour
     
     private FMOD.Studio.EventInstance shakerInstance;
     private bool shakerPlaying = false;
+    public GameObject clicked;
     
    
     
@@ -74,8 +75,9 @@ public partial class BasketInteraction : MonoBehaviour
         }
     }
 
-    private void HandleClick(GameObject clicked)
-    {   
+    private void HandleClick(GameObject click)
+    { 
+        clicked = click;
         if (!basketData) return;
         if (clicked == ketchupBottle)
         {
@@ -167,6 +169,8 @@ public partial class BasketInteraction : MonoBehaviour
 
         else if (clicked == bell)
         {
+            //to ponizej tylko do tutoriala potrzebne
+            clicked = bell;
             if (tutorialActive2 && tutorialManager.tutorialStep == 7)
             {
                 tutorialManager.NextStep();

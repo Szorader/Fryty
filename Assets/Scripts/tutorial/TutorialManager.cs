@@ -58,7 +58,7 @@ public class TutorialManager : MonoBehaviour
 
     private void UpdateTutorial()
     {
-        
+        return;
         switch (tutorialStep)
         {
             case 0:
