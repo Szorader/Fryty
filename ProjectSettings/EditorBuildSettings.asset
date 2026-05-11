@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: bf3a327833f3c6c46bf23d4f614174b3
+  - enabled: 1
+    path: "Assets/Scenes/10.05 naprawa b\u0142\u0119d\xF3w.unity"
+    guid: 5a821d6ceee78514eb4cffb17ecd1b85
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
