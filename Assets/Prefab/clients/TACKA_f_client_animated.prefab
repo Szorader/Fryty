@@ -3291,6 +3291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TakeOrderInteraction
   queueManager: {fileID: 0}
   queuingDevice: {fileID: 0}
+  playerInArea: {fileID: 0}
 --- !u!114 &8104473914202368950
 MonoBehaviour:
   m_ObjectHideFlags: 0

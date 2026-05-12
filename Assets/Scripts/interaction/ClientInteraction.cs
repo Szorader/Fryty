@@ -6,20 +6,25 @@ public class ClientInteraction : MonoBehaviour, IInteractable
 {
     public QueueManager queueManager;
     public QueuingDevice queuingDevice;
+    public PlayerInArea playerInArea;
     
     private bool _canTakeOrder = true;
     private bool _canPickOrder = false;
+    
 
     private void Start()
     {
         queueManager = FindObjectOfType<QueueManager>();
         queuingDevice = FindObjectOfType<QueuingDevice>();
+        playerInArea = FindObjectOfType<PlayerInArea>();
         //UpdatePrompt();
     }
     
 
     public bool CanInteract()
     {
+        if (!playerInArea.inArea)
+            return false;
         if (_canPickOrder)
             return false;
             return true;
@@ -27,6 +32,8 @@ public class ClientInteraction : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
+        if (!playerInArea.inArea)
+            return false;
         if (_canTakeOrder)
         {
             //queueManager.TakeOrder();
