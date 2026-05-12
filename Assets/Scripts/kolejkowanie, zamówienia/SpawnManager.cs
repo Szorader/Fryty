@@ -24,6 +24,8 @@ public class SpawnManager : MonoBehaviour
     [Range(0f, 1f)]
     public float badClientChance = 0.1f;
 
+    public bool isTutorial = false;
+
     void Start()
     {
         StartCoroutine(SpawnLoop());
@@ -31,7 +33,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnLoop()
     {
-        while (true)
+        while (!isTutorial)
         {
             float waitTime = Random.Range(minSpawnTime, maxSpawnTime);
             yield return new WaitForSeconds(waitTime);

@@ -30,16 +30,11 @@ public class Cutter : MonoBehaviour
     private EventInstance cutterLoopInstance;
     private EventInstance analogButtonClickInstance;
     
-    private TutorialManager tutorialManager;
-    private bool tutorialActive = true;
 
     private bool canProcess => hasPotatoLoaded && !isProcessing;
 
     // WEJŚCIE ZIEMNIAKA
-    private void Start()
-    {
-        tutorialManager = FindObjectOfType<TutorialManager>();
-    }
+    
     public void HandleTrigger(Collider other)
     {
         if (hasPotatoLoaded) return;
@@ -84,11 +79,6 @@ public class Cutter : MonoBehaviour
         Vector3 spawnPosition = outputPoint ? outputPoint.position : transform.position;
 
         GameObject spawned = Instantiate(friesPrefab, spawnPosition, Quaternion.identity);
-        if (tutorialActive && tutorialManager.tutorialStep == 4)
-        {
-            tutorialManager.NextStep();
-            tutorialActive = false;
-        }
         
         // Stop audio 
         cutterLoopInstance.stop(STOP_MODE.ALLOWFADEOUT);

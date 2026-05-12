@@ -24,7 +24,6 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     private float smokeDuration = 15f;
     
     public Animator animator;
-    public TutorialManager tutorialManager;
     
     public GameObject modelFries1;
     public GameObject modelFries2;
@@ -37,6 +36,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     
     public bool canInteract = true;
     public bool secondChain = false;
+    public bool tutorial = false;
    
 
     public enum QueueType
@@ -49,7 +49,6 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     {
         startLocalPos = transform.localPosition;
         queuingDevice = FindObjectOfType<QueuingDevice>();
-        tutorialManager = FindObjectOfType<TutorialManager>();
         
     }
     public bool CanInteract()
@@ -173,6 +172,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         RuntimeManager.PlayOneShot(hatchSound, transform.position);
         animator.SetTrigger("open");
         canInteract = true;
+        tutorial = true;
     }
 
     public string GetPrompt()
@@ -183,7 +183,6 @@ public class ChainInteraction : MonoBehaviour, IInteractable
     // pull on chain animation
     private IEnumerator PullChain()
     {
-        tutorialManager.NextStepKill();
         float durationDown = 0.2f;
         float durationUp = 0.4f;
         float distance = 0.15f; // how far it moves down

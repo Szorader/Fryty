@@ -48,14 +48,11 @@ public class FryerSystem : MonoBehaviour
 
     private GameObject activeModel;
     
-    private TutorialManager tutorialManager;
-    private bool tutorialActive = true;
 
     private void Awake()
     {
         startPos = transform.localPosition;
         RefreshVisuals();
-        tutorialManager = FindObjectOfType<TutorialManager>();
         
         // audio
         fryingLoopInstance = RuntimeManager.CreateInstance(fryingLoopEvent);
@@ -166,12 +163,7 @@ public class FryerSystem : MonoBehaviour
             shootPoint ? shootPoint.position : transform.position,
             Quaternion.identity
         );
-
-        if (tutorialActive && tutorialManager.tutorialStep == 5)
-        {
-            tutorialManager.NextStep();
-            tutorialActive = false;
-        }
+        
         
         FriesData data = obj.GetComponent<FriesData>();
         if (data)

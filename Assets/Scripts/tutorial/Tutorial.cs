@@ -1,6 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Tutorial : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class Tutorial : MonoBehaviour
     private string t;
     private GameObject obj;
     private BasketInteraction bInteraction;
+    public TutorialSpawner spawner;
 
 
     void Start()
@@ -168,7 +170,8 @@ public class Tutorial : MonoBehaviour
                 if (bInteraction.clicked == bInteraction.bell)
                 {
                     t = "Add clear basket";
-                    Text(t, stand); 
+                    Text(t, stand);
+                    spawner.canSpawn = true;
                 }
                 break;
             //nowy koszyczek -> zabicie zlego klienta
@@ -179,14 +182,28 @@ public class Tutorial : MonoBehaviour
                     t = "Your next client is the bad customer! Pull the chain to kill him";
                     Text(t, chain);
                 }
-                
-                
+                break;
+            //zabicie
+            case 11:
+                ChainInteraction chainInteraction = chain.GetComponent<ChainInteraction>();
+                if (chainInteraction.tutorial)
+                {
+                    t = "You are complete tutorial, congratulations";
+                    Text(t, pager);
+                    StartCoroutine(WaitCoroutine());
+                }
                 break;
         }
         
         
     }
+    
 
+    private IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("MainMenu");
+    }
     private void Text(string text, GameObject obj)
     {
         //dzwiek

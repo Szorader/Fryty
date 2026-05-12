@@ -20,15 +20,10 @@ public class ClickToSpawn : MonoBehaviour
     [Header("Audio")] 
     [SerializeField] private EventReference popSound;
     
-    private TutorialManager tutorialManager;
-    private bool tutorialActive = true;
+    
 
     private static List<GameObject> spawnedObjects = new List<GameObject>();
-
-    private void Start()
-    {
-        tutorialManager = FindObjectOfType<TutorialManager>();
-    }
+    
 
     void OnMouseDown()
     {
@@ -58,12 +53,7 @@ public class ClickToSpawn : MonoBehaviour
         RuntimeManager.PlayOneShot(popSound, spawnPosition);
         GameObject spawned = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
         spawnedObjects.Add(spawned);
-
-        if (tutorialActive && tutorialManager.tutorialStep == 3)
-        {
-            tutorialManager.NextStep();
-            tutorialActive = false;
-        }
+        
         
         Rigidbody rb = spawned.GetComponent<Rigidbody>();
         if (rb != null)
