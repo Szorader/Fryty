@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadScene("MainMenu");
         }
+        
+        
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
             dayManager.WrongKill();

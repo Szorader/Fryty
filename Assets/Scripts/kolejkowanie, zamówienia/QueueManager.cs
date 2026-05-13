@@ -34,14 +34,14 @@ public class QueueManager : MonoBehaviour
         //tutorialManager = FindObjectOfType<TutorialManager>();
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (countClients == spawnManager.clientsOfTheDay)
         {
             dayManager.EndDay();
         }
         
-    }
+    }*/
 
     
     

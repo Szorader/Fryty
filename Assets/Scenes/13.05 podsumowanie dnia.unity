@@ -3494,8 +3494,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
   messageText: {fileID: 1000497770}
   messagePanel: {fileID: 1000497768}
-  timeToClean: 0
-  summary: 0
 --- !u!1 &635330893
 GameObject:
   m_ObjectHideFlags: 0
@@ -13909,9 +13907,9 @@ MonoBehaviour:
   queuingDevice: {fileID: 1028194117}
   minSpawnTime: 3
   maxSpawnTime: 10
-  maxClients: 2
+  maxClients: 3
   currentClients: 0
-  clientsOfTheDay: 2
+  clientsOfTheDay: 5
   clientsCount: 0
   badClientChance: 0.15
   isTutorial: 0

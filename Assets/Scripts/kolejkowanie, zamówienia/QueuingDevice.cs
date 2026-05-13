@@ -30,6 +30,7 @@ public class QueuingDevice : MonoBehaviour
     private int countClients = 0;
     public int currentNumber;
     public bool waitingForTake = false;
+    private bool doOnce = true;
     
     
 
@@ -54,9 +55,11 @@ public class QueuingDevice : MonoBehaviour
 
     private void Update()
     {
-        if (countClients == spawnManager.clientsOfTheDay)
+        if (countClients == spawnManager.clientsOfTheDay && doOnce)
         {
-            dayManager.EndDay();
+            dayManager.timeToClean = true;
+            dayManager.CleanTime();
+            doOnce = false;
         }
         
     }

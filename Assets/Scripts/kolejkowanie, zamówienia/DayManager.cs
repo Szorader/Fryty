@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -10,11 +11,26 @@ public class DayManager : MonoBehaviour
     public GameObject messagePanel;
     
     private Endgame endgame;
+    private BasketInteraction basket;
+
+    public bool timeToClean = false;
+    public bool summary = false;
 
     void Start()
     {
         messagePanel.SetActive(false);
         endgame = FindObjectOfType<Endgame>();
+        basket = FindObjectOfType<BasketInteraction>();
+        
+    }
+
+    private void Update()
+    {
+        if (summary)
+        {
+            EndDay();
+            summary = false;
+        }
     }
 
     public void WrongKill()
@@ -30,9 +46,13 @@ public class DayManager : MonoBehaviour
 
     public void EndDay()
     {
-        StartCoroutine(Message("End Day", 5f, true));
+        StartCoroutine(Message("End Day, you earned today: " + basket.money, 5f, true));
     }
 
+    public void CleanTime()
+    {
+        StartCoroutine(Message("Time to start cleaning the outdoor tables", 3f, false));
+    }
     IEnumerator Message(string tekst, float czas, bool reset)
     {
         messagePanel.SetActive(true);
@@ -41,10 +61,10 @@ public class DayManager : MonoBehaviour
         yield return new WaitForSeconds(czas);
 
         messagePanel.SetActive(false);
-
         if (reset)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("MainMenu");
         }
+        
     }
 }
