@@ -3526,6 +3526,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
   messageText: {fileID: 1000497770}
   messagePanel: {fileID: 1000497768}
+  timeToClean: 0
+  summary: 0
 --- !u!1 &635330893
 GameObject:
   m_ObjectHideFlags: 0
@@ -8583,67 +8585,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   prompt: LMB - Call numer 5
---- !u!1001 &1577618789
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.47564742
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.34262288
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -33.131805
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 89683900fb3ffd541be6e920b5788a23, type: 2}
-    - target: {fileID: 919132149155446097, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
-      propertyPath: m_Name
-      value: client_silentHorse
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ddeb06e96a0b57140bdd9f16288d2f36, type: 3}
 --- !u!1 &1586466489
 GameObject:
   m_ObjectHideFlags: 0
@@ -12726,4 +12667,3 @@ SceneRoots:
   - {fileID: 1337291755}
   - {fileID: 349558515}
   - {fileID: 725288284}
-  - {fileID: 1577618789}
