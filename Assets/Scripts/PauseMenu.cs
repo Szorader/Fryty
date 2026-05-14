@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     
     [Header("Audio")]
     [SerializeField] private EventReference bottle_squirt;
+    // for the 3d audio to play like a 2d audio: 
+    [SerializeField] private Transform playerTransform;
 
     private bool isPaused = false;
 
@@ -29,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            RuntimeManager.PlayOneShot(bottle_squirt);
+            RuntimeManager.PlayOneShot(bottle_squirt, playerTransform.position);
             TogglePause();
         }
     }
