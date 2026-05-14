@@ -1,5 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// nowe kolejkowanie klientow przy uzyciu pikacza
@@ -8,12 +8,16 @@ public class PikaczInteraction : MonoBehaviour, IInteractable
 {
     public int index;
     public string prompt;
+
+    public TMP_Text nameText;
+
     private QueuingDevice queuingDevice;
 
     void Start()
     {
         queuingDevice = FindObjectOfType<QueuingDevice>();
     }
+
     public bool CanInteract()
     {
         return true;
@@ -21,15 +25,33 @@ public class PikaczInteraction : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        if (queuingDevice.canGiveNumber)
+        if (queuingDevice == null)
+            return true;
+
+        if (!queuingDevice.canGiveNumber)
+            return true;
+
+        if (queuingDevice.orderQueue == null || queuingDevice.orderQueue.Count == 0)
+            return true;
+
+        ClientController client = queuingDevice.orderQueue.Peek();
+
+        if (client != null)
         {
-            queuingDevice.GiveNumber(index);
-            this.GameObject().SetActive(false);
+            CustomerOrder order = client.GetComponent<CustomerOrder>();
+
+            if (order != null && nameText != null)
+            {
+                nameText.text = order.clientName + ": #" + (index + 1);
+            }
         }
-        
+
+        queuingDevice.GiveNumber(index);
+        gameObject.SetActive(false);
+
         return true;
     }
-    
+
     public string GetPrompt()
     {
         return prompt;

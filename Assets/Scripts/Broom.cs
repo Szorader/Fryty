@@ -54,8 +54,13 @@ public class Broom : MonoBehaviour
             rb.isKinematic = true;
         }
 
-        if (col != null)
-            col.enabled = false;
+        // Wyłącz wszystkie collidery
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+
+        foreach (Collider c in colliders)
+        {
+            c.enabled = false;
+        }
 
         transform.SetParent(holdSlot);
         transform.localPosition = Vector3.zero;
@@ -68,13 +73,18 @@ public class Broom : MonoBehaviour
 
         transform.SetParent(null);
 
-        if (col != null)
-            col.enabled = true;
+        // Włącz wszystkie collidery
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+
+        foreach (Collider c in colliders)
+        {
+            c.enabled = true;
+        }
 
         if (rb != null)
         {
             rb.isKinematic = false;
-            rb.AddForce(holdSlot.forward * 2f, ForceMode.Impulse);
+            rb.AddForce(playerCamera.transform.forward * 3f, ForceMode.Impulse);
         }
     }
 

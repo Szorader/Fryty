@@ -15,6 +15,7 @@ public class DayManager : MonoBehaviour
 
     public bool timeToClean = false;
     public bool summary = false;
+    public bool isCleaningPhase = false;
 
     void Start()
     {
@@ -31,6 +32,15 @@ public class DayManager : MonoBehaviour
             EndDay();
             summary = false;
         }
+    }
+    
+    public void TriggerSummary()
+    {
+        if (!isCleaningPhase)
+            return;
+
+        isCleaningPhase = false;
+        EndDay();
     }
 
     public void WrongKill()
@@ -51,6 +61,7 @@ public class DayManager : MonoBehaviour
 
     public void CleanTime()
     {
+        isCleaningPhase = true;
         StartCoroutine(Message("Time to start cleaning the outdoor tables", 3f, false));
     }
     IEnumerator Message(string tekst, float czas, bool reset)

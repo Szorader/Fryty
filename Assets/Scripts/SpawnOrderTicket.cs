@@ -40,7 +40,7 @@ public class SpawnOrderTicket : MonoBehaviour
         );
 
         // opcjonalny obrót wizualny
-        ticket.transform.rotation = Quaternion.Euler(0f, 180f, 10f);
+        ticket.transform.rotation = Quaternion.Euler(0f, 190f, 10f);
 
         currentOrderNumber++;
     }

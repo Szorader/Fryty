@@ -36,7 +36,7 @@ public class OrderTicketUI : MonoBehaviour
         OrderDatabase.SauceType sauce,
         OrderDatabase.SeasoningType seasoning)
     {
-        orderText.text = "#" + orderNumber + " " + clientName;
+        orderText.text = clientName;
 
         friesImage.sprite = GetFriesSprite(fries);
         sauceImage.sprite = GetSauceSprite(sauce);

@@ -1,0 +1,85 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using FMODUnity;
+public class PauseMenu : MonoBehaviour
+{
+    [Header("UI")]
+    [SerializeField] private GameObject pauseMenuCanvas;
+    [SerializeField] private GameObject gameCanvas;
+
+    [Header("Player")]
+    [SerializeField] private MonoBehaviour cameraLookScript;
+    
+    [Header("Audio")]
+    [SerializeField] private EventReference bottle_squirt;
+
+    private bool isPaused = false;
+
+    private void Start()
+    {
+        pauseMenuCanvas.SetActive(false);
+
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            RuntimeManager.PlayOneShot(bottle_squirt);
+            TogglePause();
+        }
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        //RuntimeManager.PlayOneShot(bottle_squirt);
+
+        pauseMenuCanvas.SetActive(isPaused);
+
+        Time.timeScale = isPaused ? 0f : 1f;
+
+        Cursor.lockState = isPaused
+            ? CursorLockMode.None
+            : CursorLockMode.Locked;
+
+        Cursor.visible = isPaused;
+
+        if (cameraLookScript != null)
+        {
+            cameraLookScript.enabled = !isPaused;
+        }
+
+        if (gameCanvas != null)
+        {
+            gameCanvas.SetActive(!isPaused);
+        }
+    }
+    public void ResumeGame()
+    {
+        isPaused = false;
+
+        pauseMenuCanvas.SetActive(false);
+
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        if (cameraLookScript != null)
+        {
+            cameraLookScript.enabled = true;
+        }
+    }
+    
+    public void LoadMainMenu(string sceneName)
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
+    }
+}
