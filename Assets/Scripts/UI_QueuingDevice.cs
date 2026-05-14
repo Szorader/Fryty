@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using FMODUnity;
 public class UI_QueuingDevice : MonoBehaviour
 {
     [Header("Clickable Buttons")]
@@ -10,6 +10,9 @@ public class UI_QueuingDevice : MonoBehaviour
     public QueuingDevice queuingDevice;
 
     public bool canGiveOrder = true;
+    
+    [Header("AUDIO")]
+    [SerializeField] private EventReference pikacz;
 
     void Update()
     {
@@ -48,6 +51,12 @@ public class UI_QueuingDevice : MonoBehaviour
 
                 //Debug.Log("[UI] Calling AddOrderToBasket with number: " + i);
 
+                // audio 
+                RuntimeManager.PlayOneShot(
+                    pikacz,
+                    button.transform.position
+                );
+                
                 canGiveOrder = false;
                 queuingDevice.AddOrderToBasket(i);
 

@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retsume
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7334,6 +7334,13 @@ MonoBehaviour:
   holdSlot: {fileID: 2031608827}
   playerCamera: {fileID: 404921576}
   interactDistance: 3
+  sweepAudio:
+    Guid:
+      Data1: -810808674
+      Data2: 1084671477
+      Data3: -1949179234
+      Data4: 152471381
+    Path: event:/Player/Sweeping
 --- !u!65 &1178034039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12752,9 +12759,29 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+      propertyPath: pikacz.Path
+      value: event:/InsideTruck/pager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
       propertyPath: queuingDevice
       value: 
       objectReference: {fileID: 1028194117}
+    - target: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+      propertyPath: pikacz.Guid.Data1
+      value: -1671371181
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+      propertyPath: pikacz.Guid.Data2
+      value: 1136961246
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+      propertyPath: pikacz.Guid.Data3
+      value: 1366783872
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+      propertyPath: pikacz.Guid.Data4
+      value: -1688887427
+      objectReference: {fileID: 0}
     - target: {fileID: 8513226515096111716, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
@@ -13880,6 +13907,26 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1586466490}
+    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: clientNames.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'clientNames.Array.data[12]'
+      value: Ligma
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'clientNames.Array.data[13]'
+      value: Miku
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'clientNames.Array.data[14]'
+      value: Homer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'clientNames.Array.data[15]'
+      value: Chris P
+      objectReference: {fileID: 0}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: animator
       value: 

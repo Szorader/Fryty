@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using FMODUnity;
 public class Broom : MonoBehaviour
 {
     [SerializeField] private Transform holdSlot;
@@ -12,6 +12,9 @@ public class Broom : MonoBehaviour
     private Collider col;
 
     public bool IsHeld => isHeld;
+    
+    [Header("AUDIO")]
+    [SerializeField] private EventReference sweepAudio;
 
     private void Awake()
     {
@@ -96,6 +99,8 @@ public class Broom : MonoBehaviour
         {
             if (hit.collider.CompareTag("Trash"))
             {
+                // play audio
+                RuntimeManager.PlayOneShot(sweepAudio, transform.position);
                 hit.collider.gameObject.SetActive(false);
             }
         }

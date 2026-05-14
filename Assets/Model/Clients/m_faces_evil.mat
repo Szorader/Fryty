@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_faces
+  m_Name: m_faces_evil
   m_Shader: {fileID: -6465566751694194690, guid: c9edde55298dff2459487daa9fb791c8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,15 +38,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _FaceTexture:
-        m_Texture: {fileID: 2800000, guid: 4e21c37b4bc5884479cf156e2e28b8ac, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0a807ff234cf10f41b76b0edeb8ac976, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTexture_Evil:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0a807ff234cf10f41b76b0edeb8ac976, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTexture_Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4e21c37b4bc5884479cf156e2e28b8ac, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
