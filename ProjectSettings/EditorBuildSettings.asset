@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: bf3a327833f3c6c46bf23d4f614174b3
   - enabled: 1
-    path: Assets/Scenes/14.05 joskur.unity
-    guid: 6c3f12a0e59a6124e9f9b8cb7c1887d9
+    path: Assets/Scenes/Game.unity
+    guid: 1987abf6ccb16ba40bc6118d5ce7fc95
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
