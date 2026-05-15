@@ -16,6 +16,10 @@ public class DayManager : MonoBehaviour
     public bool timeToClean = false;
     public bool summary = false;
     public bool isCleaningPhase = false;
+    
+    [Header("SKYBOX")]
+    [SerializeField] private Material daySkybox;
+    [SerializeField] private Material nightSkybox;
 
     void Start()
     {
@@ -62,6 +66,7 @@ public class DayManager : MonoBehaviour
     public void CleanTime()
     {
         isCleaningPhase = true;
+        SwitchToNight(); // zmiana nieba na wieczorne
         StartCoroutine(Message("Time to start cleaning the outdoor tables", 3f, false));
     }
     IEnumerator Message(string tekst, float czas, bool reset)
@@ -77,5 +82,14 @@ public class DayManager : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
         }
         
+    }
+    
+    // zmiana skyboxa na wieczorny
+    public void SwitchToNight()
+    {
+        RenderSettings.skybox = nightSkybox;
+
+        // refresh lighting
+        DynamicGI.UpdateEnvironment();
     }
 }
