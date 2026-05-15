@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 7384705223632659877}
   - component: {fileID: 5376859540408845358}
   m_Layer: 0
-  m_Name: f_client_animated_new
+  m_Name: p_client_animated_new
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class FaceController : MonoBehaviour
 {
-    
+    // skrypt pozwala nam zmienic ekspresje klienta. Zeby wywołać zmiane wystarczy linijka kodu np:
+    // face.SetExpression(FaceController.Expression.Surprised);
     public enum Expression
     {
+        // lista dostępnych emocji
         Neutral,
         Talk,
         Talk2,
