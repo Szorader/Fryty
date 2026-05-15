@@ -28,6 +28,9 @@ public partial class BasketInteraction : MonoBehaviour
     public GameObject pepperShaker;
     
     [Header("OTHER")]
+    public DeathScreenManager deathScreenManager;
+    public GameObject player;
+    
     public GameObject bell;
     public GameObject trashBin;
     public GameObject trayShelf;
@@ -250,7 +253,8 @@ public partial class BasketInteraction : MonoBehaviour
     {
         if (isBad)
         {
-            money -= +  15 + amount;
+            deathScreenManager.ShowDeath(player);
+            //money -= +  15 + amount;
             
         }
         else
