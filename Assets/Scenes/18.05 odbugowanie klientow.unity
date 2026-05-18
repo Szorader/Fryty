@@ -6626,7 +6626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PikaczInteraction
   index: 3
-  prompt: 'E - Give Number: 4'
+  prompt: 'LMB - Give Number: 4'
   nameText: {fileID: 833486619}
 --- !u!65 &725288293
 BoxCollider:
@@ -6662,7 +6662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PikaczInteraction
   index: 0
-  prompt: 'E - Give Number: 1'
+  prompt: 'LMB - Give Number: 1'
   nameText: {fileID: 704026708}
 --- !u!65 &725288295
 BoxCollider:
@@ -6698,7 +6698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PikaczInteraction
   index: 2
-  prompt: 'E - Give Number: 3'
+  prompt: 'LMB - Give Number: 3'
   nameText: {fileID: 1532222647}
 --- !u!1 &733970546
 GameObject:
@@ -7686,6 +7686,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce3bd10105e355143bdd38dad27d0ed0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 856899340}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce3bd10105e355143bdd38dad27d0ed0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 856899341}
     - targetCorrespondingSourceObject: {fileID: 6133401200055797843, guid: ce3bd10105e355143bdd38dad27d0ed0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2139082239}
@@ -7716,6 +7719,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0447407, y: 2.3471224, z: 1.048075}
   m_Center: {x: -0.009586453, y: 0.05008924, z: 0}
+--- !u!114 &856899341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700738999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Add new tray
 --- !u!1001 &868662193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8557,7 +8573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PikaczInteraction
   index: 4
-  prompt: 'E - Give Number: 5'
+  prompt: 'LMB - Give Number: 5'
   nameText: {fileID: 848175982}
 --- !u!1 &1034149895
 GameObject:
@@ -10948,7 +10964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PikaczInteraction
   index: 1
-  prompt: 'E - Give Number: 2'
+  prompt: 'LMB - Give Number: 2'
   nameText: {fileID: 1957193365}
 --- !u!114 &1368196287 stripped
 MonoBehaviour:

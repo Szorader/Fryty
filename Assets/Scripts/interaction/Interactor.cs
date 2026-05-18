@@ -46,7 +46,7 @@ public class Interactor : MonoBehaviour
                 HideCurrent();
             }
 
-            if (Input.GetKeyDown(KeyCode.E) && canInteract)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && canInteract)
             {
                 interactable.Interact(this);
             }

@@ -18,8 +18,7 @@ public class CutterInteraction : MonoBehaviour, IInteractable
     public bool Interact(Interactor interactor)
     {
         
-        //return true;
-        return false;
+        return true;
     }
     
     public string GetPrompt()
