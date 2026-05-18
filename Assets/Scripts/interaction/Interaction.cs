@@ -10,6 +10,7 @@ public class Interaction : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
+        Debug.Log("dkfjdlhasjfdshakjh");
         return true;
     }
     

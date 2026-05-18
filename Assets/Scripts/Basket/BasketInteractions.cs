@@ -86,7 +86,6 @@ public partial class BasketInteraction : MonoBehaviour
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
 
                 TrySetSauce(OrderDatabase.SauceType.Ketchup);
-                Check();
             }
         }
         else if (clicked == mayoBottle)
@@ -96,7 +95,6 @@ public partial class BasketInteraction : MonoBehaviour
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
 
                 TrySetSauce(OrderDatabase.SauceType.Mayo);
-                Check();
             }
         }
         else if (clicked == cheeseBottle)
@@ -106,7 +104,6 @@ public partial class BasketInteraction : MonoBehaviour
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
 
                 TrySetSauce(OrderDatabase.SauceType.Cheese);
-                Check();
             }
         }
         
@@ -117,7 +114,6 @@ public partial class BasketInteraction : MonoBehaviour
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
 
                 TrySetSauce(OrderDatabase.SauceType.Chili);
-                Check();
             }
         }
         else if (clicked == oneIslandBottle)
@@ -127,7 +123,6 @@ public partial class BasketInteraction : MonoBehaviour
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
 
                 TrySetSauce(OrderDatabase.SauceType.OneIsland);
-                Check();
             }
         }
         else if (clicked == garlicBottle)
@@ -137,7 +132,6 @@ public partial class BasketInteraction : MonoBehaviour
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
 
                 TrySetSauce(OrderDatabase.SauceType.Garlic);
-                Check();
             }
         }
         
@@ -151,7 +145,6 @@ public partial class BasketInteraction : MonoBehaviour
                 PlayShakerSound(clicked.transform.position);
 
                 TrySetSeasoning(OrderDatabase.SeasoningType.Salt);
-                Check();
             }
         }
         else if (clicked == pepperShaker)
@@ -163,7 +156,6 @@ public partial class BasketInteraction : MonoBehaviour
                 PlayShakerSound(clicked.transform.position);
 
                 TrySetSeasoning(OrderDatabase.SeasoningType.Pepper);
-                Check();
             }
         }
 
@@ -191,10 +183,7 @@ public partial class BasketInteraction : MonoBehaviour
         }
     }
 
-    private void Check()
-    {
-        
-    }
+    
     private void TrySetSauce(OrderDatabase.SauceType newSauce, bool force = false)
     {
         if (!basketData.trayVisible || basketData.friesType == OrderDatabase.FriesType.None)

@@ -23,6 +23,7 @@ public class QueuingDevice : MonoBehaviour
     public BasketInteraction basket;
     public DayManager dayManager;
     public Tutorial tutorial;
+    public UI_QueuingDevice uiQueuingDevice;
     
 
 
@@ -39,6 +40,7 @@ public class QueuingDevice : MonoBehaviour
         spawnOrderTicket = FindObjectOfType<SpawnOrderTicket>();
         spawnManager = FindObjectOfType<SpawnManager>();
         tutorial = FindObjectOfType<Tutorial>();
+        uiQueuingDevice = FindObjectOfType<UI_QueuingDevice>();
         if (tutorial == null)
         {
             basket = FindObjectOfType<BasketInteraction>();
@@ -138,9 +140,15 @@ public class QueuingDevice : MonoBehaviour
     {
         if (pickList.Count == 0)
             return;
-
-
+        
+        
+        //jezeli klikniemy w przywolonie i nie jest przypisany klient to return
         ClientController client = pickList[number];
+        if (client == null)
+            return;
+        else
+            uiQueuingDevice.canGiveOrder = false;
+        
         basket.currentCustomer = client.customerOrder;
         basket.waitingTime = client.waitingTime;
         basket.satisfaction = client.satisfaction;

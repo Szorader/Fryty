@@ -9,7 +9,7 @@ public class UI_QueuingDevice : MonoBehaviour
     [Header("Reference")]
     public QueuingDevice queuingDevice;
 
-    public bool canGiveOrder = true;
+    public bool canGiveOrder = false;
     
     [Header("AUDIO")]
     [SerializeField] private EventReference pikacz;
@@ -30,7 +30,11 @@ public class UI_QueuingDevice : MonoBehaviour
     private void HandleClick(Collider clickedCollider)
     {
         if (!canGiveOrder)
+        {
+            Debug.Log("return");
             return;
+        }
+            
         GameObject clicked = clickedCollider.gameObject;
 
         //Debug.Log("[CLICK] Hit: " + clicked.name);
@@ -57,7 +61,7 @@ public class UI_QueuingDevice : MonoBehaviour
                     button.transform.position
                 );
                 
-                canGiveOrder = false;
+                
                 queuingDevice.AddOrderToBasket(i);
 
                 return;
