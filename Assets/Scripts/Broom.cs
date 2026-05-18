@@ -15,6 +15,9 @@ public class Broom : MonoBehaviour
     
     [Header("AUDIO")]
     [SerializeField] private EventReference sweepAudio;
+    
+    [Header("VFX")]
+    [SerializeField] private ParticleSystem cleanParticles;
 
     private void Awake()
     {
@@ -102,6 +105,23 @@ public class Broom : MonoBehaviour
                 // play audio
                 RuntimeManager.PlayOneShot(sweepAudio, transform.position);
                 hit.collider.gameObject.SetActive(false);
+                
+                // Spawn particles at trash position
+                if (cleanParticles != null)
+                {
+                    ParticleSystem particles =
+                        Instantiate(
+                            cleanParticles,
+                            hit.collider.transform.position,
+                            Quaternion.identity
+                        );
+
+                    Destroy(
+                        particles.gameObject,
+                        particles.main.duration +
+                        particles.main.startLifetime.constantMax
+                    );
+                }
             }
         }
     }
