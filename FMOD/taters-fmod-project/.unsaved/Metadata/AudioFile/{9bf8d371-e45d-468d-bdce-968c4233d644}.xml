@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{96b092b7-7e87-40cc-b8e7-646f755d86fd}">
-		<property name="assetPath">
-			<value>freesound_community-beep-beep-43875.mp3</value>
-		</property>
+	<object class="AudioFile" id="{9bf8d371-e45d-468d-bdce-968c4233d644}">
+		<property name="assetPath" />
 		<property name="frequencyInKHz">
-			<value>24</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>3.048</value>
+			<value>5.04</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a5cd5ffd-5c72-4ffc-a707-791d2d401869}</destination>
