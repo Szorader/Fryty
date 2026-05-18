@@ -3275,6 +3275,7 @@ MonoBehaviour:
   eInteract: {fileID: 5072362892314645422}
   orderText: {fileID: 1318644856459988910}
   isBadClient: 0
+  isWalking: 0
   PikPikNumber: 0
   point: {fileID: 0}
 --- !u!114 &-4421244741172944152

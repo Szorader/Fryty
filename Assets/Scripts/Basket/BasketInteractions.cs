@@ -7,6 +7,7 @@ using FMODUnity;
 public partial class BasketInteraction : MonoBehaviour
 {
     public BasketData basketData;
+    private ClientController currentClientController;
 
     [Header("REFERENCES")]
     public CustomerOrder currentCustomer;
@@ -161,9 +162,13 @@ public partial class BasketInteraction : MonoBehaviour
 
         else if (clicked == bell)
         {
-            //to ponizej tylko do tutoriala potrzebne
             clicked = bell;
 
+            currentClientController = currentCustomer.GetComponent<ClientController>();
+
+            //nie mozna dac zamowienia gdy idzie musi sie zatrzymac przy ladzie
+            if (currentClientController.isWalking)
+                return;
             ApplyBasketToCustomer(); 
 
             CheckOrder();
@@ -295,6 +300,7 @@ public partial class BasketInteraction : MonoBehaviour
 
         BasketData customerBasket = currentCustomer.GetComponent<BasketData>();
         Animator anim = currentCustomer.GetComponent<Animator>();
+        
 
         if (!customerBasket)
         {

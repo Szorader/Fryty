@@ -18,6 +18,7 @@ public class ClientController : MonoBehaviour
     public GameObject orderText;
     
     public bool isBadClient = false;
+    public bool isWalking = false;
     
     private Animator animator;
 
@@ -41,7 +42,13 @@ public class ClientController : MonoBehaviour
     
     void Update()
     {
-        animator.SetBool("isWalking", agent.velocity.sqrMagnitude > 0.05f);
+        
+        //check client walking
+        isWalking = agent.velocity.sqrMagnitude > 0.05f 
+                    && agent.remainingDistance > agent.stoppingDistance;
+        
+        animator.SetBool("isWalking", isWalking);
+        
         //Debug.Log(agent.updateRotation);
         if (!agent.pathPending)
         {
