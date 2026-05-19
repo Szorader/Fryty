@@ -16467,6 +16467,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1917540606}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: policeman
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: efbfd022b61026e4faa2ab3490e40d92, type: 3}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: lookTarget
       value: 
       objectReference: {fileID: 1807315731}

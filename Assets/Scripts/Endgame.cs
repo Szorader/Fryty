@@ -56,6 +56,7 @@ public class Endgame : MonoBehaviour
     }
      IEnumerator EventSequence()
     {
+        //spawn policeman
         GameObject obj = Instantiate(policeman, spawnPoint.position, spawnPoint.rotation);
         
         yield return new WaitForSecondsRealtime(startDelay);
