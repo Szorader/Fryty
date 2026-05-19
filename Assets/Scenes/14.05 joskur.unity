@@ -8306,11 +8306,11 @@ MonoBehaviour:
   ticketPrefab: {fileID: 8249246491094257735, guid: d307cde8e8ebfc8409a229760a4036e6, type: 3}
   printSound:
     Guid:
-      Data1: -1473106675
-      Data2: 1341343065
-      Data3: 1259140514
-      Data4: 1060163823
-    Path: event:/InsideTruck/register-print
+      Data1: 1384922171
+      Data2: 1172023956
+      Data3: -71209330
+      Data4: -312544986
+    Path: event:/InsideTruck/writing
 --- !u!1 &995087861
 GameObject:
   m_ObjectHideFlags: 0
@@ -11051,10 +11051,6 @@ PrefabInstance:
     - target: {fileID: 5797224237300341644, guid: d6caf2cb1309dc244addfe11398cdf28, type: 3}
       propertyPath: m_Name
       value: f_ceiling_lamps (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6573056527347876150, guid: d6caf2cb1309dc244addfe11398cdf28, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 160.52968
       objectReference: {fileID: 0}
     - target: {fileID: 6573056527347876150, guid: d6caf2cb1309dc244addfe11398cdf28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16470,6 +16466,14 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 404921576}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: pauseAfterKnocks
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: pauseBetweenKnocks
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: playerMovementScript
       value: 

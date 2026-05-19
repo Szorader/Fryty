@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{e96a310c-19de-458b-8f66-cb4a88f19fe9}">
+		<property name="name">
+			<value>Voice-Friend-2</value>
+		</property>
+		<relationship name="folder">
+			<destination>{be5fd820-8238-431a-ac0e-026cb54b6165}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3318a543-814d-4d49-9860-adf545ede7ad}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3318a543-814d-4d49-9860-adf545ede7ad}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Neutral</value>
+			<value>Happy</value>
+			<value>Sad</value>
+			<value>Value D</value>
+			<value>Value E</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
