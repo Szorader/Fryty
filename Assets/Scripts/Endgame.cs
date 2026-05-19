@@ -11,6 +11,7 @@ public class Endgame : MonoBehaviour
     [SerializeField] private EventReference firstKnock;
     [SerializeField] private EventReference secondKnock;
     [SerializeField] private EventReference doorKickDown;
+    [SerializeField] private EventReference copTalk;
     
     [SerializeField] private DeathScreenManager deathScreen;
     
@@ -22,6 +23,7 @@ public class Endgame : MonoBehaviour
     public float startDelay = 2f;
     public float pauseBetweenKnocks = 3f;
     public float pauseAfterKnocks = 3f;
+    public float pauseBeforeTalk = 0.8f;
 
     
     public MonoBehaviour playerMovementScript;
@@ -78,6 +80,8 @@ public class Endgame : MonoBehaviour
         // door kick
         RuntimeManager.PlayOneShot(doorKickDown, transform.position);
         
+        
+        
         var player = playerMovementScript.GetComponent<PlayerMovement>();
 
         if (player != null)
@@ -86,6 +90,9 @@ public class Endgame : MonoBehaviour
         }
         playerMovementScript.enabled = false;
         
+        // cop talks
+                yield return new WaitForSecondsRealtime(pauseBeforeTalk);
+                RuntimeManager.PlayOneShot(copTalk, transform.position);
         
         isLooking = true;
         

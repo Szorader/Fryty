@@ -16573,6 +16573,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1000497770}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: copTalk.Path
+      value: event:/InsideTruck/policeman
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: messagePanel
       value: 
       objectReference: {fileID: 1000497768}
@@ -16580,6 +16584,30 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 404921576}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: pauseAfterKnocks
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: copTalk.Guid.Data1
+      value: 497728455
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: copTalk.Guid.Data2
+      value: 1077533666
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: copTalk.Guid.Data3
+      value: 1067085961
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: copTalk.Guid.Data4
+      value: 2038485801
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: pauseBetweenKnocks
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: playerMovementScript
       value: 
