@@ -57,23 +57,23 @@ public class Endgame : MonoBehaviour
      IEnumerator EventSequence()
     {
         GameObject obj = Instantiate(policeman, spawnPoint.position, spawnPoint.rotation);
-        Debug.Log("1");
+        
         yield return new WaitForSecondsRealtime(startDelay);
-        Debug.Log("2");
+        
         // 1 knock knock
         RuntimeManager.PlayOneShot(firstKnock, transform.position);
 
-        Debug.Log("3");
+        
         yield return new WaitForSecondsRealtime(pauseBetweenKnocks);
 
-        Debug.Log("4");
+        
         // 2 knock knock
         RuntimeManager.PlayOneShot(secondKnock, transform.position);
 
-        Debug.Log("5");
+        
         yield return new WaitForSecondsRealtime(pauseAfterKnocks);
         
-        Debug.Log("6");
+        
         // door kick
         RuntimeManager.PlayOneShot(doorKickDown, transform.position);
         
@@ -88,7 +88,6 @@ public class Endgame : MonoBehaviour
         
         isLooking = true;
         
-        Debug.Log("7");
         animator.SetTrigger(animationTrigger);
         
         deathScreen.ShowArrest(playerMovementScript.gameObject);

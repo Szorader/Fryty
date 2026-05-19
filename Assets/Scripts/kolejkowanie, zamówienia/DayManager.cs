@@ -21,6 +21,8 @@ public class DayManager : MonoBehaviour
     [SerializeField] private Material daySkybox;
     [SerializeField] private Material nightSkybox;
 
+    public int day;
+
     void Start()
     {
         messagePanel.SetActive(false);
@@ -69,7 +71,7 @@ public class DayManager : MonoBehaviour
         SwitchToNight(); // zmiana nieba na wieczorne
         StartCoroutine(Message("Time to start cleaning the outdoor tables", 3f, false));
     }
-    IEnumerator Message(string tekst, float czas, bool reset)
+    IEnumerator Message(string tekst, float czas, bool nextDay)
     {
         messagePanel.SetActive(true);
         messageText.text = tekst;
@@ -77,9 +79,9 @@ public class DayManager : MonoBehaviour
         yield return new WaitForSeconds(czas);
 
         messagePanel.SetActive(false);
-        if (reset)
+        if (nextDay)
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         
     }

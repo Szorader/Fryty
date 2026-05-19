@@ -4606,45 +4606,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5e67f2428c3e7342a6e62accd33373c, type: 3}
   m_PrefabInstance: {fileID: 868662193}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &507000754 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8310374718571304078, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
-  m_PrefabInstance: {fileID: 1779149463}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &507000758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507000754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89f006fabc907434893f3060c5260026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
-  prompt: LMB - End day
---- !u!65 &507000759
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507000754}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.84, y: 1.94, z: 0.16}
-  m_Center: {x: 1.37, y: -0.05, z: -0.08}
 --- !u!1 &509784262
 GameObject:
   m_ObjectHideFlags: 0
@@ -13582,18 +13543,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9042265127964567826, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1917540606}
-    - targetCorrespondingSourceObject: {fileID: -8310374718571304078, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 507000758}
-    - targetCorrespondingSourceObject: {fileID: -8310374718571304078, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 507000759}
-    - targetCorrespondingSourceObject: {fileID: 2134968783673827093, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1855361079}
-    - targetCorrespondingSourceObject: {fileID: 2134968783673827093, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1855361080}
     - targetCorrespondingSourceObject: {fileID: -7697884917297206562, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1821953085}
@@ -13910,8 +13859,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.12, y: 1.28, z: 4.2}
-  m_Center: {x: -5.414544, y: -1.79, z: -0.6070938}
+  m_Size: {x: 4.224537, y: 5.8425155, z: 4.979616}
+  m_Center: {x: -5.414544, y: 0.45018196, z: -0.6070938}
 --- !u!65 &1821953089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13931,8 +13880,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9, y: 0.32, z: 4.979616}
-  m_Center: {x: 1.2, y: 1.36, z: -0.60709393}
+  m_Size: {x: 13.3482685, y: 0.32, z: 4.979616}
+  m_Center: {x: -0.85267854, y: 1.36, z: -0.60709393}
 --- !u!65 &1821953090
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13952,8 +13901,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.94, y: 5.8425155, z: 0.43}
-  m_Center: {x: 1.2, y: 0.45018196, z: 1.68}
+  m_Size: {x: 13.3482685, y: 5.8425155, z: 0.43}
+  m_Center: {x: -0.85267854, y: 0.45018196, z: 1.68}
 --- !u!1001 &1823762159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14035,45 +13984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!1 &1855361075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2134968783673827093, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
-  m_PrefabInstance: {fileID: 1779149463}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1855361079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855361075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89f006fabc907434893f3060c5260026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
-  prompt: LMB - End day
---- !u!65 &1855361080
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855361075}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.84, y: 1.94, z: 0.16}
-  m_Center: {x: 1.37, y: -0.05, z: 0.08}
 --- !u!1 &1917540596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9042265127964567826, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
