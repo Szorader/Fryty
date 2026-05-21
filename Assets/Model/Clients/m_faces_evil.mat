@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _FaceTexture:
-        m_Texture: {fileID: 2800000, guid: 0a807ff234cf10f41b76b0edeb8ac976, type: 3}
+        m_Texture: {fileID: 2800000, guid: 216f1f415071f44419b527ac92e135a5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTexture_Evil:

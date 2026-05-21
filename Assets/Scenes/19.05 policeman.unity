@@ -4623,6 +4623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f006fabc907434893f3060c5260026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
+  clicked: 0
   prompt: LMB - End day
 --- !u!65 &507000759
 BoxCollider:
@@ -4877,6 +4878,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 225801914}
     m_Modifications:
+    - target: {fileID: 67625018104346909, guid: b75faf80df1137140ba09049872448f6, type: 3}
+      propertyPath: prompt
+      value: LMB - Kill Agent from Pick Up Queue
+      objectReference: {fileID: 0}
     - target: {fileID: 67625018104346909, guid: b75faf80df1137140ba09049872448f6, type: 3}
       propertyPath: animator
       value: 
@@ -14052,6 +14057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f006fabc907434893f3060c5260026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
+  clicked: 0
   prompt: LMB - End day
 --- !u!65 &1855361080
 BoxCollider:
@@ -16160,6 +16166,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 225801914}
     m_Modifications:
+    - target: {fileID: 67625018104346909, guid: b75faf80df1137140ba09049872448f6, type: 3}
+      propertyPath: prompt
+      value: LMB - Kill Agent from Pick Up Queue
+      objectReference: {fileID: 0}
     - target: {fileID: 67625018104346909, guid: b75faf80df1137140ba09049872448f6, type: 3}
       propertyPath: animator
       value: 
