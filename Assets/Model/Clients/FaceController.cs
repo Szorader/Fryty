@@ -40,9 +40,9 @@ public class FaceController : MonoBehaviour
         new Vector2(0.666f, 0f)        // Extra
     };
 
-    private void Awake()
+    private void Start()
     {
-        rend = GetComponent<Renderer>();
+        rend = GetComponentInChildren<SkinnedMeshRenderer>();
 
         if (rend == null)
         {

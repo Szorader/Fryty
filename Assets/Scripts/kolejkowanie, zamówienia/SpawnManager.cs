@@ -49,53 +49,86 @@ public class SpawnManager : MonoBehaviour
     public void SpawnClient()
     {
         if (clientsCount == clientsOfTheDay)
+    {
+        Debug.Log("end day");
+        return;
+    }
+
+    ClientData clientData = clients[Random.Range(0, clients.Length)];
+    string randomName = clientNames[Random.Range(0, clientNames.Length)];
+
+    // Randomly decide if evil
+    bool isBad = Random.value <= badClientChance;
+
+    GameObject obj = Instantiate(
+        clientData.clientPrefab,
+        spawnPoint.position,
+        Quaternion.identity
+    );
+
+    // Get renderer
+    Renderer renderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
+
+    if (renderer != null)
+    {
+        Material chosenBodyMaterial = null;
+        Material chosenFaceMaterial = null;
+
+        // BODY MATERIAL (randomized)
+        if (isBad && clientData.badMaterials.Length > 0)
         {
-            Debug.Log("end day");
-            return;
+            chosenBodyMaterial =
+                clientData.badMaterials[
+                    Random.Range(0, clientData.badMaterials.Length)
+                ];
+
+            chosenFaceMaterial = clientData.badFaceMaterial;
+        }
+        else if (!isBad && clientData.goodMaterials.Length > 0)
+        {
+            chosenBodyMaterial =
+                clientData.goodMaterials[
+                    Random.Range(0, clientData.goodMaterials.Length)
+                ];
+
+            chosenFaceMaterial = clientData.goodFaceMaterial;
         }
 
-        ClientData clientData = clients[Random.Range(0, clients.Length)];
-        string randomName = clientNames[Random.Range(0, clientNames.Length)];
-
-        // 25% szans na złego klienta
-        bool isBad = Random.value <= badClientChance;
-        
-        GameObject obj = Instantiate(clientData.clientPrefab, spawnPoint.position, Quaternion.identity);
-        
-        
-        // Pobieramy renderer
-        Renderer renderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
-
-        if (renderer != null)
+        // Assign both materials
+        if (chosenBodyMaterial != null &&
+            chosenFaceMaterial != null)
         {
-            Material chosenMaterial = null;
+            Material[] mats = renderer.materials;
 
-            if (isBad && clientData.badMaterials.Length > 0)
+            // Safety check: model should have 2 slots
+            if (mats.Length >= 2)
             {
-                chosenMaterial = clientData.badMaterials[Random.Range(0, clientData.badMaterials.Length)];
-            }
-            else if (!isBad && clientData.goodMaterials.Length > 0)
-            {
-                chosenMaterial = clientData.goodMaterials[Random.Range(0, clientData.goodMaterials.Length)];
-            }
+                mats[0] = chosenBodyMaterial; // body
+                mats[1] = chosenFaceMaterial; // face
 
-            if (chosenMaterial != null)
+                renderer.materials = mats;
+            }
+            else
             {
-                // NIE robimy new Material() jeśli nie musisz
-                renderer.material = chosenMaterial;
+                Debug.LogWarning(
+                    $"{obj.name} does not have 2 material slots!"
+                );
             }
         }
+    }
 
-        ClientController controller = obj.GetComponent<ClientController>();
+    ClientController controller =
+        obj.GetComponent<ClientController>();
 
-        // przekazujemy info czy zły
-        controller.SetClient(clientData, randomName, isBad);
-        
-        //queueManager.AddToQueue(controller, queueManager.orderQueue);
-        
-        queuingDevice.AddToOrderQueue(controller);
+    controller.SetClient(
+        clientData,
+        randomName,
+        isBad
+    );
 
-        currentClients++;
-        clientsCount++;
+    queuingDevice.AddToOrderQueue(controller);
+
+    currentClients++;
+    clientsCount++;
     }
 }

@@ -170,7 +170,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 111770046070245495}
   m_Father: {fileID: 1731161071632471054}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7996986517953673309
@@ -334,6 +335,37 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!1 &4319255471755193062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111770046070245495}
+  m_Layer: 6
+  m_Name: pocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111770046070245495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319255471755193062}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7561505, y: -0.6543978, z: 0, w: 0}
+  m_LocalPosition: {x: 0.434, y: -0.182, z: 0.295}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2340381301531129555}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 81.748}
 --- !u!1 &5213656545780419768
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +443,7 @@ MonoBehaviour:
   playerCamera: {fileID: 2340381301531129555}
   lookSensitivity: 0.2
   maxLookAngle: 90
+  isDead: 0
   footsteps_indoors:
     Guid:
       Data1: -856200923
