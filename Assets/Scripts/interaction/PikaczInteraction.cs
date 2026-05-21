@@ -27,17 +27,18 @@ public class PikaczInteraction : MonoBehaviour, IInteractable
     {
         if (queuingDevice == null)
             return true;
-
+        
         if (!queuingDevice.canGiveNumber)
             return true;
-
+        
         if (queuingDevice.orderQueue == null || queuingDevice.orderQueue.Count == 0)
             return true;
-
+        
         ClientController client = queuingDevice.orderQueue.Peek();
-
+        
         if (client != null)
         {
+            
             CustomerOrder order = client.GetComponent<CustomerOrder>();
 
             if (order != null && nameText != null)
@@ -45,10 +46,13 @@ public class PikaczInteraction : MonoBehaviour, IInteractable
                 nameText.text = order.clientName + ": #" + (index + 1);
             }
         }
-
+        
+        Debug.Log(index);
         queuingDevice.GiveNumber(index);
+        Debug.Log("1");
         gameObject.SetActive(false);
-
+        
+        
         return true;
     }
 

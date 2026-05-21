@@ -1,10 +1,13 @@
 using UnityEngine;
 using FMODUnity;
+using TMPro;
 public class Broom : MonoBehaviour
 {
     [SerializeField] private Transform holdSlot;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float interactDistance = 3f;
+    [SerializeField] private GameObject actionObject;
+    [SerializeField] public TMP_Text actionText;
 
     private bool isHeld = false;
 
@@ -23,6 +26,7 @@ public class Broom : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+        actionObject.SetActive(false);
     }
 
     private void Update()
@@ -53,6 +57,9 @@ public class Broom : MonoBehaviour
     {
         isHeld = true;
 
+        actionObject.SetActive(true);
+        actionText.text = "LMB - Clean " + "Q - Drop broom";
+            
         if (rb != null)
         {
             rb.linearVelocity = Vector3.zero;
@@ -75,8 +82,11 @@ public class Broom : MonoBehaviour
 
     private void Drop()
     {
+        
         isHeld = false;
-
+        
+        actionObject.SetActive(false);
+        
         transform.SetParent(null);
 
         // Włącz wszystkie collidery

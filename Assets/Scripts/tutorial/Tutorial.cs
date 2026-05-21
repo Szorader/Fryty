@@ -2,12 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using FMODUnity;
 
 public class Tutorial : MonoBehaviour
 {
     public GameObject uiTutorial;
     public TextMeshProUGUI tutorialText;
 
+    public EventReference tutorialSound;
 
     public GameObject pager;
     public GameObject rack;
@@ -23,6 +25,8 @@ public class Tutorial : MonoBehaviour
     public GameObject cashRegister;
     public GameObject stand;
     public GameObject chain;
+    public GameObject broom;
+    public GameObject umbrella;
 
     
     
@@ -58,6 +62,8 @@ public class Tutorial : MonoBehaviour
         cashRegister.SetActive(false);
         stand.SetActive(false);
         chain.SetActive(false);
+        broom.SetActive(false);
+        //umbrella.SetActive(false);
 
         
         
@@ -89,9 +95,9 @@ public class Tutorial : MonoBehaviour
                     float y = Mathf.Round(pos.y * 100f) / 100f;
                     float z = Mathf.Round(pos.z * 100f) / 100f;
                         
-                    Debug.Log(obj.transform.position + " " + y + " " + z);
+                    //Debug.Log(obj.transform.position + " " + y + " " + z);
                     // check position
-                    Debug.Log(y + " " + z + " " + targetY + " " + targetZ);
+                    //Debug.Log(y + " " + z + " " + targetY + " " + targetZ);
                     if (y == targetY && z == targetZ)
                     {
                         t = "Give the customer a pager";
@@ -188,11 +194,41 @@ public class Tutorial : MonoBehaviour
                 ChainInteraction chainInteraction = chain.GetComponent<ChainInteraction>();
                 if (chainInteraction.tutorial)
                 {
+                    t = "Time to clean outside, take broom";
+                    Text(t, broom);
+                }
+                break;
+            //podniesienie miotly
+            case 12:
+                Broom broomScript = broom.GetComponent<Broom>();
+                if (broomScript.IsHeld)
+                {
+                    t = "Start clean, remove trash";
+                    Text(t, umbrella);
+                }
+                break;
+            case 13:
+                GameObject trash =  GameObject.Find("Trash4");
+                if (trash != null)
+                {
+                    t = "Time to end the day, click the car door";
+                    Text(t, pager);
+                }
+                break;
+            case 14:
+                GameObject doorLeft = GameObject.Find("F_DoorLeft_001");
+                GameObject doorRight = GameObject.Find("F_DoorRight_001");
+                
+                EndDayInteraction DLinteraction =  doorLeft.GetComponent<EndDayInteraction>();
+                EndDayInteraction DRinteraction =  doorRight.GetComponent<EndDayInteraction>();
+                if (DLinteraction.clicked || DRinteraction.clicked)
+                {
                     t = "You are complete tutorial, congratulations";
                     Text(t, pager);
                     StartCoroutine(WaitCoroutine());
                 }
                 break;
+            
         }
         
         
@@ -207,7 +243,7 @@ public class Tutorial : MonoBehaviour
     private void Text(string text, GameObject obj)
     {
         //dzwiek
-        //RuntimeManager.PlayOneShot(firstKnock, obj.transform.position);
+        RuntimeManager.PlayOneShot(tutorialSound, obj.transform.position);
         tutorialText.text = text;
         obj.SetActive(true);
         tutorialStep++;

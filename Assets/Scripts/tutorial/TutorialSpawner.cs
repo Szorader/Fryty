@@ -8,7 +8,7 @@ public class TutorialSpawner : MonoBehaviour
     public ClientData[] clients;
     public string[] clientNames;
 
-    public QueuingDevice queuingDevice;
+    private QueuingDevice queuingDevice;
 
     [Header("Tutorial Spawn Settings")]
     public bool canSpawn = false;
@@ -21,6 +21,7 @@ public class TutorialSpawner : MonoBehaviour
 
     void Start()
     {
+        queuingDevice = FindObjectOfType<QueuingDevice>();
         // Spawn pierwszego klienta od razu
         SpawnClient();
     }

@@ -35,7 +35,7 @@ public class QueuingDevice : MonoBehaviour
     
     
 
-    private void Start()
+    private void Awake()
     {
         spawnOrderTicket = FindObjectOfType<SpawnOrderTicket>();
         spawnManager = FindObjectOfType<SpawnManager>();
@@ -78,7 +78,6 @@ public class QueuingDevice : MonoBehaviour
         ClientController client = orderQueue.Dequeue();
         pickList[number] = client;
         client.PikPikNumber = number;
-        
         
     //idzie sobie gdzies czekac
         WaitingPoint point = GetRandomFreePoint();

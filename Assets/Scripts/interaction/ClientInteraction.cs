@@ -64,7 +64,7 @@ public class ClientInteraction : MonoBehaviour, IInteractable
     public string GetPrompt()
     {
         if (_canTakeOrder)
-            return "E - Take order";
+            return "LMB - Take order";
 
         /*if (_canPickOrder)
             return "E - Give order";*/

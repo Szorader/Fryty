@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &383332282387731178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982923021218289692}
+  - component: {fileID: 5982496681746919361}
+  - component: {fileID: 3228235460941015921}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1982923021218289692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383332282387731178}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5982496681746919361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383332282387731178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4752e9a61720ae4a8fddb3f38fe3346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
+  spawnPoint: {fileID: 0}
+  clients:
+  - {fileID: 11400000, guid: bef2a3df2ab78124fb5abd3b6ef7b4c9, type: 2}
+  clientNames:
+  - Adam
+  - Zdzichu
+  - Tomek
+  - Ana
+  - Bartek
+  - Prometeusz
+  - Gregory
+  - Miesiany
+  - Damiano
+  - Roberto
+  - Bruno
+  - Temiklotes
+  queuingDevice: {fileID: 0}
+  minSpawnTime: 3
+  maxSpawnTime: 10
+  maxClients: 3
+  currentClients: 0
+  clientsOfTheDay: 5
+  clientsCount: 0
+  badClientChance: 0.15
+  isTutorial: 1
+--- !u!114 &3228235460941015921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383332282387731178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18c4c740b7887b49b72fb659f28c5bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialSpawner
+  spawnPoint: {fileID: 0}
+  clients:
+  - {fileID: 11400000, guid: bef2a3df2ab78124fb5abd3b6ef7b4c9, type: 2}
+  clientNames:
+  - Gregory
+  - Temiklotes
+  queuingDevice: {fileID: 0}
+  canSpawn: 0
+  badClientChance: 1

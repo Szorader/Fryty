@@ -35,6 +35,7 @@ public class DayManager : MonoBehaviour
     {
         if (summary)
         {
+            
             EndDay();
             summary = false;
         }
@@ -46,6 +47,7 @@ public class DayManager : MonoBehaviour
             return;
 
         isCleaningPhase = false;
+        
         EndDay();
     }
 
@@ -81,6 +83,7 @@ public class DayManager : MonoBehaviour
         messagePanel.SetActive(false);
         if (nextDay)
         {
+            
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         

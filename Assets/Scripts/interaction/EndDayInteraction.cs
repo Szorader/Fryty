@@ -5,7 +5,7 @@ public class EndDayInteraction : MonoBehaviour, IInteractable
     // go next day, skip or end current day
     private DayManager dayManager;
 
-    private bool clicked = false;
+    public bool clicked = false;
     
     public string prompt;
     
