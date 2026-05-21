@@ -14833,37 +14833,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2776428768710118163, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
   m_PrefabInstance: {fileID: 279919625973866195}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2031608826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2031608827}
-  m_Layer: 6
-  m_Name: pocket
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2031608827
+--- !u!4 &2031608827 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 111770046070245495, guid: 2f96810f6edc82744960e83d62526354, type: 3}
+  m_PrefabInstance: {fileID: 1741496262758861044}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031608826}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.7561505, y: -0.6543978, z: 0, w: 0}
-  m_LocalPosition: {x: 0.434, y: -0.182, z: 0.295}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2090064930}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 81.748}
 --- !u!1001 &2036282865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14975,11 +14949,6 @@ Transform:
   - {fileID: 954668341}
   m_Father: {fileID: 252471675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2090064930 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2340381301531129555, guid: 2f96810f6edc82744960e83d62526354, type: 3}
-  m_PrefabInstance: {fileID: 1741496262758861044}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2091768413
 GameObject:
   m_ObjectHideFlags: 0
@@ -15399,10 +15368,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 458543464462120927, guid: 2f96810f6edc82744960e83d62526354, type: 3}
-      propertyPath: moveForce
-      value: 300
-      objectReference: {fileID: 0}
     - target: {fileID: 1731161071632471054, guid: 2f96810f6edc82744960e83d62526354, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.329
@@ -15449,10 +15414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2340381301531129555, guid: 2f96810f6edc82744960e83d62526354, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2031608827}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f96810f6edc82744960e83d62526354, type: 3}
 --- !u!1001 &2029990272534833220
@@ -16248,37 +16210,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 687183470}
-    - target: {fileID: 3517485864216222956, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3646861457880278203, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3646861457880278203, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3646861457880278203, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3646861457880278203, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729257386213729024, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5888448601309764660, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_Name
       value: GameCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6530171142338966524, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7576326036200755608, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_Pivot.x
@@ -16419,17 +16353,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: daySkybox
-      value: 
-      objectReference: {fileID: 2100000, guid: 19182715a74f5214c9e237f748da8cac, type: 2}
-    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: messageText
       value: 
       objectReference: {fileID: 1000497770}
-    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: nightSkybox
-      value: 
-      objectReference: {fileID: 2100000, guid: 77715b8b6b248994891d3ccad1ad330b, type: 2}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: messagePanel
       value: 
@@ -16531,45 +16457,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1586466490}
     - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: currentClients
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: badClientChance
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: clientsOfTheDay
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: clientNames.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: 'clientNames.Array.data[12]'
-      value: Ligma
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: 'clientNames.Array.data[13]'
-      value: Miku
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: 'clientNames.Array.data[14]'
-      value: Homer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: 'clientNames.Array.data[15]'
-      value: Chris P
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1917540606}
-    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: policeman
-      value: 
-      objectReference: {fileID: 919132149155446097, guid: efbfd022b61026e4faa2ab3490e40d92, type: 3}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: lookTarget
       value: 
@@ -16583,10 +16477,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1000497770}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: copTalk.Path
-      value: event:/InsideTruck/policeman
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: messagePanel
       value: 
       objectReference: {fileID: 1000497768}
@@ -16594,30 +16484,6 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 404921576}
-    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: pauseAfterKnocks
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: copTalk.Guid.Data1
-      value: 497728455
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: copTalk.Guid.Data2
-      value: 1077533666
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: copTalk.Guid.Data3
-      value: 1067085961
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: copTalk.Guid.Data4
-      value: 2038485801
-      objectReference: {fileID: 0}
-    - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
-      propertyPath: pauseBetweenKnocks
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: playerMovementScript
       value: 
