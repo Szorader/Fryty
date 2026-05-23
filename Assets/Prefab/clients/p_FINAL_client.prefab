@@ -3371,7 +3371,6 @@ MonoBehaviour:
   isWalking: 0
   PikPikNumber: 0
   point: {fileID: 0}
-  voiceActorID: 0
 --- !u!114 &-4421244741172944152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3516,6 +3515,7 @@ MonoBehaviour:
       Data3: -1534492234
       Data4: 1473888720
     Path: event:/Clients/Client-voice
+  voiceActorID: 0
   delay: 0.2
 --- !u!1 &8721154377661882461
 GameObject:

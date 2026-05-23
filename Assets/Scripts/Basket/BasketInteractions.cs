@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using FMODUnity;
 
+// checks if the order was correct
 public partial class BasketInteraction : MonoBehaviour
 {
     public BasketData basketData;
@@ -222,6 +223,42 @@ public partial class BasketInteraction : MonoBehaviour
             basketData,
             currentCustomer
         );
+        
+        // CUSTOMER REACTION
+        FaceController face =
+            currentCustomer
+                .GetComponentInChildren<FaceController>();
+
+        if (face != null)
+        {
+            bool perfect =
+                satisfaction.IsPerfectOrder(
+                    waitingTime.GetTime(),
+                    basketData,
+                    currentCustomer
+                );
+            
+            // if the order was perfect -> happy reaction 
+            if (perfect)
+            {
+                face.PlayTalkingHappy();
+            }
+            else
+            {
+                // if the order wasn't perfect, 50% chance to get an angry reaction
+                bool angry =
+                    Random.value > 0.5f;
+
+                if (angry)
+                {
+                    face.PlayTalkingMad();
+                }
+                else // if the order wasn't perfect, 50% chance to get an sad reaction
+                {
+                    face.PlayTalkingSad();
+                }
+            }
+        }
 
         Debug.Log("TIP: " + tip);
         if (tip == 0)
@@ -238,7 +275,7 @@ public partial class BasketInteraction : MonoBehaviour
 
         queuingDeviceUI.canGiveOrder = true;
         //queueManager.ServeNextClient();
-        queuingDevice.RemoveClient();
+        StartCoroutine(RemoveCustomerAfterReaction());
         
         
     }
@@ -340,5 +377,13 @@ public partial class BasketInteraction : MonoBehaviour
 
         shakerInstance.release();
         shakerPlaying = false;
+    }
+    
+    // customer walks away after a slight delay
+    private IEnumerator RemoveCustomerAfterReaction()
+    {
+        yield return new WaitForSeconds(2f);
+
+        queuingDevice.RemoveClient();
     }
 }

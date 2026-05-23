@@ -60,8 +60,8 @@ public class FaceController : MonoBehaviour
         Neutral,
         Angry,
         Happy,
-        Greeting,
-        Goodbye
+        Waiting,
+        Sad
     }
 
     private void Start()
@@ -156,15 +156,43 @@ public class FaceController : MonoBehaviour
             case VoiceLine.Happy:
                 return "Happy";
 
-            case VoiceLine.Greeting:
-                return "Greeting";
+            case VoiceLine.Sad:
+                return "Sad";
 
-            case VoiceLine.Goodbye:
-                return "Goodbye";
+            case VoiceLine.Waiting:
+                return "Waiting";
 
             default:
-                return "Neutral";
+                return "Placeholder";
         }
+    }
+    // play audio, these are called from other scripts and start coroutines here 
+    
+    public void PlayTalkingHappy()
+    {
+        if (talkingRoutine != null)
+            StopCoroutine(talkingRoutine);
+
+        talkingRoutine =
+            StartCoroutine(TalkingHappy());
+    }
+
+    public void PlayTalkingSad()
+    {
+        if (talkingRoutine != null)
+            StopCoroutine(talkingRoutine);
+
+        talkingRoutine =
+            StartCoroutine(TalkingSad());
+    }
+
+    public void PlayTalkingMad()
+    {
+        if (talkingRoutine != null)
+            StopCoroutine(talkingRoutine);
+
+        talkingRoutine =
+            StartCoroutine(TalkingMad());
     }
     
     public void PlayTalkingNeutral()
@@ -175,6 +203,11 @@ public class FaceController : MonoBehaviour
         talkingRoutine =
             StartCoroutine(TalkingNeutral());
     }
+    
+    /// 
+    /// NEUTRAL, TAKING ORDER
+    /// 
+    /// 
 
     public IEnumerator TalkingNeutral()
     {
@@ -215,6 +248,90 @@ public class FaceController : MonoBehaviour
         } while (playbackState != PLAYBACK_STATE.STOPPED);
 
         // Return face to neutral
+        SetExpression(Expression.Neutral);
+
+        voiceInstance.release();
+    }
+    
+    /// 
+    /// ORDER REACTIONS
+    /// 
+    /// happy reaction
+    public IEnumerator TalkingHappy()
+    {
+        EventInstance voiceInstance =
+            PlayVoiceLine(VoiceLine.Happy);
+
+        PLAYBACK_STATE playbackState;
+
+        do
+        {
+            SetExpression(Expression.Happy);
+            yield return new WaitForSecondsRealtime(delay);
+
+            SetExpression(Expression.Talk);
+            yield return new WaitForSecondsRealtime(delay);
+
+            voiceInstance.getPlaybackState(
+                out playbackState
+            );
+
+        } while (playbackState != PLAYBACK_STATE.STOPPED);
+
+        SetExpression(Expression.Neutral);
+
+        voiceInstance.release();
+    }
+    
+    // sad reaction (50%)
+    public IEnumerator TalkingSad()
+    {
+        EventInstance voiceInstance =
+            PlayVoiceLine(VoiceLine.Sad);
+
+        PLAYBACK_STATE playbackState;
+
+        do
+        {
+            SetExpression(Expression.Sad);
+            yield return new WaitForSecondsRealtime(delay);
+
+            SetExpression(Expression.Talk);
+            yield return new WaitForSecondsRealtime(delay);
+
+            voiceInstance.getPlaybackState(
+                out playbackState
+            );
+
+        } while (playbackState != PLAYBACK_STATE.STOPPED);
+
+        SetExpression(Expression.Neutral);
+
+        voiceInstance.release();
+    }
+    
+    // angry reaction (50%)
+    public IEnumerator TalkingMad()
+    {
+        EventInstance voiceInstance =
+            PlayVoiceLine(VoiceLine.Angry);
+
+        PLAYBACK_STATE playbackState;
+
+        do
+        {
+            SetExpression(Expression.Angry);
+            yield return new WaitForSecondsRealtime(delay);
+
+            SetExpression(Expression.TalkAngry);
+            yield return new WaitForSecondsRealtime(delay);
+
+            voiceInstance.getPlaybackState(
+                out playbackState
+            );
+
+        } while (playbackState != PLAYBACK_STATE.STOPPED);
+
         SetExpression(Expression.Neutral);
 
         voiceInstance.release();

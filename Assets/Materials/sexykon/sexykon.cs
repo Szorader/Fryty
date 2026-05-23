@@ -5,7 +5,7 @@ public class sexykon : MonoBehaviour
     [SerializeField] private DeathScreenManager deathScreen;
     public FMOD.Studio.EventInstance footstepInstance;
 
-    private bool hasKilled = false;
+    
 
     void Update()
     {
@@ -20,8 +20,6 @@ public class sexykon : MonoBehaviour
         PlayerMovement player = other.GetComponentInParent<PlayerMovement>();
 
         if (player == null) return;
-
-        hasKilled = true;
 
         player.Die(); // to stop footsteps
 
