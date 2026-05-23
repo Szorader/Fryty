@@ -119,6 +119,33 @@ public class SpawnManager : MonoBehaviour
 
     ClientController controller =
         obj.GetComponent<ClientController>();
+    
+    // Assign random voice actor
+    if (clientData.availableVoiceActors.Length > 0)
+    {
+        FaceController faceController =
+            obj.GetComponentInChildren<FaceController>();
+
+        if (faceController != null &&
+            clientData.availableVoiceActors.Length > 0)
+        {
+            int randomVA =
+                clientData.availableVoiceActors[
+                    Random.Range(
+                        0,
+                        clientData.availableVoiceActors.Length
+                    )
+                ];
+
+            faceController.SetVoiceActor(randomVA);
+        }
+    }
+    else
+    {
+        Debug.LogWarning(
+            $"{clientData.name} has no voice actors assigned!"
+        );
+    }
 
     controller.SetClient(
         clientData,

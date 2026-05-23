@@ -12,4 +12,7 @@ public class ClientData : ScriptableObject
     [Header("Face Materials")]
     public Material goodFaceMaterial;
     public Material badFaceMaterial;
+    
+    [Header("Voice")]
+    public int[] availableVoiceActors;
 }

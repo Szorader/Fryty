@@ -699,6 +699,96 @@ Transform:
   - {fileID: 8772086192023195183}
   m_Father: {fileID: 8346687473671217049}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1659416985753233038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4638295166304896560}
+  - component: {fileID: 3125349614313147737}
+  - component: {fileID: 7793372749313664715}
+  m_Layer: 0
+  m_Name: f_earsandhorn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4638295166304896560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659416985753233038}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.6608962, y: -0.026604816, z: -0.015851278, w: 0.7498382}
+  m_LocalPosition: {x: 0.017, y: 0.433, z: 0.058}
+  m_LocalScale: {x: 0.010000001, y: 0.010000003, z: 0.009999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003103552330628588}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3125349614313147737
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659416985753233038}
+  m_Mesh: {fileID: -8389917882996971519, guid: 645a32d681662c14f8efac084ff66627, type: 3}
+--- !u!23 &7793372749313664715
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659416985753233038}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -4711832243301118394, guid: 645a32d681662c14f8efac084ff66627, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1936289232529498458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2224,7 @@ Transform:
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4638295166304896560}
   - {fileID: 4746629055842678984}
   m_Father: {fileID: 5126079196404567978}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3189,7 +3280,7 @@ GameObject:
   - component: {fileID: 9133834128941491229}
   - component: {fileID: 4192142269696234446}
   m_Layer: 0
-  m_Name: TACKA_f_client_animated
+  m_Name: p_FINAL_client
   m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3280,6 +3371,7 @@ MonoBehaviour:
   isWalking: 0
   PikPikNumber: 0
   point: {fileID: 0}
+  voiceActorID: 0
 --- !u!114 &-4421244741172944152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3417,6 +3509,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FaceController
   faceMaterialIndex: 1
+  clientTalk:
+    Guid:
+      Data1: 1866904601
+      Data2: 1315558428
+      Data3: -1534492234
+      Data4: 1473888720
+    Path: event:/Clients/Client-voice
+  delay: 0.2
 --- !u!1 &8721154377661882461
 GameObject:
   m_ObjectHideFlags: 0

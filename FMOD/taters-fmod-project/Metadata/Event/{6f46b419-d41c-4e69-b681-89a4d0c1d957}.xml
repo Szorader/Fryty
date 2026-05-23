@@ -149,6 +149,9 @@
 		<property name="start">
 			<value>2</value>
 		</property>
+		<property name="startOffset">
+			<value>13</value>
+		</property>
 		<relationship name="triggerConditions">
 			<destination>{96132433-2bae-42d3-bd12-f5c337b16464}</destination>
 		</relationship>
