@@ -20,14 +20,21 @@ public class DayManager : MonoBehaviour
     [Header("SKYBOX")]
     [SerializeField] private Material daySkybox;
     [SerializeField] private Material nightSkybox;
-
-    public int day;
+    
+    private SaveSystem saveSystem;
+    
+    
+    //public float money;
+    //public int day;
+    public int killedEnemies;
+    public int servedClients;
 
     void Start()
     {
         messagePanel.SetActive(false);
         endgame = FindObjectOfType<Endgame>();
         basket = FindObjectOfType<BasketInteraction>();
+        saveSystem = FindObjectOfType<SaveSystem>();
         
     }
 
@@ -60,11 +67,25 @@ public class DayManager : MonoBehaviour
     public void GoodKill()
     {
         StartCoroutine(Message("Good Elimination!", 3f, false));
+        killedEnemies++;
+        
     }
 
     public void EndDay()
     {
         StartCoroutine(Message("End Day, you earned today: " + basket.money, 5f, true));
+        
+    }
+
+    public void Save()
+    {
+        saveSystem.SaveGame(
+            saveSystem.saveData.money + basket.money,
+            saveSystem.saveData.day +=1,
+            saveSystem.saveData.killedEnemies + killedEnemies,
+            saveSystem.saveData.servedClients + servedClients,
+            saveSystem.saveData.tutorialCompleted
+        );
     }
 
     public void CleanTime()
@@ -83,8 +104,8 @@ public class DayManager : MonoBehaviour
         messagePanel.SetActive(false);
         if (nextDay)
         {
-            
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            saveSystem.saveData.day += 1;
+            SceneManager.LoadScene(1);
         }
         
     }

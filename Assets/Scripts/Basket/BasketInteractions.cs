@@ -46,6 +46,8 @@ public partial class BasketInteraction : MonoBehaviour
 
     
     public UI_QueuingDevice queuingDeviceUI;
+    private DayManager dayManager;
+    private SaveSystem saveSystem;
     
     
     [Header("AUDIO")]
@@ -63,6 +65,12 @@ public partial class BasketInteraction : MonoBehaviour
     {
         UpdateMoney(0f);
         queuingDevice = FindObjectOfType<QueuingDevice>();
+        saveSystem = FindObjectOfType<SaveSystem>();
+        saveSystem.LoadGame();
+        dayManager = FindObjectOfType<DayManager>();
+        
+        
+        moneyText.text = saveSystem.saveData.money.ToString();
     }
     private void Update()
     {
@@ -170,8 +178,12 @@ public partial class BasketInteraction : MonoBehaviour
             //nie mozna dac zamowienia gdy idzie musi sie zatrzymac przy ladzie
             if (currentClientController.isWalking)
                 return;
+            
+            
+            Debug.Log("basket");
             ApplyBasketToCustomer(); 
 
+            Debug.Log("basket updated");
             CheckOrder();
             ResetBasket();
         }
@@ -269,6 +281,8 @@ public partial class BasketInteraction : MonoBehaviour
         {
             UpdateMoney(tip);
         }
+
+        dayManager.servedClients++;
         
         // play cha-ching audio
         RuntimeManager.PlayOneShot(chaChingSound, transform.position);
@@ -291,6 +305,7 @@ public partial class BasketInteraction : MonoBehaviour
         else
         {
             money += +  5 + amount;
+            
         }
         
         moneyText.text = money.ToString();

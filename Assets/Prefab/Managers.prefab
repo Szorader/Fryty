@@ -644,58 +644,6 @@ MonoBehaviour:
   - SFX
   CollisionTag: 
   PreloadSamples: 0
---- !u!1 &7002763646159198801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6864767828808662983}
-  - component: {fileID: 761523630998224548}
-  m_Layer: 0
-  m_Name: DayManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6864767828808662983
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7002763646159198801}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 546093428227527438}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &761523630998224548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7002763646159198801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71f305c75cad12a439ba4bb56ea53ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DayManager
-  messageText: {fileID: 0}
-  messagePanel: {fileID: 0}
-  timeToClean: 0
-  summary: 0
-  isCleaningPhase: 0
-  daySkybox: {fileID: 2100000, guid: 19182715a74f5214c9e237f748da8cac, type: 2}
-  nightSkybox: {fileID: 2100000, guid: 77715b8b6b248994891d3ccad1ad330b, type: 2}
-  day: 0
 --- !u!1 &8967371484018800887
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,3 +689,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   dayManager: {fileID: 0}
+--- !u!1001 &6175682913605969529
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 546093428227527438}
+    m_Modifications:
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3790551548408921128, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+      propertyPath: m_Name
+      value: DayManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+--- !u!114 &761523630998224548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6855911669891602653, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+  m_PrefabInstance: {fileID: 6175682913605969529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f305c75cad12a439ba4bb56ea53ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DayManager
+--- !u!4 &6864767828808662983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 788379643572230590, guid: b31f8b062491f0a449922da7ebcafd51, type: 3}
+  m_PrefabInstance: {fileID: 6175682913605969529}
+  m_PrefabAsset: {fileID: 0}

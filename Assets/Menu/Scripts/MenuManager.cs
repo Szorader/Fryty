@@ -35,10 +35,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private EventReference uiClickSound;
     [SerializeField] private EventReference uiWriteSound;
     
+    
+    private SaveSystem saveSystem;
+    
 
     void Start()
     {
         ApplyView(currentView);
+        saveSystem = FindObjectOfType<SaveSystem>();
     }
 
     void Hide(Card c)
@@ -129,10 +133,21 @@ public class MenuManager : MonoBehaviour
         ApplyView(MenuView.Settings);
     }
 
+
+    public void _PlayNewGame()
+    {
+        PlayWritingSound();
+        saveSystem.ResetStats();
+        SceneManager.LoadScene(2);
+    }
     public void _PlayGame()
     {
         PlayWritingSound();
-        SceneManager.LoadScene(1);
+        bool playedTutorial = saveSystem.IsTutorialCompleted();
+        if (playedTutorial)
+            SceneManager.LoadScene(1);
+        else
+            SceneManager.LoadScene(2);
     }
 
     public void _QuitGame()

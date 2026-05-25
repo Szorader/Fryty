@@ -40,10 +40,16 @@ public class Tutorial : MonoBehaviour
     private GameObject obj;
     private BasketInteraction bInteraction;
     public TutorialSpawner spawner;
+    
+    private SaveSystem saveSystem;
+    public DayManager dayManager;
+    
 
 
     void Start()
     {
+        saveSystem = FindObjectOfType<SaveSystem>();
+        dayManager = FindObjectOfType<DayManager>();
         //uiTutorial.SetActive(true);
         t = "Approach the customer and take the order";
         Text(t, uiTutorial);
@@ -108,7 +114,7 @@ public class Tutorial : MonoBehaviour
             
             //sprawdzenie dania numerka -> lodówka ziemniak
             case 3:
-                obj = GameObject.Find("t_pager");
+                obj = GameObject.Find("t_pager.002");
                 if (obj == null)
                 {
                     t = "Take a potato out of the fridge";
@@ -194,7 +200,7 @@ public class Tutorial : MonoBehaviour
                 ChainInteraction chainInteraction = chain.GetComponent<ChainInteraction>();
                 if (chainInteraction.tutorial)
                 {
-                    t = "Time to clean outside, take broom";
+                    t = "Time to clean outside, take broom and remove trash";
                     Text(t, broom);
                 }
                 break;
@@ -208,13 +214,45 @@ public class Tutorial : MonoBehaviour
                 }
                 break;
             case 13:
-                GameObject trash =  GameObject.Find("Trash4");
+                string[] trashNames = {
+                    "F_Bottle_001",
+                    "F_Bottle_001 (1)",
+                    "F_Bottle_001 (2)",
+                    "F_Can_001",
+                    "F_Can_001 (1)",
+                    "F_Can_002",
+                    "F_Can_003",
+                    "F_Tissue_001",
+                    "F_Tissue_001 (1)"
+                };
+
+                bool anyActive = false;
+
+                foreach (string name in trashNames)
+                {
+                    GameObject obj = GameObject.Find(name);
+
+                    if (obj != null && obj.activeInHierarchy)
+                    {
+                        anyActive = true;
+                        break;
+                    }
+                }
+
+                if (!anyActive)
+                {
+                    t = "Time to end the day, click the car door";
+                    Text(t, pager);
+                }
+
+                break;
+                /*GameObject trash =  GameObject.Find("Trash4");
                 if (trash != null)
                 {
                     t = "Time to end the day, click the car door";
                     Text(t, pager);
                 }
-                break;
+                break;*/
             case 14:
                 GameObject doorLeft = GameObject.Find("F_DoorLeft_001");
                 GameObject doorRight = GameObject.Find("F_DoorRight_001");
@@ -226,6 +264,7 @@ public class Tutorial : MonoBehaviour
                     t = "You are complete tutorial, congratulations";
                     Text(t, pager);
                     StartCoroutine(WaitCoroutine());
+                    
                 }
                 break;
             
@@ -238,7 +277,10 @@ public class Tutorial : MonoBehaviour
     private IEnumerator WaitCoroutine()
     {
         yield return new WaitForSeconds(5f);
-        SceneManager.LoadScene("MainMenu");
+
+        saveSystem.saveData.tutorialCompleted = true;
+        dayManager.Save();
+        SceneManager.LoadScene(1);
     }
     private void Text(string text, GameObject obj)
     {
