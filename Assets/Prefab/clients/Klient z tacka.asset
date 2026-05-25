@@ -21,3 +21,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 94b0c979fc83c534d919ca15cb507430, type: 2}
   - {fileID: 2100000, guid: f7692adf2503b2b4cbe1ab7ec8c69fff, type: 2}
   - {fileID: 2100000, guid: 7b8d52b5cdb178944affa1d30dd01bd0, type: 2}
+  goodFaceMaterial: {fileID: 2100000, guid: 89683900fb3ffd541be6e920b5788a23, type: 2}
+  badFaceMaterial: {fileID: 2100000, guid: cd467229b58410743803d29726a0fbfe, type: 2}
+  availableVoiceActors: 000000000100000002000000

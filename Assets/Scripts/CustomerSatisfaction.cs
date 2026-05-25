@@ -55,4 +55,52 @@ public class CustomerSatisfaction : MonoBehaviour
 
         return Mathf.Max(0f, tip);
     }
+    
+    /// <summary>
+    /// Used ONLY for customer reactions
+    /// (happy / sad / angry).
+    ///
+    /// Time DOES NOT matter here.
+    /// Only order correctness.
+    /// </summary>
+    public bool IsPerfectOrder(
+        int timeAlive,
+        BasketData basket,
+        CustomerOrder order
+    )
+    {
+        if (!basket || !order)
+            return false;
+
+        // Correct fries type
+        if (basket.friesType != order.fries)
+        {
+            Debug.Log("Wrong fries");
+            return false;
+        }
+
+        // Perfect cook only
+        if (basket.cookLevel != 1)
+        {
+            Debug.Log("Wrong cook level");
+            return false;
+        }
+
+        // Correct sauce
+        if (basket.sauceType != order.sauce)
+        {
+            Debug.Log("Wrong sauce");
+            return false;
+        }
+
+        // Correct seasoning
+        if (basket.seasoningType != order.seasoning)
+        {
+            Debug.Log("Wrong seasoning");
+            return false;
+        }
+
+        Debug.Log("PERFECT ORDER");
+        return true;
+    }
 }

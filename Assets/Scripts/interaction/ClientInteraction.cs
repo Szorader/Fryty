@@ -7,6 +7,8 @@ public class ClientInteraction : MonoBehaviour, IInteractable
     public QueueManager queueManager;
     public QueuingDevice queuingDevice;
     public PlayerInArea playerInArea;
+    private FaceController faceController;
+    
     
     private bool _canTakeOrder = true;
     private bool _canPickOrder = false;
@@ -17,6 +19,7 @@ public class ClientInteraction : MonoBehaviour, IInteractable
         queueManager = FindObjectOfType<QueueManager>();
         queuingDevice = FindObjectOfType<QueuingDevice>();
         playerInArea = FindObjectOfType<PlayerInArea>();
+        faceController = GetComponentInChildren<FaceController>();
         //UpdatePrompt();
     }
     
@@ -41,6 +44,12 @@ public class ClientInteraction : MonoBehaviour, IInteractable
             _canTakeOrder = false;
             _canPickOrder = true;
             //UpdatePrompt();
+            
+            // play talk audio and faces
+            if (faceController != null)
+            {
+                faceController.PlayTalkingNeutral();
+            }
         }
 
        /* else if (_canPickOrder)

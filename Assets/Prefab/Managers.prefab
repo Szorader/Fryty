@@ -63,6 +63,7 @@ MonoBehaviour:
   basket: {fileID: 0}
   dayManager: {fileID: 0}
   tutorial: {fileID: 0}
+  uiQueuingDevice: {fileID: 0}
   canGiveNumber: 0
   currentNumber: 0
   waitingForTake: 0
@@ -382,10 +383,18 @@ MonoBehaviour:
       Data3: -1307370359
       Data4: 114690660
     Path: event:/InsideTruck/door-kickdown
+  copTalk:
+    Guid:
+      Data1: 497728455
+      Data2: 1077533666
+      Data3: 1067085961
+      Data4: 2038485801
+    Path: event:/InsideTruck/policeman
   deathScreen: {fileID: 958833656396644897}
   startDelay: 2
-  pauseBetweenKnocks: 12
-  pauseAfterKnocks: 3
+  pauseBetweenKnocks: 8
+  pauseAfterKnocks: 2
+  pauseBeforeTalk: 0.5
   playerMovementScript: {fileID: 0}
   playerCamera: {fileID: 0}
   lookTarget: {fileID: 0}
@@ -393,7 +402,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   animationTrigger: StartAnimation
   spawnPoint: {fileID: 0}
-  policeman: {fileID: 2798367889480993404, guid: a2a1a638b49a2774d9dcc72dbf4e1fc8, type: 3}
+  policeman: {fileID: 919132149155446097, guid: efbfd022b61026e4faa2ab3490e40d92, type: 3}
   messageText: {fileID: 0}
   messagePanel: {fileID: 0}
 --- !u!1 &4889756952294753441
@@ -572,6 +581,10 @@ MonoBehaviour:
   - Roberto
   - Bruno
   - Temiklotes
+  - Ligma
+  - Miku
+  - Homer
+  - Chris P
   queuingDevice: {fileID: 1251017049266340827}
   minSpawnTime: 3
   maxSpawnTime: 10
@@ -680,6 +693,9 @@ MonoBehaviour:
   timeToClean: 0
   summary: 0
   isCleaningPhase: 0
+  daySkybox: {fileID: 2100000, guid: 19182715a74f5214c9e237f748da8cac, type: 2}
+  nightSkybox: {fileID: 2100000, guid: 77715b8b6b248994891d3ccad1ad330b, type: 2}
+  day: 0
 --- !u!1 &8967371484018800887
 GameObject:
   m_ObjectHideFlags: 0
