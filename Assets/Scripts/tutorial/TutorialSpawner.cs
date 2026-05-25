@@ -14,43 +14,48 @@ public class TutorialSpawner : MonoBehaviour
     public bool canSpawn = false;
 
     private int spawnedClients = 0;
-    private int maxTutorialClients = 2;
-
-    [Range(0f, 1f)]
-    public float badClientChance = 1f; // zawsze zły klient do tutorialu
+    private const int maxTutorialClients = 2;
 
     void Start()
     {
         queuingDevice = FindObjectOfType<QueuingDevice>();
-        // Spawn pierwszego klienta od razu
-        SpawnClient();
+
+        // spawn first GOOD customer immediately
+        SpawnClient(false);
+
+        // start waiting for second spawn
+        StartCoroutine(TutorialFlow());
     }
 
-    void Update()
+    private IEnumerator TutorialFlow()
     {
-        // Jeśli można spawnąć kolejnego
-        // i jeszcze nie osiągnęliśmy limitu 2 klientów
-        if (canSpawn && spawnedClients < maxTutorialClients)
-        {
-            canSpawn = false;
-            SpawnClient();
-        }
+        // wait until tutorial allows next spawn
+        yield return new WaitUntil(() => canSpawn);
+
+        // wait until first customer fully leaves queue
+        yield return new WaitUntil(() =>
+            queuingDevice.orderQueue.Count == 0
+        );
+
+        // spawn EVIL customer
+        SpawnClient(true);
     }
 
-    public void SpawnClient()
+    private void SpawnClient(bool isBad)
     {
-        // zabezpieczenie
         if (spawnedClients >= maxTutorialClients)
         {
             Debug.Log("Tutorial clients finished");
             return;
         }
 
-        ClientData clientData = clients[Random.Range(0, clients.Length)];
-        string randomName = clientNames[Random.Range(0, clientNames.Length)];
+        ClientData clientData =
+            clients[Random.Range(0, clients.Length)];
 
-        // drugi klient = zły klient
-        bool isBad = spawnedClients == 1;
+        string randomName =
+            clientNames[
+                Random.Range(0, clientNames.Length)
+            ];
 
         GameObject obj = Instantiate(
             clientData.clientPrefab,
@@ -58,39 +63,99 @@ public class TutorialSpawner : MonoBehaviour
             Quaternion.identity
         );
 
-        Renderer renderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
+        Renderer renderer =
+            obj.GetComponentInChildren<SkinnedMeshRenderer>();
 
         if (renderer != null)
         {
-            Material chosenMaterial = null;
+            Material chosenBodyMaterial = null;
+            Material chosenFaceMaterial = null;
 
-            if (isBad && clientData.badMaterials.Length > 0)
+            // GOOD customer
+            if (!isBad)
             {
-                chosenMaterial = clientData.badMaterials[
-                    Random.Range(0, clientData.badMaterials.Length)
-                ];
+                if (clientData.goodMaterials.Length > 0)
+                {
+                    chosenBodyMaterial =
+                        clientData.goodMaterials[
+                            Random.Range(
+                                0,
+                                clientData.goodMaterials.Length
+                            )
+                        ];
+                }
+
+                chosenFaceMaterial =
+                    clientData.goodFaceMaterial;
             }
-            else if (!isBad && clientData.goodMaterials.Length > 0)
+            // BAD customer
+            else
             {
-                chosenMaterial = clientData.goodMaterials[
-                    Random.Range(0, clientData.goodMaterials.Length)
-                ];
+                if (clientData.badMaterials.Length > 0)
+                {
+                    chosenBodyMaterial =
+                        clientData.badMaterials[
+                            Random.Range(
+                                0,
+                                clientData.badMaterials.Length
+                            )
+                        ];
+                }
+
+                chosenFaceMaterial =
+                    clientData.badFaceMaterial;
             }
 
-            if (chosenMaterial != null)
+            // assign body + face material
+            Material[] mats = renderer.materials;
+
+            if (mats.Length >= 2)
             {
-                renderer.material = chosenMaterial;
+                mats[0] = chosenBodyMaterial;
+                mats[1] = chosenFaceMaterial;
+
+                renderer.materials = mats;
             }
         }
 
-        ClientController controller = obj.GetComponent<ClientController>();
+        // setup client
+        ClientController controller =
+            obj.GetComponent<ClientController>();
 
-        controller.SetClient(clientData, randomName, isBad);
+        controller.SetClient(
+            clientData,
+            randomName,
+            isBad
+        );
 
-        queuingDevice.AddToOrderQueue(controller);
+        // RANDOM VA
+        FaceController face =
+            obj.GetComponentInChildren<FaceController>();
+
+        if (face != null &&
+            clientData.availableVoiceActors.Length > 0)
+        {
+            int randomVA =
+                clientData.availableVoiceActors[
+                    Random.Range(
+                        0,
+                        clientData.availableVoiceActors.Length
+                    )
+                ];
+
+            face.SetVoiceActor(randomVA);
+        }
+
+        // add to queue
+        queuingDevice.AddToOrderQueue(
+            controller
+        );
 
         spawnedClients++;
 
-        Debug.Log($"Spawned client: {spawnedClients} | Bad: {isBad}");
+        Debug.Log(
+            $"Spawned tutorial client | " +
+            $"Bad: {isBad}"
+        );
     }
 }
