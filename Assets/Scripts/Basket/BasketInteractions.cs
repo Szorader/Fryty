@@ -204,6 +204,15 @@ public partial class BasketInteraction : MonoBehaviour
         // WALLET SYSTEM
         if (wallet != null)
         {
+            bool hasOrder =
+                basketData.friesType != OrderDatabase.FriesType.None;
+
+            if (!hasOrder)
+            {
+                // puste zamówienie → zero nagrody
+                return;
+            }
+
             wallet.EarnMoney(5f);   // base payment
             wallet.AddTip(tip);     // tip
         }

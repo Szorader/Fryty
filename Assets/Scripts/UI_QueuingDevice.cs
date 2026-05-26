@@ -13,9 +13,10 @@ public class UI_QueuingDevice : MonoBehaviour
     
     [Header("AUDIO")]
     [SerializeField] private EventReference pikacz;
-
+    
     void Update()
     {
+        Debug.Log(canGiveOrder);
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -31,13 +32,11 @@ public class UI_QueuingDevice : MonoBehaviour
     {
         if (!canGiveOrder)
         {
-            Debug.Log("return");
             return;
         }
             
         GameObject clicked = clickedCollider.gameObject;
-
-        //Debug.Log("[CLICK] Hit: " + clicked.name);
+        
 
         for (int i = 0; i < buttons.Count; i++)
         {
@@ -45,15 +44,10 @@ public class UI_QueuingDevice : MonoBehaviour
 
             if (clicked == button || clicked.transform.IsChildOf(button.transform))
             {
-                //Debug.Log("[UI] Button matched: " + button.name);
-
                 if (queuingDevice == null)
                 {
-                    //Debug.LogError("[UI] QueuingDevice is NULL");
                     return;
                 }
-
-                //Debug.Log("[UI] Calling AddOrderToBasket with number: " + i);
 
                 // audio 
                 RuntimeManager.PlayOneShot(
@@ -67,7 +61,5 @@ public class UI_QueuingDevice : MonoBehaviour
                 return;
             }
         }
-
-        //Debug.Log("[UI] Click not in buttons list");
     }
 }

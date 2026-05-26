@@ -15478,6 +15478,10 @@ PrefabInstance:
       value: event:/InsideTruck/pager
       objectReference: {fileID: 0}
     - target: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+      propertyPath: canGiveOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
       propertyPath: queuingDevice
       value: 
       objectReference: {fileID: 1028194117}
