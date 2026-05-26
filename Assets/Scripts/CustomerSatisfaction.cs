@@ -1,24 +1,38 @@
 using UnityEngine;
-
+/// <summary>
+///  BASE TIP = 10
+///  
+///          GUT    |	BAD
+///  TYPE	    +1	|	-3
+///  COOK	    +1	|	-6
+///  SOUCE  	+2	|	-4
+///  SEAS.  	+1	|	-2
+///  
+///  WORST TIP = -15 ~0
+///  BEST TIP = +15
+/// </summary>
 public class CustomerSatisfaction : MonoBehaviour
 {
     [Header("BASE TIP")]
     public float baseTip = 10f;
 
     [Header("TIME PENALTY")]
-    public float penaltyPer10Seconds = 0.5f;
+    public float penaltyPer10Seconds = 1f;
 
-    [Header("FRIES PENALTIES")]
-    public float wrongFriesPenalty = 5f;
-    public float badCookPenalty = 2f;
-    public float burnedOrRawPenalty = 5f;
-    public float perfectBonus = 1f;
+    [Header("FRIES")]
+    public float wrongFriesPenalty = 3f;
+    public float goodFriesBonus = 1f;
 
-    [Header("SAUCE PENALTY")]
-    public float wrongSaucePenalty = 3f;
+    public float badCookPenalty = 6f;
+    public float goodCookBonus = 1f;
 
-    [Header("SEASONING PENALTY")]
-    public float wrongSeasoningPenalty = 1f;
+    [Header("SAUCE")]
+    public float wrongSaucePenalty = 4f;
+    public float goodSauceBonus = 2f;
+
+    [Header("SEASONING")]
+    public float wrongSeasoningPenalty = 2f;
+    public float goodSeasoningBonus = 1f;
 
     public float CalculateTip(
         int timeAlive,
@@ -31,38 +45,37 @@ public class CustomerSatisfaction : MonoBehaviour
         if (!basket || !order)
             return 0f;
 
-        //TIME
+        // TIME
         int adjustedTime = Mathf.Max(0, timeAlive - 30);
         tip -= (adjustedTime / 10) * penaltyPer10Seconds;
 
-        //FRIES TYPE
+        // FRIES TYPE
         if (basket.friesType != order.fries)
             tip -= wrongFriesPenalty;
+        else
+            tip += goodFriesBonus;
 
         // COOK LEVEL
-        if (basket.cookLevel == 0 || basket.cookLevel == 2)
-        {
-            tip -= burnedOrRawPenalty; // teraz = 7
-        }
+        if (basket.cookLevel == 1)
+            tip += goodCookBonus;
+        else
+            tip -= badCookPenalty;
 
-        //SAUCE
+        // SAUCE
         if (basket.sauceType != order.sauce)
             tip -= wrongSaucePenalty;
+        else
+            tip += goodSauceBonus;
 
-        //SEASONING
+        // SEASONING
         if (basket.seasoningType != order.seasoning)
             tip -= wrongSeasoningPenalty;
+        else
+            tip += goodSeasoningBonus;
 
         return Mathf.Max(0f, tip);
     }
-    
-    /// <summary>
-    /// Used ONLY for customer reactions
-    /// (happy / sad / angry).
-    ///
-    /// Time DOES NOT matter here.
-    /// Only order correctness.
-    /// </summary>
+
     public bool IsPerfectOrder(
         int timeAlive,
         BasketData basket,
@@ -72,35 +85,18 @@ public class CustomerSatisfaction : MonoBehaviour
         if (!basket || !order)
             return false;
 
-        // Correct fries type
         if (basket.friesType != order.fries)
-        {
-            Debug.Log("Wrong fries");
             return false;
-        }
 
-        // Perfect cook only
         if (basket.cookLevel != 1)
-        {
-            Debug.Log("Wrong cook level");
             return false;
-        }
 
-        // Correct sauce
         if (basket.sauceType != order.sauce)
-        {
-            Debug.Log("Wrong sauce");
             return false;
-        }
 
-        // Correct seasoning
         if (basket.seasoningType != order.seasoning)
-        {
-            Debug.Log("Wrong seasoning");
             return false;
-        }
 
-        Debug.Log("PERFECT ORDER");
         return true;
     }
 }

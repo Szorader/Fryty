@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using FMODUnity;
 
-// checks if the order was correct
 public partial class BasketInteraction : MonoBehaviour
 {
     public BasketData basketData;
@@ -15,7 +14,10 @@ public partial class BasketInteraction : MonoBehaviour
     public CustomerWaitingTime waitingTime;
     public CustomerSatisfaction satisfaction;
     public bool isBad;
-    
+
+    [Header("WALLET")]
+    public Wallet wallet;
+
     [Header("SAUCE")]
     public GameObject emptySauceBox;
     public GameObject ketchupBottle;
@@ -24,54 +26,46 @@ public partial class BasketInteraction : MonoBehaviour
     public GameObject chiliBottle;
     public GameObject oneIslandBottle;
     public GameObject garlicBottle;
-    
+
     [Header("SEASONING")]
     public GameObject saltShaker;
     public GameObject pepperShaker;
-    
+
     [Header("OTHER")]
     public DeathScreenManager deathScreenManager;
     public GameObject player;
-    
+
     public GameObject bell;
     public GameObject trashBin;
     public GameObject trayShelf;
-    
-    //public QueueManager queueManager;
+
     public QueuingDevice queuingDevice;
 
-    public float money = -5f;
     public TMP_Text moneyText;
     public TMP_Text orderMoneyText;
 
-    
     public UI_QueuingDevice queuingDeviceUI;
     private DayManager dayManager;
     private SaveSystem saveSystem;
-    
-    
+
     [Header("AUDIO")]
     [SerializeField] private EventReference shakerSound;
     [SerializeField] private EventReference sauceSound;
     [SerializeField] private EventReference chaChingSound;
-    
+
     private FMOD.Studio.EventInstance shakerInstance;
     private bool shakerPlaying = false;
+
     public GameObject clicked;
-    
-   
-    
+
     void Start()
     {
-        UpdateMoney(0f);
         queuingDevice = FindObjectOfType<QueuingDevice>();
         saveSystem = FindObjectOfType<SaveSystem>();
         saveSystem.LoadGame();
         dayManager = FindObjectOfType<DayManager>();
-        
-        
-        moneyText.text = saveSystem.saveData.money.ToString();
     }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -86,15 +80,15 @@ public partial class BasketInteraction : MonoBehaviour
     }
 
     private void HandleClick(GameObject click)
-    { 
+    {
         clicked = click;
         if (!basketData) return;
+
         if (clicked == ketchupBottle)
         {
             if (basketData.sauceType == OrderDatabase.SauceType.None)
             {
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-
                 TrySetSauce(OrderDatabase.SauceType.Ketchup);
             }
         }
@@ -103,7 +97,6 @@ public partial class BasketInteraction : MonoBehaviour
             if (basketData.sauceType == OrderDatabase.SauceType.None)
             {
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-
                 TrySetSauce(OrderDatabase.SauceType.Mayo);
             }
         }
@@ -112,17 +105,14 @@ public partial class BasketInteraction : MonoBehaviour
             if (basketData.sauceType == OrderDatabase.SauceType.None)
             {
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-
                 TrySetSauce(OrderDatabase.SauceType.Cheese);
             }
         }
-        
         else if (clicked == chiliBottle)
         {
             if (basketData.sauceType == OrderDatabase.SauceType.None)
             {
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-
                 TrySetSauce(OrderDatabase.SauceType.Chili);
             }
         }
@@ -131,7 +121,6 @@ public partial class BasketInteraction : MonoBehaviour
             if (basketData.sauceType == OrderDatabase.SauceType.None)
             {
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-
                 TrySetSauce(OrderDatabase.SauceType.OneIsland);
             }
         }
@@ -140,68 +129,94 @@ public partial class BasketInteraction : MonoBehaviour
             if (basketData.sauceType == OrderDatabase.SauceType.None)
             {
                 RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-
                 TrySetSauce(OrderDatabase.SauceType.Garlic);
             }
         }
-        
-        else if (clicked == emptySauceBox) TrySetSauce(OrderDatabase.SauceType.None, true);
-
+        else if (clicked == emptySauceBox)
+        {
+            TrySetSauce(OrderDatabase.SauceType.None, true);
+        }
         else if (clicked == saltShaker)
         {
             if (basketData.seasoningType == OrderDatabase.SeasoningType.None)
             {
-                //audio
                 PlayShakerSound(clicked.transform.position);
-
                 TrySetSeasoning(OrderDatabase.SeasoningType.Salt);
             }
         }
         else if (clicked == pepperShaker)
         {
-            // audio
             if (basketData.seasoningType == OrderDatabase.SeasoningType.None)
             {
-                //audio
                 PlayShakerSound(clicked.transform.position);
-
                 TrySetSeasoning(OrderDatabase.SeasoningType.Pepper);
             }
         }
-
         else if (clicked == bell)
         {
-            clicked = bell;
-
             currentClientController = currentCustomer.GetComponent<ClientController>();
 
-            //nie mozna dac zamowienia gdy idzie musi sie zatrzymac przy ladzie
             if (currentClientController.isWalking)
                 return;
-            
-            
-            Debug.Log("basket");
-            ApplyBasketToCustomer(); 
 
-            Debug.Log("basket updated");
+            ApplyBasketToCustomer();
             CheckOrder();
             ResetBasket();
         }
-        
         else if (clicked == trashBin)
         {
             ResetBasket();
         }
-        
         else if (clicked == trayShelf)
         {
-            
             basketData.trayVisible = true;
             basketData.RefreshVisuals();
         }
     }
 
-    
+    private void CheckOrder()
+    {
+        if (!currentCustomer || !satisfaction || !basketData) return;
+
+        float tip = satisfaction.CalculateTip(
+            waitingTime.GetTime(),
+            basketData,
+            currentCustomer
+        );
+
+        FaceController face =
+            currentCustomer.GetComponentInChildren<FaceController>();
+
+        if (face != null)
+        {
+            bool perfect =
+                satisfaction.IsPerfectOrder(
+                    waitingTime.GetTime(),
+                    basketData,
+                    currentCustomer
+                );
+
+            if (perfect) face.PlayTalkingHappy();
+            else if (Random.value > 0.5f) face.PlayTalkingMad();
+            else face.PlayTalkingSad();
+        }
+
+        // WALLET SYSTEM
+        if (wallet != null)
+        {
+            wallet.EarnMoney(5f);   // base payment
+            wallet.AddTip(tip);     // tip
+        }
+
+        dayManager.servedClients++;
+
+        RuntimeManager.PlayOneShot(chaChingSound, transform.position);
+
+        queuingDeviceUI.canGiveOrder = true;
+
+        StartCoroutine(RemoveCustomerAfterReaction());
+    }
+
     private void TrySetSauce(OrderDatabase.SauceType newSauce, bool force = false)
     {
         if (!basketData.trayVisible || basketData.friesType == OrderDatabase.FriesType.None)
@@ -226,113 +241,35 @@ public partial class BasketInteraction : MonoBehaviour
         basketData.RefreshVisuals();
     }
 
-    private void CheckOrder()
-    {
-        if (!currentCustomer || !satisfaction || !basketData) return;
-
-        float tip = satisfaction.CalculateTip(
-            waitingTime.GetTime(),
-            basketData,
-            currentCustomer
-        );
-        
-        // CUSTOMER REACTION
-        FaceController face =
-            currentCustomer
-                .GetComponentInChildren<FaceController>();
-
-        if (face != null)
-        {
-            bool perfect =
-                satisfaction.IsPerfectOrder(
-                    waitingTime.GetTime(),
-                    basketData,
-                    currentCustomer
-                );
-            
-            // if the order was perfect -> happy reaction 
-            if (perfect)
-            {
-                face.PlayTalkingHappy();
-            }
-            else
-            {
-                // if the order wasn't perfect, 50% chance to get an angry reaction
-                bool angry =
-                    Random.value > 0.5f;
-
-                if (angry)
-                {
-                    face.PlayTalkingMad();
-                }
-                else // if the order wasn't perfect, 50% chance to get an sad reaction
-                {
-                    face.PlayTalkingSad();
-                }
-            }
-        }
-
-        Debug.Log("TIP: " + tip);
-        if (tip == 0)
-        {
-            UpdateMoney(tip - 5);
-        }
-        else
-        {
-            UpdateMoney(tip);
-        }
-
-        dayManager.servedClients++;
-        
-        // play cha-ching audio
-        RuntimeManager.PlayOneShot(chaChingSound, transform.position);
-
-        queuingDeviceUI.canGiveOrder = true;
-        //queueManager.ServeNextClient();
-        StartCoroutine(RemoveCustomerAfterReaction());
-        
-        
-    }
-
-    public void UpdateMoney(float amount)
-    {
-        if (isBad)
-        {
-            deathScreenManager.ShowDeath(player);
-            //money -= +  15 + amount;
-            
-        }
-        else
-        {
-            money += +  5 + amount;
-            
-        }
-        
-        moneyText.text = money.ToString();
-        orderMoneyText.text = amount.ToString();
-    }
-    
-    
-    public void UpdateMoneyKill(float amount)
-    {
-        money += amount;
-        
-        moneyText.text = money.ToString();
-        orderMoneyText.text = amount.ToString();
-    }
     private void ResetBasket()
     {
         basketData.friesType = OrderDatabase.FriesType.None;
         basketData.cookLevel = 0;
         basketData.sauceType = OrderDatabase.SauceType.None;
         basketData.seasoningType = OrderDatabase.SeasoningType.None;
-
         basketData.trayVisible = false;
-
         basketData.RefreshVisuals();
     }
-    
-    // audio
+
+    private void ApplyBasketToCustomer()
+    {
+        if (!basketData || !currentCustomer) return;
+
+        BasketData customerBasket = currentCustomer.GetComponent<BasketData>();
+        Animator anim = currentCustomer.GetComponent<Animator>();
+
+        customerBasket.friesType = basketData.friesType;
+        customerBasket.cookLevel = basketData.cookLevel;
+        customerBasket.sauceType = basketData.sauceType;
+        customerBasket.seasoningType = basketData.seasoningType;
+
+        customerBasket.trayVisible = true;
+        customerBasket.RefreshVisuals();
+
+        if (anim)
+            anim.SetBool("hasFries", basketData.friesType != OrderDatabase.FriesType.None);
+    }
+
     private void PlayShakerSound(Vector3 position)
     {
         if (shakerPlaying) return;
@@ -345,40 +282,7 @@ public partial class BasketInteraction : MonoBehaviour
 
         StartCoroutine(ReleaseShakerWhenDone());
     }
-    
-    private void ApplyBasketToCustomer()
-    {
-        if (!basketData || !currentCustomer) return;
 
-        BasketData customerBasket = currentCustomer.GetComponent<BasketData>();
-        Animator anim = currentCustomer.GetComponent<Animator>();
-        
-
-        if (!customerBasket)
-        {
-            Debug.LogWarning("Client has no BasketData!");
-            return;
-        }
-
-        // COPY DATA
-        customerBasket.friesType = basketData.friesType;
-        customerBasket.cookLevel = basketData.cookLevel;
-        customerBasket.sauceType = basketData.sauceType;
-        customerBasket.seasoningType = basketData.seasoningType;
-
-        // VISUAL
-        customerBasket.trayVisible = true;
-        customerBasket.RefreshVisuals();
-
-        // ANIMATION FLAG
-        bool hasFries = basketData.friesType != OrderDatabase.FriesType.None;
-
-        if (anim)
-        {
-            anim.SetBool("hasFries", hasFries);
-        }
-    }
-    
     private IEnumerator ReleaseShakerWhenDone()
     {
         FMOD.Studio.PLAYBACK_STATE state;
@@ -393,12 +297,10 @@ public partial class BasketInteraction : MonoBehaviour
         shakerInstance.release();
         shakerPlaying = false;
     }
-    
-    // customer walks away after a slight delay
+
     private IEnumerator RemoveCustomerAfterReaction()
     {
         yield return new WaitForSeconds(2f);
-
         queuingDevice.RemoveClient();
     }
 }

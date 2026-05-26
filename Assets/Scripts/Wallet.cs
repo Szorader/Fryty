@@ -1,11 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-/// <summary>
-/// system portfela w krórym niżej opisane funkcje wykonują operacje na koncie gracza
-/// </summary>
 
 
+// system portfela w krórym niżej opisane funkcje wykonują operacje na koncie gracza
 public class Wallet : MonoBehaviour
 {
     [Header("UI")]
@@ -36,6 +34,7 @@ public class Wallet : MonoBehaviour
         if (amount == 0f) return;
         ShowOperation($"+{amount}");
         StartCoroutine(ApplyAfterDelay(amount));
+        RefreshUI();
     }
 
     // tip 
@@ -44,6 +43,7 @@ public class Wallet : MonoBehaviour
         if (amount == 0f) return;
         ShowTip($"+{amount}");
         StartCoroutine(ApplyAfterDelay(amount));
+        RefreshUI();
     }
 
     // wydanie
@@ -52,6 +52,13 @@ public class Wallet : MonoBehaviour
         if (amount == 0f) return;
         ShowOperation($"-{amount}");
         StartCoroutine(ApplyAfterDelay(-amount));
+        RefreshUI();
+    }
+    
+    // aktualne saldo
+    public float GetBalance()
+    {
+        return balance;
     }
 
     private IEnumerator ApplyAfterDelay(float amount)

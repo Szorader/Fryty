@@ -3,64 +3,59 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using Unity.VisualScripting;
 
 public class DayManager : MonoBehaviour
 {
     public TextMeshProUGUI messageText;
     public GameObject messagePanel;
-    
+
     private Endgame endgame;
     private BasketInteraction basket;
+    private Wallet wallet;
 
     public bool timeToClean = false;
     public bool summary = false;
     public bool isCleaningPhase = false;
-    
+
     [Header("SKYBOX")]
     [SerializeField] private Material daySkybox;
     [SerializeField] private Material nightSkybox;
-    
+
     private SaveSystem saveSystem;
-    
-    
-    //public float money;
-    //public int day;
+
     public int killedEnemies;
     public int servedClients;
 
     void Start()
     {
         messagePanel.SetActive(false);
+
         endgame = FindObjectOfType<Endgame>();
         basket = FindObjectOfType<BasketInteraction>();
+        wallet = FindObjectOfType<Wallet>();
         saveSystem = FindObjectOfType<SaveSystem>();
-        
     }
 
     private void Update()
     {
         if (summary)
         {
-            
             EndDay();
             summary = false;
         }
     }
-    
+
     public void TriggerSummary()
     {
         if (!isCleaningPhase)
             return;
 
         isCleaningPhase = false;
-        
         EndDay();
     }
 
     public void WrongKill()
     {
-        //StartCoroutine(Message("You kill good guy", 5f, false));
         endgame.StartAnimation();
     }
 
@@ -68,54 +63,65 @@ public class DayManager : MonoBehaviour
     {
         StartCoroutine(Message("Good Elimination!", 3f, false));
         killedEnemies++;
-        
     }
 
     public void EndDay()
     {
-        StartCoroutine(Message("End Day, you earned today: " + basket.money, 5f, true));
-        
+        float earnedToday = wallet != null ? 0f : 0f; 
+        StartCoroutine(Message("End Day, you earned today: " + (wallet != null ? "see wallet" : "0"), 5f, true));
     }
 
     public void Save()
     {
+        if (wallet == null) return;
+
         saveSystem.SaveGame(
-            saveSystem.saveData.money + basket.money,
-            saveSystem.saveData.day +=1,
+            saveSystem.saveData.money + GetWalletBalance(),
+            saveSystem.saveData.day + 1,
             saveSystem.saveData.killedEnemies + killedEnemies,
             saveSystem.saveData.servedClients + servedClients,
             saveSystem.saveData.tutorialCompleted
         );
     }
 
+    private float GetWalletBalance()
+    {
+        // jeśli Wallet ma publiczny getter – docelowo tu powinien być access
+        // na razie fallback (do poprawy w Wallet)
+        return 0f;
+    }
+
     public void CleanTime()
     {
         isCleaningPhase = true;
-        SwitchToNight(); // zmiana nieba na wieczorne
-        StartCoroutine(Message("Time to start cleaning the outdoor tables", 3f, false));
+        SwitchToNight();
+
+        StartCoroutine(Message(
+            "Time to start cleaning the outdoor tables",
+            3f,
+            false
+        ));
     }
-    IEnumerator Message(string tekst, float czas, bool nextDay)
+
+    IEnumerator Message(string text, float time, bool nextDay)
     {
         messagePanel.SetActive(true);
-        messageText.text = tekst;
+        messageText.text = text;
 
-        yield return new WaitForSeconds(czas);
+        yield return new WaitForSeconds(time);
 
         messagePanel.SetActive(false);
+
         if (nextDay)
         {
             saveSystem.saveData.day += 1;
             SceneManager.LoadScene(1);
         }
-        
     }
-    
-    // zmiana skyboxa na wieczorny
+
     public void SwitchToNight()
     {
         RenderSettings.skybox = nightSkybox;
-
-        // refresh lighting
         DynamicGI.UpdateEnvironment();
     }
 }
