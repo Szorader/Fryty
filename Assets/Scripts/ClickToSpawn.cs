@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
@@ -17,13 +16,16 @@ public class ClickToSpawn : MonoBehaviour
     [Header("Limit obiektów")]
     public int maxObjects = 5;
 
-    [Header("Audio")] 
+    [Header("Koszt")]
+    [SerializeField] private float cost = 2f;
+
+    [Header("Wallet")]
+    [SerializeField] private Wallet wallet;
+
+    [Header("Audio")]
     [SerializeField] private EventReference popSound;
-    
-    
 
     private static List<GameObject> spawnedObjects = new List<GameObject>();
-    
 
     void OnMouseDown()
     {
@@ -38,7 +40,13 @@ public class ClickToSpawn : MonoBehaviour
             return;
         }
 
-        // usuń null-e (zniszczone obiekty)
+        if (wallet == null)
+        {
+            Debug.LogWarning("Wallet nie jest przypisany!");
+            return;
+        }
+
+        // cleanup nulli
         spawnedObjects.RemoveAll(item => item == null);
 
         // limit
@@ -48,13 +56,16 @@ public class ClickToSpawn : MonoBehaviour
             return;
         }
 
+        // TU: dopiero jeśli spawn jest możliwy
+        wallet.SpendMoney(cost);
+
         Vector3 spawnPosition = transform.position + spawnOffset;
 
         RuntimeManager.PlayOneShot(popSound, spawnPosition);
+
         GameObject spawned = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
         spawnedObjects.Add(spawned);
-        
-        
+
         Rigidbody rb = spawned.GetComponent<Rigidbody>();
         if (rb != null)
         {

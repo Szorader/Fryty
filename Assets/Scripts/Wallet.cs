@@ -1,0 +1,102 @@
+using System.Collections;
+using UnityEngine;
+using TMPro;
+/// <summary>
+/// system portfela w krórym niżej opisane funkcje wykonują operacje na koncie gracza
+/// </summary>
+
+
+public class Wallet : MonoBehaviour
+{
+    [Header("UI")]
+    [SerializeField] private TMP_Text balanceText;
+    [SerializeField] private TMP_Text operationText;
+    [SerializeField] private TMP_Text tipText;
+
+    [Header("Money")]
+    [SerializeField] private float balance = 0f;
+
+    private Coroutine operationCoroutine;
+    private Coroutine tipCoroutine;
+
+    private void Start()
+    {
+        if (operationText != null)
+            operationText.gameObject.SetActive(false);
+
+        if (tipText != null)
+            tipText.gameObject.SetActive(false);
+
+        RefreshUI();
+    }
+
+    // zarobek 
+    public void EarnMoney(float amount)
+    {
+        if (amount == 0f) return;
+        ShowOperation($"+{amount}");
+        StartCoroutine(ApplyAfterDelay(amount));
+    }
+
+    // tip 
+    public void AddTip(float amount)
+    {
+        if (amount == 0f) return;
+        ShowTip($"+{amount}");
+        StartCoroutine(ApplyAfterDelay(amount));
+    }
+
+    // wydanie
+    public void SpendMoney(float amount)
+    {
+        if (amount == 0f) return;
+        ShowOperation($"-{amount}");
+        StartCoroutine(ApplyAfterDelay(-amount));
+    }
+
+    private IEnumerator ApplyAfterDelay(float amount)
+    {
+        yield return new WaitForSeconds(3f);
+
+        balance += amount;
+        RefreshUI();
+    }
+
+    private void RefreshUI()
+    {
+        if (balanceText != null)
+            balanceText.text = balance.ToString("0");
+    }
+
+    private void ShowOperation(string text)
+    {
+        if (operationText == null) return;
+
+        operationText.gameObject.SetActive(true);
+        operationText.text = text;
+
+        if (operationCoroutine != null)
+            StopCoroutine(operationCoroutine);
+
+        operationCoroutine = StartCoroutine(HideAfterTime(operationText.gameObject, 3f));
+    }
+
+    private void ShowTip(string text)
+    {
+        if (tipText == null) return;
+
+        tipText.gameObject.SetActive(true);
+        tipText.text = text;
+
+        if (tipCoroutine != null)
+            StopCoroutine(tipCoroutine);
+
+        tipCoroutine = StartCoroutine(HideAfterTime(tipText.gameObject, 3f));
+    }
+
+    private IEnumerator HideAfterTime(GameObject obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+        obj.SetActive(false);
+    }
+}
