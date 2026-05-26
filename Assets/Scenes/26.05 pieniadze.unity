@@ -1271,8 +1271,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2198,7 +2198,6 @@ MonoBehaviour:
   currentCustomer: {fileID: 0}
   waitingTime: {fileID: 0}
   satisfaction: {fileID: 0}
-  isBad: 0
   wallet: {fileID: 20697108}
   emptySauceBox: {fileID: 1798503580}
   ketchupBottle: {fileID: 301840847}
@@ -2211,6 +2210,7 @@ MonoBehaviour:
   pepperShaker: {fileID: 664826723}
   deathScreenManager: {fileID: 687183470}
   player: {fileID: 1473081897}
+  isBad: 0
   bell: {fileID: 4575855088843478345}
   trashBin: {fileID: 1811530056}
   trayShelf: {fileID: 700738999}
@@ -4552,8 +4552,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: 119.093994}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 0, y: 59.304626}
+  m_SizeDelta: {x: 130.5443, y: 43.5148}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491676317
 MonoBehaviour:
@@ -8955,8 +8955,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022888, y: -8}
-  m_SizeDelta: {x: 1580.2546, y: 975.848}
+  m_AnchoredPosition: {x: 0, y: 4}
+  m_SizeDelta: {x: 687.6443, y: 424.6381}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1060674879
 MonoBehaviour:
@@ -9546,8 +9546,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10085,8 +10085,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -30.906006}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 0, y: -5.9675293}
+  m_SizeDelta: {x: 130.5443, y: 43.5148}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1184232971
 MonoBehaviour:
@@ -12317,6 +12317,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.19920051, y: 3.484013, z: 1.45}
   m_Center: {x: 0.01297484, y: 0.1338597, z: -1.6}
+--- !u!65 &1542490828
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542490817}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.19920051, y: 3.484013, z: 4.6521263}
+  m_Center: {x: -8.95, y: 0.1338597, z: -0.018050313}
 --- !u!1 &1549558667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7791355056966990847, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
@@ -13840,6 +13861,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4518896174654790420, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1542490823}
+    - targetCorrespondingSourceObject: {fileID: 4518896174654790420, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1542490828}
     - targetCorrespondingSourceObject: {fileID: -4890942402880762985, guid: a5570f0f9a19cdb4f990c5f00508be7b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 223998038}
@@ -15227,7 +15251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2137286546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15257,7 +15281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -16982,7 +17006,7 @@ PrefabInstance:
       objectReference: {fileID: 1586466490}
     - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: badClientChance
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: animator

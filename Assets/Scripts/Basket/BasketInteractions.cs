@@ -13,7 +13,6 @@ public partial class BasketInteraction : MonoBehaviour
     public CustomerOrder currentCustomer;
     public CustomerWaitingTime waitingTime;
     public CustomerSatisfaction satisfaction;
-    public bool isBad;
 
     [Header("WALLET")]
     public Wallet wallet;
@@ -30,10 +29,13 @@ public partial class BasketInteraction : MonoBehaviour
     [Header("SEASONING")]
     public GameObject saltShaker;
     public GameObject pepperShaker;
-
-    [Header("OTHER")]
+    
+    [Header("DEATH")]
     public DeathScreenManager deathScreenManager;
     public GameObject player;
+    public bool isBad;
+    
+    [Header("OTHER")]
 
     public GameObject bell;
     public GameObject trashBin;
@@ -196,9 +198,9 @@ public partial class BasketInteraction : MonoBehaviour
                     currentCustomer
                 );
 
-            if (perfect) face.PlayTalkingHappy();
-            else if (Random.value > 0.5f) face.PlayTalkingMad();
-            else face.PlayTalkingSad();
+            if (perfect && !isBad) face.PlayTalkingHappy();
+            else if (Random.value > 0.5f && !isBad) face.PlayTalkingMad();
+            else if (!isBad)face.PlayTalkingSad();
         }
 
         // WALLET SYSTEM
@@ -222,7 +224,30 @@ public partial class BasketInteraction : MonoBehaviour
         RuntimeManager.PlayOneShot(chaChingSound, transform.position);
 
         queuingDeviceUI.canGiveOrder = true;
+        
+        if (isBad)
+        {
+            //FacePlayer();
 
+            Animator anim = currentCustomer.GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.SetBool("isAttacking", true);
+            }
+
+            if (face != null)
+            {
+                face.SetExpression(FaceController.Expression.Extra);
+            }
+
+            if (deathScreenManager != null && player != null)
+            {
+                StartCoroutine(DeathAfterAttack());
+            }
+
+            return;
+        }
+        
         StartCoroutine(RemoveCustomerAfterReaction());
     }
 
@@ -256,8 +281,8 @@ public partial class BasketInteraction : MonoBehaviour
         basketData.cookLevel = 0;
         basketData.sauceType = OrderDatabase.SauceType.None;
         basketData.seasoningType = OrderDatabase.SeasoningType.None;
-        basketData.trayVisible = false;
-        basketData.RefreshVisuals();
+
+        StartCoroutine(DisableTrayAfterDelay());
     }
 
     private void ApplyBasketToCustomer()
@@ -272,7 +297,7 @@ public partial class BasketInteraction : MonoBehaviour
         customerBasket.sauceType = basketData.sauceType;
         customerBasket.seasoningType = basketData.seasoningType;
 
-        customerBasket.trayVisible = true;
+        //customerBasket.trayVisible = true;
         customerBasket.RefreshVisuals();
 
         if (anim)
@@ -311,5 +336,33 @@ public partial class BasketInteraction : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         queuingDevice.RemoveClient();
+    }
+    
+    private IEnumerator DeathAfterAttack()
+    {
+        yield return new WaitForSeconds(1.2f); // czas animacji ataku
+
+        deathScreenManager.ShowDeath(player);
+    }
+    
+    private void FacePlayer()
+    {
+        if (currentCustomer == null || player == null) return;
+
+        Vector3 dir = player.transform.position - currentCustomer.transform.position;
+        dir.y = 0f;
+
+        if (dir.sqrMagnitude < 0.001f) return;
+
+        Quaternion rot = Quaternion.LookRotation(dir);
+        currentCustomer.transform.rotation = rot;
+    }
+    
+    private IEnumerator DisableTrayAfterDelay()
+    {
+        yield return new WaitForSeconds(0.6f);
+
+        basketData.trayVisible = false;
+        basketData.RefreshVisuals();
     }
 }

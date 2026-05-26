@@ -16,7 +16,7 @@ public class UI_QueuingDevice : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(canGiveOrder);
+        //Debug.Log(canGiveOrder);
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

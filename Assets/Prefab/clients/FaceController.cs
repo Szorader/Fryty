@@ -71,7 +71,7 @@ public class FaceController : MonoBehaviour
 
         if (rend == null)
         {
-            Debug.LogError("Renderer not found!");
+            //Debug.LogError("Renderer not found!");
             return;
         }
 
@@ -79,13 +79,13 @@ public class FaceController : MonoBehaviour
 
         if (faceMaterialIndex >= mats.Length)
         {
-            Debug.LogError("Face material index out of range!");
+            //Debug.LogError("Face material index out of range!");
             return;
         }
 
         faceMat = mats[faceMaterialIndex];
 
-        Debug.Log("Face material found: " + faceMat.name);
+        //Debug.Log("Face material found: " + faceMat.name);
     }
     public void SetVoiceActor(int id)
     {
@@ -96,8 +96,8 @@ public class FaceController : MonoBehaviour
     {
         Vector2 offset = offsets[(int)expression];
 
-        Debug.Log("Changing to: " + expression);
-        Debug.Log("Offset: " + offset);
+        //Debug.Log("Changing to: " + expression);
+        //Debug.Log("Offset: " + offset);
 
         faceMat.SetVector("_ExpressionOffset", offset);
     }
@@ -106,7 +106,7 @@ public class FaceController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log("Pressed P");
+            //Debug.Log("Pressed P");
             TalkingNeutral();
 
         }
