@@ -325,7 +325,7 @@ public class FaceController : MonoBehaviour
 
             SetExpression(Expression.TalkAngry);
             yield return new WaitForSecondsRealtime(delay);
-
+ 
             voiceInstance.getPlaybackState(
                 out playbackState
             );

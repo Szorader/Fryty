@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class EndDayInteraction : MonoBehaviour, IInteractable
 {
@@ -9,6 +10,8 @@ public class EndDayInteraction : MonoBehaviour, IInteractable
     
     public string prompt;
     
+    //Audio
+    [SerializeField] private EventReference driveAway;
 
     void Start()
     {
@@ -28,11 +31,12 @@ public class EndDayInteraction : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
+        RuntimeManager.PlayOneShot(driveAway);
+        
         // go next day, skip or skip current day
         dayManager.EndDay();
         clicked = true;
         return true;
-        
     }
 
     public string GetPrompt()
