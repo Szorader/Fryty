@@ -11,7 +11,6 @@ public class MouseTriggerFloor : MonoBehaviour
     {
         if (other.CompareTag("Fry"))
         {
-            // anuluj poprzednie oczekiwanie
             if (enterCoroutine != null)
                 StopCoroutine(enterCoroutine);
 
@@ -23,7 +22,6 @@ public class MouseTriggerFloor : MonoBehaviour
     {
         if (other.CompareTag("Fry"))
         {
-            // anuluj wejście jeśli jeszcze nie doszło do reakcji
             if (enterCoroutine != null)
             {
                 StopCoroutine(enterCoroutine);
@@ -39,7 +37,9 @@ public class MouseTriggerFloor : MonoBehaviour
         float delay = Random.Range(3f, 7f);
         yield return new WaitForSeconds(delay);
 
-        mouse.SetTarget(target);
+        if (mouse != null)
+            mouse.SetTarget(target);
+
         enterCoroutine = null;
     }
 }
