@@ -16,4 +16,12 @@ public class CutterTrigger : MonoBehaviour
             parentCutter.HandleTrigger(other);
         }
     }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        if (parentCutter != null)
+        {
+            parentCutter.HandleTrigger(other);
+        }
+    }
 }
