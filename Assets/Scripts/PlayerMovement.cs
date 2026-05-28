@@ -108,6 +108,8 @@ public class PlayerMovement : MonoBehaviour
         isDead = true;
 
         StopFootsteps();
+        
+        
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
