@@ -60,7 +60,7 @@ public class SaveSystem : MonoBehaviour
     // =========================
     // ZAPIS
     // =========================
-    public void SaveGame(float money, int day, int killedEnemies, int servedClients, bool tutorialCompleted)
+    public void SaveGame(float money, int day, int killedEnemies, int servedClients, bool tutorialCompleted, int cleanedTrashCount)
     {
         Debug.Log("SAVE PATH = " + savePath);
         Debug.Log("Gra zapisana: " + savePath);
@@ -71,6 +71,7 @@ public class SaveSystem : MonoBehaviour
             day = day,
             killedEnemies = killedEnemies,
             servedClients = servedClients,
+            cleanedTrashCount = cleanedTrashCount,
             tutorialCompleted = tutorialCompleted
         };
 

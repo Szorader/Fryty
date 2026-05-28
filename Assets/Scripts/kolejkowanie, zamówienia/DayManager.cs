@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DayManager : MonoBehaviour
 {
@@ -17,14 +18,20 @@ public class DayManager : MonoBehaviour
     public bool summary = false;
     public bool isCleaningPhase = false;
 
-    [Header("SKYBOX")]
+    
     [SerializeField] private Material daySkybox;
     [SerializeField] private Material nightSkybox;
-
+    
     private SaveSystem saveSystem;
 
     public int killedEnemies;
     public int servedClients;
+    
+    
+    [Header("EndGame")]
+    public TextMeshProUGUI summaryTMP;
+    public GameObject winPanel;
+    public Image fadeImage;
 
     void Start()
     {
@@ -63,17 +70,113 @@ public class DayManager : MonoBehaviour
     {
         StartCoroutine(Message("Good Elimination!", 3f, false));
         killedEnemies++;
+        saveSystem.saveData.killedEnemies = killedEnemies;
     }
 
     public void EndDay()
     {
-        float earnedToday = wallet != null ? 0f : 0f; 
-        StartCoroutine(Message("End Day, you earned today: " + (wallet != null ? "see wallet" : "0"), 5f, true));
+        messagePanel.SetActive(false);
+        if (saveSystem == null) return;
+
+        SaveData data = saveSystem.saveData;
+
+        //data.killedEnemies += killedEnemies;
+        //data.servedClients += servedClients;
+
+        float earnedToday = GetWalletBalance();
+        data.money += earnedToday;
+
+        data.day += 1;
+
+        float tax = data.money * 0.19f;
+        float total = data.money - tax;
+
+        saveSystem.saveData = data;
+
+        string[] lines =
+        {
+            $"Day: {data.day}",
+            $"Customers served: {data.servedClients}",
+            $"Customers killed: {data.killedEnemies}",
+            $"Trash cleaned: {data.cleanedTrashCount}",
+            $"Money: {data.money:0.00}$",
+            $"Tax: -{tax:0.00}$",
+            $"Total: {total:0.00}$"
+        };
+        
+
+        winPanel.SetActive(true);
+        StartCoroutine(SummarySequence(lines));
+
+        StartCoroutine(FadeSummary());
+
+        saveSystem.SaveGame(
+            data.money,
+            data.day,
+            data.killedEnemies,
+            data.servedClients,
+            data.tutorialCompleted,
+            data.cleanedTrashCount
+        );
+
+        killedEnemies = 0;
+        servedClients = 0;
+    }
+    
+    public void NextDay()
+    {
+        if (saveSystem == null) return;
+        
+        StopAllCoroutines();
+
+        saveSystem.saveData.day += 1;
+
+        SceneManager.LoadScene(1);
+    }
+    
+    private IEnumerator SummarySequence(string[] lines)
+    {
+        yield return StartCoroutine(FadeSummary());
+
+        summaryTMP.text = "";
+
+        for (int i = 0; i < lines.Length; i++)
+        {
+            summaryTMP.text += lines[i] + "\n";
+            yield return new WaitForSeconds(0.25f);
+        }
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    
+    private IEnumerator FadeSummary()
+    {
+        Color c = fadeImage.color;
+        c.a = 0f;
+        fadeImage.color = c;
+
+        float t = 0f;
+
+        while (t < 1)
+        {
+            t += Time.deltaTime;
+
+            float alpha = Mathf.Clamp01(t / 1);
+
+            c.a = alpha;
+            fadeImage.color = c;
+
+            yield return null;
+        }
+
+        c.a = 1f;
+        fadeImage.color = c;
     }
 
     public void Save()
     {
-        if (wallet == null) return;
+        /*if (wallet == null) return;
 
         saveSystem.SaveGame(
             saveSystem.saveData.money + GetWalletBalance(),
@@ -81,7 +184,7 @@ public class DayManager : MonoBehaviour
             saveSystem.saveData.killedEnemies + killedEnemies,
             saveSystem.saveData.servedClients + servedClients,
             saveSystem.saveData.tutorialCompleted
-        );
+        );*/
     }
 
     private float GetWalletBalance()

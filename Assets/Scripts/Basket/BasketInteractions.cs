@@ -220,6 +220,7 @@ public partial class BasketInteraction : MonoBehaviour
         }
 
         dayManager.servedClients++;
+        saveSystem.saveData.servedClients = dayManager.servedClients;
 
         RuntimeManager.PlayOneShot(chaChingSound, transform.position);
 
