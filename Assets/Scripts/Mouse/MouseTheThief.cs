@@ -125,6 +125,7 @@ public class MouseTheThief : MonoBehaviour
 
                 if (mouseInHouse != null)
                     mouseInHouse.SetActive(true);
+                    //  <---------------------------------------------------------------------------------------------------- DZWIEK CHRUPANIA FRYTEK
 
                 gameObject.SetActive(false);
             }

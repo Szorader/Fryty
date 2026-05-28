@@ -52,8 +52,7 @@ public class MouseTriggerFloor : MonoBehaviour
 
             if (mouse == null)
                 continue;
-
-            // 🔥 KLUCZOWY WARUNEK: mysz musi być "w domu"
+            
             if (mouse.gameObject.activeInHierarchy)
                 continue;
 
