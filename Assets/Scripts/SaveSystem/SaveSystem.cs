@@ -9,6 +9,7 @@ public class SaveData
     public int day;
     public int killedEnemies;
     public int servedClients;
+    public int cleanedTrashCount;
     public bool tutorialCompleted;
 }
 

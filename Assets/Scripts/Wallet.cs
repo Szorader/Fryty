@@ -24,6 +24,8 @@ public class Wallet : MonoBehaviour
 
         if (tipText != null)
             tipText.gameObject.SetActive(false);
+        
+        LoadBalanceFromSave();
 
         RefreshUI();
     }
@@ -32,8 +34,11 @@ public class Wallet : MonoBehaviour
     public void EarnMoney(float amount)
     {
         if (amount == 0f) return;
+
         ShowOperation($"+{amount}");
+        
         StartCoroutine(ApplyAfterDelay(amount));
+
         RefreshUI();
     }
 
@@ -41,8 +46,11 @@ public class Wallet : MonoBehaviour
     public void AddTip(float amount)
     {
         if (amount == 0f) return;
+
         ShowTip($"+{amount}");
+        
         StartCoroutine(ApplyAfterDelay(amount));
+
         RefreshUI();
     }
 
@@ -50,8 +58,11 @@ public class Wallet : MonoBehaviour
     public void SpendMoney(float amount)
     {
         if (amount == 0f) return;
+
         ShowOperation($"-{amount}");
+        
         StartCoroutine(ApplyAfterDelay(-amount));
+
         RefreshUI();
     }
     
@@ -64,8 +75,11 @@ public class Wallet : MonoBehaviour
     private IEnumerator ApplyAfterDelay(float amount)
     {
         yield return new WaitForSeconds(3f);
-
+        
         balance += amount;
+        
+        SaveBalanceToSave(); //zapis w save system
+
         RefreshUI();
     }
 
@@ -105,5 +119,20 @@ public class Wallet : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         obj.SetActive(false);
+    }
+    
+    private void LoadBalanceFromSave()
+    {
+        if (SaveSystem.Instance == null) return;
+        balance = SaveSystem.Instance.saveData.money;
+    }
+    private void SaveBalanceToSave()
+    {
+        if (SaveSystem.Instance == null) return;
+        
+        if (SaveSystem.Instance.saveData == null)
+            SaveSystem.Instance.saveData = new SaveData();
+        
+        SaveSystem.Instance.saveData.money = balance;
     }
 }
