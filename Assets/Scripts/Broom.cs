@@ -1,13 +1,25 @@
+using System.Collections;
 using UnityEngine;
 using FMODUnity;
 using TMPro;
+
 public class Broom : MonoBehaviour
 {
+    [Header("Hold")]
     [SerializeField] private Transform holdSlot;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float interactDistance = 3f;
+
+    [Header("UI")]
     [SerializeField] private GameObject actionObject;
     [SerializeField] public TMP_Text actionText;
+
+    [Header("ANIMATION")]
+    [SerializeField] private Animator pocketAnimator;
+
+    [Header("STATS")]
+    [SerializeField] private Wallet wallet;
+    public int cleanedTrashCount = 0;
 
     private bool isHeld = false;
 
@@ -15,10 +27,10 @@ public class Broom : MonoBehaviour
     private Collider col;
 
     public bool IsHeld => isHeld;
-    
+
     [Header("AUDIO")]
     [SerializeField] private EventReference sweepAudio;
-    
+
     [Header("VFX")]
     [SerializeField] private ParticleSystem cleanParticles;
 
@@ -26,7 +38,9 @@ public class Broom : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
-        actionObject.SetActive(false);
+
+        if (actionObject != null)
+            actionObject.SetActive(false);
     }
 
     private void Update()
@@ -57,9 +71,12 @@ public class Broom : MonoBehaviour
     {
         isHeld = true;
 
-        actionObject.SetActive(true);
-        actionText.text = "LMB - Clean " + "Q - Drop broom";
-            
+        if (actionObject != null)
+        {
+            actionObject.SetActive(true);
+            actionText.text = "LMB - Clean\nQ - Drop broom";
+        }
+
         if (rb != null)
         {
             rb.linearVelocity = Vector3.zero;
@@ -67,7 +84,6 @@ public class Broom : MonoBehaviour
             rb.isKinematic = true;
         }
 
-        // Wyłącz wszystkie collidery
         Collider[] colliders = GetComponentsInChildren<Collider>();
 
         foreach (Collider c in colliders)
@@ -82,14 +98,13 @@ public class Broom : MonoBehaviour
 
     private void Drop()
     {
-        
         isHeld = false;
-        
-        actionObject.SetActive(false);
-        
+
+        if (actionObject != null)
+            actionObject.SetActive(false);
+
         transform.SetParent(null);
 
-        // Włącz wszystkie collidery
         Collider[] colliders = GetComponentsInChildren<Collider>();
 
         foreach (Collider c in colliders)
@@ -112,11 +127,31 @@ public class Broom : MonoBehaviour
         {
             if (hit.collider.CompareTag("Trash"))
             {
-                // play audio
                 RuntimeManager.PlayOneShot(sweepAudio, transform.position);
+
                 hit.collider.gameObject.SetActive(false);
-                
-                // Spawn particles at trash position
+
+                // MONEY
+                if (wallet != null)
+                {
+                    wallet.EarnMoney(1f);
+                }
+
+                // STATS + SAVE
+                cleanedTrashCount++;
+
+                if (SaveSystem.Instance != null)
+                {
+                    SaveSystem.Instance.saveData.cleanedTrashCount = cleanedTrashCount;
+                }
+
+                // ANIMATION
+                if (pocketAnimator != null)
+                {
+                    StartCoroutine(PlayBroomAnim());
+                }
+
+                // VFX
                 if (cleanParticles != null)
                 {
                     ParticleSystem particles =
@@ -134,5 +169,14 @@ public class Broom : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator PlayBroomAnim()
+    {
+        pocketAnimator.SetBool("isBrooming", true);
+
+        yield return new WaitForSeconds(1f);
+
+        pocketAnimator.SetBool("isBrooming", false);
     }
 }
