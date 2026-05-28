@@ -109,7 +109,7 @@ public class FryerSystem : MonoBehaviour
 
         SetFries(fries.friesType, fries.cookLevel);
 
-        fries.gameObject.SetActive(false);
+        Destroy(fries.gameObject);
     }
 
     public void OnMouseDown()

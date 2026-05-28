@@ -17,6 +17,7 @@ public class MouseTheThief : MonoBehaviour
 
     [Header("GRAB")]
     [SerializeField] private float grabDuration = 0.8f;
+    [SerializeField] private GameObject grabFriesVisual;
 
     private NavMeshAgent agent;
     private Transform currentTarget;
@@ -57,6 +58,9 @@ public class MouseTheThief : MonoBehaviour
         if (mouseInHouse != null)
             mouseInHouse.SetActive(true);
 
+        if (grabFriesVisual != null)
+            grabFriesVisual.SetActive(false);
+
         runLoopInstance = RuntimeManager.CreateInstance(mouseRunLoop);
         runLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
     }
@@ -69,6 +73,7 @@ public class MouseTheThief : MonoBehaviour
             return;
         }
 
+        // ===== RETURN WITH FRIES =====
         if (hasFry)
         {
             agent.speed = runSpeed;
@@ -103,44 +108,32 @@ public class MouseTheThief : MonoBehaviour
             return;
         }
 
-        if (currentTarget != null)
+        // ===== NORMAL BEHAVIOUR =====
+        if (currentTarget != null && currentTarget == spawnPoint)
         {
-            if (currentTarget == spawnPoint)
+            agent.speed = runSpeed;
+            agent.SetDestination(spawnPoint.position);
+
+            SetState(State.Running);
+
+            if (Vector3.Distance(transform.position, spawnPoint.position) <= 0.3f)
             {
-                agent.speed = runSpeed;
-                agent.SetDestination(spawnPoint.position);
+                currentTarget = null;
 
-                SetState(State.Running);
+                SetState(State.Idle);
+                StopRunLoopImmediate();
 
-                if (Vector3.Distance(transform.position, spawnPoint.position) <= 0.3f)
-                {
-                    currentTarget = null;
+                if (mouseInHouse != null)
+                    mouseInHouse.SetActive(true);
 
-                    SetState(State.Idle);
-                    StopRunLoopImmediate();
-
-                    if (mouseInHouse != null)
-                        mouseInHouse.SetActive(true);
-
-                    gameObject.SetActive(false);
-                }
-            }
-            else if (currentTarget.gameObject == null || !currentTarget.gameObject.activeInHierarchy)
-            {
-                ReturnToHome();
-            }
-            else
-            {
-                agent.speed = walkSpeed;
-                agent.SetDestination(currentTarget.position);
-
-                SetState(State.Walking);
+                gameObject.SetActive(false);
             }
         }
 
         UpdateAudio();
     }
 
+    // ===== START MOVEMENT ONLY HERE =====
     public void SetTarget(Transform target)
     {
         if (hasFry) return;
@@ -178,6 +171,7 @@ public class MouseTheThief : MonoBehaviour
         SetState(State.Running);
     }
 
+    // ===== GRAB =====
     private void OnTriggerEnter(Collider other)
     {
         if (hasFry) return;
@@ -195,10 +189,15 @@ public class MouseTheThief : MonoBehaviour
 
         reservedFries = fries;
 
-        StartCoroutine(GrabFriesRoutine(fries));
+        var type = fries.friesType;
+        var cook = fries.cookLevel;
+
+        Destroy(fries.gameObject);
+
+        StartCoroutine(GrabRoutine(type, cook));
     }
 
-    private IEnumerator GrabFriesRoutine(FriesData fries)
+    private IEnumerator GrabRoutine(OrderDatabase.FriesType type, int cookLevel)
     {
         isGrabbing = true;
 
@@ -212,46 +211,38 @@ public class MouseTheThief : MonoBehaviour
         if (animator != null)
             animator.SetBool("isGrabbing", true);
 
-        float t = 0f;
-
-        while (t < grabDuration)
+        if (grabFriesVisual != null)
         {
-            if (fries == null || !fries.gameObject.activeInHierarchy)
+            grabFriesVisual.SetActive(true);
+
+            var visual = grabFriesVisual.GetComponent<FriesData>();
+            if (visual != null)
             {
-                isGrabbing = false;
-                reservedFries = null;
-
-                if (animator != null)
-                    animator.SetBool("isGrabbing", false);
-
-                agent.updateRotation = true;
-                agent.isStopped = false;
-
-                yield break;
+                visual.SetFriesType(type);
+                visual.cookLevel = cookLevel;
+                visual.RefreshVisuals();
             }
-
-            t += Time.deltaTime;
-            yield return null;
         }
+
+        yield return new WaitForSeconds(grabDuration);
 
         if (animator != null)
             animator.SetBool("isGrabbing", false);
 
-        if (carriedFriesData != null && fries != null)
+        if (grabFriesVisual != null)
+            grabFriesVisual.SetActive(false);
+
+        if (carriedFriesData != null)
         {
-            carriedFriesData.SetFriesType(fries.friesType);
-            carriedFriesData.cookLevel = fries.cookLevel;
+            carriedFriesData.SetFriesType(type);
+            carriedFriesData.cookLevel = cookLevel;
             carriedFriesData.RefreshVisuals();
 
-            // 🔥 yappie on cook level 1
-            if (fries.cookLevel == 1)
-            {
+            if (cookLevel == 1)
                 RuntimeManager.PlayOneShot(mouseYappie, transform.position);
-            }
         }
 
         hasFry = true;
-
         currentTarget = spawnPoint;
 
         agent.updateRotation = true;
@@ -259,15 +250,13 @@ public class MouseTheThief : MonoBehaviour
         agent.speed = runSpeed;
         agent.SetDestination(spawnPoint.position);
 
-        if (fries != null)
-            Destroy(fries.gameObject);
-
         SetState(State.Running);
 
         reservedFries = null;
         isGrabbing = false;
     }
 
+    // ===== ANIMATION =====
     private void SetState(State state)
     {
         if (currentState == state) return;
@@ -282,6 +271,7 @@ public class MouseTheThief : MonoBehaviour
         }
     }
 
+    // ===== AUDIO =====
     private bool IsActuallyMoving()
     {
         if (agent == null) return false;

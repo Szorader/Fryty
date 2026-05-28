@@ -1,45 +1,90 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MouseTriggerFloor : MonoBehaviour
 {
     public MouseTheThief mouse;
 
-    private Coroutine enterCoroutine;
+    private Queue<Transform> friesQueue = new Queue<Transform>();
+    private Coroutine tickCoroutine;
+
+    [SerializeField] private float sendInterval = 5f;
+
+    void Start()
+    {
+        tickCoroutine = StartCoroutine(SendLoop());
+    }
+
+    private void OnDestroy()
+    {
+        if (tickCoroutine != null)
+            StopCoroutine(tickCoroutine);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Fry"))
-        {
-            if (enterCoroutine != null)
-                StopCoroutine(enterCoroutine);
+        if (!other.CompareTag("Fry")) return;
 
-            enterCoroutine = StartCoroutine(DelayedEnter(other.transform));
-        }
+        Transform fry = other.transform;
+
+        if (!friesQueue.Contains(fry))
+            friesQueue.Enqueue(fry);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Fry"))
-        {
-            if (enterCoroutine != null)
-            {
-                StopCoroutine(enterCoroutine);
-                enterCoroutine = null;
-            }
+        if (!other.CompareTag("Fry")) return;
 
+        Transform fry = other.transform;
+
+        RemoveFromQueue(fry);
+
+        if (mouse != null)
             mouse.ReturnToHome();
+    }
+
+    private IEnumerator SendLoop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(sendInterval);
+
+            if (mouse == null)
+                continue;
+
+            // 🔥 KLUCZOWY WARUNEK: mysz musi być "w domu"
+            if (mouse.gameObject.activeInHierarchy)
+                continue;
+
+            if (friesQueue.Count == 0)
+                continue;
+
+            Transform next = friesQueue.Dequeue();
+
+            if (next == null)
+                continue;
+
+            if (!next.gameObject.activeInHierarchy)
+                continue;
+
+            mouse.SetTarget(next);
         }
     }
 
-    private IEnumerator DelayedEnter(Transform target)
+    private void RemoveFromQueue(Transform target)
     {
-        float delay = Random.Range(3f, 7f);
-        yield return new WaitForSeconds(delay);
+        if (friesQueue.Count == 0) return;
 
-        if (mouse != null)
-            mouse.SetTarget(target);
+        Queue<Transform> temp = new Queue<Transform>();
 
-        enterCoroutine = null;
+        while (friesQueue.Count > 0)
+        {
+            var t = friesQueue.Dequeue();
+            if (t != target)
+                temp.Enqueue(t);
+        }
+
+        friesQueue = temp;
     }
 }
