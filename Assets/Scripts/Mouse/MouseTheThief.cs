@@ -33,6 +33,7 @@ public class MouseTheThief : MonoBehaviour
     [SerializeField] private EventReference mouseRunLoop;
     [SerializeField] private EventReference mouseStartRun;
     [SerializeField] private EventReference mouseYappie;
+    [SerializeField] private EventReference mouseCrunch;
 
     private FMOD.Studio.EventInstance runLoopInstance;
     private bool isRunLoopPlaying = false;
@@ -83,6 +84,7 @@ public class MouseTheThief : MonoBehaviour
 
             if (Vector3.Distance(transform.position, spawnPoint.position) <= 0.3f)
             {
+                RuntimeManager.PlayOneShot(mouseCrunch, spawnPoint.position);
                 hasFry = false;
                 reservedFries = null;
 
@@ -109,7 +111,7 @@ public class MouseTheThief : MonoBehaviour
         }
 
         // ===== NORMAL BEHAVIOUR =====
-        if (currentTarget != null && currentTarget == spawnPoint)
+        if (hasFry)
         {
             agent.speed = runSpeed;
             agent.SetDestination(spawnPoint.position);
@@ -118,6 +120,16 @@ public class MouseTheThief : MonoBehaviour
 
             if (Vector3.Distance(transform.position, spawnPoint.position) <= 0.3f)
             {
+                hasFry = false;
+                reservedFries = null;
+
+                if (carriedFriesData != null)
+                {
+                    carriedFriesData.SetFriesType(OrderDatabase.FriesType.None);
+                    carriedFriesData.cookLevel = 0;
+                    carriedFriesData.RefreshVisuals();
+                }
+
                 currentTarget = null;
 
                 SetState(State.Idle);
@@ -125,13 +137,13 @@ public class MouseTheThief : MonoBehaviour
 
                 if (mouseInHouse != null)
                     mouseInHouse.SetActive(true);
-                    //  <---------------------------------------------------------------------------------------------------- DZWIEK CHRUPANIA FRYTEK
 
                 gameObject.SetActive(false);
             }
-        }
 
-        UpdateAudio();
+            UpdateAudio();
+            return;
+        }
     }
 
     // ===== START MOVEMENT ONLY HERE =====

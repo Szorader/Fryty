@@ -571,6 +571,13 @@ MonoBehaviour:
       Data3: 101237428
       Data4: 1723745182
     Path: event:/InsideTruck/Mouse/mouse-yippee
+  mouseCrunch:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!95 &7859200746813009326
 Animator:
   serializedVersion: 7
