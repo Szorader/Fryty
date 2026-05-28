@@ -2198,7 +2198,7 @@ MonoBehaviour:
   currentCustomer: {fileID: 0}
   waitingTime: {fileID: 0}
   satisfaction: {fileID: 0}
-  isBad: 0
+  wallet: {fileID: 0}
   emptySauceBox: {fileID: 1798503580}
   ketchupBottle: {fileID: 301840847}
   mayoBottle: {fileID: 462063038}
@@ -2210,11 +2210,11 @@ MonoBehaviour:
   pepperShaker: {fileID: 664826723}
   deathScreenManager: {fileID: 687183470}
   player: {fileID: 1473081897}
+  isBad: 0
   bell: {fileID: 4575855088843478345}
   trashBin: {fileID: 1811530056}
   trayShelf: {fileID: 700738999}
   queuingDevice: {fileID: 1028194117}
-  money: -5
   moneyText: {fileID: 716351461}
   orderMoneyText: {fileID: 1851321504}
   queuingDeviceUI: {fileID: 430452015}
@@ -4005,6 +4005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseTriggerFloor
   mouse: {fileID: 1701544715}
+  sendInterval: 5
 --- !u!4 &376973741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5e67f2428c3e7342a6e62accd33373c, type: 3}
@@ -4673,6 +4674,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
   clicked: 0
   prompt: LMB - End day
+  driveAway:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &507000759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5926,12 +5934,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSatisfaction
   baseTip: 10
   penaltyPer10Seconds: 0.5
+  fastOrderBonus: 0.2
   wrongFriesPenalty: 5
+  goodFriesBonus: 0.1
   badCookPenalty: 2
-  burnedOrRawPenalty: 5
-  perfectBonus: 1
+  goodCookBonus: 0.1
   wrongSaucePenalty: 3
+  goodSauceBonus: 0.2
   wrongSeasoningPenalty: 1
+  goodSeasoningBonus: 0.1
 --- !u!1 &648727235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8677497168103725970, guid: 51778c3244e2c1343b57cd69d0672328, type: 3}
@@ -8577,7 +8588,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.033333335
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 0e71b7fc0d33f8a4faab5c0be877ddaf, type: 2}
   m_BuildHeightMesh: 0
@@ -13246,8 +13257,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MouseTheThief
   spawnPoint: {fileID: 89566561}
   carriedFriesData: {fileID: 3783457214556382307}
+  mouseInHouse: {fileID: 0}
   walkSpeed: 2.5
   runSpeed: 4.5
+  grabDuration: 0.8
+  grabFriesVisual: {fileID: 0}
   mouseRunLoop:
     Guid:
       Data1: 1414459223
@@ -13262,6 +13276,20 @@ MonoBehaviour:
       Data3: 728060862
       Data4: -198274001
     Path: event:/InsideTruck/Mouse/mouse-start-running
+  mouseYappie:
+    Guid:
+      Data1: 709573368
+      Data2: 1095007907
+      Data3: 101237428
+      Data4: 1723745182
+    Path: event:/InsideTruck/Mouse/mouse-yippee
+  mouseCrunch:
+    Guid:
+      Data1: -2071602437
+      Data2: 1287067771
+      Data3: 986042772
+      Data4: 1345725237
+    Path: event:/InsideTruck/Mouse/mouse-sad
 --- !u!4 &1701544716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ef61d4a7efcd1ea4d927ac232a87f3eb, type: 3}
@@ -14262,6 +14290,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
   clicked: 0
   prompt: LMB - End day
+  driveAway:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &1855361080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16971,6 +17006,22 @@ PrefabInstance:
       propertyPath: playerMovementScript
       value: 
       objectReference: {fileID: 909139891}
+    - target: {fileID: 7898379311134975159, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: Banks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898379311134975159, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'Banks.Array.data[0]'
+      value: Desktop/SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898379311134975159, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'Banks.Array.data[1]'
+      value: Desktop/Master
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898379311134975159, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'Banks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7901727049868176101, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: exitPoint
       value: 
