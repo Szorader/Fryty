@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class DayManager : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class DayManager : MonoBehaviour
     public TextMeshProUGUI summaryTMP;
     public GameObject winPanel;
     public Image fadeImage;
+    
+    [Header("Parasols")]
+    [SerializeField] private List<GameObject> openParasols = new List<GameObject>();
+    [SerializeField] private List<GameObject> closedParasols = new List<GameObject>();
 
     void Start()
     {
@@ -204,6 +209,18 @@ public class DayManager : MonoBehaviour
             3f,
             false
         ));
+        
+        SetParasolsForCleaning(true);
+    }
+    
+    private void SetParasolsForCleaning(bool cleaning)
+    {
+        // cleaning = true -> zamykamy otwarte, pokazujemy zamknięte
+        foreach (var p in openParasols)
+            if (p != null) p.SetActive(!cleaning);
+
+        foreach (var p in closedParasols)
+            if (p != null) p.SetActive(cleaning);
     }
 
     IEnumerator Message(string text, float time, bool nextDay)

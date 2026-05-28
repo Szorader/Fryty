@@ -215,8 +215,12 @@ public partial class BasketInteraction : MonoBehaviour
                 return;
             }
 
-            wallet.EarnMoney(5f);   // base payment
-            wallet.AddTip(tip);     // tip
+            // brak pieniędzy za surowe frytki
+            if (basketData.cookLevel != 0)
+            {
+                wallet.EarnMoney(4.50f); // base payment
+                wallet.AddTip(tip);      // tip
+            }    // tip
         }
 
         dayManager.servedClients++;

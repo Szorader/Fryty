@@ -16,6 +16,7 @@ TagManager:
   - Door
   - Customer
   - Trash
+  - Mouse
   layers:
   - Default
   - TransparentFX

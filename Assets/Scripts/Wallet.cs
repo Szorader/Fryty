@@ -35,32 +35,32 @@ public class Wallet : MonoBehaviour
     {
         if (amount == 0f) return;
 
-        ShowOperation($"+{amount}");
-        
+        ShowOperation($"+{amount:0.00}");
+
         StartCoroutine(ApplyAfterDelay(amount));
 
         RefreshUI();
     }
-
-    // tip 
+    
+    // napiwek
     public void AddTip(float amount)
     {
         if (amount == 0f) return;
 
-        ShowTip($"+{amount}");
-        
+        ShowTip($"+{amount:0.00}");
+
         StartCoroutine(ApplyAfterDelay(amount));
 
         RefreshUI();
     }
-
-    // wydanie
+    
+    // wydatek
     public void SpendMoney(float amount)
     {
         if (amount == 0f) return;
 
-        ShowOperation($"-{amount}");
-        
+        ShowOperation($"-{amount:0.00}");
+
         StartCoroutine(ApplyAfterDelay(-amount));
 
         RefreshUI();
@@ -74,19 +74,25 @@ public class Wallet : MonoBehaviour
 
     private IEnumerator ApplyAfterDelay(float amount)
     {
-        yield return new WaitForSeconds(3f);
-        
         balance += amount;
-        
-        SaveBalanceToSave(); //zapis w save system
 
+        SaveBalanceToSave();
+
+        StartCoroutine(RefreshUIAfterDelay());
+
+        yield break;
+    }
+    
+    private IEnumerator RefreshUIAfterDelay()
+    {
+        yield return new WaitForSeconds(3f);
         RefreshUI();
     }
 
     private void RefreshUI()
     {
         if (balanceText != null)
-            balanceText.text = balance.ToString("0");
+            balanceText.text = balance.ToString("0.00");
     }
 
     private void ShowOperation(string text)

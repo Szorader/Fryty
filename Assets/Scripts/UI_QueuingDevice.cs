@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using TMPro;
 public class UI_QueuingDevice : MonoBehaviour
 {
     [Header("Clickable Buttons")]
@@ -57,6 +58,12 @@ public class UI_QueuingDevice : MonoBehaviour
                 
                 
                 queuingDevice.AddOrderToBasket(i);
+                
+                var text = button.GetComponentInChildren<TextMeshProUGUI>();
+                if (text != null)
+                {
+                    text.text = "-----";
+                }
 
                 return;
             }

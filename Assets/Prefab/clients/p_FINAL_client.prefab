@@ -3398,16 +3398,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64faa0e6a0d23f743b51f576c6e74e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSatisfaction
-  baseTip: 10
-  penaltyPer10Seconds: 0.5
-  wrongFriesPenalty: 5
-  goodFriesBonus: 1
-  badCookPenalty: 2
-  goodCookBonus: 1
-  wrongSaucePenalty: 3
-  goodSauceBonus: 2
-  wrongSeasoningPenalty: 1
-  goodSeasoningBonus: 1
+  baseTip: 5
+  penaltyPer10Seconds: 0.05
+  fastOrderBonus: 0.05
+  wrongFriesPenalty: 0.4
+  goodFriesBonus: 0.1
+  badCookPenalty: 0.6
+  goodCookBonus: 0.2
+  wrongSaucePenalty: 0.2
+  goodSauceBonus: 0.1
+  wrongSeasoningPenalty: 0.2
+  goodSeasoningBonus: 0.1
 --- !u!114 &-8918931836767975462
 MonoBehaviour:
   m_ObjectHideFlags: 0

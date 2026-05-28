@@ -74,79 +74,71 @@ public class MouseTheThief : MonoBehaviour
             return;
         }
 
-        // ===== RETURN WITH FRIES =====
         if (hasFry)
         {
-            agent.speed = runSpeed;
-            agent.SetDestination(spawnPoint.position);
-
-            SetState(State.Running);
-
-            if (Vector3.Distance(transform.position, spawnPoint.position) <= 0.3f)
-            {
-                RuntimeManager.PlayOneShot(mouseCrunch, spawnPoint.position);
-                hasFry = false;
-                reservedFries = null;
-
-                if (carriedFriesData != null)
-                {
-                    carriedFriesData.SetFriesType(OrderDatabase.FriesType.None);
-                    carriedFriesData.cookLevel = 0;
-                    carriedFriesData.RefreshVisuals();
-                }
-
-                currentTarget = null;
-
-                SetState(State.Idle);
-                StopRunLoopImmediate();
-
-                if (mouseInHouse != null)
-                    mouseInHouse.SetActive(true);
-
-                gameObject.SetActive(false);
-            }
-
+            HandleReturn();
             UpdateAudio();
             return;
         }
 
-        // ===== NORMAL BEHAVIOUR =====
-        if (hasFry)
+        if (currentTarget == spawnPoint)
         {
-            agent.speed = runSpeed;
-            agent.SetDestination(spawnPoint.position);
-
-            SetState(State.Running);
-
-            if (Vector3.Distance(transform.position, spawnPoint.position) <= 0.3f)
-            {
-                hasFry = false;
-                reservedFries = null;
-
-                if (carriedFriesData != null)
-                {
-                    carriedFriesData.SetFriesType(OrderDatabase.FriesType.None);
-                    carriedFriesData.cookLevel = 0;
-                    carriedFriesData.RefreshVisuals();
-                }
-
-                currentTarget = null;
-
-                SetState(State.Idle);
-                StopRunLoopImmediate();
-
-                if (mouseInHouse != null)
-                    mouseInHouse.SetActive(true);
-
-                gameObject.SetActive(false);
-            }
-
+            HandleReturn();
             UpdateAudio();
             return;
         }
     }
 
-    // ===== START MOVEMENT ONLY HERE =====
+    // =========================
+    // RETURN LOGIC (UNIFIED)
+    // =========================
+    private void HandleReturn()
+    {
+        if (spawnPoint == null) return;
+
+        agent.speed = runSpeed;
+        agent.SetDestination(spawnPoint.position);
+
+        SetState(State.Running);
+
+        if (!agent.pathPending &&
+            agent.remainingDistance <= agent.stoppingDistance &&
+            (!agent.hasPath || agent.velocity.sqrMagnitude == 0f))
+        {
+            if (hasFry)
+            {
+                RuntimeManager.PlayOneShot(mouseCrunch, spawnPoint.position);
+
+                if (carriedFriesData != null)
+                {
+                    carriedFriesData.SetFriesType(OrderDatabase.FriesType.None);
+                    carriedFriesData.cookLevel = 0;
+                    carriedFriesData.RefreshVisuals();
+                }
+            }
+
+            FinishReturn();
+        }
+    }
+
+    private void FinishReturn()
+    {
+        hasFry = false;
+        reservedFries = null;
+        currentTarget = null;
+
+        SetState(State.Idle);
+        StopRunLoopImmediate();
+
+        if (mouseInHouse != null)
+            mouseInHouse.SetActive(true);
+
+        gameObject.SetActive(false);
+    }
+
+    // =========================
+    // TARGET
+    // =========================
     public void SetTarget(Transform target)
     {
         if (hasFry) return;
@@ -170,12 +162,6 @@ public class MouseTheThief : MonoBehaviour
 
     public void ReturnToHome()
     {
-        transform.eulerAngles = new Vector3(
-            transform.eulerAngles.x,
-            180f,
-            transform.eulerAngles.z
-        );
-
         currentTarget = spawnPoint;
 
         agent.speed = runSpeed;
@@ -184,11 +170,12 @@ public class MouseTheThief : MonoBehaviour
         SetState(State.Running);
     }
 
-    // ===== GRAB =====
+    // =========================
+    // GRAB
+    // =========================
     private void OnTriggerEnter(Collider other)
     {
-        if (hasFry) return;
-        if (isGrabbing) return;
+        if (hasFry || isGrabbing) return;
 
         FriesData fries = other.GetComponentInParent<FriesData>();
         if (fries == null) return;
@@ -269,7 +256,9 @@ public class MouseTheThief : MonoBehaviour
         isGrabbing = false;
     }
 
-    // ===== ANIMATION =====
+    // =========================
+    // STATE
+    // =========================
     private void SetState(State state)
     {
         if (currentState == state) return;
@@ -284,7 +273,9 @@ public class MouseTheThief : MonoBehaviour
         }
     }
 
-    // ===== AUDIO =====
+    // =========================
+    // AUDIO
+    // =========================
     private bool IsActuallyMoving()
     {
         if (agent == null) return false;
