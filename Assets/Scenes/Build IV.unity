@@ -3422,6 +3422,7 @@ MonoBehaviour:
   moneyText: {fileID: 716351461}
   orderMoneyText: {fileID: 1851321504}
   queuingDeviceUI: {fileID: 430452015}
+  dayManager: {fileID: 0}
   shakerSound:
     Guid:
       Data1: 2040815654
@@ -6685,11 +6686,11 @@ MonoBehaviour:
   prompt: LMB - End day
   driveAway:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -355716714
+      Data2: 1254939362
+      Data3: -33042555
+      Data4: 1756568300
+    Path: event:/InsideTruck/truck start_2d
 --- !u!65 &507000759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22742,11 +22743,11 @@ MonoBehaviour:
   prompt: LMB - End day
   driveAway:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -355716714
+      Data2: 1254939362
+      Data3: -33042555
+      Data4: 1756568300
+    Path: event:/InsideTruck/truck start_2d
 --- !u!65 &1855361080
 BoxCollider:
   m_ObjectHideFlags: 0
