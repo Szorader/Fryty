@@ -31420,7 +31420,7 @@ PrefabInstance:
       objectReference: {fileID: 1976179905}
     - target: {fileID: 3720056314855552768, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6363897442156216124, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: dayManager

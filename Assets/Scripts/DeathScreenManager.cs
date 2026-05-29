@@ -16,7 +16,8 @@ public class DeathScreenManager : MonoBehaviour
     [Header("Destroy Delay")]
     public float deathDelay = 3f;
 
-    private bool isShowing = false;
+    public bool isShowing = false;
+    
 
     public void ShowDeath(GameObject player)
     {

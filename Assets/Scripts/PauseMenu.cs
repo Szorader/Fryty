@@ -16,9 +16,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     private bool isPaused = false;
+    
+    public DeathScreenManager deathScreenManager;
 
     private void Start()
     {
+        deathScreenManager = FindObjectOfType<DeathScreenManager>();
         pauseMenuCanvas.SetActive(false);
 
         Time.timeScale = 1f;
@@ -29,7 +32,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !deathScreenManager.isShowing)
         {
             RuntimeManager.PlayOneShot(bottle_squirt, playerTransform.position);
             TogglePause();
