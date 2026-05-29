@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{0f25dcbb-ded0-4af2-bb0a-33ee17662327}">
+		<property name="assetPath">
+			<value>betoelguapillo-cartoon-eating-sound-effect-427528.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.9257142857142857</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a5cd5ffd-5c72-4ffc-a707-791d2d401869}</destination>
+		</relationship>
+	</object>
+</objects>
