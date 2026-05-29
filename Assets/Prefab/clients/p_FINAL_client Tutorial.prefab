@@ -3400,6 +3400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSatisfaction
   baseTip: 10
   penaltyPer10Seconds: 0.5
+  fastOrderBonus: 0.2
   wrongFriesPenalty: 5
   goodFriesBonus: 1
   badCookPenalty: 2
