@@ -185,7 +185,7 @@ public class QueuingDevice : MonoBehaviour
     {
         Destroy(client.gameObject);
         countClients++;
-        StartCoroutine(Wait(10));
+        StartCoroutine(Wait(3));
     }
 
     IEnumerator Wait(int seconds)
