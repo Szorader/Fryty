@@ -121,9 +121,9 @@ public class ChainInteraction : MonoBehaviour, IInteractable
         if (smokeEffect != null)
         {
             GameObject fx = Instantiate(smokeEffect, client.transform.position, Quaternion.identity);
-            Instantiate(modelFries1, client.transform.position, Quaternion.identity);
-            Instantiate(modelFries2, client.transform.position, Quaternion.identity);
-            Instantiate(modelFries3, client.transform.position, Quaternion.identity);
+            Instantiate(modelFries1, client.transform.position += new Vector3(0.5f, 0f, 0f), Quaternion.identity);
+            Instantiate(modelFries2, client.transform.position += new Vector3(-0.5f, 0f, 0f), Quaternion.identity);
+            Instantiate(modelFries3, client.transform.position+= new Vector3(-0.5f, 0f, 0.15f), Quaternion.identity);
             Destroy(fx, smokeDuration);
         }
 
