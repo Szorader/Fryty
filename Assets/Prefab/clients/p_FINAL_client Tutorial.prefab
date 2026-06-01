@@ -3525,6 +3525,7 @@ MonoBehaviour:
     Path: event:/Clients/Client-voice
   voiceActorID: 0
   delay: 0.2
+  waitBeforeAttack: 0.6
 --- !u!1 &8721154377661882461
 GameObject:
   m_ObjectHideFlags: 0
