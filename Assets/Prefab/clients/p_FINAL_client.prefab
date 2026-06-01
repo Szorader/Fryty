@@ -3498,6 +3498,7 @@ MonoBehaviour:
     Path: event:/Clients/Client-voice
   voiceActorID: 0
   delay: 0.2
+  waitBeforeAttack: 0.6
 --- !u!95 &1710492915934516860
 Animator:
   serializedVersion: 7
