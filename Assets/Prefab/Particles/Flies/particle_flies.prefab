@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6959445348735724133}
   - component: {fileID: 4854576220463585565}
   - component: {fileID: 6110276673454766268}
+  - component: {fileID: 5663040350975899576}
   m_Layer: 0
   m_Name: particle_flies
   m_TagString: Untagged
@@ -4836,3 +4837,34 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &5663040350975899576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2678642190274723522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1903882880
+      Data2: 1140002260
+      Data3: 1265901707
+      Data4: -660173417
+    Path: event:/Clients/Client-flies
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
