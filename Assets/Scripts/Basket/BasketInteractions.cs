@@ -236,28 +236,57 @@ public partial class BasketInteraction : MonoBehaviour
         
         if (isBad)
         {
-            //FacePlayer();
-
             Animator anim = currentCustomer.GetComponent<Animator>();
-            if (anim != null)
-            {
-                anim.SetBool("isAttacking", true);
-            }
 
-            if (face != null)
-            {
-                face.SetExpression(FaceController.Expression.Extra);
-            }
-
-            if (deathScreenManager != null && player != null)
-            {
-                StartCoroutine(DeathAfterAttack());
-            }
+            StartCoroutine(
+                EvilCustomerSequence(face, anim)
+            );
 
             return;
         }
         
         StartCoroutine(RemoveCustomerAfterReaction());
+    }
+    
+    // Evil customer eats us
+    
+    private IEnumerator EvilCustomerSequence(
+        FaceController face,
+        Animator anim
+    )
+    {
+        Debug.Log("Evil sequence started");
+
+        if (face != null)
+        {
+            yield return StartCoroutine(
+                face.EvilAttack(1.5f)
+            );
+        }
+
+        Debug.Log("Face finished");
+
+        yield return new WaitForSeconds(0.2f);
+
+        Debug.Log("Starting attack");
+
+        if (anim != null)
+        {
+            anim.SetBool("isAttacking", true);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        if (anim != null)
+        {
+            anim.SetBool("isAttacking", false);
+        }
+
+        yield return new WaitForSeconds(1.2f);
+
+        Debug.Log("Death");
+
+        deathScreenManager.ShowDeath(player);
     }
 
     private void TrySetSauce(OrderDatabase.SauceType newSauce, bool force = false)
@@ -349,7 +378,7 @@ public partial class BasketInteraction : MonoBehaviour
     
     private IEnumerator DeathAfterAttack()
     {
-        yield return new WaitForSeconds(1.2f); // czas animacji ataku
+        yield return new WaitForSeconds(1f); // czas animacji ataku
 
         deathScreenManager.ShowDeath(player);
     }

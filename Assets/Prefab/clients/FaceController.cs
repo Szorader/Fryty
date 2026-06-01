@@ -34,6 +34,7 @@ public class FaceController : MonoBehaviour
     private Renderer rend;
 
     public float delay = 0.3f;
+    public float waitBeforeAttack = 0.6f;
     
     private ClientController clientController; // access to client controller to get the Voice Actor index
     private Coroutine talkingRoutine; // to prevent audio spam
@@ -335,5 +336,25 @@ public class FaceController : MonoBehaviour
         SetExpression(Expression.Neutral);
 
         voiceInstance.release();
+    }
+    
+    // evil client attacks
+    public IEnumerator EvilAttack(float angryTime)
+    {
+        SetExpression(Expression.TalkAngry);
+
+        yield return new WaitForSecondsRealtime(angryTime);
+
+        SetExpression(Expression.Extra);
+    }
+    
+    public void SetEvilFace()
+    {
+        SetExpression(Expression.Extra);
+    }
+
+    public void SetSmirkFace()
+    {
+        SetExpression(Expression.TalkAngry);
     }
 }
