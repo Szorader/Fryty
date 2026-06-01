@@ -4717,7 +4717,7 @@ BoxCollider:
     m_Bits: 192
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 951
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -7752,8 +7752,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 93.91347, y: 3.5, z: 147.86423}
-  m_Center: {x: -16.94133, y: -1.4922469, z: 0.5256958}
+  m_Size: {x: 91.5, y: 3.5, z: 74.86}
+  m_Center: {x: -2.8, y: -1.4922469, z: 14.6}
 --- !u!64 &865841878
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23658,7 +23658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4882122369581035897, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5888448601309764660, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_Name
