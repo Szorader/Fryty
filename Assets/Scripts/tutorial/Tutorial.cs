@@ -170,7 +170,7 @@ public class Tutorial : MonoBehaviour
                UI_QueuingDevice uiQueuingDevice = NumberUI.GetComponent<UI_QueuingDevice>();
                if (uiQueuingDevice.canGiveOrder == false)
                {
-                   t = "Give the order to the customer by clicking on the cash register";
+                   t = "Give the order to the customer by clicking on the buttons of the cash register";
                    Text(t, cashRegister);
                }
                break;
@@ -181,7 +181,7 @@ public class Tutorial : MonoBehaviour
                 
                 if (bInteraction.clicked == bInteraction.bell)
                 {
-                    t = "Add clear basket";
+                    t = "Add a new basket and tray by clicking the tray holder";
                     Text(t, stand);
                     spawner.canSpawn = true;
                 }
@@ -191,7 +191,7 @@ public class Tutorial : MonoBehaviour
                 bInteraction = basket.GetComponent<BasketInteraction>();
                 if (bInteraction.clicked == bInteraction.trayShelf)
                 {
-                    t = "Your next client is the bad customer! Pull the chain to kill him";
+                    t = "Your next client is a bad customer! Pull the chain to kill him";
                     Text(t, chain);
                 }
                 break;
@@ -200,7 +200,7 @@ public class Tutorial : MonoBehaviour
                 ChainInteraction chainInteraction = chain.GetComponent<ChainInteraction>();
                 if (chainInteraction.tutorial)
                 {
-                    t = "Time to clean outside, take broom and remove trash";
+                    t = "Time to clean outside, take the broom and remove the trash on the tables";
                     Text(t, broom);
                 }
                 break;
@@ -209,7 +209,7 @@ public class Tutorial : MonoBehaviour
                 Broom broomScript = broom.GetComponent<Broom>();
                 if (broomScript.IsHeld)
                 {
-                    t = "Start clean, remove trash";
+                    t = "Click on the trash while holding the broom to remove the trash";
                     Text(t, umbrella);
                 }
                 break;
@@ -241,7 +241,7 @@ public class Tutorial : MonoBehaviour
 
                 if (!anyActive)
                 {
-                    t = "Time to end the day, click the car door";
+                    t = "Time to end the day, click the truck's driver door";
                     Text(t, pager);
                 }
 
@@ -261,7 +261,7 @@ public class Tutorial : MonoBehaviour
                 EndDayInteraction DRinteraction =  doorRight.GetComponent<EndDayInteraction>();
                 if (DLinteraction.clicked || DRinteraction.clicked)
                 {
-                    t = "You are complete tutorial, congratulations";
+                    t = "You completed the tutorial, congratulations!";
                     Text(t, pager);
                     StartCoroutine(WaitCoroutine());
                     

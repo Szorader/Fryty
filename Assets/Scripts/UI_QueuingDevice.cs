@@ -51,19 +51,25 @@ public class UI_QueuingDevice : MonoBehaviour
                 }
 
                 // audio 
+                var text = button.GetComponentInChildren<TextMeshProUGUI>();
+
+                if (text == null)
+                    return;
+
+                // no customer assigned
+                if (text.text == "-----")
+                    return;
+
+                // audio
                 RuntimeManager.PlayOneShot(
                     pikacz,
                     button.transform.position
                 );
-                
-                
+
                 queuingDevice.AddOrderToBasket(i);
-                
-                var text = button.GetComponentInChildren<TextMeshProUGUI>();
-                if (text != null)
-                {
-                    text.text = "-----";
-                }
+
+                // clear button so it can't be clicked again
+                text.text = "-----";
 
                 return;
             }
