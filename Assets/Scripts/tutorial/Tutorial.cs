@@ -106,7 +106,7 @@ public class Tutorial : MonoBehaviour
                     //Debug.Log(y + " " + z + " " + targetY + " " + targetZ);
                     if (y == targetY && z == targetZ)
                     {
-                        t = "Give the customer a pager";
+                        t = "Give the customer a pager.";
                         Text(t, pager);
                     }
                 }
@@ -117,7 +117,7 @@ public class Tutorial : MonoBehaviour
                 obj = GameObject.Find("t_pager.002");
                 if (obj == null)
                 {
-                    t = "Take a potato out of the fridge";
+                    t = "Take a potato out of the fridge.";
                     Text(t, fridge);
                 }
                 break;
@@ -126,7 +126,7 @@ public class Tutorial : MonoBehaviour
                obj = GameObject.Find("Potato1(Clone)");
                if (obj != null)
                {
-                   t = "Put the potato into the slicer on the counter and choose the fries type";
+                   t = "Put the potato into the slicer on the counter and choose the fries type.";
                    Text(t, slicer);
                }
                 break;
@@ -135,7 +135,7 @@ public class Tutorial : MonoBehaviour
                 obj = GameObject.Find("FRYTUNIE(Clone)");
                 if (obj != null)
                 {
-                    t = "Put the fries into the fryer. Take them out once they're fried";
+                    t = "Put the fries into the fryer. Take them out once they're fried.";
                     Text(t, fryer);
                 }
                 break;
@@ -145,7 +145,7 @@ public class Tutorial : MonoBehaviour
                FriesData fdata = obj.GetComponent<FriesData>();
                if (fdata.cookDes == "Perfect")
                {
-                   t = "Put the fries into the serving basket. Add the correct sauce and spices to the order";
+                   t = "Put the fries into the serving basket. Add the correct sauce and spices to the order.";
                    Text(t, basket);
                    ketchup.SetActive(true);
                    salt.SetActive(true);
@@ -160,7 +160,7 @@ public class Tutorial : MonoBehaviour
                     bdata.seasoningType == OrderDatabase.SeasoningType.Salt &&
                     bdata.sauceType == OrderDatabase.SauceType.Ketchup)
                 {
-                    t = "Click the correct order number on the register's tablet to summon the customer to the register";
+                    t = "Click the correct order number on the register's tablet to summon the customer to the register.";
                     Text(t, orderNumber);
                     NumberUI.SetActive(true);
                 }
@@ -170,7 +170,7 @@ public class Tutorial : MonoBehaviour
                UI_QueuingDevice uiQueuingDevice = NumberUI.GetComponent<UI_QueuingDevice>();
                if (uiQueuingDevice.canGiveOrder == false)
                {
-                   t = "Give the order to the customer by clicking on the buttons of the cash register";
+                   t = "Give the order to the customer by clicking on the buttons of the cash register.";
                    Text(t, cashRegister);
                }
                break;
@@ -181,7 +181,7 @@ public class Tutorial : MonoBehaviour
                 
                 if (bInteraction.clicked == bInteraction.bell)
                 {
-                    t = "Add a new basket and tray by clicking the tray holder";
+                    t = "Add a new basket and tray by clicking the tray holder.";
                     Text(t, stand);
                     spawner.canSpawn = true;
                 }
@@ -191,7 +191,7 @@ public class Tutorial : MonoBehaviour
                 bInteraction = basket.GetComponent<BasketInteraction>();
                 if (bInteraction.clicked == bInteraction.trayShelf)
                 {
-                    t = "Your next client is a bad customer! Pull the chain to kill him";
+                    t = "This customer is rotten! End his suffering by pulling the chain above you. It will close the shutter door and pour hot oil on him.";
                     Text(t, chain);
                 }
                 break;
@@ -200,7 +200,7 @@ public class Tutorial : MonoBehaviour
                 ChainInteraction chainInteraction = chain.GetComponent<ChainInteraction>();
                 if (chainInteraction.tutorial)
                 {
-                    t = "Time to clean outside, take the broom and remove the trash on the tables";
+                    t = "Time to clean outside, take the broom and remove the trash on the tables.";
                     Text(t, broom);
                 }
                 break;
@@ -209,7 +209,7 @@ public class Tutorial : MonoBehaviour
                 Broom broomScript = broom.GetComponent<Broom>();
                 if (broomScript.IsHeld)
                 {
-                    t = "Click on the trash while holding the broom to remove the trash";
+                    t = "Click on the trash while holding the broom to remove the trash.";
                     Text(t, umbrella);
                 }
                 break;
@@ -241,7 +241,7 @@ public class Tutorial : MonoBehaviour
 
                 if (!anyActive)
                 {
-                    t = "Time to end the day, click the truck's driver door";
+                    t = "Time to end the day, click the truck's driver door. The game saves when you end the day.";
                     Text(t, pager);
                 }
 

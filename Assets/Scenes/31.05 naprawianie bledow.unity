@@ -8409,12 +8409,12 @@ MonoBehaviour:
   baseTip: 10
   penaltyPer10Seconds: 0.5
   fastOrderBonus: 0.2
-  wrongFriesPenalty: 5
+  wrongFriesPenalty: 1
   goodFriesBonus: 1
-  badCookPenalty: 2
+  badCookPenalty: 1
   goodCookBonus: 1
-  wrongSaucePenalty: 3
-  goodSauceBonus: 2
+  wrongSaucePenalty: 1
+  goodSauceBonus: 1
   wrongSeasoningPenalty: 1
   goodSeasoningBonus: 1
 --- !u!1 &648727235 stripped
