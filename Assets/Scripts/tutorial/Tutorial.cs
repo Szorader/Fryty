@@ -280,7 +280,7 @@ public class Tutorial : MonoBehaviour
 
         saveSystem.saveData.tutorialCompleted = true;
         dayManager.Save();
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
     }
     private void Text(string text, GameObject obj)
     {

@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using FMODUnity;
 
 public class DeathScreenManager : MonoBehaviour
 {
@@ -18,6 +20,12 @@ public class DeathScreenManager : MonoBehaviour
 
     public bool isShowing = false;
     
+    private DayManager dayManager;
+
+    private void Start()
+    {
+        dayManager = FindObjectOfType<DayManager>();
+    }
 
     public void ShowDeath(GameObject player)
     {
@@ -83,6 +91,8 @@ public class DeathScreenManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        dayManager.EndDay();
+        RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Application.LoadLevel ("MainMenu");
     }
 }

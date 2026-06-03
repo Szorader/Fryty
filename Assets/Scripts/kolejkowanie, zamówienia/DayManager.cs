@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using FMODUnity;
 
 public class DayManager : MonoBehaviour
 {
@@ -48,14 +49,14 @@ public class DayManager : MonoBehaviour
         saveSystem = FindObjectOfType<SaveSystem>();
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (summary)
         {
             EndDay();
             summary = false;
         }
-    }
+    }*/
 
     public void TriggerSummary()
     {
@@ -130,12 +131,13 @@ public class DayManager : MonoBehaviour
     
     public void NextDay()
     {
+        Debug.Log("next day");
         if (saveSystem == null) return;
         
         StopAllCoroutines();
 
-        saveSystem.saveData.day += 1;
-
+        //saveSystem.saveData.day += 1;
+        RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene(1);
     }
     
@@ -181,8 +183,8 @@ public class DayManager : MonoBehaviour
 
     public void Save()
     {
-        /*if (wallet == null) return;
-
+        if (wallet == null) return;
+/*
         saveSystem.SaveGame(
             saveSystem.saveData.money + GetWalletBalance(),
             saveSystem.saveData.day + 1,

@@ -102,7 +102,7 @@ public class SaveSystem : MonoBehaviour
         return new SaveData()
             {
                 money = 0,
-                day = 1,
+                day = 0,
                 killedEnemies = 0,
                 servedClients = 0,
                 tutorialCompleted = false
@@ -118,6 +118,14 @@ public class SaveSystem : MonoBehaviour
         {
             File.Delete(savePath);
             Debug.Log("Zapis usunięty");
+            new SaveData()
+            {
+                money = 0,
+                day = 0,
+                killedEnemies = 0,
+                servedClients = 0,
+                tutorialCompleted = false
+            };
         }
     }
 

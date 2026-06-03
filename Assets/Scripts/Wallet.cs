@@ -130,7 +130,7 @@ public class Wallet : MonoBehaviour
     private void LoadBalanceFromSave()
     {
         if (SaveSystem.Instance == null) return;
-        balance = SaveSystem.Instance.saveData.money;
+        balance = SaveSystem.Instance.LoadGame().money;
     }
     private void SaveBalanceToSave()
     {

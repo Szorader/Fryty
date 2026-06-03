@@ -9,17 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: bf3a327833f3c6c46bf23d4f614174b3
   - enabled: 1
+    path: Assets/Scenes/01.06 debugowanie.unity
+    guid: 5511b856f57610a4898ee4bf7e7a016c
+  - enabled: 0
     path: Assets/Scenes/Build IV.unity
     guid: 7c88de4854f196c4aa77dd43b5f702d9
-  - enabled: 0
-    path: Assets/Scenes/testy do 30.05/25.05 statystyki.unity
-    guid: f685d4791c1c7ca43b58f5b4db420ca0
-  - enabled: 0
-    path: Assets/Scenes/testy do 30.05/Game.unity
-    guid: 1987abf6ccb16ba40bc6118d5ce7fc95
-  - enabled: 0
-    path: Assets/Scenes/testy do 30.05/Tutorial v2.unity
-    guid: 632768fe491ce7549a7547ca497c66cd
   - enabled: 1
     path: Assets/Scenes/Tutorial v3.unity
     guid: c327fd27aaa38754f9a63630d2b95cf1

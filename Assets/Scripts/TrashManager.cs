@@ -10,6 +10,7 @@ public class TrashManager : MonoBehaviour
 
     private bool canCheck = false;
     private bool summaryTriggered = false;
+    public bool clean = false;
 
     private void Start()
     {
@@ -38,7 +39,7 @@ public class TrashManager : MonoBehaviour
         if (!dayManager.isCleaningPhase)
             return;
 
-        bool clean = IsEverythingClean();
+        clean = IsEverythingClean();
 
         //Debug.Log("IsEverythingClean: " + clean);
 
@@ -46,7 +47,7 @@ public class TrashManager : MonoBehaviour
         {
             //Debug.Log("ALL TRASH CLEAN -> END DAY");
             summaryTriggered = true;
-            dayManager.TriggerSummary();
+            //dayManager.TriggerSummary();
         }
     }
 
