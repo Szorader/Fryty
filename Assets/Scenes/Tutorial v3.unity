@@ -24518,6 +24518,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 635330895}
     - target: {fileID: 9219945511103561425, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: dayManager
+      value: 
+      objectReference: {fileID: 1424017330}
+    - target: {fileID: 9219945511103561425, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: gameCanvas
       value: 
       objectReference: {fileID: 1395933594}
@@ -24533,6 +24537,10 @@ PrefabInstance:
       propertyPath: cameraLookScript
       value: 
       objectReference: {fileID: 909139891}
+    - target: {fileID: 9219945511103561425, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: deathScreenManager
+      value: 
+      objectReference: {fileID: 687183470}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

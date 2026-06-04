@@ -18,10 +18,11 @@ public class PauseMenu : MonoBehaviour
     private bool isPaused = false;
     
     public DeathScreenManager deathScreenManager;
+    public DayManager dayManager;
 
     private void Start()
     {
-        deathScreenManager = FindObjectOfType<DeathScreenManager>();
+        //deathScreenManager = FindObjectOfType<DeathScreenManager>();
         pauseMenuCanvas.SetActive(false);
 
         Time.timeScale = 1f;
@@ -32,8 +33,14 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !deathScreenManager.isShowing)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (deathScreenManager.isShowing)
+                //Debug.Log("deathscreenManager.isShowing" +  deathScreenManager.isShowing);
+                return;
+            if (dayManager.isShowing)
+                //Debug.Log("dayManager.isShowing" +  dayManager.isShowing);
+                return;
             RuntimeManager.PlayOneShot(bottle_squirt, playerTransform.position);
             TogglePause();
         }

@@ -26,6 +26,7 @@ public class DeathScreenManager : MonoBehaviour
     {
         dayManager = FindObjectOfType<DayManager>();
     }
+    
 
     public void ShowDeath(GameObject player)
     {

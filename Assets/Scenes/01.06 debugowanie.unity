@@ -6751,6 +6751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
   clicked: 0
   prompt: LMB - End day
+  isTutorial: 0
   driveAway:
     Guid:
       Data1: -355716714
@@ -22747,6 +22748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
   clicked: 0
   prompt: LMB - End day
+  isTutorial: 0
   driveAway:
     Guid:
       Data1: -355716714
@@ -30436,6 +30438,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1000497768}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: playerMovementScript
+      value: 
+      objectReference: {fileID: 909139891}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: openParasols.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -30609,7 +30615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: maxClients
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: spawnPoint
@@ -30621,7 +30627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7084700600124350343, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: clientsOfTheDay
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7817541394109843202, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: animator
@@ -30688,6 +30694,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 635330895}
     - target: {fileID: 9219945511103561425, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: dayManager
+      value: 
+      objectReference: {fileID: 1424017330}
+    - target: {fileID: 9219945511103561425, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: gameCanvas
       value: 
       objectReference: {fileID: 1395933594}
@@ -30703,6 +30713,10 @@ PrefabInstance:
       propertyPath: cameraLookScript
       value: 
       objectReference: {fileID: 909139891}
+    - target: {fileID: 9219945511103561425, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: deathScreenManager
+      value: 
+      objectReference: {fileID: 687183470}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -15,6 +15,7 @@ public class DayManager : MonoBehaviour
     private Endgame endgame;
     private BasketInteraction basket;
     private Wallet wallet;
+    public MonoBehaviour playerMovementScript;
 
     public bool timeToClean = false;
     public bool summary = false;
@@ -34,6 +35,7 @@ public class DayManager : MonoBehaviour
     public TextMeshProUGUI summaryTMP;
     public GameObject winPanel;
     public Image fadeImage;
+    public bool isShowing = false;
     
     [Header("Parasols")]
     [SerializeField] private List<GameObject> openParasols = new List<GameObject>();
@@ -109,8 +111,9 @@ public class DayManager : MonoBehaviour
             $"Tax: -{tax:0.00}$",
             $"Total: {total:0.00}$"
         };
-        
 
+        playerMovementScript.enabled = false;
+        isShowing = true;
         winPanel.SetActive(true);
         StartCoroutine(SummarySequence(lines));
 
@@ -138,6 +141,7 @@ public class DayManager : MonoBehaviour
 
         //saveSystem.saveData.day += 1;
         RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        isShowing = false;
         SceneManager.LoadScene(1);
     }
     
