@@ -156,18 +156,13 @@ public partial class BasketInteraction : MonoBehaviour
         }
         else if (clicked == bell)
         {
-            Debug.Log("1");
             currentClientController = currentCustomer.GetComponent<ClientController>();
 
             if (currentClientController.isWalking)
                 return;
-            Debug.Log("2");
             ApplyBasketToCustomer();
-            Debug.Log("3");
             CheckOrder();
-            Debug.Log("4");
             ResetBasket();
-            Debug.Log("5");
         }
         else if (clicked == trashBin)
         {
