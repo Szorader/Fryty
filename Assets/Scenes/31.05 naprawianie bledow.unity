@@ -6751,6 +6751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
   clicked: 0
   prompt: LMB - End day
+  isTutorial: 0
   driveAway:
     Guid:
       Data1: -355716714
@@ -22747,6 +22748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndDayInteraction
   clicked: 0
   prompt: LMB - End day
+  isTutorial: 0
   driveAway:
     Guid:
       Data1: -355716714
