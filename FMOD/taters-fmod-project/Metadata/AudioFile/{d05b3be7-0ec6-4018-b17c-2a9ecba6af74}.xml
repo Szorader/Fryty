@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{063b17c9-762b-4b2b-b17e-58211bfc29ec}">
+	<object class="AudioFile" id="{d05b3be7-0ec6-4018-b17c-2a9ecba6af74}">
 		<property name="assetPath">
-			<value>car-start-drive-away.mp3</value>
-		</property>
-		<property name="isStreaming">
-			<value>true</value>
+			<value>voiceLines/andi-va/andi-happy-3.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>24</value>
+			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>59.448</value>
+			<value>1.3072789115646259</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a5cd5ffd-5c72-4ffc-a707-791d2d401869}</destination>

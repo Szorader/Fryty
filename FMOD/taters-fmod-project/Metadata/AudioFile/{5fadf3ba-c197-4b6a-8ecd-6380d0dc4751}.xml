@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{9a475d11-a459-4148-bd56-2eba63cb2ff2}">
+	<object class="AudioFile" id="{5fadf3ba-c197-4b6a-8ecd-6380d0dc4751}">
 		<property name="assetPath">
-			<value>freesound_community-apple-crunch-42637.mp3</value>
-		</property>
-		<property name="isStreaming">
-			<value>true</value>
+			<value>voiceLines/andi-va/andi-random-2.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>24</value>
+			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>11.448</value>
+			<value>0.37188208616780044</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a5cd5ffd-5c72-4ffc-a707-791d2d401869}</destination>
