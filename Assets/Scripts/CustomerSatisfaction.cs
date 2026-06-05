@@ -97,7 +97,7 @@ public class CustomerSatisfaction : MonoBehaviour
 
         // PERFECT CHECK
         bool perfect = IsPerfectOrder(timeAlive, basket, order);
-
+ 
         // TIME BONUS ONLY IF PERFECT
         if (perfect && timeAlive <= 30)
         {

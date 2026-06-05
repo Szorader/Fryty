@@ -107,74 +107,95 @@ public partial class BasketInteraction : MonoBehaviour
         clicked = click;
         if (!basketData) return;
 
-        if (clicked == ketchupBottle)
+        else if (clicked == ketchupBottle)
         {
-            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            if (TrySetSauce(OrderDatabase.SauceType.Ketchup))
             {
-                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-                TrySetSauce(OrderDatabase.SauceType.Ketchup);
+                RuntimeManager.PlayOneShot(
+                    sauceSound,
+                    clicked.transform.position
+                );
             }
         }
+
         else if (clicked == mayoBottle)
         {
-            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            if (TrySetSauce(OrderDatabase.SauceType.Mayo))
             {
-                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-                TrySetSauce(OrderDatabase.SauceType.Mayo);
+                RuntimeManager.PlayOneShot(
+                    sauceSound,
+                    clicked.transform.position
+                );
             }
         }
+
         else if (clicked == cheeseBottle)
         {
-            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            if (TrySetSauce(OrderDatabase.SauceType.Cheese))
             {
-                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-                TrySetSauce(OrderDatabase.SauceType.Cheese);
+                RuntimeManager.PlayOneShot(
+                    sauceSound,
+                    clicked.transform.position
+                );
             }
         }
+
         else if (clicked == chiliBottle)
         {
-            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            if (TrySetSauce(OrderDatabase.SauceType.Chili))
             {
-                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-                TrySetSauce(OrderDatabase.SauceType.Chili);
+                RuntimeManager.PlayOneShot(
+                    sauceSound,
+                    clicked.transform.position
+                );
             }
         }
+
         else if (clicked == oneIslandBottle)
         {
-            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            if (TrySetSauce(OrderDatabase.SauceType.OneIsland))
             {
-                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-                TrySetSauce(OrderDatabase.SauceType.OneIsland);
+                RuntimeManager.PlayOneShot(
+                    sauceSound,
+                    clicked.transform.position
+                );
             }
         }
+
         else if (clicked == garlicBottle)
         {
-            if (basketData.sauceType == OrderDatabase.SauceType.None)
+            if (TrySetSauce(OrderDatabase.SauceType.Garlic))
             {
-                RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
-                TrySetSauce(OrderDatabase.SauceType.Garlic);
+                RuntimeManager.PlayOneShot(
+                    sauceSound,
+                    clicked.transform.position
+                );
+            }
+        }
+
+        else if (clicked == saltShaker)
+        {
+            if (TrySetSeasoning(OrderDatabase.SeasoningType.Salt))
+            {
+                PlayShakerSound(clicked.transform.position);
+            }
+        }
+
+        else if (clicked == pepperShaker)
+        {
+            if (TrySetSeasoning(OrderDatabase.SeasoningType.Pepper))
+            {
+                PlayShakerSound(clicked.transform.position);
             }
         }
         else if (clicked == emptySauceBox)
         {
-            TrySetSauce(OrderDatabase.SauceType.None, true);
+            TrySetSauce(
+                OrderDatabase.SauceType.None,
+                true
+            );
         }
-        else if (clicked == saltShaker)
-        {
-            if (basketData.seasoningType == OrderDatabase.SeasoningType.None)
-            {
-                PlayShakerSound(clicked.transform.position);
-                TrySetSeasoning(OrderDatabase.SeasoningType.Salt);
-            }
-        }
-        else if (clicked == pepperShaker)
-        {
-            if (basketData.seasoningType == OrderDatabase.SeasoningType.None)
-            {
-                PlayShakerSound(clicked.transform.position);
-                TrySetSeasoning(OrderDatabase.SeasoningType.Pepper);
-            }
-        }
+        
         else if (clicked == bell)
         {
             currentClientController = currentCustomer.GetComponent<ClientController>();
@@ -309,28 +330,39 @@ public partial class BasketInteraction : MonoBehaviour
         deathScreenManager.ShowDeath(player);
     }
 
-    private void TrySetSauce(OrderDatabase.SauceType newSauce, bool force = false)
+    private bool TrySetSauce(
+        OrderDatabase.SauceType newSauce,
+        bool force = false)
     {
-        if (!basketData.trayVisible || basketData.friesType == OrderDatabase.FriesType.None)
-            return;
+        if (!basketData.trayVisible ||
+            basketData.friesType == OrderDatabase.FriesType.None)
+            return false;
 
-        if (basketData.sauceType != OrderDatabase.SauceType.None && !force)
-            return;
+        if (basketData.sauceType != OrderDatabase.SauceType.None &&
+            !force)
+            return false;
 
         basketData.sauceType = newSauce;
         basketData.RefreshVisuals();
+
+        return true;
     }
 
-    private void TrySetSeasoning(OrderDatabase.SeasoningType newSeasoning)
+    private bool TrySetSeasoning(
+        OrderDatabase.SeasoningType newSeasoning)
     {
-        if (!basketData.trayVisible || basketData.friesType == OrderDatabase.FriesType.None)
-            return;
+        if (!basketData.trayVisible ||
+            basketData.friesType == OrderDatabase.FriesType.None)
+            return false;
 
-        if (basketData.seasoningType != OrderDatabase.SeasoningType.None)
-            return;
+        if (basketData.seasoningType !=
+            OrderDatabase.SeasoningType.None)
+            return false;
 
         basketData.seasoningType = newSeasoning;
         basketData.RefreshVisuals();
+
+        return true;
     }
 
     private void ResetBasket()
