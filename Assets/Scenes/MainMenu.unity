@@ -1733,13 +1733,13 @@ MonoBehaviour:
   text: {fileID: 122350950}
   button: {fileID: 361586356}
   options:
-  - label: 'Screen Mode: fullScreen'
+  - label: 'Screen Mode: Borderless'
     action:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 361586360}
           m_TargetAssemblyTypeName: ScreenModeController, Assembly-CSharp
-          m_MethodName: SetFullscreen
+          m_MethodName: SetBorderless
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1749,13 +1749,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - label: 'Screen Mode: Borderless'
+  - label: 'Screen Mode: FullScreen'
     action:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 361586360}
           m_TargetAssemblyTypeName: ScreenModeController, Assembly-CSharp
-          m_MethodName: SetFullscreenBorderless
+          m_MethodName: SetFullscreen
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3475,9 +3475,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001478685}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1010362661
 GameObject:
@@ -5836,7 +5836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bcf73e19a8d0c49bfc0c55b7de5890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  currentView: 2
+  currentView: 0
   mainCard:
     group: {fileID: 1430885966}
   gameCard:
@@ -6190,8 +6190,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9dc2eb202bc8eb345b399b1516ef78a7, type: 2}
+  m_sharedMaterial: {fileID: 1573236418402325210, guid: 9dc2eb202bc8eb345b399b1516ef78a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6544,9 +6544,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430885964}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1449778501
 GameObject:
@@ -6945,8 +6945,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sensitivity
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9dc2eb202bc8eb345b399b1516ef78a7, type: 2}
+  m_sharedMaterial: {fileID: 1573236418402325210, guid: 9dc2eb202bc8eb345b399b1516ef78a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7157,8 +7157,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9dc2eb202bc8eb345b399b1516ef78a7, type: 2}
+  m_sharedMaterial: {fileID: 1573236418402325210, guid: 9dc2eb202bc8eb345b399b1516ef78a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

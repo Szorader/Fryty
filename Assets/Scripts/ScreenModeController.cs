@@ -2,18 +2,21 @@ using UnityEngine;
 
 public class ScreenModeController : MonoBehaviour
 {
-    public void SetFullscreen()
-    {
-        Screen.fullScreen = !Screen.fullScreen;
-    }
-
+    // maximized window
     public void SetWindowed()
     {
         Screen.fullScreenMode = FullScreenMode.Windowed;
     }
 
-    public void SetFullscreenBorderless()
+    // fullscreen alt-tab freindly
+    public void SetBorderless()
     {
         Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+    }
+
+    // fullscreen
+    public void SetFullscreen()
+    {
+        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
     }
 }
