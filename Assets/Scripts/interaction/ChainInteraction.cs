@@ -11,6 +11,7 @@ public class ChainInteraction : MonoBehaviour, IInteractable
 
     public QueuingDevice queuingDevice;
     public QueueType queueType;
+    public DoorReset doorReset;
 
     [Header("WALLET")]
     public Wallet wallet;
@@ -89,6 +90,9 @@ public class ChainInteraction : MonoBehaviour, IInteractable
 
     private IEnumerator KillSequence(ClientController client)
     {
+        //resetuje pozycje drzwi do domyslnej
+        doorReset.ResetDoor();
+        
         animator.SetTrigger("close");
 
         RuntimeManager.PlayOneShot(chainSound, transform.position);
@@ -96,6 +100,9 @@ public class ChainInteraction : MonoBehaviour, IInteractable
 
         yield return new WaitForSeconds(1f);
 
+        //blokuje i nie mozna otwierac drzwi
+        doorReset.LockDoor();
+        
         RuntimeManager.PlayOneShot(killSound, transform.position);
 
         // WALLET LOGIC
@@ -129,6 +136,9 @@ public class ChainInteraction : MonoBehaviour, IInteractable
 
         queuingDevice.KillClient(client);
 
+        //odblokowuje pod animacje
+        doorReset.UnlockDoor();
+        
         RuntimeManager.PlayOneShot(hatchSound, transform.position);
         animator.SetTrigger("open");
 

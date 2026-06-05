@@ -138,9 +138,11 @@ public class Tutorial : MonoBehaviour
                     t = "Put the fries into the fryer. Take them out once they're fried.";
                     Text(t, fryer);
                 }
+                Debug.Log("przed");
                 break;
            //usmażone -> koszyczek
            case 6:
+               Debug.Log("w trakcie");
                obj = GameObject.Find("FRYTUNIE(Clone)");
                FriesData fdata = obj.GetComponent<FriesData>();
                if (fdata.cookDes == "Perfect")

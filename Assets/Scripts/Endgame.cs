@@ -58,8 +58,7 @@ public class Endgame : MonoBehaviour
     }
      IEnumerator EventSequence()
     {
-        //spawn policeman
-        GameObject obj = Instantiate(policeman, spawnPoint.position, spawnPoint.rotation);
+        
         
         yield return new WaitForSecondsRealtime(startDelay);
         
@@ -73,6 +72,8 @@ public class Endgame : MonoBehaviour
         // 2 knock knock
         RuntimeManager.PlayOneShot(secondKnock, transform.position);
 
+        //spawn policeman
+        GameObject obj = Instantiate(policeman, spawnPoint.position, spawnPoint.rotation);
         
         yield return new WaitForSecondsRealtime(pauseAfterKnocks);
         
