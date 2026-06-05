@@ -78,8 +78,12 @@ public class Endgame : MonoBehaviour
         yield return new WaitForSecondsRealtime(pauseAfterKnocks);
         
         
+        //patrzenie na policjanta
+        isLooking = true;
+        
         // door kick
         RuntimeManager.PlayOneShot(doorKickDown, transform.position);
+        
         
         
         
@@ -95,9 +99,11 @@ public class Endgame : MonoBehaviour
                 yield return new WaitForSecondsRealtime(pauseBeforeTalk);
                 RuntimeManager.PlayOneShot(copTalk, transform.position);
         
-        isLooking = true;
+        
         
         animator.SetTrigger(animationTrigger);
+        
+        yield return new WaitForSecondsRealtime(2f);
         
         deathScreen.ShowArrest(playerMovementScript.gameObject);
         yield return new WaitForSecondsRealtime(5f);
