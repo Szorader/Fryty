@@ -78,8 +78,7 @@ public class Endgame : MonoBehaviour
         yield return new WaitForSecondsRealtime(pauseAfterKnocks);
         
         
-        //patrzenie na policjanta
-        isLooking = true;
+        
         
         // door kick
         RuntimeManager.PlayOneShot(doorKickDown, transform.position);
@@ -94,6 +93,9 @@ public class Endgame : MonoBehaviour
             player.Die(); // stops footsteps audio + locks death state + unlocks cursor
         }
         playerMovementScript.enabled = false;
+        
+        //patrzenie na policjanta
+        isLooking = true;
         
         // cop talks
                 yield return new WaitForSecondsRealtime(pauseBeforeTalk);

@@ -57,8 +57,13 @@ public partial class BasketInteraction : MonoBehaviour
 
     private FMOD.Studio.EventInstance shakerInstance;
     private bool shakerPlaying = false;
+    private bool isLooking = false;
 
     public GameObject clicked;
+    
+    public Camera playerCamera;
+    public Transform lookTarget;
+    public float cameraLookSpeed = 2f;
 
     void Start()
     {
@@ -70,6 +75,10 @@ public partial class BasketInteraction : MonoBehaviour
 
     private void Update()
     {
+        if (isLooking)
+        {
+            LookAtTarget();
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -79,8 +88,20 @@ public partial class BasketInteraction : MonoBehaviour
                 HandleClick(hit.collider.gameObject);
             }
         }
+        
     }
 
+    void LookAtTarget()
+    {
+        Vector3 direction = lookTarget.position - playerCamera.transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        playerCamera.transform.rotation = Quaternion.Slerp(
+            playerCamera.transform.rotation,
+            targetRotation,
+            cameraLookSpeed * Time.deltaTime
+        );
+    }
     private void HandleClick(GameObject click)
     {
         clicked = click;
@@ -231,6 +252,10 @@ public partial class BasketInteraction : MonoBehaviour
         
         if (isBad)
         {
+            isLooking = true;
+
+            player.GetComponent<PlayerMovement>().enabled = false;
+            
             Animator anim = currentCustomer.GetComponent<Animator>();
 
             StartCoroutine(
@@ -398,4 +423,6 @@ public partial class BasketInteraction : MonoBehaviour
         basketData.trayVisible = false;
         basketData.RefreshVisuals();
     }
+    
+    
 }
