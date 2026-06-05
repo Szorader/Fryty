@@ -3533,6 +3533,9 @@ MonoBehaviour:
       Data4: -927910230
     Path: event:/InsideTruck/cha-ching
   clicked: {fileID: 0}
+  playerCamera: {fileID: 0}
+  lookTarget: {fileID: 0}
+  cameraLookSpeed: 2
 --- !u!4 &249424873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4513626019982039117, guid: ad74e02c8c13d614f96172018d3b2832, type: 3}
@@ -23152,10 +23155,6 @@ Transform:
   - {fileID: 6065050430626437599}
   - {fileID: 7091222687419539448}
   - {fileID: 5062094190243017970}
-  - {fileID: 9126220151102797965}
-  - {fileID: 9126220150997883345}
-  - {fileID: 9126220149962097448}
-  - {fileID: 9126220150280582927}
   - {fileID: 1285927112}
   - {fileID: 7353611832886035892}
   - {fileID: 4643351845315706126}
@@ -26103,70 +26102,6 @@ GameObject:
   - component: {fileID: 9126220149728365247}
   m_Layer: 0
   m_Name: p_StreetLamp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &2944096197559048977
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9126220150280582927}
-  m_Layer: 0
-  m_Name: p_StreetLamp (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &2944096197891682102
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9126220149962097448}
-  m_Layer: 0
-  m_Name: p_StreetLamp (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &2944096198884578451
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9126220151102797965}
-  m_Layer: 0
-  m_Name: p_StreetLamp (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &2944096198989198799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9126220150997883345}
-  m_Layer: 0
-  m_Name: p_StreetLamp (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31070,66 +31005,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3374540668875643862}
-  m_Father: {fileID: 1968990441}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &9126220149962097448
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2944096197891682102}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.396648, y: 8.03, z: -11.93}
-  m_LocalScale: {x: 2.8143494, y: 2.8143494, z: 2.8143494}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1968990441}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &9126220150280582927
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2944096197559048977}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.413351, y: 8.12, z: -8.040001}
-  m_LocalScale: {x: 2.8143494, y: 2.8143494, z: 2.8143494}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1968990441}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &9126220150997883345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2944096198989198799}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.35665, y: 8.12, z: -44.644947}
-  m_LocalScale: {x: 2.8143494, y: 2.8143494, z: 2.8143494}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1968990441}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &9126220151102797965
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2944096198884578451}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.6933503, y: 8.12, z: -45.48}
-  m_LocalScale: {x: 2.8143494, y: 2.8143494, z: 2.8143494}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 1968990441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &9142902506850966716 stripped
