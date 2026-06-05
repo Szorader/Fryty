@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1340395480}
+      - m_Target: {fileID: 1758991160}
         m_TargetAssemblyTypeName: CircleSlider, Assembly-CSharp
         m_MethodName: Mute
         m_Mode: 1
@@ -8035,7 +8035,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1340395480}
+      - m_Target: {fileID: 199879297}
         m_TargetAssemblyTypeName: CircleSlider, Assembly-CSharp
         m_MethodName: Mute
         m_Mode: 1
