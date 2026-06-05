@@ -20,6 +20,13 @@ public class CircleSlider : MonoBehaviour, IDragHandler
     [SerializeField] private Image fill;
     [SerializeField] private TMP_Text valTxt;
     [SerializeField] private RectTransform center;
+    [SerializeField] private Image muteButtonImage;
+
+    private readonly Color enabledColor =
+        new Color32(72, 154, 76, 255);   // #489A4C
+
+    private readonly Color mutedColor =
+        new Color32(200, 60, 60, 255);   // red
 
     [Range(0f, 1f)]
     [SerializeField] private float startValue = 0.5f;
@@ -88,6 +95,8 @@ public class CircleSlider : MonoBehaviour, IDragHandler
             Mathf.Round(value01 * 100f).ToString();
 
         ApplyAudio();
+
+        UpdateMuteButtonColor();
     }
 
     private void ApplyAudio()
@@ -106,5 +115,22 @@ public class CircleSlider : MonoBehaviour, IDragHandler
                 VcaController.Instance.SetSFXVolume(currentValue);
                 break;
         }
+    }
+    
+    // Mute buttons
+    public void Mute()
+    {
+        SetValue(0f);
+    }
+    
+    private void UpdateMuteButtonColor()
+    {
+        if (muteButtonImage == null)
+            return;
+
+        muteButtonImage.color =
+            currentValue <= 0.001f
+                ? mutedColor
+                : enabledColor;
     }
 }
