@@ -15,8 +15,8 @@ public class FryerSystem : MonoBehaviour
     [Header("VFX")]
     [SerializeField] private float particleFadeSpeed = 3f;
     [SerializeField] private ParticleSystem overcookParticles;
+    [SerializeField] private int overcookLevel = 2;
     private ParticleSystem.EmissionModule overcookEmission;
-    [SerializeField] private int overcookLevel = 2; // poziom, od którego efekt się odpala
 
     [Header("MODELS")]
     public GameObject straightModel;
