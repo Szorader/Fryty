@@ -11,6 +11,12 @@ public class FryerSystem : MonoBehaviour
     [Header("COOKING")]
     [Range(0, 2)] public int cookLevel = 0;
     public string cookDes;
+    
+    [Header("VFX")]
+    [SerializeField] private float particleFadeSpeed = 3f;
+    [SerializeField] private ParticleSystem overcookParticles;
+    private ParticleSystem.EmissionModule overcookEmission;
+    [SerializeField] private int overcookLevel = 2; // poziom, od którego efekt się odpala
 
     [Header("MODELS")]
     public GameObject straightModel;
@@ -57,6 +63,26 @@ public class FryerSystem : MonoBehaviour
         // audio
         fryingLoopInstance = RuntimeManager.CreateInstance(fryingLoopEvent);
         fryingLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        
+        if (overcookParticles)
+        {
+            overcookEmission = overcookParticles.emission;
+            overcookEmission.rateOverTime = 0f;
+
+            overcookParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            overcookParticles.Clear();
+        }
+    }
+    private void Start()
+    {
+        if (overcookParticles)
+        {
+            overcookEmission = overcookParticles.emission;
+            overcookEmission.rateOverTime = 0f;
+
+            overcookParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            overcookParticles.Clear();
+        }
     }
 
     private void Update()
@@ -69,6 +95,7 @@ public class FryerSystem : MonoBehaviour
         // Audio
         HandleFryingSound(); 
         fryingLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+        HandleParticles();
     }
 
     private void HandleMovement()
@@ -111,6 +138,15 @@ public class FryerSystem : MonoBehaviour
 
         Destroy(fries.gameObject);
     }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        FriesData fries = other.GetComponentInParent<FriesData>();
+        if (!fries) return;
+
+        if (fries.isFried)
+            fries.isFried = false;
+    }
 
     public void OnMouseDown()
     {
@@ -152,6 +188,12 @@ public class FryerSystem : MonoBehaviour
         cookTimer = 0f;
 
         RefreshVisuals();
+        
+        if (overcookParticles)
+        {
+            overcookEmission.rateOverTime = 0;
+            overcookParticles.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     private void Shoot()
@@ -263,5 +305,29 @@ public class FryerSystem : MonoBehaviour
     {
         fryingLoopInstance.stop(STOP_MODE.IMMEDIATE);
         fryingLoopInstance.release();
+    }
+    
+    private void HandleParticles()
+    {
+        if (!overcookParticles) return;
+
+        bool shouldBeActive = hasFries && !returning && cookLevel >= overcookLevel;
+
+        float targetRate = shouldBeActive ? 30f : 0f;
+
+        overcookEmission.rateOverTime = Mathf.Lerp(
+            overcookEmission.rateOverTime.constant,
+            targetRate,
+            Time.deltaTime * particleFadeSpeed
+        );
+
+        if (!shouldBeActive && overcookEmission.rateOverTime.constant <= 0.1f)
+        {
+            overcookParticles.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+        }
+        else if (shouldBeActive && !overcookParticles.isPlaying)
+        {
+            overcookParticles.Play();
+        }
     }
 }
