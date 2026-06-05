@@ -1165,6 +1165,7 @@ MonoBehaviour:
   fill: {fileID: 1167686246}
   valTxt: {fileID: 1184760880}
   center: {fileID: 1043328427}
+  muteButtonImage: {fileID: 0}
   startValue: 0.37
 --- !u!1 &231392449
 GameObject:
@@ -1689,6 +1690,7 @@ GameObject:
   - component: {fileID: 361586356}
   - component: {fileID: 361586355}
   - component: {fileID: 361586359}
+  - component: {fileID: 361586360}
   m_Layer: 5
   m_Name: Window
   m_TagString: Untagged
@@ -1731,14 +1733,54 @@ MonoBehaviour:
   text: {fileID: 122350950}
   button: {fileID: 361586356}
   options:
-  - label: 'Screen Mode: FullScreen'
+  - label: 'Screen Mode: fullScreen'
     action:
       m_PersistentCalls:
-        m_Calls: []
-  - label: 'Screen Mode: Window'
+        m_Calls:
+        - m_Target: {fileID: 361586360}
+          m_TargetAssemblyTypeName: ScreenModeController, Assembly-CSharp
+          m_MethodName: SetFullscreen
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - label: 'Screen Mode: Borderless'
     action:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 361586360}
+          m_TargetAssemblyTypeName: ScreenModeController, Assembly-CSharp
+          m_MethodName: SetFullscreenBorderless
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - label: 'Screen Mode: Windowed'
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 361586360}
+          m_TargetAssemblyTypeName: ScreenModeController, Assembly-CSharp
+          m_MethodName: SetWindowed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &361586356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1843,6 +1885,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &361586360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361586353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572a0e6b0e078e94fa62883abfb30eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenModeController
 --- !u!1 &433763048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3421,9 +3475,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001478685}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &1010362661
 GameObject:
@@ -5662,6 +5716,7 @@ MonoBehaviour:
   fill: {fileID: 1680965546}
   valTxt: {fileID: 433763050}
   center: {fileID: 839381406}
+  muteButtonImage: {fileID: 0}
   startValue: 0.69
 --- !u!1 &1349078016
 GameObject:
@@ -5781,7 +5836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bcf73e19a8d0c49bfc0c55b7de5890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  currentView: 0
+  currentView: 2
   mainCard:
     group: {fileID: 1430885966}
   gameCard:
@@ -6489,9 +6544,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430885964}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1449778501
 GameObject:
@@ -8399,6 +8454,7 @@ MonoBehaviour:
   fill: {fileID: 2135087051}
   valTxt: {fileID: 1032864171}
   center: {fileID: 30236762}
+  muteButtonImage: {fileID: 0}
   startValue: 0.21
 --- !u!1 &1764521100
 GameObject:
