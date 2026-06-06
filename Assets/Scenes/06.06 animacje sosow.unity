@@ -41012,7 +41012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115e2272da4cad6438ac1e79bb3d671d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketballHoop
-  confetti: {fileID: 1415929041632111524, guid: 6450097922fa9c74baf638b97d37eeb3, type: 3}
+  confetti: {fileID: 2064335622}
 --- !u!1 &1643802291
 GameObject:
   m_ObjectHideFlags: 0
@@ -56164,6 +56164,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1242017703}
     m_Modifications:
+    - target: {fileID: 495510784409182861, guid: b2cefaeadc0fab343bbb6bd60fe1be9d, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6074380265576869593, guid: b2cefaeadc0fab343bbb6bd60fe1be9d, type: 3}
       propertyPath: m_Name
       value: Confetti
