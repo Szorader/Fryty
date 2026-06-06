@@ -412,11 +412,19 @@ public partial class BasketInteraction : MonoBehaviour
             !force)
             return false;
 
-        basketData.sauceType = newSauce;
-        basketData.RefreshVisuals();
+        StartCoroutine(SetSauce(newSauce));
 
         return true;
     }
+    
+    private IEnumerator SetSauce(OrderDatabase.SauceType newSauce)
+    {
+        yield return new WaitForSeconds(0.45f);
+        basketData.sauceType = newSauce;
+        basketData.RefreshVisuals();
+    }
+    
+    
 
     private bool TrySetSeasoning(
         OrderDatabase.SeasoningType newSeasoning)
@@ -429,10 +437,16 @@ public partial class BasketInteraction : MonoBehaviour
             OrderDatabase.SeasoningType.None)
             return false;
 
-        basketData.seasoningType = newSeasoning;
-        basketData.RefreshVisuals();
+        StartCoroutine(SetSeasoning(newSeasoning));
 
         return true;
+    }
+    
+    private IEnumerator SetSeasoning(OrderDatabase.SeasoningType newSeasoning)
+    {
+        yield return new WaitForSeconds(0.45f);
+        basketData.seasoningType = newSeasoning;
+        basketData.RefreshVisuals();
     }
 
     private void ResetBasket()
