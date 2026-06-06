@@ -251,6 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8085630732719783452}
   - component: {fileID: 6769255595030507850}
+  - component: {fileID: 1751073627582566309}
   m_Layer: 0
   m_Name: f_client
   m_TagString: Untagged
@@ -368,6 +369,21 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0099463165, y: 0.18872693, z: 0.012552947}
     m_Extent: {x: 0.6506417, y: 1.0723226, z: 0.41305345}
   m_DirtyAABB: 0
+--- !u!114 &1751073627582566309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357894370584972637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a20ea30ffd879b49bb95fdd40e460a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialHighlight
+  renderers:
+  - {fileID: 6769255595030507850}
+  rend: {fileID: 0}
 --- !u!1 &550235757275137568
 GameObject:
   m_ObjectHideFlags: 0

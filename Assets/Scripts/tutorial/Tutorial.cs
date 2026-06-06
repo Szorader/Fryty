@@ -8,6 +8,7 @@ public class Tutorial : MonoBehaviour
 {
     public GameObject uiTutorial;
     public TextMeshProUGUI tutorialText;
+    private TutorialHighlight currentHighlight;
 
     public EventReference tutorialSound;
 
@@ -289,7 +290,31 @@ public class Tutorial : MonoBehaviour
         //dzwiek
         RuntimeManager.PlayOneShot(tutorialSound, obj.transform.position);
         tutorialText.text = text;
+
         obj.SetActive(true);
+
+        Highlight(obj);
+
         tutorialStep++;
+    }
+    
+    // flashing color / highlights
+    private void Highlight(GameObject obj)
+    {
+        if (currentHighlight != null)
+        {
+            currentHighlight.SetHighlight(false);
+        }
+
+        if (obj == null)
+            return;
+
+        currentHighlight =
+            obj.GetComponent<TutorialHighlight>();
+
+        if (currentHighlight != null)
+        {
+            currentHighlight.SetHighlight(true);
+        }
     }
 }
