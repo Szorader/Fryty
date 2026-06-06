@@ -65,7 +65,18 @@ public class SpawnManager : MonoBehaviour
         spawnPoint.position,
         Quaternion.identity
     );
+    
+    // if customer is evil -> enable growths via the RottenCustomerVisuals script
+    RottenCustomerVisuals visuals = obj.GetComponent<RottenCustomerVisuals>();
 
+    if (visuals != null)
+    {
+        if (isBad)
+            visuals.SetupBadVisuals();
+        else
+            visuals.SetupGoodVisuals();
+    }
+    
     // Get renderer
     Renderer renderer = obj.GetComponentInChildren<SkinnedMeshRenderer>();
 

@@ -63,6 +63,18 @@ public class TutorialSpawner : MonoBehaviour
             Quaternion.identity
         );
 
+        // growths / flies
+        RottenCustomerVisuals visuals =
+            obj.GetComponent<RottenCustomerVisuals>();
+
+        if (visuals != null)
+        {
+            if (isBad)
+                visuals.SetupBadVisuals();
+            else
+                visuals.SetupGoodVisuals();
+        }
+        
         Renderer renderer =
             obj.GetComponentInChildren<SkinnedMeshRenderer>();
 
