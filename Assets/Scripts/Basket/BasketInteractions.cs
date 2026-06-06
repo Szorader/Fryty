@@ -36,6 +36,7 @@ public partial class BasketInteraction : MonoBehaviour
     public bool isBad;
     
     [Header("OTHER")]
+    public Animator itemsAnimator;
 
     public GameObject bell;
     public GameObject trashBin;
@@ -102,6 +103,30 @@ public partial class BasketInteraction : MonoBehaviour
             cameraLookSpeed * Time.deltaTime
         );
     }
+
+    private void PlayItemUse(int id)
+    {
+        if (!itemsAnimator) return;
+        
+        itemsAnimator.SetInteger("ItemID", id);
+        itemsAnimator.SetTrigger("Use");
+    }
+    
+    private IEnumerator PlaySauceSequence(
+        int itemId,
+        Vector3 soundPosition,
+        float soundDelay)
+    {
+        PlayItemUse(itemId);
+
+        yield return new WaitForSeconds(soundDelay);
+
+        RuntimeManager.PlayOneShot(
+            sauceSound,
+            soundPosition
+        );
+    }
+    
     private void HandleClick(GameObject click)
     {
         clicked = click;
@@ -111,10 +136,15 @@ public partial class BasketInteraction : MonoBehaviour
         {
             if (TrySetSauce(OrderDatabase.SauceType.Ketchup))
             {
-                RuntimeManager.PlayOneShot(
-                    sauceSound,
-                    clicked.transform.position
+                StartCoroutine(
+                    PlaySauceSequence(
+                        0,
+                        clicked.transform.position,
+                        0.3f
+                    )
                 );
+
+                //RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
             }
         }
 
@@ -122,10 +152,15 @@ public partial class BasketInteraction : MonoBehaviour
         {
             if (TrySetSauce(OrderDatabase.SauceType.Mayo))
             {
-                RuntimeManager.PlayOneShot(
-                    sauceSound,
-                    clicked.transform.position
+                StartCoroutine(
+                    PlaySauceSequence(
+                        1,
+                        clicked.transform.position,
+                        0.3f
+                    )
                 );
+
+                //RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
             }
         }
 
@@ -133,10 +168,15 @@ public partial class BasketInteraction : MonoBehaviour
         {
             if (TrySetSauce(OrderDatabase.SauceType.Cheese))
             {
-                RuntimeManager.PlayOneShot(
-                    sauceSound,
-                    clicked.transform.position
+                StartCoroutine(
+                    PlaySauceSequence(
+                        4,
+                        clicked.transform.position,
+                        0.3f
+                    )
                 );
+
+                //RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
             }
         }
 
@@ -144,10 +184,15 @@ public partial class BasketInteraction : MonoBehaviour
         {
             if (TrySetSauce(OrderDatabase.SauceType.Chili))
             {
-                RuntimeManager.PlayOneShot(
-                    sauceSound,
-                    clicked.transform.position
+                StartCoroutine(
+                    PlaySauceSequence(
+                        5,
+                        clicked.transform.position,
+                        0.3f
+                    )
                 );
+
+                //RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
             }
         }
 
@@ -155,10 +200,15 @@ public partial class BasketInteraction : MonoBehaviour
         {
             if (TrySetSauce(OrderDatabase.SauceType.OneIsland))
             {
-                RuntimeManager.PlayOneShot(
-                    sauceSound,
-                    clicked.transform.position
+                StartCoroutine(
+                    PlaySauceSequence(
+                        3,
+                        clicked.transform.position,
+                        0.3f
+                    )
                 );
+
+                //RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
             }
         }
 
@@ -166,10 +216,15 @@ public partial class BasketInteraction : MonoBehaviour
         {
             if (TrySetSauce(OrderDatabase.SauceType.Garlic))
             {
-                RuntimeManager.PlayOneShot(
-                    sauceSound,
-                    clicked.transform.position
+                StartCoroutine(
+                    PlaySauceSequence(
+                        2,
+                        clicked.transform.position,
+                        0.3f
+                    )
                 );
+
+                //RuntimeManager.PlayOneShot(sauceSound, clicked.transform.position);
             }
         }
 
@@ -177,7 +232,14 @@ public partial class BasketInteraction : MonoBehaviour
         {
             if (TrySetSeasoning(OrderDatabase.SeasoningType.Salt))
             {
-                PlayShakerSound(clicked.transform.position);
+                StartCoroutine(
+                    PlaySauceSequence(
+                        7,
+                        clicked.transform.position,
+                        0.3f
+                    )
+                );
+                //PlayShakerSound(clicked.transform.position);
             }
         }
 
@@ -185,9 +247,17 @@ public partial class BasketInteraction : MonoBehaviour
         {
             if (TrySetSeasoning(OrderDatabase.SeasoningType.Pepper))
             {
-                PlayShakerSound(clicked.transform.position);
+                StartCoroutine(
+                    PlaySauceSequence(
+                        6,
+                        clicked.transform.position,
+                        0.3f
+                    )
+                );
+                //PlayShakerSound(clicked.transform.position);
             }
         }
+        
         else if (clicked == emptySauceBox)
         {
             TrySetSauce(
