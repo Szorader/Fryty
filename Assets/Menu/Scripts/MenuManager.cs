@@ -138,16 +138,18 @@ public class MenuManager : MonoBehaviour
     {
         PlayWritingSound();
         saveSystem.ResetStats();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     public void _PlayGame()
     {
         PlayWritingSound();
-        bool playedTutorial = saveSystem.IsTutorialCompleted();
-        if (playedTutorial)
-            SceneManager.LoadScene(1);
-        else
-            SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
+    }
+
+    public void _PlayTutorial()
+    {
+        PlayWritingSound();
+        SceneManager.LoadScene(2);
     }
 
     public void _QuitGame()

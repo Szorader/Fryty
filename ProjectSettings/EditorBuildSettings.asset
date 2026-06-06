@@ -9,11 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: bf3a327833f3c6c46bf23d4f614174b3
   - enabled: 1
-    path: Assets/Scenes/05.06 fix bugs.unity
-    guid: 458a3b79841d9e7429424ae7874c30ea
-  - enabled: 0
-    path: Assets/Scenes/Build IV.unity
-    guid: 7c88de4854f196c4aa77dd43b5f702d9
+    path: Assets/Scenes/06.06 basketball.unity
+    guid: 318fed58d9aeb08489fc980bdee662af
   - enabled: 1
     path: Assets/Scenes/Tutorial v3.unity
     guid: c327fd27aaa38754f9a63630d2b95cf1

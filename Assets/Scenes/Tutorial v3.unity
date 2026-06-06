@@ -20060,7 +20060,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6429143586657340569, guid: 1c985222f03ed91429befe9c609464a4, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4163785880240297021, guid: 1c985222f03ed91429befe9c609464a4, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 4417257817202888965}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c985222f03ed91429befe9c609464a4, type: 3}
 --- !u!1 &4214369454631476596 stripped
@@ -20341,12 +20344,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3892957499594263487}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 3.975, y: 1.344, z: -26.416}
-  m_LocalScale: {x: 0.6343521, y: 1.2539386, z: 1}
+  m_LocalRotation: {x: 0.00000005960465, y: -0.00000005960465, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.00023880004, y: 0.0016799957, z: -0.0029100005}
+  m_LocalScale: {x: 0.0063435226, y: 0.012539383, z: 0.0100000035}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1408547964237461725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4484603000041359806
 GameObject:
@@ -23102,6 +23105,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1000497768}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: playerMovementScript
+      value: 
+      objectReference: {fileID: 909139891}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: openParasols.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -24536,4 +24543,3 @@ SceneRoots:
   - {fileID: 1727822678}
   - {fileID: 233038451}
   - {fileID: 1705211896}
-  - {fileID: 4417257817202888965}
