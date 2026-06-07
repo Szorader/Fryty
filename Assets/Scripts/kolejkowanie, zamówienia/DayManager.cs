@@ -41,6 +41,9 @@ public class DayManager : MonoBehaviour
     [SerializeField] private List<GameObject> openParasols = new List<GameObject>();
     [SerializeField] private List<GameObject> closedParasols = new List<GameObject>();
 
+    [Header("Audio")]
+    [SerializeField] private NightAmbienceManager nightAmbienceManager;
+
     void Start()
     {
         messagePanel.SetActive(false);
@@ -209,6 +212,10 @@ public class DayManager : MonoBehaviour
     {
         isCleaningPhase = true;
         SwitchToNight();
+
+        if (nightAmbienceManager != null)
+            nightAmbienceManager.StartNightAmbience();
+
 
         StartCoroutine(Message(
             "Time to start cleaning the outdoor tables",
