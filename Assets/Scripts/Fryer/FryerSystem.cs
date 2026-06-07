@@ -16,6 +16,7 @@ public class FryerSystem : MonoBehaviour
     [SerializeField] private ParticleSystem cookingParticles;
     [SerializeField] private ParticleSystem perfectParticles;
     [SerializeField] private ParticleSystem burntParticles;
+    private int lastCookLevel = -1;
 
     [Header("MODELS")]
     public GameObject straightModel;
@@ -63,26 +64,8 @@ public class FryerSystem : MonoBehaviour
         fryingLoopInstance = RuntimeManager.CreateInstance(fryingLoopEvent);
         fryingLoopInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
         
-        if (overcookParticles)
-        {
-            overcookEmission = overcookParticles.emission;
-            overcookEmission.rateOverTime = 0f;
-
-            overcookParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            overcookParticles.Clear();
-        }
     }
-    private void Start()
-    {
-        if (overcookParticles)
-        {
-            overcookEmission = overcookParticles.emission;
-            overcookEmission.rateOverTime = 0f;
-
-            overcookParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            overcookParticles.Clear();
-        }
-    }
+    
 
     private void Update()
     {
@@ -187,12 +170,26 @@ public class FryerSystem : MonoBehaviour
         cookTimer = 0f;
 
         RefreshVisuals();
-        
-        if (overcookParticles)
-        {
-            overcookEmission.rateOverTime = 0;
-            overcookParticles.Stop(false, ParticleSystemStopBehavior.StopEmitting);
-        }
+
+        if (cookingParticles)
+            cookingParticles.Stop(
+                true,
+                ParticleSystemStopBehavior.StopEmittingAndClear
+            );
+
+        if (perfectParticles)
+            perfectParticles.Stop(
+                true,
+                ParticleSystemStopBehavior.StopEmittingAndClear
+            );
+
+        if (burntParticles)
+            burntParticles.Stop(
+                true,
+                ParticleSystemStopBehavior.StopEmittingAndClear
+            );
+
+        lastCookLevel = -1;
     }
 
     private void Shoot()
@@ -308,25 +305,87 @@ public class FryerSystem : MonoBehaviour
     
     private void HandleParticles()
     {
-        if (!overcookParticles) return;
+        bool frying =
+            hasFries &&
+            !returning;
 
-        bool shouldBeActive = hasFries && !returning && cookLevel >= overcookLevel;
-
-        float targetRate = shouldBeActive ? 30f : 0f;
-
-        overcookEmission.rateOverTime = Mathf.Lerp(
-            overcookEmission.rateOverTime.constant,
-            targetRate,
-            Time.deltaTime * particleFadeSpeed
-        );
-
-        if (!shouldBeActive && overcookEmission.rateOverTime.constant <= 0.1f)
+        // Frying bubbles/oil particles
+        if (cookingParticles)
         {
-            overcookParticles.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+            if (frying)
+            {
+                if (!cookingParticles.isPlaying)
+                    cookingParticles.Play();
+            }
+            else
+            {
+                if (cookingParticles.isPlaying)
+                {
+                    cookingParticles.Stop(
+                        false,
+                        ParticleSystemStopBehavior.StopEmitting
+                    );
+                }
+            }
         }
-        else if (shouldBeActive && !overcookParticles.isPlaying)
+
+        // Perfect burst once
+        if (perfectParticles)
         {
-            overcookParticles.Play();
+            if (cookLevel == 1 &&
+                lastCookLevel != 1)
+            {
+                perfectParticles.Play();
+            }
+        }
+
+        // Burnt smoke
+        if (burntParticles)
+        {
+            bool burnt =
+                frying &&
+                cookLevel >= 2;
+
+            if (burnt)
+            {
+                if (!burntParticles.isPlaying)
+                    burntParticles.Play();
+            }
+            else
+            {
+                if (burntParticles.isPlaying)
+                {
+                    burntParticles.Stop(
+                        false,
+                        ParticleSystemStopBehavior.StopEmitting
+                    );
+                }
+            }
+        }
+
+        lastCookLevel = cookLevel;
+    }
+    
+    private void SetParticleState(
+        ParticleSystem ps,
+        bool active)
+    {
+        if (!ps)
+            return;
+
+        if (active)
+        {
+            if (!ps.isPlaying)
+                ps.Play();
+        }
+        else
+        {
+            if (ps.isPlaying)
+                ps.Stop(
+                    false,
+                    ParticleSystemStopBehavior.StopEmitting
+                );
         }
     }
+    
 }
