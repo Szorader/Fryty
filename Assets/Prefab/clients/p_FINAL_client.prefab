@@ -4245,14 +4245,14 @@ MonoBehaviour:
   baseTip: 5
   penaltyPer10Seconds: 0.05
   fastOrderBonus: 0.05
-  wrongFriesPenalty: 0.4
-  goodFriesBonus: 0.1
-  badCookPenalty: 0.6
-  goodCookBonus: 0.2
-  wrongSaucePenalty: 0.2
-  goodSauceBonus: 0.1
-  wrongSeasoningPenalty: 0.2
-  goodSeasoningBonus: 0.1
+  wrongFriesPenalty: 0.05
+  goodFriesBonus: 0.05
+  badCookPenalty: 0.05
+  goodCookBonus: 0.05
+  wrongSaucePenalty: 0.03
+  goodSauceBonus: 0.03
+  wrongSeasoningPenalty: 0.02
+  goodSeasoningBonus: 0.02
 --- !u!114 &-8918931836767975462
 MonoBehaviour:
   m_ObjectHideFlags: 0

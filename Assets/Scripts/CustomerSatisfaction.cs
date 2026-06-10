@@ -15,42 +15,42 @@ using UnityEngine;
 public class CustomerSatisfaction : MonoBehaviour
 {
     [Header("BASE TIP")]
-    public float baseTip = 5f;
+    public float baseTip = 2f;
 
-    [Header("TIME PENALTY")]
+    [Header("TIME PENALTY")] 
     [Range(0f, 1f)]
-    public float penaltyPer10Seconds = 0.05f;
+    public float penaltyPer10Seconds;
 
     [Range(0f, 1f)]
-    public float fastOrderBonus = 0.2f;
+
+    public float fastOrderBonus;
 
     [Header("FRIES")]
     [Range(0f, 1f)]
-    public float wrongFriesPenalty = 0.3f;
+    public float wrongFriesPenalty;
 
-    [Range(0f, 1f)]
-    public float goodFriesBonus = 0.1f;
+    [Range(0f, 1f)] public float goodFriesBonus;
 
     [Header("COOK LEVEL")]
     [Range(0f, 1f)]
-    public float badCookPenalty = 0.6f;
+    public float badCookPenalty;
 
     [Range(0f, 1f)]
-    public float goodCookBonus = 0.1f;
+    public float goodCookBonus;
 
     [Header("SAUCE")]
     [Range(0f, 1f)]
-    public float wrongSaucePenalty = 0.4f;
+    public float wrongSaucePenalty;
 
     [Range(0f, 1f)]
-    public float goodSauceBonus = 0.2f;
+    public float goodSauceBonus;
 
     [Header("SEASONING")]
     [Range(0f, 1f)]
-    public float wrongSeasoningPenalty = 0.2f;
+    public float wrongSeasoningPenalty;
 
     [Range(0f, 1f)]
-    public float goodSeasoningBonus = 0.1f;
+    public float goodSeasoningBonus;
 
     public float CalculateTip(
         int timeAlive,
@@ -106,8 +106,8 @@ public class CustomerSatisfaction : MonoBehaviour
 
         tip = Mathf.Max(0f, tip);
         tip = Mathf.Round(tip * 100f) / 100f;
-        if (tip > 10f)
-            return 10f;
+        if (tip > 4f)
+            return 4f;
         return tip;
     }
 

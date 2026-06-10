@@ -99,8 +99,10 @@ public class DayManager : MonoBehaviour
 
         data.day += 1;
 
-        float tax = data.money * 0.19f;
-        float total = data.money - tax;
+        float tax = -(data.money * 0.19f);
+        float supplies = -(data.money * 0.067f);
+        float rent = -data.day;
+        float total = data.money + tax + supplies + rent;
 
         saveSystem.saveData = data;
 
@@ -111,7 +113,9 @@ public class DayManager : MonoBehaviour
             $"Customers killed: {data.killedEnemies}",
             $"Trash cleaned: {data.cleanedTrashCount}",
             $"Money: {data.money:0.00}$",
-            $"Tax: -{tax:0.00}$",
+            $"Supplies: {supplies:0.00}$",
+            $"Tax: {tax:0.00}$",
+            $"Rent: {rent:0.00}$",
             $"Total: {total:0.00}$"
         };
 

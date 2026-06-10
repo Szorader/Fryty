@@ -26,7 +26,7 @@ public class QueuingDevice : MonoBehaviour
     public UI_QueuingDevice uiQueuingDevice;
     
     public PikaczInteraction assignedPikacz;
-    
+    public ClientController activePickupClient;
 
 
     public bool canGiveNumber = false;
@@ -143,15 +143,13 @@ public class QueuingDevice : MonoBehaviour
     {
         if (pickList.Count == 0)
             return;
-        
-        
-        //jezeli klikniemy w przywolonie i nie jest przypisany klient to return
+
         ClientController client = pickList[number];
         if (client == null)
             return;
-        else
-            uiQueuingDevice.canGiveOrder = false;
-        
+
+        uiQueuingDevice.canGiveOrder = false;
+
         basket.currentCustomer = client.customerOrder;
         basket.waitingTime = client.waitingTime;
         basket.satisfaction = client.satisfaction;
@@ -160,10 +158,9 @@ public class QueuingDevice : MonoBehaviour
         client.MoveTo(pickPoint.position);
         client.point.isReserved = false;
         
-        currentNumber = number;
+        activePickupClient = client;
+
         waitingForTake = true;
-        
-        
     }
     
     /// <summary>
@@ -171,15 +168,21 @@ public class QueuingDevice : MonoBehaviour
     /// </summary>
     public void RemoveClient()
     {
-        ClientController client = pickList[currentNumber];
+        ClientController client = activePickupClient;
 
-        if (client != null && assignedPikacz != null)
+        if (client == null)
+            return;
+
+        if (assignedPikacz != null)
         {
             assignedPikacz.gameObject.SetActive(true);
         }
 
         client.MoveTo(exitPoint.position);
         StartCoroutine(ExitRoutine(client));
+
+        // ważne: czyścimy referencję od razu
+        activePickupClient = null;
     }
     
     IEnumerator ExitRoutine(ClientController client)

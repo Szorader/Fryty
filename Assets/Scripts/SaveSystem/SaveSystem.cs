@@ -92,7 +92,15 @@ public class SaveSystem : MonoBehaviour
         {
             string json = File.ReadAllText(savePath);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
-
+            saveData = new SaveData()
+            {
+                money = data.money,
+                day = data.day,
+                killedEnemies = data.killedEnemies,
+                servedClients = data.servedClients,
+                cleanedTrashCount = data.cleanedTrashCount,
+                tutorialCompleted = data.tutorialCompleted
+            };
             Debug.Log("Gra wczytana");
             return data;
         }

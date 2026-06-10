@@ -43,6 +43,7 @@ public partial class BasketInteraction : MonoBehaviour
     public GameObject trayShelf;
 
     public QueuingDevice queuingDevice;
+    private ClientController lockedClient;
 
     public TMP_Text moneyText;
     public TMP_Text orderMoneyText;
@@ -283,13 +284,19 @@ public partial class BasketInteraction : MonoBehaviour
         
         else if (clicked == bell)
         {
-            currentClientController = currentCustomer.GetComponent<ClientController>();
+            lockedClient = queuingDevice.activePickupClient;
 
-            if (currentClientController.isWalking)
+            if (lockedClient == null)
                 return;
+
+            if (lockedClient.isWalking)
+                return;
+
             ApplyBasketToCustomer();
             CheckOrder();
             ResetBasket();
+
+            StartCoroutine(RemoveCustomerAfterReaction());
         }
         else if (clicked == trashBin)
         {
@@ -524,7 +531,14 @@ public partial class BasketInteraction : MonoBehaviour
     private IEnumerator RemoveCustomerAfterReaction()
     {
         yield return new WaitForSeconds(2f);
+
+        if (lockedClient == null)
+            yield break;
+
+        queuingDevice.activePickupClient = lockedClient;
         queuingDevice.RemoveClient();
+
+        lockedClient = null;
     }
     
     private IEnumerator DeathAfterAttack()

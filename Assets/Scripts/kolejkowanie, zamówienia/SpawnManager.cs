@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
 
     public int maxClients = 3;
     public int currentClients = 0;
-    public int clientsOfTheDay = 5;
+    public int clientsOfTheDay = 2;
     public int clientsCount = 0;
     
     
@@ -29,6 +29,17 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnLoop());
+        clientsOfTheDay = CalculateClientsOfTheDay(SaveSystem.Instance.saveData.day);
+    }
+    
+    int CalculateClientsOfTheDay(int day)
+    {
+        float value =
+            Mathf.Sqrt(day) +
+            Mathf.Pow(2f, day / 10f) +
+            1f;
+
+        return Mathf.RoundToInt(value);
     }
 
     IEnumerator SpawnLoop()
