@@ -127,6 +127,21 @@ public partial class BasketInteraction : MonoBehaviour
         );
     }
     
+    private IEnumerator PlayShakerSequence(
+        int itemId,
+        Vector3 soundPosition,
+        float soundDelay)
+    {
+        PlayItemUse(itemId);
+
+        yield return new WaitForSeconds(soundDelay);
+
+        RuntimeManager.PlayOneShot(
+            shakerSound,
+            soundPosition
+        );
+    }
+    
     private void HandleClick(GameObject click)
     {
         clicked = click;
@@ -233,7 +248,7 @@ public partial class BasketInteraction : MonoBehaviour
             if (TrySetSeasoning(OrderDatabase.SeasoningType.Salt))
             {
                 StartCoroutine(
-                    PlaySauceSequence(
+                    PlayShakerSequence(
                         7,
                         clicked.transform.position,
                         0.3f
@@ -248,7 +263,7 @@ public partial class BasketInteraction : MonoBehaviour
             if (TrySetSeasoning(OrderDatabase.SeasoningType.Pepper))
             {
                 StartCoroutine(
-                    PlaySauceSequence(
+                    PlayShakerSequence(
                         6,
                         clicked.transform.position,
                         0.3f

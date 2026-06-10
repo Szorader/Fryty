@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ketchup
+  m_Name: Mayo
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -19,7 +19,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -90, y: 0, z: 164.306}
+        value: {x: -90, y: 0, z: 132.465}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -28,25 +28,25 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.33333334
-        value: {x: 90, y: 0, z: 208.536}
-        inSlope: {x: 27.590332, y: 0, z: 24.873634}
-        outSlope: {x: 27.590332, y: 0, z: 24.873634}
+        value: {x: 89.577, y: -47.538, z: 151.318}
+        inSlope: {x: 36.93607, y: 0, z: 58.126816}
+        outSlope: {x: 36.93607, y: 0, z: 58.126816}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.8333333
-        value: {x: 95.747986, y: -47.171997, z: 213.718}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 97.272, y: -30.950012, z: 180.904}
+        inSlope: {x: 0, y: 57.045605, z: 0}
+        outSlope: {x: 0, y: 57.045605, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.1666666
-        value: {x: -90, y: 0, z: 164.306}
+        value: {x: -90, y: 0, z: 132.465}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -56,14 +56,14 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
   m_PositionCurves:
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -4.996, y: -0.249, z: -4.021001}
+        value: {x: -1.0490999, y: 0.02240014, z: 0.23366928}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -72,25 +72,25 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.33333334
-        value: {x: -4.351471, y: 0.45611548, z: -3.953286}
-        inSlope: {x: 0, y: 0, z: 0.07092591}
-        outSlope: {x: 0, y: 0, z: 0.07092591}
+        value: {x: -0.40880823, y: 0.8181237, z: 0.48091912}
+        inSlope: {x: 0, y: 0, z: 0.09158821}
+        outSlope: {x: 0, y: 0, z: 0.09158821}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.8333333
-        value: {x: -4.3674145, y: 0.41590953, z: -3.9385097}
-        inSlope: {x: -0.07652894, y: -0.19298859, z: 0}
-        outSlope: {x: -0.07652894, y: -0.19298859, z: 0}
+        value: {x: -0.421, y: 0.769, z: 0.5}
+        inSlope: {x: -0.058520515, y: -0.2357938, z: 0}
+        outSlope: {x: -0.058520515, y: -0.2357938, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.1666666
-        value: {x: -4.996, y: -0.249, z: -4.021001}
+        value: {x: -1.0490999, y: 0.02240014, z: 0.23366928}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -100,7 +100,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
   m_ScaleCurves: []
   m_FloatCurves:
   - serializedVersion: 2
@@ -138,7 +138,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: f_saucebottle_01/Sauce
+    path: Bottles and Shakers/f_saucebottle_03/Particle System
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -151,7 +151,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 294172374
+      path: 1707561773
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -160,7 +160,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 294172374
+      path: 1707561773
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -169,7 +169,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4106903840
+      path: 2701166057
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -205,7 +205,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -4.996
+        value: -1.0490999
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -214,7 +214,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.33333334
-        value: -4.351471
+        value: -0.40880823
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -223,16 +223,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.8333333
-        value: -4.3674145
-        inSlope: -0.07652894
-        outSlope: -0.07652894
+        value: -0.421
+        inSlope: -0.058520515
+        outSlope: -0.058520515
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.1666666
-        value: -4.996
+        value: -1.0490999
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -243,7 +243,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -253,7 +253,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.249
+        value: 0.02240014
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -262,7 +262,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.33333334
-        value: 0.45611548
+        value: 0.8181237
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -271,16 +271,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.8333333
-        value: 0.41590953
-        inSlope: -0.19298859
-        outSlope: -0.19298859
+        value: 0.769
+        inSlope: -0.2357938
+        outSlope: -0.2357938
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.1666666
-        value: -0.249
+        value: 0.02240014
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -291,7 +291,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -301,7 +301,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -4.021001
+        value: 0.23366928
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -310,16 +310,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.33333334
-        value: -3.953286
-        inSlope: 0.07092591
-        outSlope: 0.07092591
+        value: 0.48091912
+        inSlope: 0.09158821
+        outSlope: 0.09158821
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.8333333
-        value: -3.9385097
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -328,7 +328,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.1666666
-        value: -4.021001
+        value: 0.23366928
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -339,7 +339,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -358,16 +358,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.33333334
-        value: 90
-        inSlope: 27.590332
-        outSlope: 27.590332
+        value: 89.577
+        inSlope: 36.93607
+        outSlope: 36.93607
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.8333333
-        value: 95.747986
+        value: 97.272
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -387,7 +387,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 16
@@ -406,7 +406,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.33333334
-        value: 0
+        value: -47.538
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -415,9 +415,9 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.8333333
-        value: -47.171997
-        inSlope: 0
-        outSlope: 0
+        value: -30.950012
+        inSlope: 57.045605
+        outSlope: 57.045605
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -435,7 +435,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 16
@@ -445,7 +445,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 164.306
+        value: 132.465
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -454,16 +454,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.33333334
-        value: 208.536
-        inSlope: 24.873634
-        outSlope: 24.873634
+        value: 151.318
+        inSlope: 58.126816
+        outSlope: 58.126816
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.8333333
-        value: 213.718
+        value: 180.904
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -472,7 +472,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.1666666
-        value: 164.306
+        value: 132.465
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -483,7 +483,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 16
@@ -522,7 +522,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: f_saucebottle_01/Sauce
+    path: Bottles and Shakers/f_saucebottle_03/Particle System
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -535,7 +535,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -547,7 +547,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -559,7 +559,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: f_saucebottle_01
+    path: Bottles and Shakers/f_saucebottle_03
     classID: 4
     script: {fileID: 0}
     flags: 0
