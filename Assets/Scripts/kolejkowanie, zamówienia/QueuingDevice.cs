@@ -25,6 +25,8 @@ public class QueuingDevice : MonoBehaviour
     public Tutorial tutorial;
     public UI_QueuingDevice uiQueuingDevice;
     
+    public PikaczInteraction assignedPikacz;
+    
 
 
     public bool canGiveNumber = false;
@@ -66,7 +68,7 @@ public class QueuingDevice : MonoBehaviour
         
     }
     //nadanie numeru pikacza
-    public void GiveNumber(int number)
+    public void GiveNumber(int number, PikaczInteraction pikacz)
     {
         
         //Debug.Log(number);
@@ -78,6 +80,8 @@ public class QueuingDevice : MonoBehaviour
         ClientController client = orderQueue.Dequeue();
         pickList[number] = client;
         client.PikPikNumber = number;
+
+        assignedPikacz = pikacz;
         
     //idzie sobie gdzies czekac
         WaitingPoint point = GetRandomFreePoint();
@@ -168,14 +172,23 @@ public class QueuingDevice : MonoBehaviour
     public void RemoveClient()
     {
         ClientController client = pickList[currentNumber];
+
+        if (client != null && assignedPikacz != null)
+        {
+            assignedPikacz.gameObject.SetActive(true);
+        }
+
         client.MoveTo(exitPoint.position);
         StartCoroutine(ExitRoutine(client));
-        
     }
     
     IEnumerator ExitRoutine(ClientController client)
     {
         yield return new WaitForSeconds(2f);
+
+        if (assignedPikacz != null)
+            assignedPikacz = null;
+
         Destroy(client.gameObject);
         countClients++;
         waitingForTake = false;

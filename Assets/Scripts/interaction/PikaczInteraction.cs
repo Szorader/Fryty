@@ -48,7 +48,8 @@ public class PikaczInteraction : MonoBehaviour, IInteractable
         }
         
         Debug.Log(index);
-        queuingDevice.GiveNumber(index);
+        queuingDevice.GiveNumber(index, this);
+        gameObject.SetActive(false);
         Debug.Log("1");
         gameObject.SetActive(false);
         
