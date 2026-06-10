@@ -57827,6 +57827,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1000497768}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: nightAmbienceManager
+      value: 
+      objectReference: {fileID: 1254607779}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: playerMovementScript
       value: 
       objectReference: {fileID: 909139891}
