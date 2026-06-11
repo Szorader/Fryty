@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
-public class CircleSlider : MonoBehaviour, IDragHandler
+public class UIKnob : MonoBehaviour, IDragHandler
 {
    public enum SliderType
     {

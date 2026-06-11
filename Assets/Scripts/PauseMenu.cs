@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using FMODUnity;
+using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     [Header("UI")]
@@ -9,6 +10,10 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] private MonoBehaviour cameraLookScript;
+    
+    [Header("Background")]
+    [SerializeField] private Image backgroundImage;
+    [SerializeField] private Sprite[] backgroundSprites;
     
     [Header("Audio")]
     [SerializeField] private EventReference bottle_squirt;
@@ -50,50 +55,55 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = !isPaused;
 
-        //RuntimeManager.PlayOneShot(bottle_squirt);
+        if (isPaused)
+            SetRandomBackground();
 
         pauseMenuCanvas.SetActive(isPaused);
 
         Time.timeScale = isPaused ? 0f : 1f;
 
-        Cursor.lockState = isPaused
-            ? CursorLockMode.None
-            : CursorLockMode.Locked;
-
-        Cursor.visible = isPaused;
+        SetCursorState(isPaused);
 
         if (cameraLookScript != null)
-        {
             cameraLookScript.enabled = !isPaused;
-        }
 
         if (gameCanvas != null)
-        {
             gameCanvas.SetActive(!isPaused);
-        }
     }
     public void ResumeGame()
     {
         isPaused = false;
-    
+
         pauseMenuCanvas.SetActive(false);
         gameCanvas.SetActive(true);
-        
 
         Time.timeScale = 1f;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        SetCursorState(false);
 
         if (cameraLookScript != null)
-        {
             cameraLookScript.enabled = true;
-        }
     }
+    
     
     public void LoadMainMenu(string sceneName)
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
+    }
+    
+    private void SetRandomBackground()
+    {
+        if (backgroundImage == null || backgroundSprites == null || backgroundSprites.Length == 0)
+            return;
+
+        int index = Random.Range(0, backgroundSprites.Length);
+        backgroundImage.sprite = backgroundSprites[index];
+    }
+    
+    private void SetCursorState(bool paused)
+    {
+        Cursor.lockState = paused ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = paused;
     }
 }

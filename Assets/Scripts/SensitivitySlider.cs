@@ -4,15 +4,18 @@ using UnityEngine.UI;
 public class SensitivitySlider : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private PlayerMovement playerMovement;
 
     private void Start()
     {
         SaveData data = SaveSystem.Instance.LoadGame();
-        
-        if (data.sensitivity <= 0)
-            data.sensitivity = 1f;
 
-        slider.value = data.sensitivity;
+        float sensitivity = data.sensitivity;
+
+        if (sensitivity <= 0.01)
+            sensitivity = 1f;
+
+        slider.value = (sensitivity);
 
         slider.onValueChanged.AddListener(OnSensitivityChanged);
     }
@@ -35,5 +38,8 @@ public class SensitivitySlider : MonoBehaviour
             data.cleanedTrashCount,
             value
         );
+
+        if (playerMovement != null)
+            playerMovement.SetSensitivity(value);
     }
 }
