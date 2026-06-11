@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using FMODUnity;
 using FMOD.Studio;
 
@@ -21,29 +22,52 @@ public class VcaController : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        CacheBuses();
+        LoadSavedVolumes();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        CacheBuses();
+        LoadSavedVolumes();
+    }
+
+    private void CacheBuses()
+    {
         masterBus = RuntimeManager.GetBus("bus:/_Master");
         musicBus = RuntimeManager.GetBus("bus:/_Master/Music");
         sfxBus = RuntimeManager.GetBus("bus:/_Master/SFX");
-
-        LoadSavedVolumes();
     }
 
     public void SetMasterVolume(float volume)
     {
         masterBus.setVolume(volume);
+
         PlayerPrefs.SetFloat("MasterVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetMusicVolume(float volume)
     {
         musicBus.setVolume(volume);
+
         PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetSFXVolume(float volume)
     {
         sfxBus.setVolume(volume);
+
         PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public float GetMasterVolume()

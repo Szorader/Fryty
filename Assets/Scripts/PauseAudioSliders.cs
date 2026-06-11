@@ -16,52 +16,49 @@ public class PauseAudioSliders : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Slider slider;
 
-    private bool isInitialized;
-
-    private void Start()
+    private void OnEnable()
     {
-        float value = GetSavedValue();
+        RefreshSlider();
 
         slider.onValueChanged.RemoveListener(OnValueChanged);
-
-        slider.SetValueWithoutNotify(value);
-
         slider.onValueChanged.AddListener(OnValueChanged);
-
-        isInitialized = true;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         slider.onValueChanged.RemoveListener(OnValueChanged);
+    }
+
+    private void RefreshSlider()
+    {
+        if (VcaController.Instance == null)
+            return;
+
+        float value = 1f;
+
+        switch (sliderType)
+        {
+            case SliderType.Master:
+                value = VcaController.Instance.GetMasterVolume();
+                break;
+
+            case SliderType.Music:
+                value = VcaController.Instance.GetMusicVolume();
+                break;
+
+            case SliderType.SFX:
+                value = VcaController.Instance.GetSFXVolume();
+                break;
+        }
+
+        slider.SetValueWithoutNotify(value);
     }
 
     private void OnValueChanged(float value)
     {
-        if (!isInitialized) return;
+        if (VcaController.Instance == null)
+            return;
 
-        SetVolume(value);
-    }
-
-    private float GetSavedValue()
-    {
-        switch (sliderType)
-        {
-            case SliderType.Master:
-                return VcaController.Instance.GetMasterVolume();
-
-            case SliderType.Music:
-                return VcaController.Instance.GetMusicVolume();
-
-            case SliderType.SFX:
-                return VcaController.Instance.GetSFXVolume();
-        }
-
-        return 1f;
-    }
-
-    private void SetVolume(float value)
-    {
         switch (sliderType)
         {
             case SliderType.Master:
