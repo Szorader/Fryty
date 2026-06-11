@@ -20,7 +20,7 @@ public class DayManager : MonoBehaviour
     public bool timeToClean = false;
     public bool summary = false;
     public bool isCleaningPhase = false;
-
+    private SpawnManager spawnManager;
     
     [SerializeField] private Material daySkybox;
     [SerializeField] private Material nightSkybox;
@@ -52,6 +52,8 @@ public class DayManager : MonoBehaviour
         basket = FindObjectOfType<BasketInteraction>();
         wallet = FindObjectOfType<Wallet>();
         saveSystem = FindObjectOfType<SaveSystem>();
+        
+        spawnManager = FindObjectOfType<SpawnManager>();
     }
 
     /*private void Update()
@@ -100,8 +102,8 @@ public class DayManager : MonoBehaviour
         data.day += 1;
 
         float tax = -(data.money * 0.19f);
-        float supplies = -(data.money * 0.067f);
-        float rent = -data.day;
+        float supplies = -(spawnManager.clientsOfTheDay * 0.5f);
+        float rent = -(spawnManager.clientsOfTheDay * 2f);
         float total = data.money + tax + supplies + rent;
 
         saveSystem.saveData = data;

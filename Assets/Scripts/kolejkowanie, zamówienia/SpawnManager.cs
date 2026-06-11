@@ -36,7 +36,7 @@ public class SpawnManager : MonoBehaviour
     {
         float value =
             Mathf.Sqrt(day) +
-            Mathf.Pow(2f, day / 10f) +
+            Mathf.Pow(2f, day / 20f) +
             1f;
 
         return Mathf.RoundToInt(value);
