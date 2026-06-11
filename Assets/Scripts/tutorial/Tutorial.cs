@@ -238,7 +238,7 @@ public class Tutorial : MonoBehaviour
                 {
                     t = "Time to clean outside, take the broom and remove the trash on the tables.";
                     Text(t, broom);
-                    ShowArrow(broomArrow);
+                    broomArrow.SetActive(true);
                 }
                 break;
             //podniesienie miotly
@@ -248,6 +248,7 @@ public class Tutorial : MonoBehaviour
                 {
                     t = "Click on the trash while holding the broom to remove the trash.";
                     Text(t, umbrella);
+                    broomArrow.SetActive(false);
                     ShowArrow(trashArrow);
                     
                 }

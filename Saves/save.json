@@ -1,9 +1,9 @@
 {
-    "money": -2.0,
-    "day": 1,
-    "killedEnemies": 0,
-    "servedClients": 0,
-    "cleanedTrashCount": 0,
+    "money": 39.5,
+    "day": 2,
+    "killedEnemies": 1,
+    "servedClients": 1,
+    "cleanedTrashCount": 3,
     "tutorialCompleted": false,
     "sensitivity": 0.20348355174064637
 }
