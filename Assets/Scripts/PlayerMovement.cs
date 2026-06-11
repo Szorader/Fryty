@@ -81,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
             footstepInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
         }
     }
+    
+    public void SetSensitivity(float value)
+    {
+        lookSensitivity = value;
+    }
 
     private void HandleMovement()
     {
