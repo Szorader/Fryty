@@ -32,7 +32,14 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
+        SaveData data = SaveSystem.Instance.LoadGame();
+
+        if (data != null && data.sensitivity > 0)
+        {
+            lookSensitivity = data.sensitivity;
+        }
+
         // audio
         footstepInstance = RuntimeManager.CreateInstance(footsteps_indoors);
         footstepInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));

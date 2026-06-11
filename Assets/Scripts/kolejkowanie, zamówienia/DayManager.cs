@@ -132,7 +132,8 @@ public class DayManager : MonoBehaviour
             data.killedEnemies,
             data.servedClients,
             data.tutorialCompleted,
-            data.cleanedTrashCount
+            data.cleanedTrashCount,
+            data.sensitivity
         );
 
         killedEnemies = 0;

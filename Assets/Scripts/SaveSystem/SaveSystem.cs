@@ -11,6 +11,7 @@ public class SaveData
     public int servedClients;
     public int cleanedTrashCount;
     public bool tutorialCompleted;
+    public float sensitivity;
 }
 
 public class SaveSystem : MonoBehaviour
@@ -60,7 +61,7 @@ public class SaveSystem : MonoBehaviour
     // =========================
     // ZAPIS
     // =========================
-    public void SaveGame(float money, int day, int killedEnemies, int servedClients, bool tutorialCompleted, int cleanedTrashCount)
+    public void SaveGame(float money, int day, int killedEnemies, int servedClients, bool tutorialCompleted, int cleanedTrashCount, float sensitivity)
     {
         Debug.Log("SAVE PATH = " + savePath);
         Debug.Log("Gra zapisana: " + savePath);
@@ -72,7 +73,8 @@ public class SaveSystem : MonoBehaviour
             killedEnemies = killedEnemies,
             servedClients = servedClients,
             cleanedTrashCount = cleanedTrashCount,
-            tutorialCompleted = tutorialCompleted
+            tutorialCompleted = tutorialCompleted,
+            sensitivity = sensitivity
         };
 
         saveData = data;
@@ -99,7 +101,8 @@ public class SaveSystem : MonoBehaviour
                 killedEnemies = data.killedEnemies,
                 servedClients = data.servedClients,
                 cleanedTrashCount = data.cleanedTrashCount,
-                tutorialCompleted = data.tutorialCompleted
+                tutorialCompleted = data.tutorialCompleted,
+                sensitivity = data.sensitivity
             };
             Debug.Log("Gra wczytana");
             return data;
