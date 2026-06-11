@@ -4,6 +4,9 @@ using FMODUnity;
 using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
+    [Header("BlockerXDD")]
+    [SerializeField] private GameObject blockerXDD;
+    
     [Header("UI")]
     [SerializeField] private GameObject pauseMenuCanvas;
     [SerializeField] private GameObject gameCanvas;
@@ -52,9 +55,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void TogglePause()
-    {
+    {  
         isPaused = !isPaused;
 
+        blockerXDD.SetActive(isPaused);
+    
         if (isPaused)
             SetRandomBackground();
 
@@ -73,7 +78,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         isPaused = false;
-
+        blockerXDD.SetActive(false);
         pauseMenuCanvas.SetActive(false);
         gameCanvas.SetActive(true);
 

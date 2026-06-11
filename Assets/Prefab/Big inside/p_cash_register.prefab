@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParticleController
   particles: {fileID: 801362111470845946}
-  particles_1: {fileID: 7422113288351760459}
+  particles1: {fileID: 0}
 --- !u!1 &7526783211553067688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,9 +2383,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5353496199676493853}
   - component: {fileID: 9049457852176010833}
+  - component: {fileID: 8265318149268697431}
   - component: {fileID: 7028940611932929018}
   - component: {fileID: 3260992957737692334}
-  - component: {fileID: 8265318149268697431}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2441,6 +2441,33 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &8265318149268697431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439202906854844898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd8a1a1f7b0da4582b82186a622def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OrderUIButtons
+  buttons:
+  - {fileID: 5607318001260965156}
+  - {fileID: 8548071716197340954}
+  - {fileID: 1540993111481714789}
+  - {fileID: 2594201100227453435}
+  - {fileID: 7791355056966990847}
+  queuingDevice: {fileID: 0}
+  canGiveOrder: 0
+  pikacz:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &7028940611932929018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2481,25 +2508,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8265318149268697431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8439202906854844898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69cd8a1a1f7b0da4582b82186a622def, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OrderUIButtons
-  buttons:
-  - {fileID: 5607318001260965156}
-  - {fileID: 8548071716197340954}
-  - {fileID: 1540993111481714789}
-  - {fileID: 2594201100227453435}
-  - {fileID: 7791355056966990847}
-  queuingDevice: {fileID: 0}
 --- !u!1 &8548071716197340954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,11 +3054,6 @@ PrefabInstance:
 --- !u!4 &5565914309386692027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7321101016072184519, guid: 8389cc70022ea6048bf9343cdacc9d78, type: 3}
-  m_PrefabInstance: {fileID: 2929555303768393596}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &7422113288351760459 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5739692249375295287, guid: 8389cc70022ea6048bf9343cdacc9d78, type: 3}
   m_PrefabInstance: {fileID: 2929555303768393596}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3286426908584047061
