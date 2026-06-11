@@ -2494,6 +2494,7 @@ MonoBehaviour:
   bell: {fileID: 1061787237}
   trashBin: {fileID: 523243563}
   trayShelf: {fileID: 700738999}
+  trayShelfClicked: 0
   queuingDevice: {fileID: 1028194117}
   moneyText: {fileID: 716351461}
   orderMoneyText: {fileID: 1851321504}
@@ -4922,7 +4923,7 @@ MonoBehaviour:
   fridge: {fileID: 1682678304}
   slicer: {fileID: 152336686857462333}
   fryer: {fileID: 4214369454631476596}
-  basket: {fileID: 132222593}
+  basket: {fileID: 248711537}
   ketchup: {fileID: 278139793}
   salt: {fileID: 456442588}
   bin: {fileID: 523243563}
@@ -22107,7 +22108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1936807410
 Transform:
   m_ObjectHideFlags: 0

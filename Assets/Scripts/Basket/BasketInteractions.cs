@@ -42,6 +42,8 @@ public partial class BasketInteraction : MonoBehaviour
     public GameObject trashBin;
     public GameObject trayShelf;
 
+    public bool trayShelfClicked;
+    
     public QueuingDevice queuingDevice;
     private ClientController lockedClient;
 
