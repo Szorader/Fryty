@@ -8,7 +8,7 @@ public class Tutorial : MonoBehaviour
 {
     public GameObject uiTutorial;
     public TextMeshProUGUI tutorialText;
-    private TutorialHighlight currentHighlight;
+    
 
     public EventReference tutorialSound;
 
@@ -29,7 +29,24 @@ public class Tutorial : MonoBehaviour
     public GameObject broom;
     public GameObject umbrella;
 
+    [Header("Tutorial Arrows")]
+    public GameObject pagerArrow;
+    public GameObject rackArrow;
+    public GameObject fridgeArrow;
+    public GameObject slicerArrow;
+    public GameObject fryerArrow;
+    public GameObject basketArrow;
+    public GameObject orderArrow;
+    public GameObject cashRegisterArrow;
+    public GameObject standArrow;
+    public GameObject chainArrow;
+    public GameObject broomArrow;
+    public GameObject trashArrow;
+    public GameObject orderNumberArrow; //on the tablet
+    public GameObject endDayArrow;
     
+    
+    private GameObject currentArrow;
     
     public int tutorialStep = 0;
     
@@ -85,7 +102,11 @@ public class Tutorial : MonoBehaviour
                 if (obj != null)
                 {
                     t = "Place order note on the order rack above the window";
-                    Text(t, rack);
+                    tutorialText.text = t;
+                    rack.SetActive(true);
+                    ShowArrow(rackArrow);
+
+                    tutorialStep++;
                 }
                 break;
             
@@ -109,6 +130,7 @@ public class Tutorial : MonoBehaviour
                     {
                         t = "Give the customer a pager.";
                         Text(t, pager);
+                        ShowArrow(pagerArrow);
                     }
                 }
                 break;
@@ -119,7 +141,11 @@ public class Tutorial : MonoBehaviour
                 if (obj == null)
                 {
                     t = "Take a potato out of the fridge.";
-                    Text(t, fridge);
+                    tutorialText.text = t;
+                    fridge.SetActive(true);
+                    ShowArrow(fridgeArrow);
+                    
+                    tutorialStep++;
                 }
                 break;
             //ziemniak -> krajalnicy
@@ -129,6 +155,7 @@ public class Tutorial : MonoBehaviour
                {
                    t = "Put the potato into the slicer on the counter and choose the fries type.";
                    Text(t, slicer);
+                   ShowArrow(slicerArrow);
                }
                 break;
            //frytki -> smażenie
@@ -138,6 +165,7 @@ public class Tutorial : MonoBehaviour
                 {
                     t = "Put the fries into the fryer. Take them out once they're fried.";
                     Text(t, fryer);
+                    ShowArrow(fryerArrow);
                 }
                 Debug.Log("przed");
                 break;
@@ -153,6 +181,7 @@ public class Tutorial : MonoBehaviour
                    ketchup.SetActive(true);
                    salt.SetActive(true);
                    bin.SetActive(true);
+                   ShowArrow(basketArrow);
                }
                 break;
            //koszyczek -> przyłowanie klienta
@@ -166,6 +195,7 @@ public class Tutorial : MonoBehaviour
                     t = "Click the correct order number on the register's tablet to summon the customer to the register.";
                     Text(t, orderNumber);
                     NumberUI.SetActive(true);
+                    ShowArrow(orderNumberArrow);
                 }
                 break;
            //klient idzie -> oddanie zamówienia
@@ -175,6 +205,7 @@ public class Tutorial : MonoBehaviour
                {
                    t = "Give the order to the customer by clicking on the buttons of the cash register.";
                    Text(t, cashRegister);
+                   ShowArrow(cashRegisterArrow);
                }
                break;
            //oddanie zamówienia -> nowy koszczek
@@ -186,6 +217,7 @@ public class Tutorial : MonoBehaviour
                 {
                     t = "Add a new basket and tray by clicking the tray holder.";
                     Text(t, stand);
+                    ShowArrow(standArrow);
                     spawner.canSpawn = true;
                 }
                 break;
@@ -196,6 +228,7 @@ public class Tutorial : MonoBehaviour
                 {
                     t = "This customer is rotten! End his suffering by pulling the chain above you. It will close the shutter door and pour hot oil on him.";
                     Text(t, chain);
+                    ShowArrow(chainArrow);
                 }
                 break;
             //zabicie
@@ -205,6 +238,7 @@ public class Tutorial : MonoBehaviour
                 {
                     t = "Time to clean outside, take the broom and remove the trash on the tables.";
                     Text(t, broom);
+                    ShowArrow(broomArrow);
                 }
                 break;
             //podniesienie miotly
@@ -214,6 +248,8 @@ public class Tutorial : MonoBehaviour
                 {
                     t = "Click on the trash while holding the broom to remove the trash.";
                     Text(t, umbrella);
+                    ShowArrow(trashArrow);
+                    
                 }
                 break;
             case 13:
@@ -246,6 +282,7 @@ public class Tutorial : MonoBehaviour
                 {
                     t = "Time to end the day, click the truck's driver door. The game saves when you end the day.";
                     Text(t, pager);
+                    ShowArrow(endDayArrow);
                 }
 
                 break;
@@ -269,6 +306,7 @@ public class Tutorial : MonoBehaviour
                     StartCoroutine(WaitCoroutine());
                     
                 }
+              
                 break;
             
         }
@@ -288,33 +326,27 @@ public class Tutorial : MonoBehaviour
     private void Text(string text, GameObject obj)
     {
         //dzwiek
-        RuntimeManager.PlayOneShot(tutorialSound, obj.transform.position);
+        RuntimeManager.PlayOneShot(
+            tutorialSound,
+            obj.transform.position
+        );
+
         tutorialText.text = text;
 
         obj.SetActive(true);
-
-        Highlight(obj);
-
+        
         tutorialStep++;
+        
     }
     
-    // flashing color / highlights
-    private void Highlight(GameObject obj)
+    private void ShowArrow(GameObject arrow)
     {
-        if (currentHighlight != null)
-        {
-            currentHighlight.SetHighlight(false);
-        }
+        if (currentArrow != null)
+            currentArrow.SetActive(false);
 
-        if (obj == null)
-            return;
+        currentArrow = arrow;
 
-        currentHighlight =
-            obj.GetComponent<TutorialHighlight>();
-
-        if (currentHighlight != null)
-        {
-            currentHighlight.SetHighlight(true);
-        }
+        if (currentArrow != null)
+            currentArrow.SetActive(true);
     }
 }
