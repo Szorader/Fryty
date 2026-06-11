@@ -3088,6 +3088,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8439202906854844898, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
   m_PrefabInstance: {fileID: 279919625973866195}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &327586058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8265318149268697431, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+  m_PrefabInstance: {fileID: 279919625973866195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327586054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cd8a1a1f7b0da4582b82186a622def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OrderUIButtons
 --- !u!1001 &330679406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29142,13 +29153,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1424017330}
     - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: assignedPikacz
+      value: 
+      objectReference: {fileID: 725288294}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: orderStartPoint
       value: 
       objectReference: {fileID: 1050482903}
     - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: uiQueuingDevice
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 327586058}
     - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: waitingPoints.Array.size
       value: 2

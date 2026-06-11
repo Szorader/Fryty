@@ -24952,9 +24952,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5039915670230252868, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1388979202}
     - targetCorrespondingSourceObject: {fileID: 1981061101758971985, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1618242208}
@@ -34385,43 +34382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!1 &1388979201 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5039915670230252868, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
-  m_PrefabInstance: {fileID: 890103591}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1388979202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1388979201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0752232deca613943975e56fe3d50678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MusicManager
-  tracks:
-  - Guid:
-      Data1: 185046466
-      Data2: 1338944759
-      Data3: 1598518179
-      Data4: -1724376849
-    Path: event:/Music/mfx_game_1
-  - Guid:
-      Data1: 2052662055
-      Data2: 1216077149
-      Data3: 1705304205
-      Data4: -413965140
-    Path: event:/Music/mfx_game_2
-  - Guid:
-      Data1: 322760522
-      Data2: 1079649999
-      Data3: 1948616635
-      Data4: -1949157737
-    Path: event:/Music/mfx_game_3
-  fadeTime: 0.5
 --- !u!1 &1395933594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5888448601309764660, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
@@ -46897,7 +46857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 705747924440685229, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_text
-      value: 2137
+      value: 0.00
       objectReference: {fileID: 0}
     - target: {fileID: 705747924440685229, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontSize
@@ -47625,7 +47585,7 @@ PrefabInstance:
     - target: {fileID: 9219945511103561425, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: 'disableOnPauseScripts.Array.data[9]'
       value: 
-      objectReference: {fileID: 1388979202}
+      objectReference: {fileID: 0}
     - target: {fileID: 9219945511103561425, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: 'disableOnPauseScripts.Array.data[10]'
       value: 

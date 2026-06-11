@@ -1,19 +1,9 @@
 {
-<<<<<<< Updated upstream
-    "money": 8.199999809265137,
-    "day": 2,
-    "killedEnemies": 0,
-    "servedClients": 2,
-    "cleanedTrashCount": 0,
-    "tutorialCompleted": false,
-    "sensitivity": 0.20000000298023225
-=======
-    "money": 16.0,
+    "money": -2.0,
     "day": 1,
     "killedEnemies": 0,
-    "servedClients": 2,
-    "cleanedTrashCount": 3,
+    "servedClients": 0,
+    "cleanedTrashCount": 0,
     "tutorialCompleted": false,
     "sensitivity": 0.0
->>>>>>> Stashed changes
 }
