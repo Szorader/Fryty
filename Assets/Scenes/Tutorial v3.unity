@@ -3220,6 +3220,11 @@ PrefabInstance:
       addedObject: {fileID: 1628479313}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82797f1d0d5980d4380a3236e35e7591, type: 3}
+--- !u!1 &327586054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8439202906854844898, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+  m_PrefabInstance: {fileID: 279919625973866195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &330679406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3626,6 +3631,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406862849}
   m_Mesh: {fileID: 7091193833956758354, guid: c2e0e078b2cb0f0469f174683a0fa44d, type: 3}
+--- !u!1 &422360756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3580412193304251546, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
+  m_PrefabInstance: {fileID: 279919625973866195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &424049938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5182,13 +5192,13 @@ MonoBehaviour:
   fridge: {fileID: 1682678304}
   slicer: {fileID: 152336686857462333}
   fryer: {fileID: 4214369454631476596}
-  basket: {fileID: 248711537}
+  basket: {fileID: 132222593}
   ketchup: {fileID: 278139793}
   salt: {fileID: 456442588}
   bin: {fileID: 523243563}
-  orderNumber: {fileID: 1061787237}
-  NumberUI: {fileID: 1931169871}
-  cashRegister: {fileID: 637566100}
+  orderNumber: {fileID: 422360756}
+  NumberUI: {fileID: 327586054}
+  cashRegister: {fileID: 1061787237}
   stand: {fileID: 700738999}
   chain: {fileID: 538803997}
   broom: {fileID: 1911362268}
@@ -22515,11 +22525,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742357e619bdd264890daf6434ce6080, type: 3}
---- !u!1 &1931169871 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5607318001260965156, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
-  m_PrefabInstance: {fileID: 279919625973866195}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1936807409
 GameObject:
   m_ObjectHideFlags: 0
