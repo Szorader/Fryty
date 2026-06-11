@@ -26,7 +26,8 @@ public class MenuManager : MonoBehaviour
     public Card gameCard;
     public Card settingsCard;
     public Card creditsCard;
-
+    public CreditsScroll creditsScroll;
+    
     [Header("Game")]
     public string GameSceneName = "Game";
     
@@ -75,6 +76,8 @@ public class MenuManager : MonoBehaviour
     {
         DisableAll();
 
+        
+
         switch (view)
         {
             case MenuView.Main: Show(mainCard); break;
@@ -82,7 +85,8 @@ public class MenuManager : MonoBehaviour
             case MenuView.Settings: Show(settingsCard); break;
             case MenuView.Credits: Show(creditsCard); break;
         }
-        
+        if (creditsScroll != null)
+            creditsScroll.SetInCreddits(view == MenuView.Credits);
     }
 
 #if UNITY_EDITOR
