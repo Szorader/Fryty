@@ -20267,6 +20267,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 327586058}
     - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: pikpik.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'pikpik.Array.data[0]'
+      value: 
+      objectReference: {fileID: 725288288}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: waitingPoints.Array.size
       value: 2
       objectReference: {fileID: 0}

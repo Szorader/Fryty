@@ -47043,9 +47043,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 430452015}
     - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: pikpik.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: pickList.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'pikpik.Array.data[0]'
+      value: 
+      objectReference: {fileID: 725288288}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'pikpik.Array.data[1]'
+      value: 
+      objectReference: {fileID: 725288289}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'pikpik.Array.data[2]'
+      value: 
+      objectReference: {fileID: 725288290}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'pikpik.Array.data[3]'
+      value: 
+      objectReference: {fileID: 725288286}
+    - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'pikpik.Array.data[4]'
+      value: 
+      objectReference: {fileID: 725288285}
     - target: {fileID: 1251017049266340827, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: 'waitingPoints.Array.data[0]'
       value: 
@@ -47458,6 +47482,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Information Images
       objectReference: {fileID: 0}
+    - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
+      propertyPath: m_fontSize
+      value: 10.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8632248377282212022, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.622

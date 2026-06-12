@@ -16,6 +16,7 @@ public class QueuingDevice : MonoBehaviour
     public List<ClientController> pickList = new List<ClientController>();
     public Queue<ClientController> orderQueue = new Queue<ClientController>();
     public List<WaitingPoint>  waitingPoints = new List<WaitingPoint>();
+    public List<GameObject> pikpik = new List<GameObject>();
 
 
     private SpawnOrderTicket spawnOrderTicket;
@@ -25,7 +26,7 @@ public class QueuingDevice : MonoBehaviour
     public Tutorial tutorial;
     public UI_QueuingDevice uiQueuingDevice;
     
-    public PikaczInteraction assignedPikacz;
+    //public PikaczInteraction assignedPikacz;
     public ClientController activePickupClient;
 
 
@@ -81,7 +82,7 @@ public class QueuingDevice : MonoBehaviour
         pickList[number] = client;
         client.PikPikNumber = number;
 
-        assignedPikacz = pikacz;
+        //assignedPikacz = pikacz;
         
     //idzie sobie gdzies czekac
         WaitingPoint point = GetRandomFreePoint();
@@ -173,10 +174,11 @@ public class QueuingDevice : MonoBehaviour
         if (client == null)
             return;
 
-        if (assignedPikacz != null)
+        pikpik[client.PikPikNumber].gameObject.SetActive(true);
+        /*if (assignedPikacz != null)
         {
             assignedPikacz.gameObject.SetActive(true);
-        }
+        }*/
 
         client.MoveTo(exitPoint.position);
         StartCoroutine(ExitRoutine(client));
@@ -189,8 +191,8 @@ public class QueuingDevice : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        if (assignedPikacz != null)
-            assignedPikacz = null;
+        //if (assignedPikacz != null)
+           // assignedPikacz = null;
 
         Destroy(client.gameObject);
         countClients++;
