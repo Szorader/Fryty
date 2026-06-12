@@ -24473,6 +24473,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 269404913}
     m_Modifications:
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[0].Path
+      value: event:/Music/mfx_game_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[1].Path
+      value: event:/Music/mfx_game_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[0].Guid.Data1
+      value: 2052662055
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[0].Guid.Data2
+      value: 1216077149
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[0].Guid.Data3
+      value: 1705304205
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[0].Guid.Data4
+      value: -413965140
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[1].Guid.Data1
+      value: 185046466
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[1].Guid.Data2
+      value: 1338944759
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[1].Guid.Data3
+      value: 1598518179
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864776933448469414, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
+      propertyPath: tracks.Array.data[1].Guid.Data4
+      value: -1724376849
+      objectReference: {fileID: 0}
     - target: {fileID: 4871246657657587253, guid: b0f4e14ca6419c74f800c86bdce51cb3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07600063
@@ -47484,17 +47524,22 @@ PrefabInstance:
       value: Information Images
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
+      propertyPath: m_text
+      value: "Those customers might be rotten but they drop mad good fries. Saves
+        us some money\n\t    - Boss"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontSize
-      value: 10.85
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 11400000, guid: d236058b9723dbf4c8194333890fe34e, type: 2}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -1665132313543341044, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: -8126015225785493180, guid: d236058b9723dbf4c8194333890fe34e, type: 2}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0

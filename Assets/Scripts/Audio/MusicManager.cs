@@ -9,20 +9,15 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class MusicManager : MonoBehaviour
 {
-    public static MusicManager Instance;
-    
-    [Header("Tracks")]
-    [SerializeField]
-    private EventReference[] tracks;
+   public static MusicManager Instance;
 
-    [SerializeField]
-    private float fadeTime = 0.5f;
+    [Header("Tracks")]
+    [SerializeField] private EventReference[] tracks;
 
     private EventInstance currentTrack;
-
     private int currentTrackIndex = -1;
 
-    private Coroutine transitionRoutine;
+    private Coroutine monitorRoutine;
 
     private void Awake()
     {
@@ -56,47 +51,56 @@ public class MusicManager : MonoBehaviour
         PlayTrack(next);
     }
 
-    public void PlayTrack(int index)
+    private void PlayTrack(int index)
     {
-        if (transitionRoutine != null)
-            StopCoroutine(transitionRoutine);
+        if (monitorRoutine != null)
+            StopCoroutine(monitorRoutine);
 
-        transitionRoutine =
-            StartCoroutine(
-                TransitionToTrack(index)
-            );
-    }
-
-    private IEnumerator TransitionToTrack(
-        int newIndex)
-    {
         if (currentTrack.isValid())
         {
-
-            currentTrack.stop(
-                STOP_MODE.ALLOWFADEOUT
-            );
-
-
-            yield return new WaitForSeconds(
-                fadeTime
-            );
+            currentTrack.stop(STOP_MODE.IMMEDIATE);
             currentTrack.release();
         }
 
-        currentTrackIndex = newIndex;
-        
+        currentTrackIndex = index;
+
         currentTrack =
             RuntimeManager.CreateInstance(
                 tracks[currentTrackIndex]
             );
-        
-        FMOD.RESULT result =
-            currentTrack.start();
-        
+
+        currentTrack.start();
+
+        monitorRoutine =
+            StartCoroutine(
+                WaitForTrackEnd()
+            );
     }
 
-    
+    private IEnumerator WaitForTrackEnd()
+    {
+        PLAYBACK_STATE state;
+
+        while (true)
+        {
+            if (!currentTrack.isValid())
+                yield break;
+
+            currentTrack.getPlaybackState(
+                out state
+            );
+
+            if (state == PLAYBACK_STATE.STOPPED)
+            {
+                NextTrack();
+                yield break;
+            }
+
+            yield return new WaitForSeconds(
+                0.25f
+            );
+        }
+    }
 
     private void OnDestroy()
     {
