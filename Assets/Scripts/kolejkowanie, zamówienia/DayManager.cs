@@ -44,6 +44,8 @@ public class DayManager : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private NightAmbienceManager nightAmbienceManager;
 
+    public bool save = true;
+
     void Start()
     {
         messagePanel.SetActive(false);
@@ -65,14 +67,14 @@ public class DayManager : MonoBehaviour
         }
     }*/
 
-    public void TriggerSummary()
+    /*public void TriggerSummary()
     {
         if (!isCleaningPhase)
             return;
 
         isCleaningPhase = false;
         EndDay();
-    }
+    }*/
 
     public void WrongKill()
     {
@@ -128,15 +130,24 @@ public class DayManager : MonoBehaviour
 
         StartCoroutine(FadeSummary());
 
-        saveSystem.SaveGame(
-            data.money,
-            data.day,
-            data.killedEnemies,
-            data.servedClients,
-            data.tutorialCompleted,
-            data.cleanedTrashCount,
-            data.sensitivity
-        );
+        if (save)
+        {
+            saveSystem.SaveGame(
+                data.money,
+                data.day,
+                data.killedEnemies,
+                data.servedClients,
+                data.tutorialCompleted,
+                data.cleanedTrashCount,
+                data.sensitivity
+            );
+        }
+        else
+        {
+            saveSystem.ResetStats();
+        }
+
+        save = true;
 
         killedEnemies = 0;
         servedClients = 0;

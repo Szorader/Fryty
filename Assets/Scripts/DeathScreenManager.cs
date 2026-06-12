@@ -92,6 +92,7 @@ public class DeathScreenManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        dayManager.save = false;
         dayManager.EndDay();
         RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Application.LoadLevel ("MainMenu");

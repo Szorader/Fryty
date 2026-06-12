@@ -37,13 +37,15 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private EventReference uiWriteSound;
     
     
-    private SaveSystem saveSystem;
+    public SaveSystem saveSystem;
     
 
     void Start()
     {
-        ApplyView(currentView);
         saveSystem = FindObjectOfType<SaveSystem>();
+        
+        ApplyView(currentView);
+        
     }
 
     void Hide(Card c)
@@ -153,6 +155,7 @@ public class MenuManager : MonoBehaviour
     public void _PlayTutorial()
     {
         PlayWritingSound();
+        saveSystem.ResetStats();
         SceneManager.LoadScene(2);
     }
 
