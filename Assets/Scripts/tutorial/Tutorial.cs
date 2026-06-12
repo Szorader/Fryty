@@ -101,10 +101,10 @@ public class Tutorial : MonoBehaviour
                 obj = GameObject.Find("OrderTicket(Clone)");
                 if (obj != null)
                 {
+                    rackArrow.SetActive(true);
                     t = "Place order note on the order rack above the window";
                     tutorialText.text = t;
                     rack.SetActive(true);
-                    ShowArrow(rackArrow);
 
                     tutorialStep++;
                 }
@@ -128,9 +128,10 @@ public class Tutorial : MonoBehaviour
                     //Debug.Log(y + " " + z + " " + targetY + " " + targetZ);
                     if (y == targetY && z == targetZ)
                     {
+                        rackArrow.SetActive(false);
                         t = "Give the customer a pager.";
                         Text(t, pager);
-                        ShowArrow(pagerArrow);
+                        pagerArrow.SetActive(true);
                     }
                 }
                 break;
@@ -140,10 +141,11 @@ public class Tutorial : MonoBehaviour
                 obj = GameObject.Find("t_pager.002");
                 if (obj == null)
                 {
+                    pagerArrow.SetActive(false);
                     t = "Take a potato out of the fridge.";
                     tutorialText.text = t;
                     fridge.SetActive(true);
-                    ShowArrow(fridgeArrow);
+                    fridgeArrow.SetActive(true);
                     
                     tutorialStep++;
                 }
@@ -153,9 +155,10 @@ public class Tutorial : MonoBehaviour
                obj = GameObject.Find("Potato1(Clone)");
                if (obj != null)
                {
+                   fridgeArrow.SetActive(false);
                    t = "Put the potato into the slicer on the counter and choose the fries type.";
                    Text(t, slicer);
-                   ShowArrow(slicerArrow);
+                   slicerArrow.SetActive(true);
                }
                 break;
            //frytki -> smażenie
@@ -163,9 +166,10 @@ public class Tutorial : MonoBehaviour
                 obj = GameObject.Find("FRYTUNIE(Clone)");
                 if (obj != null)
                 {
+                    slicerArrow.SetActive(false);
                     t = "Put the fries into the fryer. Take them out once they're fried.";
                     Text(t, fryer);
-                    ShowArrow(fryerArrow);
+                    fryerArrow.SetActive(true);
                 }
                 Debug.Log("przed");
                 break;
@@ -176,12 +180,13 @@ public class Tutorial : MonoBehaviour
                FriesData fdata = obj.GetComponent<FriesData>();
                if (fdata.cookDes == "Perfect")
                {
+                   fryerArrow.SetActive(false);
                    t = "Put the fries into the serving basket. Add the correct sauce and spices to the order.";
                    Text(t, basket);
                    ketchup.SetActive(true);
                    salt.SetActive(true);
                    bin.SetActive(true);
-                   ShowArrow(basketArrow);
+                   basketArrow.SetActive(true);
                }
                 break;
            //koszyczek -> przyłowanie klienta
@@ -192,10 +197,11 @@ public class Tutorial : MonoBehaviour
                     bdata.seasoningType == OrderDatabase.SeasoningType.Salt &&
                     bdata.sauceType == OrderDatabase.SauceType.Ketchup)
                 {
+                    basketArrow.SetActive(false);
                     t = "Click the correct order number on the register's tablet to summon the customer to the register.";
                     Text(t, orderNumber);
                     NumberUI.SetActive(true);
-                    ShowArrow(orderNumberArrow);
+                    orderNumberArrow.SetActive(true);
                 }
                 break;
            //klient idzie -> oddanie zamówienia
@@ -203,9 +209,10 @@ public class Tutorial : MonoBehaviour
                UI_QueuingDevice uiQueuingDevice = NumberUI.GetComponent<UI_QueuingDevice>();
                if (uiQueuingDevice.canGiveOrder == false)
                {
+                   orderNumberArrow.SetActive(false);
                    t = "Give the order to the customer by clicking on the buttons of the cash register.";
                    Text(t, cashRegister);
-                   ShowArrow(cashRegisterArrow);
+                   cashRegisterArrow.SetActive(true);
                }
                break;
            //oddanie zamówienia -> nowy koszczek
@@ -215,9 +222,10 @@ public class Tutorial : MonoBehaviour
                 
                 if (bInteraction.clicked == bInteraction.bell)
                 {
+                    cashRegisterArrow.SetActive(false);
                     t = "Add a new basket and tray by clicking the tray holder.";
                     Text(t, stand);
-                    ShowArrow(standArrow);
+                    standArrow.SetActive(true);
                     spawner.canSpawn = true;
                 }
                 break;
@@ -226,9 +234,10 @@ public class Tutorial : MonoBehaviour
                 bInteraction = basket.GetComponent<BasketInteraction>();
                 if (bInteraction.clicked == bInteraction.trayShelf)
                 {
+                    standArrow.SetActive(false);
                     t = "This customer is rotten! End his suffering by pulling the chain above you. It will close the shutter door and pour hot oil on him.";
                     Text(t, chain);
-                    ShowArrow(chainArrow);
+                    chainArrow.SetActive(true);
                 }
                 break;
             //zabicie
@@ -236,7 +245,8 @@ public class Tutorial : MonoBehaviour
                 ChainInteraction chainInteraction = chain.GetComponent<ChainInteraction>();
                 if (chainInteraction.tutorial)
                 {
-                    t = "Time to clean outside, take the broom and remove the trash on the tables.";
+                    chainArrow.SetActive(false);
+                    t = "Time to clean outside, take the broom and remove the trash on the outside tables.";
                     Text(t, broom);
                     broomArrow.SetActive(true);
                 }
@@ -249,7 +259,7 @@ public class Tutorial : MonoBehaviour
                     t = "Click on the trash while holding the broom to remove the trash.";
                     Text(t, umbrella);
                     broomArrow.SetActive(false);
-                    ShowArrow(trashArrow);
+                    trashArrow.SetActive(true);
                     
                 }
                 break;
@@ -281,9 +291,10 @@ public class Tutorial : MonoBehaviour
 
                 if (!anyActive)
                 {
+                    trashArrow.SetActive(false);
                     t = "Time to end the day, click the truck's driver door. The game saves when you end the day.";
                     Text(t, pager);
-                    ShowArrow(endDayArrow);
+                    endDayArrow.SetActive(true);
                 }
 
                 break;
@@ -302,6 +313,7 @@ public class Tutorial : MonoBehaviour
                 EndDayInteraction DRinteraction =  doorRight.GetComponent<EndDayInteraction>();
                 if (DLinteraction.clicked || DRinteraction.clicked)
                 {
+                    endDayArrow.SetActive(false);
                     t = "You completed the tutorial, congratulations!";
                     Text(t, pager);
                     StartCoroutine(WaitCoroutine());

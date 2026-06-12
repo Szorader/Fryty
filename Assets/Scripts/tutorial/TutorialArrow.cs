@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class TutorialArrow : MonoBehaviour
 {
-    [SerializeField] private float bounceDistance = 0.15f;
-    [SerializeField] private float bounceSpeed = 3f;
+    [SerializeField]
+    private float distance = 0.15f;
+
+    [SerializeField]
+    private float speed = 3f;
 
     private Vector3 startPos;
 
@@ -14,12 +17,10 @@ public class TutorialArrow : MonoBehaviour
 
     private void Update()
     {
-        float offset =
-            Mathf.Sin(Time.time * bounceSpeed)
-            * bounceDistance;
-
         transform.localPosition =
             startPos +
-            transform.up * offset;
+            transform.up *
+            Mathf.Sin(Time.time * speed) *
+            distance;
     }
 }
