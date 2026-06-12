@@ -38,6 +38,6 @@ public class CarSpawner : MonoBehaviour
         GameObject car = carPrefabs[Random.Range(0, carPrefabs.Length)];
         GameObject spawned = Instantiate(car, point.position, point.rotation);
 
-        Debug.Log("Spawn: " + spawned.name + " at " + point.name);
+        //Debug.Log("Spawn: " + spawned.name + " at " + point.name);
     }
 }

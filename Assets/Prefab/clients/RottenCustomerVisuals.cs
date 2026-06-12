@@ -4,6 +4,8 @@ public class RottenCustomerVisuals : MonoBehaviour
 {
     [Header("Growths / Roots")]
     [SerializeField] private GameObject[] growths;
+    [SerializeField] private GameObject horn;
+    private const float hornChance = 0.1f; 
 
     [Header("Effects")]
     [SerializeField] private GameObject flyParticles;
@@ -16,11 +18,20 @@ public class RottenCustomerVisuals : MonoBehaviour
             if (growth != null)
                 growth.SetActive(false);
         }
+        
+        if (horn != null)
+            horn.SetActive(false);
 
         if (flyParticles != null)
             flyParticles.SetActive(true);
 
         // pick 3 unique growths
+        if (horn != null && Random.value < hornChance)
+        {
+            horn.SetActive(true);
+            return;
+        }
+        
         List<int> availableIndices = new List<int>();
 
         for (int i = 0; i < growths.Length; i++)
@@ -53,5 +64,8 @@ public class RottenCustomerVisuals : MonoBehaviour
 
         if (flyParticles != null)
             flyParticles.SetActive(false);
+        
+        if (horn != null)
+            horn.SetActive(false);
     }
 }

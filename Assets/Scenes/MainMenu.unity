@@ -2356,6 +2356,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572a0e6b0e078e94fa62883abfb30eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenModeController
+--- !u!114 &413387776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7948548692002974356, guid: 7fcc8a6183a2a2849aba8f677367af44, type: 3}
+  m_PrefabInstance: {fileID: 1683606013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc31a299ac5861842bd5b1a4a67a5df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveSystem
 --- !u!1 &433763048
 GameObject:
   m_ObjectHideFlags: 0
@@ -6616,7 +6627,7 @@ MonoBehaviour:
       Data3: -71209330
       Data4: -312544986
     Path: event:/InsideTruck/writing
-  saveSystem: {fileID: 0}
+  saveSystem: {fileID: 413387776}
 --- !u!1 &1352040591
 GameObject:
   m_ObjectHideFlags: 0

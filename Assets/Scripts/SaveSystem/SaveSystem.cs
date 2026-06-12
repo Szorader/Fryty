@@ -112,7 +112,7 @@ public class SaveSystem : MonoBehaviour
         Debug.LogWarning("Brak pliku zapisu");
         return new SaveData()
             {
-                money = 0,
+                money = 4,
                 day = 0,
                 killedEnemies = 0,
                 servedClients = 0,
@@ -131,7 +131,7 @@ public class SaveSystem : MonoBehaviour
             Debug.Log("Zapis usunięty");
             new SaveData()
             {
-                money = 0,
+                money = 4,
                 day = 0,
                 killedEnemies = 0,
                 servedClients = 0,

@@ -46,17 +46,20 @@ public class ClickToSpawn : MonoBehaviour
             return;
         }
 
-        // cleanup nulli
         spawnedObjects.RemoveAll(item => item == null);
 
-        // limit
         if (spawnedObjects.Count >= maxObjects)
         {
-            Debug.Log("Limit obiektów osiągnięty (5).");
+            wallet.ShowError("You can't have more potatoes");
             return;
         }
 
-        // TU: dopiero jeśli spawn jest możliwy
+        if (!wallet.HasMoney(cost))
+        {
+            wallet.ShowError("You don't have enough money");
+            return;
+        }
+
         wallet.SpendMoney(cost);
 
         Vector3 spawnPosition = transform.position + spawnOffset;
@@ -71,10 +74,6 @@ public class ClickToSpawn : MonoBehaviour
         {
             Vector3 direction = spawnOffset.normalized;
             rb.AddForce(direction * force);
-        }
-        else
-        {
-            Debug.LogWarning("Spawned obiekt nie ma Rigidbody!");
         }
     }
 }

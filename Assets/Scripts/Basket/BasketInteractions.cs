@@ -298,7 +298,10 @@ public partial class BasketInteraction : MonoBehaviour
             CheckOrder();
             ResetBasket();
 
-            StartCoroutine(RemoveCustomerAfterReaction());
+            if (!isBad)
+            {
+                StartCoroutine(RemoveCustomerAfterReaction());
+            }
         }
         else if (clicked == trashBin)
         {
@@ -385,25 +388,12 @@ public partial class BasketInteraction : MonoBehaviour
     
     // Evil customer eats us
     
-    private IEnumerator EvilCustomerSequence(
-        FaceController face,
-        Animator anim
-    )
+    private IEnumerator EvilCustomerSequence(FaceController face, Animator anim)
     {
         Debug.Log("Evil sequence started");
 
         if (face != null)
-        {
-            yield return StartCoroutine(
-                face.EvilAttack(1.5f)
-            );
-        }
-
-        Debug.Log("Face finished");
-
-        yield return new WaitForSeconds(0.2f);
-
-        Debug.Log("Starting attack");
+            yield return StartCoroutine(face.EvilAttack(1.5f));
 
         if (anim != null)
         {
@@ -417,10 +407,10 @@ public partial class BasketInteraction : MonoBehaviour
             anim.SetBool("isAttacking", false);
         }
 
-        yield return new WaitForSeconds(1.2f);
+    
+        isLooking = true;
 
-        Debug.Log("Death");
-
+ 
         deathScreenManager.ShowDeath(player);
     }
 

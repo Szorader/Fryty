@@ -251,7 +251,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8085630732719783452}
   - component: {fileID: 6769255595030507850}
-  - component: {fileID: 1751073627582566309}
   m_Layer: 0
   m_Name: f_client
   m_TagString: Untagged
@@ -369,21 +368,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0099463165, y: 0.18872693, z: 0.012552947}
     m_Extent: {x: 0.6506417, y: 1.0723226, z: 0.41305345}
   m_DirtyAABB: 0
---- !u!114 &1751073627582566309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357894370584972637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a20ea30ffd879b49bb95fdd40e460a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TutorialHighlight
-  renderers:
-  - {fileID: 6769255595030507850}
-  rend: {fileID: 0}
 --- !u!1 &550235757275137568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3598,17 +3582,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64faa0e6a0d23f743b51f576c6e74e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSatisfaction
-  baseTip: 10
-  penaltyPer10Seconds: 0.5
-  fastOrderBonus: 0.2
-  wrongFriesPenalty: 1
-  goodFriesBonus: 1
-  badCookPenalty: 1
-  goodCookBonus: 1
-  wrongSaucePenalty: 1
-  goodSauceBonus: 1
-  wrongSeasoningPenalty: 1
-  goodSeasoningBonus: 1
+  baseTip: 1
+  penaltyPer10Seconds: 0.1
+  fastOrderBonus: 0.1
+  wrongFriesPenalty: 0.6
+  goodFriesBonus: 0.2
+  badCookPenalty: 0.7
+  goodCookBonus: 0.3
+  wrongSaucePenalty: 0.5
+  goodSauceBonus: 0.2
+  wrongSeasoningPenalty: 0.3
+  goodSeasoningBonus: 0.2
 --- !u!114 &-8918931836767975462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3741,6 +3725,7 @@ MonoBehaviour:
   growths:
   - {fileID: 3137498880909636237}
   - {fileID: 8587126326706835244}
+  horn: {fileID: 0}
   flyParticles: {fileID: 3210291296891955658}
 --- !u!1 &8721154377661882461
 GameObject:

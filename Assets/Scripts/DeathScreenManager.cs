@@ -59,6 +59,9 @@ public class DeathScreenManager : MonoBehaviour
             movement.enabled = false;
         }
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         Color imageColor = fadeImage.color;
         Color textColor = messageText.color;
 
@@ -96,5 +99,13 @@ public class DeathScreenManager : MonoBehaviour
         dayManager.EndDay();
         RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Application.LoadLevel ("MainMenu");
+    }
+    
+    public void ShowBankrupt(GameObject player)
+    {
+        if (isShowing) return;
+
+        messageText.text = "YOU ARE BANKRUPT";
+        StartCoroutine(FadeRoutine(player));
     }
 }

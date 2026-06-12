@@ -13,6 +13,10 @@ public class Wallet : MonoBehaviour
 
     [Header("Money")]
     [SerializeField] private float balance = 0f;
+    
+    [Header("Error UI")]
+    [SerializeField] private TMP_Text errorText;
+    private Coroutine errorCoroutine;
 
     private Coroutine operationCoroutine;
     private Coroutine tipCoroutine;
@@ -24,8 +28,20 @@ public class Wallet : MonoBehaviour
 
         if (tipText != null)
             tipText.gameObject.SetActive(false);
-        
+
         LoadBalanceFromSave();
+
+        if (balance < 0f)
+        {
+            DeathScreenManager deathScreen =
+                FindObjectOfType<DeathScreenManager>();
+
+            if (deathScreen != null)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                deathScreen.ShowBankrupt(player);
+            }
+        }
 
         RefreshUI();
     }
@@ -140,5 +156,23 @@ public class Wallet : MonoBehaviour
             SaveSystem.Instance.saveData = new SaveData();
         
         SaveSystem.Instance.saveData.money = balance;
+    }
+    
+    public bool HasMoney(float amount)
+    {
+        return balance >= amount;
+    }
+    
+    public void ShowError(string text)
+    {
+        if (errorText == null) return;
+
+        errorText.gameObject.SetActive(true);
+        errorText.text = text;
+
+        if (errorCoroutine != null)
+            StopCoroutine(errorCoroutine);
+
+        errorCoroutine = StartCoroutine(HideAfterTime(errorText.gameObject, 2f));
     }
 }
