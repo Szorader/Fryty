@@ -17,10 +17,16 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 60e93888f2e1c744783a4f7de6a826b0, type: 2}
   - {fileID: 2100000, guid: 8e7ff35cc6e3e0040bd5027fb36d470a, type: 2}
   - {fileID: 2100000, guid: 9c671e07ff8f5cb4080a00797fbf57e3, type: 2}
+  - {fileID: 2100000, guid: adafa38c5a76a484dadb8fce43ba47d8, type: 2}
+  - {fileID: 2100000, guid: 3509497534e06e04f98b43ab67a24d35, type: 2}
+  - {fileID: 2100000, guid: fff82c6bbb074a54b9a3d9b7bc5dc16d, type: 2}
   badMaterials:
   - {fileID: 2100000, guid: 94b0c979fc83c534d919ca15cb507430, type: 2}
   - {fileID: 2100000, guid: f7692adf2503b2b4cbe1ab7ec8c69fff, type: 2}
   - {fileID: 2100000, guid: 7b8d52b5cdb178944affa1d30dd01bd0, type: 2}
+  - {fileID: 2100000, guid: cdcefb4c67928fe4285b73a7547750a3, type: 2}
+  - {fileID: 2100000, guid: 0a6c0d604c161f4478e3b6845b84a075, type: 2}
+  - {fileID: 2100000, guid: 3205c3212d086dd479db5bd784151585, type: 2}
   goodFaceMaterial: {fileID: 2100000, guid: 89683900fb3ffd541be6e920b5788a23, type: 2}
   badFaceMaterial: {fileID: 2100000, guid: cd467229b58410743803d29726a0fbfe, type: 2}
   availableVoiceActors: 000000000100000002000000
