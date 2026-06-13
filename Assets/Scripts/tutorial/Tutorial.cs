@@ -160,6 +160,7 @@ public class Tutorial : MonoBehaviour
                    t = "Put the potato into the slicer on the counter and choose the fries type.";
                    Text(t, slicer);
                    slicerArrow.SetActive(true);
+                   pager.SetActive(false);
                }
                 break;
            //frytki -> smażenie
@@ -170,7 +171,6 @@ public class Tutorial : MonoBehaviour
                     slicerArrow.SetActive(false);
                     t = "Put the fries into the fryer. Take them out once they're fried.";
                     Text(t, fryer);
-                    pager.SetActive(false);
                     fryerArrow.SetActive(true);
                 }
                 Debug.Log("przed");
@@ -263,7 +263,6 @@ public class Tutorial : MonoBehaviour
                     broomArrow.SetActive(false);
                     trashArrow.SetActive(true);
                     doorlock.SetActive(false);
-                    
                 }
                 break;
             case 13:
@@ -334,7 +333,7 @@ public class Tutorial : MonoBehaviour
     private IEnumerator WaitCoroutine()
     {
         yield return new WaitForSeconds(5f);
-
+        saveSystem.ResetStats();
         saveSystem.saveData.tutorialCompleted = true;
         dayManager.Save();
         //SceneManager.LoadScene(1);

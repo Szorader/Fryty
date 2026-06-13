@@ -3668,7 +3668,7 @@ MonoBehaviour:
   chain: {fileID: 538803997}
   broom: {fileID: 1911362268}
   umbrella: {fileID: 6590508476289783062}
-  doorlock: {fileID: 0}
+  doorlock: {fileID: 1858301992}
   pagerArrow: {fileID: 932790644}
   rackArrow: {fileID: 2073810539}
   fridgeArrow: {fileID: 1640946083}
@@ -9375,27 +9375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Day: 2
-
-    Customers served: 1
-
-    Customers killed: 1
-
-    Trash cleaned:
-    2
-
-    Money: 32,20$
-
-    Supplies: -1,50$
-
-    Tax: -6,12$
-
-    Rent: -6,00$
-
-    Total:
-    18,58$
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ec2fa0a93e6a074abc637c373b01e75, type: 2}
   m_sharedMaterial: {fileID: -7225097494671657563, guid: 5ec2fa0a93e6a074abc637c373b01e75, type: 2}
@@ -18912,7 +18892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979836599994573577, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.71
+      value: 1.687
       objectReference: {fileID: 0}
     - target: {fileID: 8979836599994573577, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21411,7 +21391,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5145266815696457003, guid: 483cb826e8ad5404cb09acf48d93ca90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.51
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145266815696457003, guid: 483cb826e8ad5404cb09acf48d93ca90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5202056109720657067, guid: 483cb826e8ad5404cb09acf48d93ca90, type: 3}
       propertyPath: m_Materials.Array.size
