@@ -1,9 +1,9 @@
 {
-    "money": 18.100000381469728,
+    "money": 17.100000381469728,
     "day": 1,
     "killedEnemies": 1,
     "servedClients": 1,
-    "cleanedTrashCount": 2,
+    "cleanedTrashCount": 1,
     "tutorialCompleted": false,
     "sensitivity": 0.0
 }
