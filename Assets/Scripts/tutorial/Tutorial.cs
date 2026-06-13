@@ -335,7 +335,7 @@ public class Tutorial : MonoBehaviour
         yield return new WaitForSeconds(5f);
         saveSystem.ResetStats();
         saveSystem.saveData.tutorialCompleted = true;
-        dayManager.Save();
+        //dayManager.Save();
         //SceneManager.LoadScene(1);
     }
     private void Text(string text, GameObject obj)
