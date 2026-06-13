@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
-
+using System.Collections;
 public class ClickToSpawn : MonoBehaviour
 {
     [Header("Prefab do zespawnowania")]
     public GameObject prefabToSpawn;
 
-    [Header("Offset spawnu")]
-    public Vector3 spawnOffset = new Vector3(2f, 0f, 0f);
+    [Header("Spawnu")] 
+    [SerializeField] private Vector3 spawnPositionOffset = new Vector3(2f, 0f, 0f);
+    [SerializeField] private Vector3 launchDirection = Vector3.right;
+    //public Vector3 spawnOffset = new Vector3(2f, 0f, 0f);
 
     [Header("Siła wystrzału")]
     public float force = 500f;
@@ -24,26 +26,29 @@ public class ClickToSpawn : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private EventReference popSound;
+    
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
 
     private static List<GameObject> spawnedObjects = new List<GameObject>();
 
     void OnMouseDown()
     {
-        SpawnObject();
+        StartCoroutine(SpawnObjectCoroutine());
     }
 
-    void SpawnObject()
+    private IEnumerator SpawnObjectCoroutine()
     {
         if (prefabToSpawn == null)
         {
             Debug.LogWarning("Prefab nie jest przypisany!");
-            return;
+            yield break;
         }
 
         if (wallet == null)
         {
             Debug.LogWarning("Wallet nie jest przypisany!");
-            return;
+            yield break;
         }
 
         spawnedObjects.RemoveAll(item => item == null);
@@ -51,18 +56,25 @@ public class ClickToSpawn : MonoBehaviour
         if (spawnedObjects.Count >= maxObjects)
         {
             wallet.ShowError("You can't have more potatoes");
-            return;
+            yield break;
         }
 
         if (!wallet.HasMoney(cost))
         {
             wallet.ShowError("You don't have enough money");
-            return;
+            yield break;
         }
 
         wallet.SpendMoney(cost);
 
-        Vector3 spawnPosition = transform.position + spawnOffset;
+        if (animator != null)
+        {
+            animator.SetTrigger("open");
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        Vector3 spawnPosition = transform.position + spawnPositionOffset;
 
         RuntimeManager.PlayOneShot(popSound, spawnPosition);
 
@@ -72,8 +84,7 @@ public class ClickToSpawn : MonoBehaviour
         Rigidbody rb = spawned.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            Vector3 direction = spawnOffset.normalized;
-            rb.AddForce(direction * force);
+            rb.AddForce(launchDirection.normalized * force);
         }
     }
 }
