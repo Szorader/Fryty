@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: bf3a327833f3c6c46bf23d4f614174b3
+  - enabled: 0
+    path: Assets/Scenes/12.06 15;00smaller fixes 1.unity
+    guid: c69b1fe9600f3e345802b3f26fb21e61
   - enabled: 1
     path: "Assets/Scenes/13.06 walka na ostatni\u0105 chwil\u0119.unity"
     guid: c37638ee2bba6a040830e519d93fccc3
