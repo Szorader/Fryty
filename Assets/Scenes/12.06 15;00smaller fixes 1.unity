@@ -17645,7 +17645,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 687183470}
         m_TargetAssemblyTypeName: DeathScreenManager, Assembly-CSharp
-        m_MethodName: ReturnToMenu
+        m_MethodName: ReturnToMenuWithSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -93,6 +93,13 @@ public class DeathScreenManager : MonoBehaviour
         menuButton.gameObject.SetActive(true);
     }
 
+    public void ReturnToMenuWithSave()
+    {
+        dayManager.EndDay();
+        RuntimeManager.GetBus("bus:/").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        Application.LoadLevel ("MainMenu");
+    }
+    
     public void ReturnToMenu()
     {
         dayManager.save = false;
