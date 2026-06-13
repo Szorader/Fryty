@@ -1136,7 +1136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 432, y: -408}
+  m_AnchoredPosition: {x: 300, y: -408}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114350236
@@ -12459,8 +12459,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12501,7 +12501,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -0.42666623, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &653334682
@@ -12955,7 +12955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -445, y: -413}
+  m_AnchoredPosition: {x: -300, y: -413}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695744872
@@ -21569,8 +21569,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_text
-      value: Remember, after work drive the truck to the restaurant. The rent here
-        is too expensive to stay parked all the time ~ Boss
+      value: "Remember, after work drive the truck to the restaurant. The rent here
+        is too expensive to stay parked all the time \n\t~ Boss"
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontSize
@@ -21588,6 +21588,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -1665132313543341044, guid: 0ce3e3c44376a1a448814859ba5bd4c4, type: 2}
+    - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -22657,6 +22661,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8137bb793525ec44b97c7966b22187d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutterButton
+--- !u!114 &1121042114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5105044824608970117, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+  m_PrefabInstance: {fileID: 7041319264378202557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!114 &1121838015 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1082966971951632229, guid: f257c06bfce85cc47b2ac32b471de0e6, type: 3}
@@ -30005,6 +30020,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9031003435503180793, guid: cb17bc24dbf0c4e4e906992810cfee99, type: 3}
   m_PrefabInstance: {fileID: 279919625973866195}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1946842310 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3111797393225623023, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+  m_PrefabInstance: {fileID: 7041319264378202557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1950350289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32579,7 +32605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 517135410840632549, guid: 7fcc8a6183a2a2849aba8f677367af44, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2935782555398599527, guid: 7fcc8a6183a2a2849aba8f677367af44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32909,10 +32935,42 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2716165102540259975, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2872155705295992768, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 909139891}
+    - target: {fileID: 3105707379934476394, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1121042114}
+    - target: {fileID: 3105707379934476394, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105707379934476394, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105707379934476394, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105707379934476394, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105707379934476394, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105707379934476394, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.8018868
+      objectReference: {fileID: 0}
     - target: {fileID: 3105707379934476394, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -33097,6 +33155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5038494013310822085, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5105044824608970117, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -33172,6 +33234,34 @@ PrefabInstance:
     - target: {fileID: 7422793515695290863, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466184223820935862, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1946842310}
+    - target: {fileID: 7466184223820935862, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466184223820935862, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466184223820935862, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466184223820935862, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466184223820935862, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 7466184223820935862, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.8018868
       objectReference: {fileID: 0}
     - target: {fileID: 7466184223820935862, guid: 49cf3a04f8b03464b9ea8c696f2481bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -34271,7 +34361,7 @@ PrefabInstance:
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_text
       value: "Those customers might be rotten but they drop mad good fries. Saves
-        us some money\n\t    - Boss"
+        us some money\n\t    ~ Boss"
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontSize

@@ -154,4 +154,35 @@ public class SaveSystem : MonoBehaviour
 
         return false;
     }
+    
+    public bool HasSave()
+    {
+        if (!File.Exists(savePath))
+            return false;
+
+        try
+        {
+            string json = File.ReadAllText(savePath);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+            // traktuj jako "brak save", jeśli wszystko jest zerowe / defaultowe
+            if (data == null)
+                return false;
+
+            if (data.day == 0 &&
+                data.money == 0 &&
+                data.killedEnemies == 0 &&
+                data.servedClients == 0 &&
+                !data.tutorialCompleted)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 }

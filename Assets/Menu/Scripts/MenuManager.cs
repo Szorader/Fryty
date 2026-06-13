@@ -30,6 +30,7 @@ public class MenuManager : MonoBehaviour
     
     [Header("Game")]
     public string GameSceneName = "Game";
+    [SerializeField] private UnityEngine.UI.Button continueButton;
     
     [Header("Audio")]
     [SerializeField] private EventReference bottle_squirt;
@@ -43,9 +44,9 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         saveSystem = FindObjectOfType<SaveSystem>();
-        
+
         ApplyView(currentView);
-        
+        UpdateContinueButton();
     }
 
     void Hide(Card c)
@@ -90,13 +91,34 @@ public class MenuManager : MonoBehaviour
         if (creditsScroll != null)
             creditsScroll.SetInCreddits(view == MenuView.Credits);
     }
+    
+    void UpdateContinueButton()
+    {
+        if (saveSystem == null || continueButton == null)
+            return;
+
+        bool hasSave = saveSystem.HasSave();
+        continueButton.interactable = hasSave;
+    }
 
 #if UNITY_EDITOR
     void OnValidate()
     {
-        if (!Application.isPlaying)
+        if (Application.isPlaying)
+            return;
+
+        if (creditsScroll == null)
+            return;
+
+        // tylko przełączanie CanvasGroup, bez runtime logiki
+        DisableAll();
+
+        switch (currentView)
         {
-            ApplyView(currentView);
+            case MenuView.Main: Show(mainCard); break;
+            case MenuView.Game: Show(gameCard); break;
+            case MenuView.Settings: Show(settingsCard); break;
+            case MenuView.Credits: Show(creditsCard); break;
         }
     }
 #endif

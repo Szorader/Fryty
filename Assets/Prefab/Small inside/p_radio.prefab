@@ -65,7 +65,6 @@ MonoBehaviour:
       Data3: 1948616635
       Data4: -1949157737
     Path: event:/Music/mfx_game_3
-  fadeTime: 0.5
 --- !u!1001 &1711171331782688000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +131,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69cb4048b292e33409fbb7a29ef029a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8264992708335375903}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69cb4048b292e33409fbb7a29ef029a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5379185762239236831}
   m_SourcePrefab: {fileID: 100100000, guid: 69cb4048b292e33409fbb7a29ef029a1, type: 3}
 --- !u!4 &1168108233718520555 stripped
 Transform:
@@ -176,6 +178,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5972477, y: 0.16635339, z: 0.3348282}
   m_Center: {x: -0.004854796, y: 0.00395279, z: 0.16741389}
+--- !u!114 &5379185762239236831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981061101758971985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0774777522a034645bb14c4f2b3f311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interaction
+  prompt: LMB - Change music
 --- !u!1001 &3501477102448384578
 PrefabInstance:
   m_ObjectHideFlags: 0

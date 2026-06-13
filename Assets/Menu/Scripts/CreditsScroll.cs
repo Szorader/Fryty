@@ -11,11 +11,18 @@ public class CreditsScroll : MonoBehaviour
    private RectTransform rectTransform;
    private Vector2 startPosition;
 
-   void Start()
+   /*void Start()
    {
       // get the transform of the UI panel with the credits text
       rectTransform = GetComponent<RectTransform>();
       startPosition = rectTransform.anchoredPosition;
+   }*/
+   
+   void Awake()
+   {
+      rectTransform = GetComponent<RectTransform>();
+      if (rectTransform != null)
+         startPosition = rectTransform.anchoredPosition;
    }
 
    void Update()
@@ -28,6 +35,10 @@ public class CreditsScroll : MonoBehaviour
    public void SetInCreddits(bool value)
    {
       inCreddits = value;
+
+      if (rectTransform == null)
+         return;
+
       if (!value)
       {
          rectTransform.anchoredPosition = startPosition;

@@ -28,6 +28,7 @@ public class Tutorial : MonoBehaviour
     public GameObject chain;
     public GameObject broom;
     public GameObject umbrella;
+    public GameObject doorlock;
 
     [Header("Tutorial Arrows")]
     public GameObject pagerArrow;
@@ -169,6 +170,7 @@ public class Tutorial : MonoBehaviour
                     slicerArrow.SetActive(false);
                     t = "Put the fries into the fryer. Take them out once they're fried.";
                     Text(t, fryer);
+                    pager.SetActive(false);
                     fryerArrow.SetActive(true);
                 }
                 Debug.Log("przed");
@@ -260,6 +262,7 @@ public class Tutorial : MonoBehaviour
                     Text(t, umbrella);
                     broomArrow.SetActive(false);
                     trashArrow.SetActive(true);
+                    doorlock.SetActive(false);
                     
                 }
                 break;

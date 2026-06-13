@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588202349726222756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000045914203}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.13999967, y: 0.017999977}
-  m_SizeDelta: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.21, y: -0.104}
+  m_SizeDelta: {x: 0.6, y: 0.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5143912959224942260
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 987b67fd63aa1dc4388b5f8edf222ed3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae0b897b8251d0d439fad7f0bbbb9ed9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -101,7 +101,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700149596547782133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.206, y: 0.061}
-  m_SizeDelta: {x: 0.3, y: 0.3}
+  m_AnchoredPosition: {x: 0.163, y: -0.288}
+  m_SizeDelta: {x: 0.4, y: 0.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &665224658178966562
 CanvasRenderer:
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cd2a6372a6bef9a44be76e8f3bccda29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3c1a7dc787a86040a4845c9176128f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -176,7 +176,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066869242140810940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000045914203}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,8 +184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.074000336, y: -0.25800005}
-  m_SizeDelta: {x: 0.3, y: 0.3}
+  m_AnchoredPosition: {x: 0.228, y: 0.088}
+  m_SizeDelta: {x: 0.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5586384302841068510
 CanvasRenderer:
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2203cc2c015755144af29b992ec283a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd85303f191afd343a9241964283611b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -252,7 +252,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2315661121934831141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.6}
+  m_LocalPosition: {x: 0, y: 0, z: -0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -397,8 +397,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Order
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cd1d20a23d9792c4f85692d3fa7854a5, type: 2}
+  m_sharedMaterial: {fileID: 7331742195093986538, guid: cd1d20a23d9792c4f85692d3fa7854a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.07076761, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.12527865, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -499,7 +499,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.00066313474, y: -0.98330986, z: 0.18190229, w: -0.0035847104}
   m_LocalPosition: {x: 2.032, y: 1.963, z: -30.402}
-  m_LocalScale: {x: 0.3, y: 0.4, z: 0.005}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.005}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3848660708986786219}
@@ -538,7 +538,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 252dd24bb8a683f4fb42e2857d8d1972, type: 2}
+  - {fileID: 2100000, guid: a90f4006b91f4dc4a96a83e8a652fb4b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -626,20 +626,20 @@ MonoBehaviour:
   sauceImage: {fileID: 5440081068965754278}
   seasoningImage: {fileID: 1582015268816956418}
   orderText: {fileID: 8426902069495912509}
-  noneFries: {fileID: 21300000, guid: fe6fd26210b643c4da086474b73ca9cd, type: 3}
-  straightFries: {fileID: 21300000, guid: 461f66fc225a5b0409bf9b975e61c21f, type: 3}
-  crinkleFries: {fileID: 21300000, guid: 987b67fd63aa1dc4388b5f8edf222ed3, type: 3}
-  wedgesFries: {fileID: 21300000, guid: fe410bc5425ac534cb091237c36728c5, type: 3}
-  noneSauce: {fileID: 21300000, guid: fe6fd26210b643c4da086474b73ca9cd, type: 3}
-  ketchup: {fileID: 21300000, guid: 2203cc2c015755144af29b992ec283a4, type: 3}
-  mayo: {fileID: 21300000, guid: 62d5c254540b1644e83eb0c296f260a1, type: 3}
-  cheese: {fileID: 21300000, guid: f457b0dcca5e252469858724d5c20335, type: 3}
-  chili: {fileID: 21300000, guid: 7487a589e0cbc4f43b50f8d7f4f33740, type: 3}
-  oneIsland: {fileID: 21300000, guid: ab0da1f0fbd20724b911ca90776854d2, type: 3}
-  garlic: {fileID: 21300000, guid: 8cb6c8944dd384242aa1ef86039f4c80, type: 3}
-  noneSeasoning: {fileID: 21300000, guid: fe6fd26210b643c4da086474b73ca9cd, type: 3}
-  salt: {fileID: 21300000, guid: cd2a6372a6bef9a44be76e8f3bccda29, type: 3}
-  pepper: {fileID: 21300000, guid: 782a03bc516695d4eab7a55dae268fc5, type: 3}
+  noneFries: {fileID: 21300000, guid: 6ae0a495dc8564a4388e905611751586, type: 3}
+  straightFries: {fileID: 21300000, guid: c63df61e02b25804db0d93ca39e43f22, type: 3}
+  crinkleFries: {fileID: 21300000, guid: ae0b897b8251d0d439fad7f0bbbb9ed9, type: 3}
+  wedgesFries: {fileID: 21300000, guid: 8f48b39068be622499fd5057e988bcff, type: 3}
+  noneSauce: {fileID: 21300000, guid: 6ae0a495dc8564a4388e905611751586, type: 3}
+  ketchup: {fileID: 21300000, guid: cd85303f191afd343a9241964283611b, type: 3}
+  mayo: {fileID: 21300000, guid: 9730882b2055f3e44a203698223f6ec9, type: 3}
+  cheese: {fileID: 21300000, guid: 936b471af9b7e1549ab8cc3af3446fc7, type: 3}
+  chili: {fileID: 21300000, guid: f4f9f07343efbbb4c95984a7bda264bd, type: 3}
+  oneIsland: {fileID: 21300000, guid: 04ed072cd3fc5fc4bb2cb316cc9fed1b, type: 3}
+  garlic: {fileID: 21300000, guid: 05356832c99193044a1491fc686903ce, type: 3}
+  noneSeasoning: {fileID: 21300000, guid: 6ae0a495dc8564a4388e905611751586, type: 3}
+  salt: {fileID: 21300000, guid: f3c1a7dc787a86040a4845c9176128f2, type: 3}
+  pepper: {fileID: 21300000, guid: b143be528cd87c64fbc04757aca7b3f6, type: 3}
 --- !u!114 &8323996277702236834
 MonoBehaviour:
   m_ObjectHideFlags: 0
