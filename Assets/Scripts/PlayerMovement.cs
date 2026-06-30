@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using PlayerInput;
 using FMODUnity;
@@ -35,14 +36,26 @@ public class PlayerMovement : MonoBehaviour
 
         SaveData data = SaveSystem.Instance.LoadGame();
 
+        
+        
         if (data != null && data.sensitivity > 0)
         {
-            lookSensitivity = data.sensitivity;
+            StartCoroutine(LateStart());
+            
         }
 
         // audio
         footstepInstance = RuntimeManager.CreateInstance(footsteps_indoors);
         footstepInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
+    }
+    
+    IEnumerator LateStart()
+    {
+        yield return null;
+
+        SaveData data = SaveSystem.Instance.LoadGame();
+        lookSensitivity = data.sensitivity;
+        Debug.Log("LateStart");
     }
     
     private void Awake()
