@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using FMODUnity;
+using UnityEngine.Rendering;
 
 public class DayManager : MonoBehaviour
 {
@@ -41,6 +42,19 @@ public class DayManager : MonoBehaviour
     [SerializeField] private List<GameObject> openParasols = new List<GameObject>();
     [SerializeField] private List<GameObject> closedParasols = new List<GameObject>();
 
+    [Header("Street Night Lights")] [SerializeField]
+    private List<Light> dayNightLights = new List<Light>();
+    
+    [Header("Post Processing")]
+    [SerializeField] private Volume dayVolume;
+    [SerializeField] private Volume nightVolume;
+    
+    // so that we can switch the street lamps' material to non-emissive
+    [Header("Day / Night Materials")]
+    [SerializeField] private List<MeshRenderer> emissiveRenderers = new List<MeshRenderer>();
+    [SerializeField] private Material dayMaterial; // t_colors
+    [SerializeField] private Material nightMaterial; // m_emissive
+
     [Header("Audio")]
     [SerializeField] private NightAmbienceManager nightAmbienceManager;
 
@@ -56,6 +70,9 @@ public class DayManager : MonoBehaviour
         saveSystem = FindObjectOfType<SaveSystem>();
         
         spawnManager = FindObjectOfType<SpawnManager>();
+        
+        // making sure street lights are in day time mode
+        SwitchToDay();
     }
 
     /*private void Update()
@@ -244,15 +261,7 @@ public class DayManager : MonoBehaviour
         SetParasolsForCleaning(true);
     }
     
-    private void SetParasolsForCleaning(bool cleaning)
-    {
-        // cleaning = true -> zamykamy otwarte, pokazujemy zamknięte
-        foreach (var p in openParasols)
-            if (p != null) p.SetActive(!cleaning);
-
-        foreach (var p in closedParasols)
-            if (p != null) p.SetActive(cleaning);
-    }
+    
 
     IEnumerator Message(string text, float time, bool nextDay)
     {
@@ -274,5 +283,61 @@ public class DayManager : MonoBehaviour
     {
         RenderSettings.skybox = nightSkybox;
         DynamicGI.UpdateEnvironment();
+        
+        SetNightLights(true);
+        SetNightMaterials(true);
+        SetVolumes(true);
+    }
+    
+    public void SwitchToDay()
+    {
+        RenderSettings.skybox = daySkybox;
+        DynamicGI.UpdateEnvironment();
+
+        SetNightLights(false);
+        SetNightMaterials(false);
+        SetVolumes(false);
+    }
+    
+    // night time visuals 
+    private void SetParasolsForCleaning(bool cleaning)
+    {
+        // cleaning = true -> zamykamy otwarte, pokazujemy zamknięte
+        foreach (var p in openParasols)
+            if (p != null) p.SetActive(!cleaning);
+
+        foreach (var p in closedParasols)
+            if (p != null) p.SetActive(cleaning);
+    }
+    
+    // turn on street lamps' lights
+    private void SetNightLights(bool enabled)
+    {
+        foreach (Light light in dayNightLights)
+        {
+            if (light != null)
+                light.enabled = enabled;
+        }
+    }
+    // switch street lamps' materials
+    private void SetNightMaterials(bool night)
+    {
+        Material target = night ? nightMaterial : dayMaterial;
+
+        foreach (MeshRenderer renderer in emissiveRenderers)
+        {
+            if (renderer != null)
+                renderer.sharedMaterial = target;
+        }
+    }
+    
+    // post processing 
+    private void SetVolumes(bool night)
+    {
+        if (dayVolume != null)
+            dayVolume.enabled = !night;
+
+        if (nightVolume != null)
+            nightVolume.enabled = night;
     }
 }

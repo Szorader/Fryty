@@ -171,7 +171,7 @@ MonoBehaviour:
   balanceText: {fileID: 716351461}
   operationText: {fileID: 1851321504}
   tipText: {fileID: 1059922210}
-  balance: 0
+  balance: 5
   errorText: {fileID: 1000497770}
 --- !u!1001 &26988056
 PrefabInstance:
@@ -22001,12 +22001,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontSize
-      value: 9.5
+      value: 9.45
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 0ce3e3c44376a1a448814859ba5bd4c4, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontStyle
       value: 0
@@ -22014,7 +22014,7 @@ PrefabInstance:
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -1665132313543341044, guid: 0ce3e3c44376a1a448814859ba5bd4c4, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
@@ -37412,7 +37412,7 @@ PrefabInstance:
     - target: {fileID: 337972423728583338, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 337972423728583338, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontColor.b
       value: 0.6392157
@@ -37432,7 +37432,7 @@ PrefabInstance:
     - target: {fileID: 337972423728583338, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -1665132313543341044, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 337972423728583338, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4288892175
@@ -37456,7 +37456,7 @@ PrefabInstance:
     - target: {fileID: 705747924440685229, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 705747924440685229, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontColor.b
       value: 0.90588236
@@ -37476,7 +37476,7 @@ PrefabInstance:
     - target: {fileID: 705747924440685229, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -1665132313543341044, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 705747924440685229, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4293386459
@@ -37548,7 +37548,7 @@ PrefabInstance:
     - target: {fileID: 3274799786068076057, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3274799786068076057, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontColor.b
       value: 0.9058824
@@ -37564,7 +37564,7 @@ PrefabInstance:
     - target: {fileID: 3274799786068076057, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -1665132313543341044, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3274799786068076057, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4293386459
@@ -37720,7 +37720,7 @@ PrefabInstance:
     - target: {fileID: 9192300311455428025, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 9192300311455428025, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontColor.b
       value: 0.6039216
@@ -37740,7 +37740,7 @@ PrefabInstance:
     - target: {fileID: 9192300311455428025, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -1665132313543341044, guid: 6c15623371fdbf54486d629e46be9e49, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 9192300311455428025, guid: 5f077c1e34193cd4db811ef0ddb75ffd, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4288303117
@@ -38047,6 +38047,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 498103683}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: dayVolume
+      value: 
+      objectReference: {fileID: 1443550122}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 507178360}
@@ -38054,6 +38058,10 @@ PrefabInstance:
       propertyPath: summaryTMP
       value: 
       objectReference: {fileID: 653334681}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: dayMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 19badda45f6bd6e40a889c29d06ca102, type: 2}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: messageText
       value: 
@@ -38063,9 +38071,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 374271e7d10a94745a30385abedc69b8, type: 2}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: nightVolume
+      value: 
+      objectReference: {fileID: 1542726730}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: messagePanel
       value: 
       objectReference: {fileID: 1000497768}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: nightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: b2ef2082b169bc7499a46e0cadf58850, type: 2}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: nightAmbienceManager
       value: 
@@ -38081,6 +38097,10 @@ PrefabInstance:
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: closedParasols.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: dayNightLights.Array.size
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: 'openParasols.Array.data[0]'
@@ -38130,6 +38150,134 @@ PrefabInstance:
       propertyPath: 'closedParasols.Array.data[5]'
       value: 
       objectReference: {fileID: 1096104669}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1992308064404708771}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4125978510593891341}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2696603147092942584}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[3]'
+      value: 
+      objectReference: {fileID: 542737076136304470}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[4]'
+      value: 
+      objectReference: {fileID: 6006703965919588253}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8194417539929091635}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[6]'
+      value: 
+      objectReference: {fileID: 5491771679460531697}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[7]'
+      value: 
+      objectReference: {fileID: 7985659520941464671}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[8]'
+      value: 
+      objectReference: {fileID: 5364349188926647441}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[9]'
+      value: 
+      objectReference: {fileID: 7536084663648234815}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: emissiveRenderers.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[10]'
+      value: 
+      objectReference: {fileID: 5878369056377942955}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[11]'
+      value: 
+      objectReference: {fileID: 8318249373274944005}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[12]'
+      value: 
+      objectReference: {fileID: 2087662170988318587}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[13]'
+      value: 
+      objectReference: {fileID: 4475645195725213397}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[14]'
+      value: 
+      objectReference: {fileID: 5070775853700710541}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[15]'
+      value: 
+      objectReference: {fileID: 7258520557896892707}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[16]'
+      value: 
+      objectReference: {fileID: 3694062978157735091}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[17]'
+      value: 
+      objectReference: {fileID: 1272126759749709085}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[18]'
+      value: 
+      objectReference: {fileID: 5576190641119067070}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'dayNightLights.Array.data[19]'
+      value: 
+      objectReference: {fileID: 8036367736406243856}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2424310500329795534}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2264952621175008405}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8517513128959717276}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8102827871446605564}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2808598556960800022}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7752614352755818950}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8961595820807860960}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[7]'
+      value: 
+      objectReference: {fileID: 666825877167169246}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[8]'
+      value: 
+      objectReference: {fileID: 8601985200036465107}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[9]'
+      value: 
+      objectReference: {fileID: 7592753688247279088}
+    - target: {fileID: 761523630998224548, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
+      propertyPath: 'emissiveRenderers.Array.data[10]'
+      value: 
+      objectReference: {fileID: 7592753688247279088}
     - target: {fileID: 958833656396644897, guid: 254f5393cc23e20448e4b3c02ad7c2e8, type: 3}
       propertyPath: fadeImage
       value: 
@@ -39268,12 +39416,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontSize
-      value: 10.85
+      value: 10.65
       objectReference: {fileID: 0}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 0ce3e3c44376a1a448814859ba5bd4c4, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_fontStyle
       value: 0
@@ -39281,7 +39429,7 @@ PrefabInstance:
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -1665132313543341044, guid: 0ce3e3c44376a1a448814859ba5bd4c4, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5033379321151918702, guid: 2ec8d95eca75e7d49908e10987c5423e, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
