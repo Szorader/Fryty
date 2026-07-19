@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0.72
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 374271e7d10a94745a30385abedc69b8, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 19182715a74f5214c9e237f748da8cac, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -10376,7 +10376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &434353004
 Transform:
   m_ObjectHideFlags: 0
@@ -10390,6 +10390,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 506730418}
   - {fileID: 1219043911}
   - {fileID: 666592722}
   - {fileID: 1985329725}
@@ -10758,7 +10759,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 506730418}
   - {fileID: 549173389905587396}
   - {fileID: 4131302444602404767}
   - {fileID: 5720994877765279482}
@@ -10851,8 +10851,8 @@ Transform:
   m_GameObject: {fileID: 506730417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.49684608, z: -0, w: 0.8678387}
-  m_LocalPosition: {x: -1.6000004, y: -5.41, z: 0.40999985}
-  m_LocalScale: {x: 1.3181998, y: 1.3182, z: 1.3181998}
+  m_LocalPosition: {x: 7.768999, y: -3.3479207, z: -0.922493}
+  m_LocalScale: {x: 1.3181996, y: 1.3182, z: 1.3181996}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4069882987353748052}
@@ -10875,7 +10875,7 @@ Transform:
   - {fileID: 5227385637299688540}
   - {fileID: 7980276815222494281}
   - {fileID: 3938977207040017233}
-  m_Father: {fileID: 479217905}
+  m_Father: {fileID: 434353004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507000754 stripped
 GameObject:
@@ -12928,7 +12928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &673267331
 Transform:
   m_ObjectHideFlags: 0
@@ -26505,7 +26505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1443550122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28998,7 +28998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1689281934
 MonoBehaviour:
   m_ObjectHideFlags: 0
