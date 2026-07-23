@@ -6,7 +6,6 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using FMODUnity;
-using UnityEngine.Rendering;
 
 public class DayManager : MonoBehaviour
 {
@@ -22,41 +21,37 @@ public class DayManager : MonoBehaviour
     public bool summary = false;
     public bool isCleaningPhase = false;
     private SpawnManager spawnManager;
-    
+
     [SerializeField] private Material daySkybox;
     [SerializeField] private Material nightSkybox;
-    
+
     private SaveSystem saveSystem;
 
     public int killedEnemies;
     public int servedClients;
-    
-    
-    [Header("EndGame")]
-    public TextMeshProUGUI summaryTMP;
+
+
+    [Header("EndGame")] public TextMeshProUGUI summaryTMP;
     public GameObject winPanel;
     public Image fadeImage;
     public bool isShowing = false;
-    
-    [Header("Parasols")]
-    [SerializeField] private List<GameObject> openParasols = new List<GameObject>();
-    [SerializeField] private List<GameObject> closedParasols = new List<GameObject>();
 
-    [Header("Street Night Lights")] [SerializeField]
-    private List<Light> dayNightLights = new List<Light>();
+    [Header("Parasols")] [SerializeField] private List<GameObject> openParasols = new List<GameObject>();
+    [SerializeField] private List<GameObject> closedParasols = new List<GameObject>();
     
-    [Header("Post Processing")]
-    [SerializeField] private Volume dayVolume;
-    [SerializeField] private Volume nightVolume;
-    
+
+    // game objects holding all the lights; sun, moon, lamp posts
+    [Header("Scene light sources")] public GameObject dayLightSources;
+    public GameObject nightLightSources;
+
     // so that we can switch the street lamps' material to non-emissive
-    [Header("Day / Night Materials")]
-    [SerializeField] private List<MeshRenderer> emissiveRenderers = new List<MeshRenderer>();
+    [Header("Day / Night Materials")] [SerializeField]
+    private List<MeshRenderer> emissiveRenderers = new List<MeshRenderer>();
+
     [SerializeField] private Material dayMaterial; // t_colors
     [SerializeField] private Material nightMaterial; // m_emissive
 
-    [Header("Audio")]
-    [SerializeField] private NightAmbienceManager nightAmbienceManager;
+    [Header("Audio")] [SerializeField] private NightAmbienceManager nightAmbienceManager;
 
     public bool save = true;
 
@@ -64,13 +59,17 @@ public class DayManager : MonoBehaviour
     {
         messagePanel.SetActive(false);
 
+        nightLightSources.SetActive(false);
+        dayLightSources.SetActive(true);
+
+
         endgame = FindObjectOfType<Endgame>();
         basket = FindObjectOfType<BasketInteraction>();
         wallet = FindObjectOfType<Wallet>();
         saveSystem = FindObjectOfType<SaveSystem>();
-        
+
         spawnManager = FindObjectOfType<SpawnManager>();
-        
+
         // making sure street lights are in day time mode
         SwitchToDay();
     }
@@ -169,12 +168,12 @@ public class DayManager : MonoBehaviour
         killedEnemies = 0;
         servedClients = 0;
     }
-    
+
     public void NextDay()
     {
         Debug.Log("next day");
         if (saveSystem == null) return;
-        
+
         StopAllCoroutines();
 
         //saveSystem.saveData.day += 1;
@@ -182,7 +181,7 @@ public class DayManager : MonoBehaviour
         isShowing = false;
         SceneManager.LoadScene(1);
     }
-    
+
     private IEnumerator SummarySequence(string[] lines)
     {
         yield return StartCoroutine(FadeSummary());
@@ -194,11 +193,11 @@ public class DayManager : MonoBehaviour
             summaryTMP.text += lines[i] + "\n";
             yield return new WaitForSeconds(0.25f);
         }
-        
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
-    
+
     private IEnumerator FadeSummary()
     {
         Color c = fadeImage.color;
@@ -257,11 +256,11 @@ public class DayManager : MonoBehaviour
             3f,
             false
         ));
-        
+
         SetParasolsForCleaning(true);
     }
-    
-    
+
+
 
     IEnumerator Message(string text, float time, bool nextDay)
     {
@@ -284,42 +283,33 @@ public class DayManager : MonoBehaviour
         RenderSettings.skybox = nightSkybox;
         DynamicGI.UpdateEnvironment();
         
-        SetNightLights(true);
         SetNightMaterials(true);
         SetVolumes(true);
     }
-    
+
     public void SwitchToDay()
     {
         RenderSettings.skybox = daySkybox;
         DynamicGI.UpdateEnvironment();
-
-        SetNightLights(false);
+        
         SetNightMaterials(false);
         SetVolumes(false);
     }
-    
+
     // night time visuals 
     private void SetParasolsForCleaning(bool cleaning)
     {
         // cleaning = true -> zamykamy otwarte, pokazujemy zamknięte
         foreach (var p in openParasols)
-            if (p != null) p.SetActive(!cleaning);
+            if (p != null)
+                p.SetActive(!cleaning);
 
         foreach (var p in closedParasols)
-            if (p != null) p.SetActive(cleaning);
+            if (p != null)
+                p.SetActive(cleaning);
     }
     
-    // turn on street lamps' lights
-    private void SetNightLights(bool enabled)
-    {
-        foreach (Light light in dayNightLights)
-        {
-            if (light != null)
-                light.enabled = enabled;
-        }
-    }
-    // switch street lamps' materials
+    // Switch street lamps' materials
     private void SetNightMaterials(bool night)
     {
         Material target = night ? nightMaterial : dayMaterial;
@@ -330,14 +320,14 @@ public class DayManager : MonoBehaviour
                 renderer.sharedMaterial = target;
         }
     }
-    
-    // post processing 
+
+// Enable the correct day/night objects
     private void SetVolumes(bool night)
     {
-        if (dayVolume != null)
-            dayVolume.enabled = !night;
+        if (dayLightSources != null)
+            dayLightSources.SetActive(!night);
 
-        if (nightVolume != null)
-            nightVolume.enabled = night;
+        if (nightLightSources != null)
+            nightLightSources.SetActive(night);
     }
 }
